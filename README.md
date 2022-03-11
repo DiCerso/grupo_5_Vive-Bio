@@ -6,3 +6,6 @@ Mayra Cortinez: mi página de referencia es https://www.krawec.org/ , la dinámi
 
 Cersocimo Lautaro: Mis paginas de referencias son paginas de publicacion de productos como puede ser https://www.mercadolibre.com.ar o https://www.amazon.com las cuales tienen como principal enfoque la venta de productos, esto tiene de utilidad para el proyecto su diseño y forma de atraer al publico con su facil manejo de pagina web.
 Y tambien https://biodegradable.es la cual es una buena referencia a que tipos de productos podemos poner a la venta en la pagina.
+
+
+angelika martini: https://www.etsy.com/es/  Me gusta el diseño de este sitio web.
