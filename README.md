@@ -8,15 +8,16 @@
 Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. 
 Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.
 
+###
 #### Integrantes:
 
--Zigarra Fernando Daniel: 31 años, técnico informatico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.
+- Zigarra Fernando Daniel: 31 años, técnico informatico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.
 
--Cersocimo Lautaro: 19 años, tecnico electronico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.     
+- Cersocimo Lautaro: 19 años, tecnico electronico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.     
 
--Cortinez Mayra:       
+- Cortinez Mayra:       
 
--Martini Angelika:      
+- Martini Angelika:      
 
 
 
