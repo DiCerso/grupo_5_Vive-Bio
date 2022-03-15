@@ -23,8 +23,9 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 
 ## Páginas recomendadas:
 
-Fernando Daniel Zigarra
-https://blog.getbyrd.com/, pero con un color más cálido tirando a verdes, no tan sombrío como dicha web. Y dentro de la sección de PRODUCTOS agregar filtros y demás. Como siempre acepto sugerencias! :D 
+###Fernando Daniel Zigarra
+
+https://blog.getbyrd.com/, De esta web referida me agrada la interfaz simple y agradable al usuario tanto el home como sus diversos sectores de igual manera me gustaría agregar animaciones suaves y difuminación al hacer scroling.
 
 https://www.krawec.org/ , la dinámica y diseño, hacen de una experiencia de compra una manera divertida de informarse. 
 https://www.alquimiartesanal.com.ar/ por su estilo, diseño, funcionalidad. Además ofrece productos del mismo rubro que Vive Bio por lo tanto apunta a un público similar. Las proporciones del Home y el uso del mismo fondo en todas las secciones me parecen detalles a tener en cuenta.
@@ -36,3 +37,15 @@ Cersocimo Lautaro
 
 https://www.etsy.com/es/  Me gusta el diseño de este sitio web.
 Martini Angelika
+
+###Páginas de referencia e inspiración
+
+| Integrante  | Webs referidas | Observación |
+| :------------ |:---------------:| -----:|
+| Fernando Daniel Zigarra | https://blog.getbyrd.com/  | De esta web referida me agrada la interfaz simple y agradable al usuario tanto el home como sus diversos sectores de igual manera me gustaría agregar animaciones suaves y difuminación al hacer scroling. |
+| Cortinez Mayra  |https://www.krawec.org/  https://www.alquimiartesanal.com.ar/    |   $12 |
+| Cersocimo Lautaro |https://www.mercadolibre.com.ar https://www.amazon.com https://biodegradable.es   |    $1 |
+| Martini Angelika | https://www.etsy.com/es/   | Me gusta el diseño de este sitio web. |
+                
+----
+
