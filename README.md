@@ -7,15 +7,15 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 
 Integrantes:
 
-Zigarra Fernando:      
-Cersocimo Lautaro: 19 años, tecnico electronico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar      
+Zigarra Fernando: 31 años, técnico informatico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.
+Cersocimo Lautaro: 19 años, tecnico electronico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.     
 Cortinez Mayra:       
 Martini Angelika:      
 
 Páginas recomendadas:
-
-https://blog.getbyrd.com/, pero con un color más cálido tirando a verdes, no tan sombrío como dicha web. Y dentro de la sección de PRODUCTOS agregar filtros y demás. Como siempre acepto sugerencias! :D 
 Fernando Daniel Zigarra
+https://blog.getbyrd.com/, pero con un color más cálido tirando a verdes, no tan sombrío como dicha web. Y dentro de la sección de PRODUCTOS agregar filtros y demás. Como siempre acepto sugerencias! :D 
+
 
 
 https://www.krawec.org/ , la dinámica y diseño, hacen de una experiencia de compra una manera divertida de informarse. 
