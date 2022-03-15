@@ -8,7 +8,7 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 Integrantes:
 
 Zigarra Fernando:      
-Cersocimo Lautaro:      
+Cersocimo Lautaro: 19 años, tecnico electronico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar      
 Cortinez Mayra:       
 Martini Angelika:      
 
