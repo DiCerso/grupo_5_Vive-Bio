@@ -7,10 +7,10 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 
 Integrantes:
 
-Zigarra Fernando:
-Cersocimo Lautaro:
-Cortinez Mayra: 
-Martini Angelika:
+Zigarra Fernando:      
+Cersocimo Lautaro:      
+Cortinez Mayra:       
+Martini Angelika:      
 
 Páginas recomendadas:
 
