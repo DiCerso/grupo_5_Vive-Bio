@@ -23,7 +23,7 @@ https://www.alquimiartesanal.com.ar/ por su estilo, diseño, funcionalidad. Adem
 Cortinez Mayra
 
 
-https://www.mercadolibre.com.ar o https://www.amazon.com las cuales tienen como principal enfoque la venta de productos, esto tiene de utilidad para el proyecto su diseño y forma de atraer al publico con su facil manejo de pagina web.
+https://www.mercadolibre.com.ar o https://www.amazon.com las cuales tienen como principal enfoque la venta de productos, esto tiene de utilidad para el proyecto su diseño y forma de atraer al publico con su facil manejo de pagina web.   
 https://biodegradable.es la cual es una buena referencia a que tipos de productos podemos poner a la venta en la pagina.
 Cersocimo Lautaro
 
