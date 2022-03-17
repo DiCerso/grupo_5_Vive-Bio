@@ -1,16 +1,14 @@
 # grupo_5_proyecto
-<<<<<<< HEAD
-=======
 
-# Nombre e-commerce: Vive Bio
+## Nombre e-commerce: Vive Bio
 
-## Descripción: 
+### Descripción: 
   
   Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador.
 Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. 
 Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.
 
-####### Integrantes:
+### Integrantes:
 
 - Zigarra Fernando Daniel: 31 años, técnico informatico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.
 
@@ -19,7 +17,7 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 - Cortinez Mayra: 32 años, técnica en régimen aduanero, desarrollador web full-stack de DigitalHouse y Fundación Formar. 
 
 - Spoto Angélica: 57 años. Encuadernadora. Diseño gráfico. Idioma Italiano. Estudiante desarrollador web full-stack de DigitalHouse y la Fundacion Formar.      
->>>>>>> 46760175172adf28ca2857981124499a73c2228f
+<!--
 
 Nombre e-commerce: Vive Bio
 
@@ -42,10 +40,10 @@ https://www.krawec.org/ , la dinámica y diseño, hacen de una experiencia de co
 https://www.mercadolibre.com.ar o https://www.amazon.com las cuales tienen como principal enfoque la venta de productos, esto tiene de utilidad para el proyecto su diseño y forma de atraer al publico con su facil manejo de pagina web.
 https://biodegradable.es la cual es una buena referencia a que tipos de productos podemos poner a la venta en la pagina. Cersocimo Lautaro
 
-https://www.etsy.com/es/ Me gusta el diseño de este sitio web. Martini Angelika
+https://www.etsy.com/es/ Me gusta el diseño de este sitio web. Martini Angelika -->
 
 
-=======
+
 ### Páginas de referencia e inspiración
 
 | Integrante  | Webs referidas | Observaciones |
@@ -58,4 +56,3 @@ https://www.etsy.com/es/ Me gusta el diseño de este sitio web. Martini Angelika
 ----
 
 
->>>>>>> 46760175172adf28ca2857981124499a73c2228f
