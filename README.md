@@ -1,5 +1,5 @@
 # grupo_5_proyecto
-<<<<<<< HEADER
+<<<<<<< HEAD
 =======
 
 # Nombre e-commerce: Vive Bio
@@ -43,6 +43,8 @@ https://www.mercadolibre.com.ar o https://www.amazon.com las cuales tienen como 
 https://biodegradable.es la cual es una buena referencia a que tipos de productos podemos poner a la venta en la pagina. Cersocimo Lautaro
 
 https://www.etsy.com/es/ Me gusta el diseño de este sitio web. Martini Angelika
+
+
 =======
 ### Páginas de referencia e inspiración
 
