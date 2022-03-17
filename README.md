@@ -1,5 +1,5 @@
 # grupo_5_proyecto
-<<<<<<< HEAD
+<<<<<<< HEADER
 =======
 
 # Nombre e-commerce: Vive Bio
@@ -10,8 +10,7 @@
 Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. 
 Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.
 
-###
-#### Integrantes:
+####### Integrantes:
 
 - Zigarra Fernando Daniel: 31 años, técnico informatico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.
 
@@ -24,7 +23,7 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 
 Nombre e-commerce: Vive Bio
 
-<<<<<<< HEAD
+<<<<<<< HEADER
 Descripción: Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador. Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.
 
 Integrantes:
