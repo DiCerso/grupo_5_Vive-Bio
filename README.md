@@ -27,7 +27,7 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 | Fernando Daniel Zigarra | https://blog.getbyrd.com/  | De esta web referida me agrada la interfaz simple y agradable al usuario tanto el home como sus diversos sectores de igual manera me gustaría agregar animaciones suaves y difuminación al hacer scroling. |
 | Cortinez Mayra  |https://www.krawec.org/  https://www.alquimiartesanal.com.ar/    | [KRAWEC](https://www.krawec.org/), la dinámica y diseño, hacen de una experiencia de compra una manera divertida de informarse. [ALQUIMIARTESANAL](https://www.alquimiartesanal.com.ar/) por su estilo, diseño, funcionalidad. Además ofrece productos del mismo rubro que Vive Bio por lo tanto apunta a un público similar. Las proporciones del Home y el uso del mismo fondo en todas las secciones me parecen detalles a tener en cuenta. |
 | Cersocimo Lautaro |https://www.mercadolibre.com.ar https://www.amazon.com https://biodegradable.es   | [Mercadolibre](https://www.mercadolibre.com.ar/) o [Amazon](https://www.amazon.com/) las cuales tienen como principal enfoque la venta de productos, esto tiene de utilidad para el proyecto su diseño y forma de atraer al publico con su facil manejo de pagina web. [BioDegradable](https://biodegradable.es/) la cual es una buena referencia a que tipos de productos podemos poner a la venta en la pagina. |
-| Spoto Angélica | https://www.etsy.com/es/  | https://newgarden.com.ar/ | Me gustan estas páginas por lo dinámica y sencillo de navegar y comprar. El diseño de estos también me agrada!!|
+| Spoto Angélica | https://www.etsy.com/es  https://newgarden.com.ar | Me gustan estas páginas por lo dinámica y sencillo de navegar y comprar. El diseño de estos también me agrada!!|
                 
 ----
 
