@@ -10,7 +10,7 @@ Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan,
 
 ### Integrantes:
 
-- Zigarra Fernando Daniel: 31 años, técnico informatico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.
+- Zigarra Fernando Daniel: 31 años, técnico en computación, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.
 
 - Cersocimo Lautaro: 19 años, tecnico electronico, desarrollador web full-stack de DigitalHouse y la Fundacion Formar.     
 
