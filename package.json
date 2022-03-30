@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "name": "grupo_5_proyecto",
+  "description": "Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador.\r Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. \r Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiCerso/grupo_5_proyecto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiCerso/grupo_5_proyecto/issues"
+  },
+  "homepage": "https://github.com/DiCerso/grupo_5_proyecto#readme"
+}
