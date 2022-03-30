@@ -2,7 +2,7 @@
 
 ## Nombre e-commerce: Vive Bio
 
-## Tablero de trabajo: ![]https://trello.com/b/DAyvv4g3/grupo-5-vivebio-comisi%C3%B3n-14
+## Tablero de trabajo: [trello](https://trello.com/b/DAyvv4g3/grupo-5-vivebio-comisi%C3%B3n-14)
 
 ### Descripción: 
   
