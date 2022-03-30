@@ -1,6 +1,12 @@
 # Retrospectivas Sprint 1
 
++ ### Hacer Más:
+  + asdasd
 
+- ### Empezar a hacer:
 
-|  Seguir haciendo | - Preguntar antes de realizar cambios significativos - Comunicación. |
-| ------------- | ------------- |
+- ### Hacer Menos:
+
+- ### Dejar de Hacer:
+
+- ### Seguir Haciendo:
