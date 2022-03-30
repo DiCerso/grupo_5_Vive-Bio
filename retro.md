@@ -1,19 +1,19 @@
 # Retrospectivas Sprint 1
 
-+ ### Hacer Más:
-  + Adaptación.
-  + Centrar más en visualización de código.
++ ### Hacer más:
+  + Adaptarse.
+  + Centrarse más en visualización de código.
 
 + ### Empezar a hacer:
   + Comprender puntos de vista.
   + Preguntar sobre dudas de código.
 
-+ ### Hacer Menos:
++ ### Hacer menos:
   + Guardarse lo que a uno no le gusta.
 
-+ ### Dejar de Hacer:
++ ### Dejar de hacer:
   + Desestimar aportes sin considerarlos.
 
-+ ### Seguir Haciendo:
++ ### Seguir haciendo:
   + Comunicación.
   + Preguntar antes de hacer un cambio significativo.
