@@ -1,1 +1,0 @@
-# Retrospectivas spint 1
