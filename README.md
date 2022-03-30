@@ -57,7 +57,7 @@ https://www.etsy.com/es/ Me gusta el diseño de este sitio web. Martini Angelika
 
 ### Logo
 
-![](wireframes/PaletaDeColoresyLogo/logo.png)
+![](wireframes/PaletaDeColoresyLogo/Logo.png)
 
 ----
 
