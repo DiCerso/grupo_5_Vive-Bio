@@ -1,3 +1,161 @@
 body.home{
+    background-image: url('/images/background-mobile-home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.home .carrusel__home{
+    width: 100%;
+    height: 400px;
+    background-color: gray;
+}
+
+/*************************************************
+primera parte del main
+*************************************************/
+.home .sect1{
+    position: center;
+    margin: 0 auto;
+    margin-bottom: 90px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.home main .subtitulo__home{
+    margin-top: 100px;
+    margin-bottom: 30px;
+    width: 75%;
+    margin: 100px auto 30px auto;
+}
+
+.home main .subtitulo__home h1{
+    background-color: var(--verdeclaro);
+    border-radius: 19px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.home .sect1 .art__home{
+    background-color: var(--GrisClaro);
+    margin-bottom: 20px;
     
+}
+
+
+
+.home .sect1 .art__home .nombreart__home{
+    text-align: center;
+    background-color: var(--verdeclaro);
+    border-radius: 19px;
+    width: 85%;
+    height: 30px;    
+    margin: 10px auto;
+    display: flex;/*coloco como un contenedor flex*/
+    justify-content: center;/*alineacion horizontal*/
+    align-items: center;/*alineacion vertical*/
+}
+
+.home main .sect1 .art__home .imgart__home{
+    display: flex;
+    justify-content: center;
+}
+
+.home main .sect1 .art__home .imgart__home img{
+    width: 85%;
+    height: 270px;
+}
+
+.home main .sect1 article .verart__home{
+    background-color: var(--verdeclaro);
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    margin: 15px auto;
+    border-radius: 19px;
+    display: flex;/*coloco como un contenedor flex*/
+    justify-content: center;/*alineacion horizontal*/
+    align-items: center;/*alineacion vertical*/
+}
+
+.home main .sect1 article .verart__home a{
+    text-decoration: none;
+    color: black;  
+    font-size: 20px;
+}
+
+.home .vermas__home .vermas-general{
+    background-color: var(--verdeclaro);
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    border-radius: 19px;
+    display: flex;/*coloco como un contenedor flex*/
+    justify-content: center;/*alineacion horizontal del contenido*/
+    align-items: center;/*alineacion vertical del contenido*/
+}
+.home .vermas__home .vermas-general a{
+    text-decoration: none;
+    color: black;  
+    font-size: 20px;
+}
+
+.home main .vermas__home{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/******************************************
+segunda parte del main
+******************************************/
+
+
+.home .sect2{
+    position: center;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.home .sect2 .Categorias__home{
+    margin-bottom: 30px;
+    width: 75%;
+    margin: 100px auto 30px auto;
+}
+
+.home .sect2 .Categorias__home h1{
+    background-color: var(--verdeclaro);
+    border-radius: 19px;
+    font-size: 28px;
+    text-align: center;
+}
+/***************************************
+Footer
+***************************************/
+
+.home footer{
+    background-color: var(--verdeclaro);
+    width: 100%;
+}
+
+.home footer .DatFooter__home{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.home footer .DatFooter__home .direcciones__home{
+    align-self: flex-start;
+    list-style: none;
+
+}
+.home footer .DatFooter__home .redes__home{
+    align-self: flex-end;
+    list-style: none;
 }

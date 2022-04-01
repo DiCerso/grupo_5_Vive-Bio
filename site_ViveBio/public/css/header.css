@@ -1,0 +1,33 @@
+.header{
+    background-color: var(--VerdeClaro-Opaco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 310px;
+}
+
+.header .logo{
+    width: 267.8px;
+}
+
+.header .menu{
+    width: 60px;
+    height: 50px;
+    margin-top: 4%;
+}
+
+.header__busqueda{
+    display: none;
+}
+
+.header__opciones{
+    display: none;
+}
+
+.header__user{
+    display: none;
+}
+.header__iconos{
+    display: none;
+}
