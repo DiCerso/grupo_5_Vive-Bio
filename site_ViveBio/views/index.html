@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,30 @@
     <link rel="stylesheet" href="/css/styles.css">
     <title>Home</title>
 </head>
+
 <body class="home">
     <header class="header">
-        <img src="/images/logo.png" alt="logo" class="logo">
-        <img src="/images/menu-hamburgesa.png" alt="" class="menu">
-        <div>
+
+
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="/images/logo.png" alt="logo" class="logo">
+            </div>
             <div class="header__busqueda">
                 <input type="text" class="barra">
-                <img src="/images/Cruz.png" alt="" class="barra__cruz">
                 <img src="/images/Lupa.png" alt="" class="barra__lupa">
+            </div>
+            <div class="header__user">
+                <a>
+                    <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
+                    <p>Usuario</p>
+                </a>
+                <p>don't have an account? <a>Register</a></p>
+            </div>
+        </div>
+        <nav class="header__nav">
+            <div class="header__localizacion">
+                <a href="">Estas en "lugar"</a>
             </div>
             <div class="header__opciones">
                 <ul>
@@ -25,21 +41,14 @@
                     <li><a href=""></a>Contacto</li>
                 </ul>
             </div>
-        </div>
-        
-        <div class="header__user">
-            <button>
-                <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
-                <p>Usuario</p>
-            </button>
-            <p>don't have an account? <a>Register</a></p>
-        </div>
-        <div class="header__iconos">
-            <a href="#"><img src="/images/configuracion.png" alt=""></a>
-            <a href="#"><img src="/images/campana.png" alt=""></a>
-            <a href="#"><img src="/images/carrito.png" alt=""></a>
-            <a href="#"><img src="/images/corazon.png" alt=""></a>
-        </div>
+            <div class="header__iconos">
+                <a href="#"><img src="/images/configuracion.png" alt="" ></a>
+                <a href="#"><img src="/images/campana.png" alt=""></a>
+                <a href="#"><img src="/images/carrito.png" alt=""></a>
+                <a href="#"><img src="/images/corazon.png" alt=""></a>
+            </div>
+        </nav>
+        <img src="/images/menu-hamburgesa.png" alt="" class="header__menu">
     </header>
     <div class="carrusel__home">
     </div>
@@ -122,4 +131,5 @@
         </div>
     </footer>
 </body>
+
 </html>
