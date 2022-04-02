@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 5%;
+    padding-bottom: 5%;
 }
 
 .header .logo{
@@ -90,16 +90,50 @@
 
     
     /* navegacion */
-
+    .header__menu{
+        display: none;
+    }
 
     .header__nav{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
-        height: 15%;
+        height: 50px;
     }
 
+    .header__opciones {
+        display: flex;
+        width: 75%;
+    }
+
+    .header__opciones ul{
+        display: flex;
+        flex-direction: row;
+        background-color: var(--verdeclaro);
+        border-radius: 19px;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .header__opciones li{
+        border-right: solid 1px black;/*le coloco una linea a la derecha*/
+        width: 25%;
+        text-align: center;
+    }
+
+    .header__opciones li:last-child{
+        border-right: none;
+    }
+}
+
+@media(min-width: 1024px){
+
+    .header__nav{
+        justify-content: space-between;
+    }
+    
     .header__localizacion{
         display: flex;
         width: 25%;
@@ -137,38 +171,27 @@
         width: 25%;
         justify-content: center;
         align-items: center;
+
     }
 
-    
-    .header__opciones {
-        display: flex;
-        width: 50%;
-    }
-
-    .header__opciones ul{
+    .header__user a{
         display: flex;
         flex-direction: row;
-        background-color: var(--verdeclaro);
+        background-color: var(--verdeAmarillento);
         border-radius: 19px;
-        width: 100%;
+        width: 140px;
+        height: 50px;
         justify-content: space-around;
         align-items: center;
     }
 
-    .header__opciones li{
-        border-right: solid 1px black;/*le coloco una linea a la derecha*/
-        width: 25%;
-        text-align: center;
-
+    .header__user a .icon__user{
+        width: 40px;
+        height: 38px;
     }
 
-    .header__opciones li:last-child{
-        border-right: none;
+    .header__user a p{
+        display: flex;
     }
-
     
-
-    .header__menu{
-        display: none;
-    }
 }
