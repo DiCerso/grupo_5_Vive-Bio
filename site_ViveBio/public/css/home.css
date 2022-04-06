@@ -132,30 +132,3 @@ segunda parte del main
     font-size: 28px;
     text-align: center;
 }
-/***************************************
-Footer
-***************************************/
-
-.home footer{
-    background-color: var(--verdeclaro);
-    width: 100%;
-}
-
-.home footer .DatFooter__home{
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    
-}
-
-
-.home footer .DatFooter__home .direcciones__home{
-    align-self: flex-start;
-    list-style: none;
-
-}
-.home footer .DatFooter__home .redes__home{
-    align-self: flex-end;
-    list-style: none;
-}
