@@ -1,5 +1,5 @@
 .header{
-    background-color: var(--VerdeClaro-Opaco);
+    background-color: var(--verdeClaro-Opaco);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,7 +110,7 @@
     .header__opciones ul{
         display: flex;
         flex-direction: row;
-        background-color: var(--verdeclaro);
+        background-color: var(--verdeClaro);
         border-radius: 19px;
         width: 100%;
         justify-content: space-around;
@@ -142,7 +142,7 @@
     }
 
     .header__localizacion a{
-        background-color: var(--verdeclaro);
+        background-color: var(--verdeClaro);
         width: 50%;
         height: 100%;
         display: flex;
@@ -157,12 +157,13 @@
     }
 
     .header__iconos a{
-        background-color: var(--verdeclaro);
+        background-color: white;
         margin-right: 2px;
         height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 8px;
     }
 
 

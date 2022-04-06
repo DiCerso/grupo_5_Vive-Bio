@@ -30,14 +30,14 @@ primera parte del main
 }
 
 .home main .subtitulo__home h1{
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     border-radius: 19px;
     font-size: 28px;
     text-align: center;
 }
 
 .home .sect1 .art__home{
-    background-color: var(--GrisClaro);
+    background-color: var(--grisClaro);
     margin-bottom: 20px;
     
 }
@@ -46,7 +46,7 @@ primera parte del main
 
 .home .sect1 .art__home .nombreart__home{
     text-align: center;
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     border-radius: 19px;
     width: 85%;
     height: 30px;    
@@ -67,7 +67,7 @@ primera parte del main
 }
 
 .home main .sect1 article .verart__home{
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     width: 200px;
     height: 35px;
     text-align: center;
@@ -85,7 +85,7 @@ primera parte del main
 }
 
 .home .vermas__home .vermas-general{
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     width: 200px;
     height: 35px;
     text-align: center;
@@ -127,7 +127,7 @@ segunda parte del main
 }
 
 .home .sect2 .Categorias__home h1{
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     border-radius: 19px;
     font-size: 28px;
     text-align: center;
@@ -137,7 +137,7 @@ Footer
 ***************************************/
 
 .home footer{
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     width: 100%;
 }
 
