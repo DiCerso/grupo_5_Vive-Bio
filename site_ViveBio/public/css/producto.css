@@ -15,10 +15,10 @@ main{
     background-image: url('/images/background_nnnn.jpg');
     background-repeat: no-repeat;
     width: 100%;
+    margin: auto;
+
 }
-.main__img{
-    padding: 100px;
-}
+
 
 @media (min-width: 1024px){
     .main__menu{
