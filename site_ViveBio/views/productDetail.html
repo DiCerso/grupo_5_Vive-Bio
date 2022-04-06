@@ -11,59 +11,108 @@
 </head>
 
 <body class="home">
-    <header class="header">
-        <div class="header__container">
-            <div class="header__logo">
-                <img src="/images/logo.png" alt="logo" class="logo">
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo">
+                    <img src="/images/logo.png" alt="logo" class="logo">
+                </div>
+                <div class="header__busqueda">
+                    <input type="text" class="barra">
+                    <a href="buscar">
+                    <img src="/images/Lupa.png" alt="" class="barra__lupa">
+                    </a>
+                </div>
+                <div class="header__user">
+                    <a href="usuario">
+                        <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
+                        <p>Usuario</p>
+                    </a>
+                </div>
             </div>
-            <div class="header__busqueda">
-                <input type="text" class="barra">
-                <a href="buscador"><img src="/images/Lupa.png" alt="" class="barra__lupa"></a>
-            </div>
-            <div class="header__user">
-                <a href="usuario">
-                    <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
-                    <p>Usuario</p>
-                </a>
-            </div>
+            <nav class="header__nav">
+                <div class="header__localizacion">
+                    <a href="">Estas en "lugar"</a>
+                </div>
+                <div class="header__opciones">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Productos</a></li>
+                        <li><a href="">Quienes somos</a></li>
+                        <li><a href="">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="header__iconos">
+                    <a href="#"><img src="/images/configuracion.png" alt="" ></a>
+                    <a href="#"><img src="/images/campana.png" alt=""></a>
+                    <a href="#"><img src="/images/carrito.png" alt=""></a>
+                    <a href="#"><img src="/images/corazon.png" alt=""></a>
+                </div>
+            </nav>
+            <img src="/images/menu-hamburgesa.png" alt="" class="header__menu">
+        </header>
         </div>
-        <nav class="header__nav">
-            <div class="header__localizacion">
-                <a href="">Estas en "lugar"</a>
-            </div>
-            <div class="header__opciones">
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Productos</a></li>
-                    <li><a href="">Quienes somos</a></li>
-                    <li><a href="">Contacto</a></li>
+        <main>
+            <section>
+                <div class="main__menu" >
+                    <nav>
+                        <ul>
+                            <div class="main__corporal"> <li><a href="#">BioCorporal</a></li></div>
+                            <div class="main__capilar"><li><a href="#">BioCapilar</a></li></div>
+                            <div class="main__kit"><li><a href="#">Spa/Kit Regalos</a></li></div>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+            <section class="main__artículos"></section>
+            <article>
+                <div class="main__anti">
+                    <a href="#"><h1> Jabón Antiséptico </h1>
+                    <div class="main__img">
+                    <img src="/images/jabon_antiseptico.jpg" alt=""></a>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="main__exfo">
+                    <a href="#"><h1> Jabón Exfoliante </h1>
+                        <div class="main__img">
+                            <img src="/images/jabon_exfo.jpg" alt=""></a>
+                        </div>
+                </div>
+            </article>
+            <article>
+                <div class="main__humec">
+                    <a href="#"><h1> Jabón Humectante </h1>
+                        <div class="main__img">
+                            <img src="/images/jabon_humec_marco.jpg" alt=""></a>
+                        </div>
+                </div>
+            </article>
+        </main>
+        <footer class="footer">
+            <div class="DatFooter">
+                <ul class="direcciones__footer">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Consejos</a></li>
+                    <li><a href="#">Política de devolución</a></li>
                 </ul>
+                <div class="contacto__footer">
+                    <h3>Contactanos</h3>
+                    <ul class="redes__footer">
+                        
+                        <a href="#"><li><img src="/images/linkedln.png" alt=""></li></a>
+                        <a href="#"><li><img src="/images/twitter.png" alt=""></li></a>
+                        <a href="#"><li><img src="/images/Facebook.png" alt=""></li></a>
+                        <a href="#"><li><img src="/images/Instagram.png" alt=""></li></a>
+                    </ul>
+                </div>
             </div>
-            <div class="header__iconos">
-                <a href="#"><img src="/images/configuracion.png" alt="" ></a>
-                <a href="#"><img src="/images/campana.png" alt=""></a>
-                <a href="#"><img src="/images/carrito.png" alt=""></a>
-                <a href="#"><img src="/images/corazon.png" alt=""></a>
+            <div class="copy__footer">
+                <a href="">Terminos y condiciones</a>
+                <p>Argentina 2022 - Derechos reservados</p>
             </div>
-        </nav>
-        <img src="/images/menu-hamburgesa.png" alt="" class="header__menu">
-    </header>
-    <footer>
-        <div class="DatFooter__home">
-            <ul class="direcciones__home">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Consejos</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-            <ul class="redes__home">
-                <li><img src="/images/linkedln.png" alt=""></li>
-                <li><img src="/images/twitter.png" alt=""></li>
-                <li><img src="/images/Facebook.png" alt=""></li>
-                <li><img src="/images/Instagram.png" alt=""></li>
-            </ul>
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

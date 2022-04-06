@@ -1,0 +1,28 @@
+main{
+    width: 100%;
+    background-image: url('/images/background-mobile-home.png');
+    background-repeat: no-repeat;
+}
+
+.main__menu{
+    background-image: url('/images/background_nnnn.jpg');
+    background-repeat: no-repeat;
+    height:10%;
+
+}
+
+.main__img{
+    background-image: url('/images/background_nnnn.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.main__img{
+    padding: 100px;
+}
+
+@media (min-width: 1024px){
+    .main__menu{
+         display: flex;
+         flex-direction: row;
+    }
+}
