@@ -2,6 +2,8 @@
 
 ## Nombre e-commerce: Vive Bio
 
+### Tablero de trabajo: [Trello-Grupo5-ViveBio](https://trello.com/b/DAyvv4g3/grupo-5-vivebio-comisi%C3%B3n-14)
+
 ### Descripción: 
   
   Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador.
