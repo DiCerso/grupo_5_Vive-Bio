@@ -36,7 +36,7 @@
     display: none;
 }
 
-@media(min-width: 768px){
+@media(min-width: 426px){
     .header{
         flex-direction: column;
         background-color: var(--transparencia);
@@ -128,7 +128,7 @@
     }
 }
 
-@media(min-width: 1024px){
+@media(min-width: 768px){
 
     .header__nav{
         justify-content: space-between;
@@ -143,11 +143,10 @@
 
     .header__localizacion a{
         background-color: var(--verdeclaro);
-        width: 50%;
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         border-radius: 19px;
     }
 
