@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-
 a{
     text-decoration: none;
     color: black;
@@ -12,4 +11,9 @@ a{
 
 li{
     list-style: none;
+}
+
+body{
+   background-image: url(/images/background-mobile-home.png);
+   background-size: cover;
 }
