@@ -11,12 +11,25 @@ main{
 
 }
 
+.main__categorías{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid white;
+    font-weight: bold;
+}
+.main__categorías a:hover {
+    background-color: var(--verdeAmarillento);
+
+  }
+
 .main__img{
+    display: flex;
+    flex-direction: row;
     background-image: url('/images/background_nnnn.jpg');
     background-repeat: no-repeat;
     width: 100%;
     margin: auto;
-
 }
 .main__img:hover {
 opacity: 0.5;
@@ -24,10 +37,18 @@ filter: alpha(opacity=100);
 zoom: 1;
 }
 
+
 .main__img img{
-    width: 50%;
-    height: 40%;
+    width: 90%;
+    height: auto;
     align-items: center;
+}
+.main__categorías{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid white;
+    font-weight: bold;
 }
 .main__categorías a:hover {
     background-color: var(--verdeAmarillento);
