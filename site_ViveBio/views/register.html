@@ -1,12 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 </head>
-<body>
-    <H1>REGISTER</H1>
+
+<body class="register" style="background-image: url(/images/Background-Register-Login.jpg)">
+    <main>
+        <section>
+            <h1>Bienvenido</h1>
+            <hr>
+            <form action="">
+                <article>
+                    <div class="register__form-box">
+                        <label for="nombre">Nombre</label>
+                        <input class="register__form-input" type="text" id="nombre" name="nombre"
+                            placeholder="Escribí tu nombre">
+                        <span class="register__text-error">Obligatorio</span>
+                    </div>
+                    <div class="register__form-box">
+                        <label for="email">Email</label>
+                        <input class="register__form-input" type="email" id="email" name="email"
+                            placeholder="Escribí tu email">
+                        <span class="register__text-error">Obligatorio</span>
+                    </div>
+                    <div class="register__form-box">
+                        <label for="password">Contraseña</label>
+                        <input class="register__form-input" type="password" id="password" name="password"
+                            placeholder="Escribí tu contraseña">
+                        <span class="register__text-error">Obligatorio</span>
+                    </div>
+                    <div class="register__form-box">
+                        <h4>País de nacimiento</h4>
+                        <div>
+                            <select class="register__form-select" name="pais" id="pais">
+                                <option value="" hidden selected>Por favor elegí uno...</option>
+                                <option value="ar">Argentina</option>
+                                <option value="br">Brasil</option>
+                                <option value="uy">Uruguay</option>
+                            </select>
+                            <span class="register__text-error">Obligatorio</span>
+                        </div>
+                    </div>
+                    <div class="register__form-box">
+                        <h4>Género</h4>
+                        <div class="register__radio-box">
+                            <input class="" type="radio" name="genero" id="masculino" value="m">
+                            <label for="masculino">Masculino</label>
+                        </div>
+                        <div class="register__radio-box">
+                            <input class="" type="radio" name="genero" id="femenino" value="f">
+                            <label for="femenino">Femenino</label>
+                        </div>
+                        <div class="register__radio-box">
+                            <input class="" type="radio" name="genero" id="nodice" value="n">
+                            <label for="nodice">Prefiero no decirlo</label>
+                        </div>
+                    </div>
+                    <div class="register__form-box">
+                        <h4>Hobbies</h4>
+                        <div class="register__radio-box">
+                            <input class="" type="checkbox" name="hobbies" id="guitarra" value="g">
+                            <label for="guitarra">Guitarra</label>
+                        </div>
+                        <div class="register__radio-box">
+                            <input class="" type="checkbox" name="hobbies" id="futbol" value="f">
+                            <label for="futbol">Fútbol</label>
+                        </div>
+                        <div class="register__radio-box">
+                            <input class="" type="checkbox" name="hobbies" id="tenis" value="t">
+                            <label for="tenis">Tenis</label>
+                        </div>
+                        <div class="register__radio-box">
+                            <input class="" type="checkbox" name="hobbies" id="programacion" value="p">
+                            <label for="programacion">Programación</label>
+                        </div>
+                    </div>
+                </article>
+            </form>
+        </section>
+    </main>
 </body>
+
 </html>
