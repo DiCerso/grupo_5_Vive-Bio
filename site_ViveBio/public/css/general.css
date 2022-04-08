@@ -7,9 +7,18 @@
 
 a{
     text-decoration: none;
-    color: black;
+    color: white;
+    text-shadow: 0 0 2px black;
+
 }
 
 li{
     list-style: none;
 }
+
+h1{
+    color: white;
+    text-shadow: 0 0 2px black;
+
+}
+

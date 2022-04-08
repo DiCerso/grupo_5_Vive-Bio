@@ -1,6 +1,5 @@
 body.home{
     background-image: url('/images/background-mobile-home.png');
-    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -37,16 +36,18 @@ primera parte del main
 }
 
 .home .sect1 .art__home{
-    background-color: var(--GrisClaro);
+    background-color: var(--verdeclaro);
     margin-bottom: 20px;
     width: 100%;
-    
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
 
 .home .sect1 .art__home .nombreart__home{
     text-align: center;
-    background-color: var(--verdeclaro);
+    background-color: #7FA794;
     border-radius: 19px;
     width: 85%;
     height: 30px;    
@@ -54,6 +55,8 @@ primera parte del main
     display: flex;/*coloco como un contenedor flex*/
     justify-content: center;/*alineacion horizontal*/
     align-items: center;/*alineacion vertical*/
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
 .home main .sect1 .art__home .imgart__home{
@@ -67,7 +70,7 @@ primera parte del main
 }
 
 .home main .sect1 article .verart__home{
-    background-color: var(--verdeclaro);
+    background-color: #7FA794;
     width: 50%;
     height: 35px;
     text-align: center;
@@ -76,11 +79,12 @@ primera parte del main
     display: flex;/*coloco como un contenedor flex*/
     justify-content: center;/*alineacion horizontal*/
     align-items: center;/*alineacion vertical*/
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
 .home main .sect1 article .verart__home a{
     text-decoration: none;
-    color: black;  
     font-size: 20px;
 }
 
@@ -96,7 +100,6 @@ primera parte del main
 }
 .home .vermas__home .vermas-general a{
     text-decoration: none;
-    color: black;  
     font-size: 20px;
 }
 
@@ -104,6 +107,7 @@ primera parte del main
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 
@@ -163,6 +167,22 @@ segunda parte del main
     .home .vermas__home .vermas-general{
         margin-right: 20px;
     }
+
+    .home main .subtitulo__home{
+        width: 315px;
+    }
+
+    .home main .nombre-categorias__home{
+        width: 315px;
+    }
+
+    .home main .subtitulo__home h1{
+        padding: 5px;
+    }
+
+    .home main .nombre-categorias__home h1{
+        padding: 5px;
+    }
 }
 
 
@@ -172,6 +192,13 @@ segunda parte del main
     }
     .home main .sect1 #art__home4{
         display: none;
+    }
+    .home main .subtitulo__home{
+        width: 315px;
+    }
+
+    .home main .nombre-categorias__home{
+        width: 315px;
     }
 
 }
