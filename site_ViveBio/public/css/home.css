@@ -39,9 +39,9 @@ primera parte del main
 .home .sect1 .art__home{
     background-color: var(--GrisClaro);
     margin-bottom: 20px;
+    width: 100%;
     
 }
-
 
 
 .home .sect1 .art__home .nombreart__home{
@@ -68,7 +68,7 @@ primera parte del main
 
 .home main .sect1 article .verart__home{
     background-color: var(--verdeclaro);
-    width: 200px;
+    width: 50%;
     height: 35px;
     text-align: center;
     margin: 15px auto;
@@ -86,7 +86,7 @@ primera parte del main
 
 .home .vermas__home .vermas-general{
     background-color: var(--verdeclaro);
-    width: 200px;
+    width: 150px;
     height: 35px;
     text-align: center;
     border-radius: 19px;
@@ -111,7 +111,6 @@ primera parte del main
 segunda parte del main
 ******************************************/
 
-
 .home .sect2{
     position: center;
     margin: 0 auto;
@@ -120,15 +119,59 @@ segunda parte del main
     flex-direction: column;
 }
 
-.home .sect2 .Categorias__home{
+.home .nombre-categorias__home{
     margin-bottom: 30px;
     width: 75%;
     margin: 100px auto 30px auto;
 }
 
-.home .sect2 .Categorias__home h1{
+.home .nombre-categorias__home h1{
     background-color: var(--verdeclaro);
     border-radius: 19px;
     font-size: 28px;
     text-align: center;
+}
+
+.home .sect2 .categorias__home img{
+    width: 100%;
+}
+
+
+
+@media(min-width:426px){
+
+
+    .home main .sect1{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .home main .sect1 .art__home{
+        width: 45%;
+    }
+
+    .home main .sect1 .art__home .imgart__home img{
+        height: 200px;
+    }
+
+    .home main .sect1 article .verart__home{
+        margin: 15px 20px 15px auto;
+    }
+
+    .home .vermas__home .vermas-general{
+        margin-right: 20px;
+    }
+}
+
+
+@media(min-width: 768px){
+    .home main .sect1 .art__home{
+        width: 25%;
+    }
+    .home main .sect1 #art__home4{
+        display: none;
+    }
+
 }
