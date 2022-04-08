@@ -133,7 +133,7 @@ header .header__burger{
     }
 
     .header__opciones li{
-        border-right: solid 1px black;/*le coloco una linea a la derecha*/
+        border-right: solid 1px black;
         width: 25%;
         text-align: center;
     }
