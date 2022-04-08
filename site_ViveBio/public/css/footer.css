@@ -51,6 +51,10 @@ Footer
     padding: 5px 0;
 }
 
+.footer h3, .footer a, .footer p{
+    color: black;
+}
+
 /*.footer .DatFooter{
     width: 90%;
     margin: 0 auto;
@@ -117,10 +121,11 @@ Footer
     }
 
     .footer .copy__footer{
-        margin-top: 40px;
+        margin-top: 20px;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        bottom: 0;
     }
 
 }
@@ -129,14 +134,18 @@ Footer
 @media(min-width: 768px){
 
     .footer{
-        height: 200px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
     
     .footer .DatFooter{
         flex-direction: column;
+        margin-top: 40px;
     }
 
-    .footer .direcciones__footer{
+    .footer .DatFooter .direcciones__footer{
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -146,6 +155,7 @@ Footer
     .footer .DatFooter .redes__footer li{
         margin: 0;
     }
+
 
     .footer .DatFooter .direcciones__footer li{
         width: 25%;
@@ -164,14 +174,13 @@ Footer
     
     .footer .DatFooter .contacto__footer{
         order: -1;
-
+        height: 50px;
     }
 
     .footer .DatFooter .contacto__footer .redes__footer{
         align-items: center;
         width: 100%;
         justify-content: center;
-        margin-bottom: 25px;
     }
 
     .footer .DatFooter .contacto__footer .redes__footer li{

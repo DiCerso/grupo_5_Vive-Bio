@@ -18,7 +18,16 @@ li{
 h1{
     color: white;
     text-shadow: 0 0 2px black;
+}
 
+p{
+    color: white;
+    text-shadow: 0 0 2px black;
+}
+
+h3{
+    color: white;
+    text-shadow: 0 0 2px black;
 }
 
 body{
