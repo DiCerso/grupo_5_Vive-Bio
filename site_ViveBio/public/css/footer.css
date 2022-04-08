@@ -89,7 +89,7 @@ Footer
 }*/
 
 
-@media(min-width: 768px){
+@media(min-width: 426px){
 
     .footer{
         height: 300px;
@@ -126,7 +126,7 @@ Footer
 }
 
 
-@media(min-width: 1024px){
+@media(min-width: 768px){
 
     .footer{
         height: 200px;
