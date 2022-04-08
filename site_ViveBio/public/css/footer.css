@@ -3,12 +3,55 @@ Footer
 ***************************************/
 
 .footer{
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeAmarillento);
     width: 100%;
-    height: 400px;
+    margin: 0;
+    padding: 0;
 }
 
 .footer .DatFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer .DatFooter .direcciones__footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.footer .contacto__footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    height: 200px;
+}
+
+.footer .contacto__footer ul li{
+    margin: 5px 0
+}
+
+.footer .contacto__footer ul li{
+    margin: 5px 0
+}
+
+.footer__img-redes{
+    width: 30px;
+    height: 30px;
+}
+
+.footer .copy__footer{
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px 0;
+}
+
+/*.footer .DatFooter{
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -17,8 +60,9 @@ Footer
     padding-top: 20px ;
 }
 
+
 .footer .DatFooter .direcciones__footer li a{
-    font-size: 32px;
+    font-size: 20px;
 }
 
 .footer .DatFooter .direcciones__footer li{
@@ -26,10 +70,6 @@ Footer
 }
 
 
-.footer .DatFooter .direcciones__footer{
-    align-self: flex-start;
-    list-style: none;
-}
 
 .footer .DatFooter .contacto__footer h3{
     display: none;
@@ -37,7 +77,6 @@ Footer
 
 .footer .DatFooter .redes__footer{
     align-self: flex-end;
-    list-style: none;
 }
 .footer .DatFooter .redes__footer li{
     margin-bottom: 20px;
@@ -47,7 +86,7 @@ Footer
     font-size: 18px;
     margin-left: 20px;
     margin-top: 10px;
-}
+}*/
 
 
 @media(min-width: 426px){

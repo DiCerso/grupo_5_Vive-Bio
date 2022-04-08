@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-
 a{
     text-decoration: none;
     color: white;
@@ -22,3 +21,7 @@ h1{
 
 }
 
+body{
+   background-image: url(/images/background-mobile-home.png);
+   background-size: cover;
+}

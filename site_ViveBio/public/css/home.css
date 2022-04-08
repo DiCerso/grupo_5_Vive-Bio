@@ -24,7 +24,7 @@ primera parte del main
 .home main .subtitulo__home{
     margin-top: 100px;
     margin-bottom: 30px;
-    width: 75%;
+    width: 300px;
     margin: 100px auto 30px auto;
 }
 
@@ -125,7 +125,7 @@ segunda parte del main
 
 .home .nombre-categorias__home{
     margin-bottom: 30px;
-    width: 75%;
+    width: 200px;
     margin: 100px auto 30px auto;
 }
 
