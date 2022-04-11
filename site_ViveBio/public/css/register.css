@@ -12,15 +12,18 @@
 }
 
 .header_register img {
-    width: 100px;
+    width: 150px;
+    padding-bottom: 10px;
+    padding-top: 5px;
 }
 
 .container {
     width: 270px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
     padding: 20px;
+    border: 1px solid green;
 }
 
 .box_1 {
@@ -62,4 +65,42 @@
 
 .register label{
     font-size: 10px;
+    margin-left: 10px;
+}
+
+.register_center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register_terminos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+
+}
+
+.register_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register_form-box:first-child{
+    margin-top: 0;
+}
+
+.register_button button{
+    background-color: var(--verdeclaro);
+    color: black;
+    border-radius: 12px;
+    padding: 5px 10px;
+}
+
+.register_terminos input{
+    box-shadow: 0px 0px 10px rgb(89, 141, 78);
 }
