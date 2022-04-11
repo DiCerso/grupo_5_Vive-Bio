@@ -42,6 +42,7 @@
     margin-bottom: 20px;
     margin-top: 20px;
     width: 100%;
+    text-align: center;
 }
 
 .login_form-input {
@@ -84,6 +85,37 @@
     text-align: center;
 }
 
+.login_box-gf{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 5px;
+}
+.login_google button{
+    padding: 5px;
+    font-size: 10px;
+    background-color: var(--verdeclaro);
+    border-radius: 10px;
+    width: 160px;
+    margin-right: 10px;
+}
+
+.login_facebook button{
+    padding: 5px;
+    font-size: 25px;
+    background-color: var(--verdeclaro);
+    border-radius: 10px;
+    color: blue;
+}
+
+.login_google button i{
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}
+
 @media (min-width: 425px){
     .login_form-box input{
         width: 70%;
@@ -93,7 +125,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center;
     }
     .login_container{
         width: 350px;
