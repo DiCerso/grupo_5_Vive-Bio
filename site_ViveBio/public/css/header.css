@@ -13,7 +13,7 @@
 }
 
 
-header .header__burger{
+.header__burger{
     display: block;
     color: rgb(0, 134, 34);
     background-color: var(--verdeAmarillento);
