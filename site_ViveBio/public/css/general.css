@@ -1,38 +1,40 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
     text-shadow: 0 0 2px black;
 
 }
 
-li{
+li {
     list-style: none;
 }
 
-h1{
+h1 {
     color: white;
     text-shadow: 0 0 2px black;
 }
 
-p{
+p {
     color: white;
     text-shadow: 0 0 2px black;
 }
 
-h3{
+h3 {
     color: white;
     text-shadow: 0 0 2px black;
 }
 
-body{
+body {
     background-image: url(/images/background-desktop-home.png);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
- }
+
+}

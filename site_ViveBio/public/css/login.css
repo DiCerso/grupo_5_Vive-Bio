@@ -1,0 +1,184 @@
+.login main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.login_box_1 {
+    font-size: 12px;
+}
+
+.login_box_2 {
+    font-size: 10px;
+    text-align: end;
+}
+
+.login_video {
+    display: none;
+}
+
+.header_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_login a img {
+    width: 150px;
+}
+
+.login h1 {
+    padding: 10px 0 10px;
+    color: black;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+
+.login_container {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    padding: 20px;
+    border: 1px solid green;
+
+}
+
+.login_form-box {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.login_form-input {
+    width: 100%;
+    margin: 5px 0 5px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    border: 1px solid green;
+}
+
+.login_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login_button button {
+    background-color: var(--verdeclaro);
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.login label {
+    font-size: 10px;
+}
+
+.login_form-box input {
+    text-align: center;
+}
+
+.login_box-gf {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.login_google button {
+    padding: 5px;
+    font-size: 10px;
+    background-color: var(--verdeclaro);
+    border-radius: 10px;
+    width: 160px;
+    margin-right: 10px;
+    border: 1px solid green;
+}
+
+.login_facebook button {
+    padding: 5px;
+    font-size: 23px;
+    background-color: var(--verdeclaro);
+    border-radius: 10px;
+    color: blue;
+    border: 1px solid green;
+}
+
+.login button:hover {
+    transition: all 0.4s;
+    background-color: rgb(87, 187, 87);
+}
+
+.login_google button i {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}
+
+@media (min-width: 425px) {
+    .login_form-box input {
+        width: 70%;
+    }
+
+    .login_form-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login_container {
+        width: 350px;
+    }
+
+    .login_box_1 {
+        font-size: 15px;
+    }
+
+    .login_box_2 {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 768px) {
+    .login main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly
+    }
+
+    .login_video {
+        display: block;
+    }
+
+    .login_form-box input {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .login_video iframe {
+        width: 450px;
+        height: 340px;
+    }
+
+    .header_login a img {
+        width: 250px;
+    }
+
+}
