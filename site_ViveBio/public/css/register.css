@@ -112,7 +112,7 @@
 
 @media (min-width: 768px) {
     .header_register img {
-        width: 200px;
+        width: 180px;
     }
 
     .box_1 {
@@ -124,6 +124,6 @@
     }
 
     .container {
-        width: 400px;
+        width: 350px;
     }
 }
