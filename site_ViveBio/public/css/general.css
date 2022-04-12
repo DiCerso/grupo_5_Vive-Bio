@@ -6,14 +6,33 @@
 
 a{
     text-decoration: none;
-    color: black;
+    color: white;
+    text-shadow: 0 0 2px black;
+
 }
 
 li{
     list-style: none;
 }
 
-body{
-   background-image: url(/images/background-mobile-home.png);
-   background-size: cover;
+h1{
+    color: white;
+    text-shadow: 0 0 2px black;
 }
+
+p{
+    color: white;
+    text-shadow: 0 0 2px black;
+}
+
+h3{
+    color: white;
+    text-shadow: 0 0 2px black;
+}
+
+body{
+    background-image: url(/images/background-desktop-home.png);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+ }

@@ -1,10 +1,5 @@
-body.home{
-    background-image: url('/images/background-mobile-home.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
-.home .carrusel__home{
+.home .carrusel__home {
     width: 100%;
     height: 400px;
     background-color: gray;
@@ -13,97 +8,111 @@ body.home{
 /*************************************************
 primera parte del main
 *************************************************/
-.home .sect1{
+.home .sect1 {
     position: center;
     margin: 0 auto;
-    margin-bottom: 90px;
+    margin-bottom: 50px;
     width: 90%;
     display: flex;
     flex-direction: column;
 }
 
-.home main .subtitulo__home{
-    margin-top: 100px;
-    margin-bottom: 30px;
+.home main .subtitulo__home {
     width: 300px;
-    margin: 100px auto 30px auto;
+    margin: 50px auto 30px auto;
 }
 
-.home main .subtitulo__home h1{
+.home main .subtitulo__home h1 {
     background-color: var(--verdeclaro);
+    color: black;
     border-radius: 19px;
     font-size: 28px;
     text-align: center;
 }
 
-.home .sect1 .art__home{
-    background-color: var(--GrisClaro);
+.home .sect1 .art__home {
+    background-color: var(--verdeclaro);
     margin-bottom: 20px;
-    
+    width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
 
-
-.home .sect1 .art__home .nombreart__home{
+.home .sect1 .art__home .nombreart__home {
     text-align: center;
-    background-color: var(--verdeclaro);
+    background-color: #7FA794;
     border-radius: 19px;
     width: 85%;
-    height: 30px;    
+    height: 30px;
     margin: 10px auto;
-    display: flex;/*coloco como un contenedor flex*/
-    justify-content: center;/*alineacion horizontal*/
-    align-items: center;/*alineacion vertical*/
+    display: flex;
+    /*coloco como un contenedor flex*/
+    justify-content: center;
+    /*alineacion horizontal*/
+    align-items: center;
+    /*alineacion vertical*/
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
-.home main .sect1 .art__home .imgart__home{
+.home main .sect1 .art__home .imgart__home {
     display: flex;
     justify-content: center;
 }
 
-.home main .sect1 .art__home .imgart__home img{
+.home main .sect1 .art__home .imgart__home img {
     width: 85%;
     height: 270px;
 }
 
-.home main .sect1 article .verart__home{
-    background-color: var(--verdeclaro);
-    width: 200px;
+.home main .sect1 article .verart__home {
+    background-color: #7FA794;
+    width: 50%;
     height: 35px;
     text-align: center;
     margin: 15px auto;
     border-radius: 19px;
-    display: flex;/*coloco como un contenedor flex*/
-    justify-content: center;/*alineacion horizontal*/
-    align-items: center;/*alineacion vertical*/
+    display: flex;
+    /*coloco como un contenedor flex*/
+    justify-content: center;
+    /*alineacion horizontal*/
+    align-items: center;
+    /*alineacion vertical*/
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
-.home main .sect1 article .verart__home a{
+.home main .sect1 article .verart__home a {
     text-decoration: none;
-    color: black;  
     font-size: 20px;
 }
 
-.home .vermas__home .vermas-general{
-    background-color: var(--verdeclaro);
-    width: 200px;
+.home .vermas__home .vermas-general {
+    background-color: #7FA794;
+    width: 150px;
     height: 35px;
     text-align: center;
     border-radius: 19px;
-    display: flex;/*coloco como un contenedor flex*/
-    justify-content: center;/*alineacion horizontal del contenido*/
-    align-items: center;/*alineacion vertical del contenido*/
+    display: flex;
+    /*coloco como un contenedor flex*/
+    justify-content: center;
+    /*alineacion horizontal del contenido*/
+    align-items: center;
+    /*alineacion vertical del contenido*/
 }
-.home .vermas__home .vermas-general a{
+
+.home .vermas__home .vermas-general a {
     text-decoration: none;
-    color: black;  
     font-size: 20px;
 }
 
-.home main .vermas__home{
+.home main .vermas__home {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 
@@ -111,8 +120,7 @@ primera parte del main
 segunda parte del main
 ******************************************/
 
-
-.home .sect2{
+.home .sect2 {
     position: center;
     margin: 0 auto;
     width: 90%;
@@ -120,15 +128,178 @@ segunda parte del main
     flex-direction: column;
 }
 
-.home .sect2 .Categorias__home{
+.home .nombre-categorias__home {
     margin-bottom: 30px;
     width: 200px;
-    margin: 100px auto 30px auto;
+    margin: 50px auto 30px auto;
 }
 
-.home .sect2 .Categorias__home h1{
+.home .nombre-categorias__home h1 {
     background-color: var(--verdeclaro);
+    color: black;
     border-radius: 19px;
     font-size: 28px;
     text-align: center;
+}
+
+.home .sect2 .categorias__home {
+    width: 100%;
+    margin: 0 auto;
+    height: 300px;
+    margin-bottom: 50px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+#cate {
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.home .sect2 .categorias__home .corporal__home {
+    /* background-image: url(/images/shampoo-argán.jpg); */
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    )
+    ,url(/images/shampoo-argán.jpg);
+    background-size: cover;
+}
+
+
+
+.home .sect2 .categorias__home .capilar__home {
+    /* background-image: url(/images/acondicionador-natural-de-coco-3.jpg); */
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    )
+    ,url(/images/acondicionador-natural-de-coco-3.jpg);
+    background-size: cover;
+}
+
+.home .sect2 .categorias__home .spa__home {
+    /* background-image: url(/images/2en1almendras.jpg); */
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    )
+    ,url(/images/2en1almendras.jpg);
+    background-size: cover;
+}
+
+
+.barra__cate__home {
+    width: 100%;
+    top: 45%;
+    height: 40px;
+    position: absolute;
+    background-color: var(--VerdeClaro-Opaco);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.barra__cate__home a{
+    font-size: 24px;
+}
+
+
+
+@media(min-width:426px) {
+
+
+    .home main .sect1 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .home main .sect1 .art__home {
+        width: 40%;
+    }
+
+    .home main .sect1 .art__home .imgart__home img {
+        height: 200px;
+    }
+
+    .home main .sect1 article .verart__home {
+        margin: 15px 20px 15px auto;
+    }
+
+    .home .vermas__home .vermas-general {
+        margin-right: 20px;
+    }
+
+    .home main .subtitulo__home {
+        width: 315px;
+    }
+
+    .home main .nombre-categorias__home {
+        width: 315px;
+    }
+
+    .home main .subtitulo__home h1 {
+        padding: 5px;
+        
+    }
+
+    .home main .nombre-categorias__home h1 {
+        padding: 5px;
+    }
+
+
+    /*Seccion 2 del home*/
+
+    .home .sect2 {
+        flex-direction: row;
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .home .sect2 .categorias__home {
+        width: 45%;
+        height: 250px;
+    }
+
+}
+
+
+@media(min-width: 768px) {
+
+    .home main .sect1 .art__home {
+        width: 25%;
+    }
+
+    .home main .sect1 #art__home4 {
+        display: none;
+    }
+
+    .home main .subtitulo__home {
+        width: 315px;
+    }
+
+    .home main .nombre-categorias__home {
+        width: 315px;
+    }
+
+    /*Seccion 2 del home*/
+    .home .sect2 {
+        justify-content: space-evenly;
+    }
+
+    .home .sect2 .categorias__home {
+        width: 30%;
+    }
+
 }
