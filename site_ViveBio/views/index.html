@@ -21,7 +21,7 @@
                 <img src="/images/Lupa.png" alt="" class="barra__lupa">
             </div>
             <div class="header__user">
-                <a>
+                <a href="/login">
                     <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
                     <p>Usuario</p>
                 </a>
@@ -36,8 +36,8 @@
             </div>
             <div class="header__opciones">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Productos</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/productDetail">Productos</a></li>
                     <li><a href="">Quienes somos</a></li>
                     <li><a href="">Contacto</a></li>
                 </ul>
@@ -45,7 +45,7 @@
             <div class="header__iconos">
                 <a href="#"><img src="/images/configuracion.png" alt=""></a>
                 <a href="#"><img src="/images/campana.png" alt=""></a>
-                <a href="#"><img src="/images/carrito.png" alt=""></a>
+                <a href="/productCart"><img src="/images/carrito.png" alt=""></a>
                 <a href="#"><img src="/images/corazon.png" alt=""></a>
             </div>
         </nav>
@@ -113,25 +113,22 @@
         <section class="sect2">
 
             <article class="categorias__home">
-                <div class="corporal__home">
-                    <img src="/images/shampoo-argán.jpg" alt="">
-                    <div>
+                <div class="corporal__home" id="cate">
+                    <div class="barra__cate__home">
                         <a href="">Linea Corporal</a>
                     </div>
                 </div>
             </article>
             <article class="categorias__home">
-                <div class="capilar__home">
-                    <img src="/images/acondicionador-natural-de-coco-3.jpg" alt="">
-                    <div>
+                <div class="capilar__home" id="cate">
+                    <div class="barra__cate__home">
                         <a href="">Linea Capilar</a>
                     </div>
                 </div>
             </article>
-            <article class="categorias__home">
-                <div class="spa__home">
-                    <img src="/images/2en1almendras.jpg" alt="">
-                    <div>
+            <article class="categorias__home" >
+                <div class="spa__home" id="cate">
+                    <div class="barra__cate__home">
                         <a href="">Spa</a>
                     </div>
                 </div>
@@ -141,8 +138,8 @@
     <footer class="footer">
         <div class="DatFooter">
             <ul class="direcciones__footer">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Productos</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/productDetail">Productos</a></li>
                 <li><a href="#">Consejos</a></li>
                 <li><a href="#">Política de devolución</a></li>
             </ul>
