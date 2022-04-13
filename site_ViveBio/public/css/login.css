@@ -89,6 +89,7 @@
 
 .login_form-box input {
     text-align: center;
+    outline: none;
 }
 
 .login_box-gf {
