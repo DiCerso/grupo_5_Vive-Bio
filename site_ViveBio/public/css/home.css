@@ -268,7 +268,7 @@ segunda parte del main
     }
 
     .home .sect2 .categorias__home {
-        width: 45%;
+        width: 250px;
         height: 250px;
     }
 
@@ -298,8 +298,5 @@ segunda parte del main
         justify-content: space-evenly;
     }
 
-    .home .sect2 .categorias__home {
-        width: 30%;
-    }
 
 }
