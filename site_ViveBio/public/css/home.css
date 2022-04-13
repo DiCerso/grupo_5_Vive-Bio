@@ -225,7 +225,7 @@ segunda parte del main
     }
 
     .home main .sect1 .art__home {
-        width: 40%;
+        width: 270px;
     }
 
     .home main .sect1 .art__home .imgart__home img {
@@ -276,10 +276,6 @@ segunda parte del main
 
 
 @media(min-width: 768px) {
-
-    .home main .sect1 .art__home {
-        width: 25%;
-    }
 
     .home main .sect1 #art__home4 {
         display: none;
