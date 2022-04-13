@@ -23,7 +23,7 @@ primera parte del main
 
 .home main .subtitulo__home h1 {
     background-color: var(--verdeclaro);
-    color: black;
+    color: var(--VioletaOscuro);
     border-radius: 19px;
     font-size: 28px;
     text-align: center;
@@ -135,7 +135,7 @@ segunda parte del main
 
 .home .nombre-categorias__home h1 {
     background-color: var(--verdeclaro);
-    color: black;
+    color: var(--VioletaOscuro);
     border-radius: 19px;
     font-size: 28px;
     text-align: center;
@@ -207,6 +207,7 @@ segunda parte del main
     justify-content: center;
     align-items: center;
 }
+
 .barra__cate__home a{
     font-size: 24px;
 }
