@@ -1,5 +1,5 @@
 .header{
-    background-color: var(--verdeClaro-Opaco);
+    background-color: var(--VerdeClaro-Opaco);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,8 +8,14 @@
 }
 
 
+.header__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .header__logo img{
-    width: 100%;
+    width: 70%;
 }
 
 
