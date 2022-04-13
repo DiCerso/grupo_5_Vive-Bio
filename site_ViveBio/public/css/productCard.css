@@ -1,4 +1,55 @@
+h1{
+    text-align: center;
+    padding: 10px;
+    background-color: aquamarine;
+}
 
+.car{
+    width: 100%;
+    display:flex;
+    gap: 50px;
+    flex: wrap;
+    justify-content: space-evenly;
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+.card__perfil{
+    width: 310px;
+    padding: 20px;
+    box-shadow: 1px 1px 5px black;
+    border-radius: 5px;
+}
+
+.card__perfil:hover{
+    border: solid var(--verdeOscuro) 2px;
+}
+
+.card__perfil:hover img{
+    transform: rotate(-360deg);
+}
+
+.card__nombre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.card__nombre img{
+    width: 140px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px black;
+    transition: all .10s;
+}
+
+.card__nombre h2{
+    padding-top: 20px;
+}
+
+.card__descripcion{
+    text-shadow: black;
+}
 
 
 /* Productos Relacionados😍 */
