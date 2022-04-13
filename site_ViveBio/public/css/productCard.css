@@ -1,0 +1,43 @@
+/* 😍 */
+.productCard .row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.productCard .card{
+    width: 33%;
+}
+
+.productCard .estilo-c{
+    font-family: "Montserrat Alternates", sans-serif;
+}
+
+.productCard .estilo-c a{
+    text-decoration: none;
+    color: var(--violetaOscuro);
+}
+
+.productCard .estilo-c a:hover{
+    text-decoration: underline aquamarine;
+    color: var(--verdeOscuro);
+}
+
+.productCard .estilo-c .img-container{
+    overflow:hidden;
+    height: 200px;
+    position: relative;
+}
+
+.productCard .estilo-c .img-container img{
+    width: 100%;
+    position: absolute;
+    top: -20%;
+    transition: all 0.5s;
+}
+
+.estilo-c:hover .img-container img{
+    transform: scale(1.2);
+}
