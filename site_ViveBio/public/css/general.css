@@ -13,3 +13,10 @@ a{
 li{
     list-style: none;
 }
+
+body {
+    background-image: url(/images/background-desktop-home.png);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}

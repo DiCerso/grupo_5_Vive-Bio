@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Roboto:wght@300&display=swap');
 @import './variables.css';
 @import './general.css';
 @import './header.css';
@@ -7,3 +8,6 @@
 @import './register.css';
 @import './carrito.css';
 @import './product.css';
+@import './allproducts.css';
+@import './productCard.css';
+

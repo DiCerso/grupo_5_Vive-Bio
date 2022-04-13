@@ -19,4 +19,12 @@ app.get('/product', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'productDetail.html'))
 });
 
+app.get('/products', (req,res) => {
+    return res.sendFile(path.resolve(__dirname, 'views', 'allproducts.html'))
+});
+
+app.get('/productCard', (req,res) => {
+    return res.sendFile(path.resolve(__dirname, 'views', 'productCard.html'))
+});
+
 app.listen(port, () => console.log(`Server running in port http://localhost:${port}`))
