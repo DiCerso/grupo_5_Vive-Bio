@@ -5,28 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c5fd8ed388.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/5a8fb06a25.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
 
 <body class="home">
     <header class="header">
-
-
         <div class="header__container">
             <div class="header__logo">
-                <img src="/images/logo.png" alt="logo" class="logo">
+                <img src="/images/logo.png" alt="logo">
             </div>
             <div class="header__busqueda">
                 <input type="text" class="barra">
                 <img src="/images/Lupa.png" alt="" class="barra__lupa">
             </div>
             <div class="header__user">
-                <a>
+                <a href="/login">
                     <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
                     <p>Usuario</p>
                 </a>
             </div>
+        </div>
+        <div class="header__burger">
+            <i class="fas fa-bars"></i>
         </div>
         <nav class="header__nav">
             <div class="header__localizacion">
@@ -34,26 +37,25 @@
             </div>
             <div class="header__opciones">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Productos</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/product">Productos</a></li>
                     <li><a href="">Quienes somos</a></li>
                     <li><a href="">Contacto</a></li>
                 </ul>
             </div>
             <div class="header__iconos">
-                <a href="#"><img src="/images/configuracion.png" alt="" ></a>
+                <a href="#"><img src="/images/configuracion.png" alt=""></a>
                 <a href="#"><img src="/images/campana.png" alt=""></a>
-                <a href="#"><img src="/images/carrito.png" alt=""></a>
+                <a href="/carrito"><img src="/images/carrito.png" alt=""></a>
                 <a href="#"><img src="/images/corazon.png" alt=""></a>
             </div>
         </nav>
-        <img src="/images/menu-hamburgesa.png" alt="" class="header__menu">
     </header>
     <div class="carrusel__home">
     </div>
     <main>
         <div class="subtitulo__home">
-            <h1>Productos En Oferta</h1>
+            <h1>Productos en Oferta</h1>
         </div>
         <section class="sect1">
             <article class="art__home">
@@ -89,26 +91,47 @@
                     <a href="#">Ver mas</a>
                 </div>
             </article>
+            <article class="art__home" id="art__home4">
+                <div class="nombreart__home">
+                    <h1>producto 1</h1>
+                </div>
+                <div class="imgart__home">
+                    <img src="/images/producto1.jpeg" alt="">
+                </div>
+                <div class="verart__home">
+                    <a href="#">Ver mas</a>
+                </div>
+            </article>
             <article class="vermas__home">
                 <div class='vermas-general'>
                     <a href="#">Ver mas</a>
                 </div>
             </article>
         </section>
+        <div class='nombre-categorias__home'>
+            <h1>Categorias</h1>
+        </div>
         <section class="sect2">
-            <div class='Categorias__home'>
-                <h1>Categorias</h1>
-            </div>
-            <article>
-                <div class="Corporal__home">
+
+            <article class="categorias__home">
+                <div class="corporal__home" id="cate">
+                    <div class="barra__cate__home">
+                        <a href="">BioCorporal</a>
+                    </div>
                 </div>
             </article>
-            <article>
-                <div class="Capilar__home">
+            <article class="categorias__home">
+                <div class="capilar__home" id="cate">
+                    <div class="barra__cate__home">
+                        <a href="">BioCapilar</a>
+                    </div>
                 </div>
             </article>
-            <article>
-                <div class="spa__home">
+            <article class="categorias__home" >
+                <div class="spa__home" id="cate">
+                    <div class="barra__cate__home">
+                        <a href="">BioSpa</a>
+                    </div>
                 </div>
             </article>
         </section>
@@ -116,18 +139,19 @@
     <footer class="footer">
         <div class="DatFooter">
             <ul class="direcciones__footer">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Productos</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product">Productos</a></li>
                 <li><a href="#">Consejos</a></li>
-                <li><a href="#">Politica de devolucion</a></li>
+                <li><a href="#">Política de devolución</a></li>
             </ul>
             <div class="contacto__footer">
                 <h3>Contactanos</h3>
                 <ul class="redes__footer">
-                    <li><img src="/images/linkedln.png" alt=""></li>
-                    <li><img src="/images/twitter.png" alt=""></li>
-                    <li><img src="/images/Facebook.png" alt=""></li>
-                    <li><img src="/images/Instagram.png" alt=""></li>
+
+                    <li><a href="#"><img class="footer__img-redes" src="/images/linkedln.png" alt=""></li></a>
+                    <li><a href="#"><img class="footer__img-redes" src="/images/twitter.png" alt=""></li></a>
+                    <li><a href="#"><img class="footer__img-redes" src="/images/Facebook.png" alt=""></li></a>
+                    <li><a href="#"><img class="footer__img-redes" src="/images/Instagram.png" alt=""></li></a>
                 </ul>
             </div>
         </div>
