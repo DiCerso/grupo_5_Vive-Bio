@@ -1,4 +1,11 @@
-/* 😍 */
+
+
+
+/* Productos Relacionados😍 */
+.productosRelacionados{
+    text-align: center;
+    color: var(--violetaOscuro);
+}
 .productCard .row{
     width: 100%;
     display: flex;
@@ -23,11 +30,10 @@
 .productCard .estilo-c a:hover{
     text-decoration: underline aquamarine;
     color: var(--verdeOscuro);
-}
-
-.productCard .estilo-c .img-container{
+} 
+ .productCard .estilo-c .img-container{
     overflow:hidden;
-    height: 200px;
+    height: 300px;
     position: relative;
 }
 
@@ -40,4 +46,47 @@
 
 .estilo-c:hover .img-container img{
     transform: scale(1.2);
-}
+}  
+
+
+  .estilo-c .img-container .promo{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 20px;
+    background: rgb(174, 214, 247);
+    padding: 15px;
+    color: var(--violetaOscuro);
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+
+/*   .estilo-c .info-container{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  } */
+  .estilo-c .info-container h3{
+    margin: 0;
+  }
+  .estilo-c .info-container h3,
+  .estilo-c .info-container .promo,
+  .estilo-c .info-container span{
+    padding: 15px;
+    width: 100%;
+  }
+  .estilo-c .add-cart{
+    margin-top: 2px;
+    text-decoration: none;
+    color: var(--violetaOscuro);
+    background-color: aquamarine;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 25px;
+  }
+  .estilo-c .add-cart:hover{
+    color: aquamarine;
+    background-color: #FDF287;
+    border: 1px solid white;
+  }
