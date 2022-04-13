@@ -22,7 +22,7 @@ primera parte del main
 }
 
 .home main .subtitulo__home h1 {
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     color: var(--VioletaOscuro);
     border-radius: 19px;
     font-size: 28px;
@@ -30,7 +30,7 @@ primera parte del main
 }
 
 .home .sect1 .art__home {
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     margin-bottom: 20px;
     width: 100%;
     border-radius: 10px;
@@ -134,7 +134,7 @@ segunda parte del main
 }
 
 .home .nombre-categorias__home h1 {
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeClaro);
     color: var(--VioletaOscuro);
     border-radius: 19px;
     font-size: 28px;
