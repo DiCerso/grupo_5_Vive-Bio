@@ -54,7 +54,7 @@
   text-align: center;
   color: white;
   background-color: var(--verdeOscuro);
-  margin: 30px 0;
+  margin: 40px 0;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -77,9 +77,10 @@
   flex-direction: column;
   background-repeat: no-repeat;
   width: 100%;
+  margin-bottom: 40px;
 }
 
-.product .main__texto:hover {
+.product .main__texto:hover{
   opacity: 0.3;
   filter: alpha(opacity=100);
   zoom: 1;
@@ -91,19 +92,18 @@
 .product .main__contenedor-img-txt img {
   width: 100%;
   border-radius: 10px 10px 0 0;
-  margin-bottom: -3.5px;
-  z-index: 10;
+  margin-bottom: -4px;
 }
 
 
 .product .main__contenedor-img-txt p {
   text-align: center;
-  background-image: url('/images/tex.jpeg');
+  background-color:var(--verdeOscuro);
   background-repeat: no-repeat;
   height: 100%;
   padding: 10px;
   border-radius: 0px 0 10px 10px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 
