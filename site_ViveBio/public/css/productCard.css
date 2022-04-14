@@ -6,15 +6,40 @@
     justify-content: space-evenly;
     padding: 20px;
     margin-bottom: 40px;
+
 }
 
 .productCard .producto__texto {
     line-height: 30px;
     padding: 0px 15px;
-    color: var(--violetaOscuro);
     text-align: center;
+    background-color: var(--verdeClaro);
+    border-radius: 5px;
+}
+.productCard .producto__texto p{
+    color: var(--VioletaOscuro);
+
 }
 
+.productCard .producto__texto h4{
+    font-size: 20px;
+    padding-top: 15px;
+
+}
+.productCard .producto__imagen{
+    background-color: var(--verdeClaro);
+}
+.productCard .producto__imagen h2{
+    color: var(--VioletaOscuro);
+    font-size: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+.productCard .producto__imagen .rating{
+    display: flex;
+    justify-content: flex-end;
+
+}
 .productCard .producto__imagen img {
     width: 500px;
     height: 80%;
@@ -50,10 +75,10 @@
 
 /* Nuestra Comunidad Opina */
 
-h1 {
+.productCard h1 {
     text-align: center;
     padding: 10px;
-    background-color: aquamarine;
+    background-color: var(--verdeOscuro);
 }
 
 .tarjetas {
@@ -71,6 +96,14 @@ h1 {
     padding: 20px;
     box-shadow: 1px 1px 5px black;
     border-radius: 5px;
+    background-color: var(--verdeClaro);
+    color: var(--VioletaOscuro);
+    text-align: center;
+}
+
+.card__perfil p{
+    padding-top: 10px;
+    color: var(--VioletaOscuro);
 }
 
 .card__perfil:hover {
@@ -92,7 +125,7 @@ h1 {
     width: 140px;
     border-radius: 50%;
     box-shadow: 2px 2px 5px black;
-    transition: all .10s;
+    transition: all .15s;
 }
 
 .card__nombre h2 {
@@ -106,12 +139,17 @@ h1 {
 
 /* Productos Relacionados😍 */
 
-.productosRelacionados {
+.productosRelacionados{
     text-align: center;
-    color: var(--violetaOscuro);
-    background-color: aquamarine;
+    color: white;
+    background-color: var(--verdeOscuro);
     margin-bottom: 30px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .productCard .row {
     width: 100%;
@@ -119,6 +157,7 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 30px;
+
 }
 
 .productCard .card {
@@ -126,7 +165,10 @@ h1 {
 }
 
 .productCard .estilo-c {
-    font-family: "Montserrat Alternates", sans-serif;
+    margin-right: 5px;
+}
+.productCard .estilo-c:last-child {
+    margin-right: 0px;
 }
 
 .productCard .estilo-c a {
@@ -169,6 +211,13 @@ h1 {
     border-top-right-radius: 25px;
 }
 
+.estilo-c .info-container{
+    background-color: var(--verdeClaro);
+    height: 180px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
 
 .estilo-c .info-container h2 {
     font-size: 22px;
@@ -177,6 +226,11 @@ h1 {
 .estilo-c .info-container h4 {
     font-size: 18px;
 }
+
+.estilo-c .info-container h3{
+    color: var(--verdeAmarillento)
+}
+
 
 .estilo-c .info-container h3,
 .estilo-c .info-container .promo,
@@ -200,4 +254,10 @@ h1 {
     color: var(--verdeOscuro);
     background-color: #FDF287;
     border: 1px solid white;
+}
+
+.productCard .banner img{
+    width: 100%;
+    transform: scale(1);
+    margin-bottom: -7px;
 }
