@@ -72,9 +72,9 @@
 }
 
 .productCard .producto__cart a:hover {
-    color: var(--verdeOscuro);
+    color: var(--azulSuave);
     background-color: var(--verdeAmarillento);
-    border: 1px solid white;
+    border: 1px solid var(--azul);
 }
 
 
