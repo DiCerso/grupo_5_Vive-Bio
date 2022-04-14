@@ -1,156 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>Product Card</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Product Card</title>
 </head>
 
 <body class="productCard">
-    <header class="header">
-        <div class="header__container">
-            <div class="header__logo">
-                <img src="/images/logo.png" alt="logo" class="logo">
-            </div>
-            <div class="header__busqueda">
-                <input type="text" class="barra">
-                <img src="/images/Lupa.png" alt="" class="barra__lupa">
-            </div>
-            <div class="header__user">
-                <a>
-                    <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
-                    <p>Usuario</p>
-                </a>
-            </div>
-        </div>
-        <nav class="header__nav">
-            <div class="header__localizacion">
-                <a href="">Estas en "lugar"</a>
-            </div>
-            <div class="header__opciones">
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Productos</a></li>
-                    <li><a href="">Quienes somos</a></li>
-                    <li><a href="">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="header__iconos">
-                <a href="#"><img src="/images/configuracion.png" alt="" ></a>
-                <a href="#"><img src="/images/campana.png" alt=""></a>
-                <a href="#"><img src="/images/carrito.png" alt=""></a>
-                <a href="#"><img src="/images/corazon.png" alt=""></a>
-            </div>
-        </nav>
-        <img src="/images/menu-hamburgesa.png" alt="" class="header__menu">
-    </header>
-    <div class="carrusel__home">
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">
+        <img src="/images/logo.png" alt="logo" class="logo">
+      </div>
+      <div class="header__busqueda">
+        <input type="text" class="barra">
+        <img src="/images/Lupa.png" alt="" class="barra__lupa">
+      </div>
+      <div class="header__user">
+        <a>
+          <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
+          <p>Usuario</p>
+        </a>
+      </div>
     </div>
-    <main>
-      <h1>Nuestra comunidad opina</h1>
-      <section class="car">
-        <div class="card__perfil">
-          <div class="card__nombre">
-            <img src="/images/cara6.jpg" alt="">
-            <h2>Ramiro Cunar</h2>
+    <nav class="header__nav">
+      <div class="header__localizacion">
+        <a href="">Estas en "lugar"</a>
+      </div>
+      <div class="header__opciones">
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Productos</a></li>
+          <li><a href="">Quienes somos</a></li>
+          <li><a href="">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="header__iconos">
+        <a href="#"><img src="/images/configuracion.png" alt=""></a>
+        <a href="#"><img src="/images/campana.png" alt=""></a>
+        <a href="#"><img src="/images/carrito.png" alt=""></a>
+        <a href="#"><img src="/images/corazon.png" alt=""></a>
+      </div>
+    </nav>
+    <img src="/images/menu-hamburgesa.png" alt="" class="header__menu">
+  </header>
+  <div class="carrusel__home">
+  </div>
+  <main>
+    <section class="producto">
+      <div class="producto__imagen">
+        <img src="/images/jabonexfo_luffa2.jpg" alt="producto-combo">
+        <span class="precio"> $ 500.-</span>
+      </div>
+      <div class="producto__texto">
+        <h4>🔥 Luffa + Jabón Exfoliante de Naranja y Café🔥</h4>
+        <p>La luffa (o esponja vegetal) tiene propiedades exfoliantes, ideal 
+          para zonas a suavizar: codos, pies, manos. <br>
+          ♻️Cuando consideramos que ha cumplido su ciclo, la podés tirar en el compost, o
+          cualquier parte de la tierra, por éste motivo es importante usar jabones biodegradables.
+          Para no contaminar el suelo con restos de susltancias químicas, que pueden quedar alojadas 
+          en la esponja.♻️ <br>
+          🌻<span style="font-weight: bold;">Nuestra versión exfoliante de Naranja y Café
+          combate el acné y la secrecion sebácea, dejando un delicioso aroma en la piel 🍊</span>
+          Cuidar tu piel y la salud de la Tierra, sin maltratar animales, es posible; SUMATE AL CAMBIO💚
+        </p>
+        <div class="producto__cart">
+          <a href="#" class="add-cart">Lo quiero!🤩</a>
           </div>
-          <div class="card__descripcion">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla 
-              dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem autem incidunt iste? Ipsam doloribus, repellat, suscipit veritatis repudiandae amet atque aut quaerat esse
-               quisquam nulla eaque modi voluptate, consectetur ad.</p>
-          </div>
+      </div>
+    </section>
+    <h1>Nuestra comunidad opina</h1>
+    <section class="tarjetas">
+      <div class="card__perfil">
+        <div class="card__nombre">
+          <img src="/images/cara8.jpg" alt="">
+          <h2>Ramiro Cunar</h2>
         </div>
-        <div class="card__perfil">
-          <div class="card__nombre">
-            <img src="/images/cara5.jpg" alt="">
-            <h2>Mariana Blas</h2>
-          </div>
-          <div class="card__descripcion">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla 
-              dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem autem incidunt iste? Ipsam doloribus, repellat, suscipit veritatis repudiandae amet atque aut quaerat esse
-               quisquam nulla eaque modi voluptate, consectetur ad.</p>
-          </div>
+        <div class="card__descripcion">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+            dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Exercitationem autem incidunt iste? Ipsam doloribus, repellat, suscipit veritatis repudiandae amet atque aut
+            quaerat esse
+            quisquam nulla eaque modi voluptate, consectetur ad.</p>
         </div>
-        <div class="card__perfil">
-          <div class="card__nombre">
-            <img src="/images/cara4.jpg" alt="">
-            <h2>Iris Luna</h2>
-          </div>
-          <div class="card__descripcion">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla 
-              dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem autem incidunt iste? Ipsam doloribus, repellat, suscipit veritatis repudiandae amet atque aut quaerat esse
-               quisquam nulla eaque modi voluptate, consectetur ad.</p>
-          </div>
+      </div>
+      <div class="card__perfil">
+        <div class="card__nombre">
+          <img src="/images/cara5.jpg" alt="">
+          <h2>Mariana Blas</h2>
         </div>
-      </section>
-      <h2 class="productosRelacionados">Productos Relacionados<h2>
-      <section class="row">
+        <div class="card__descripcion">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+            dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Exercitationem autem incidunt iste? Ipsam doloribus, repellat, suscipit veritatis repudiandae amet atque aut
+            quaerat esse
+            quisquam nulla eaque modi voluptate, consectetur ad.</p>
+        </div>
+      </div>
+      <div class="card__perfil">
+        <div class="card__nombre">
+          <img src="/images/cara4.jpg" alt="">
+          <h2>Iris Luna</h2>
+        </div>
+        <div class="card__descripcion">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+            dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Exercitationem autem incidunt iste? Ipsam doloribus, repellat, suscipit veritatis repudiandae amet atque aut
+            quaerat esse
+            quisquam nulla eaque modi voluptate, consectetur ad.</p>
+        </div>
+      </div>
+    </section>
+    <h2 class="productosRelacionados">Productos Relacionados<h2>
+        <section class="row">
           <div class="card estilo-c">
             <a href="#">
-            <div class="img-container">
-              <img src="/images/jabon_humectante_2.jpg" alt="producto">
-              <span class="promo">10% off</span>
-            </div>
-          </a>
-          <h2> Jabón Humectante</h2>
-          <h4>BioCorporal</h4>
-          <h3>$ 300.00.-</h3>
-          <span class="rating">⭐⭐⭐⭐⭐</span>
-          <a href="#" class="add-cart">Lo quiero!🤩</a>
-        </div>
+              <div class="img-container">
+                <img src="/images/jabon_humectante_2.jpg" alt="producto">
+                <span class="promo">10% off</span>
+              </div>
+            </a>
+            <h2> Jabón Humectante</h2>
+            <h4>BioCorporal</h4>
+            <h3>$ 300.00.-</h3>
+            <span class="rating">⭐⭐⭐</span>
+            <a href="#" class="add-cart">Lo quiero!🤩</a>
+          </div>
           <div class="card estilo-c">
             <a href="#">
-            <div class="img-container">
-              <img src="/images/jabon_humectante_2.jpg" alt="producto">
-              <span class="promo">25% off</span>
-            </div>
-          </a>
-          <h2> Kit Exfoliante </h2>
-          <h4>BioSpa<h4>
-          <h3>$ 600.00.-</h3>
-          <span class="rating">⭐⭐⭐⭐</span>
-          <a href="#" class="add-cart">Lo quiero!🤩</a>
-        </div>
+              <div class="img-container">
+                <img src="/images/jabonExfo_luffa.jpg" alt="producto">
+                <span class="promo">25% off</span>
+              </div>
+            </a>
+            <h2> Kit Exfoliante </h2>
+            <h4>BioSpa<h4>
+                <h3>$ 600.00.-</h3>
+                <span class="rating">⭐⭐⭐⭐</span>
+                <a href="#" class="add-cart">Lo quiero!🤩</a>
+          </div>
           <div class="card estilo-c">
             <a href="#">
-            <div class="img-container">
-              <img src="/images/shampoo2en1-geranio.png" alt="producto">
-              <span class="promo">15% off</span>
-            </div>
-          </a>
-          <h2> Shampoo-Acondicionador Geranio</h2>
-          <h4>BioCapilar</h4>
-          <h3>$ 300.00.-</h3>
-          <span class="rating">⭐⭐⭐⭐</span>
-          <a href="#" class="add-cart">Lo quiero!🤩</a>
+              <div class="img-container">
+                <img src="/images/jaboncito_exfoliantes.jpg" alt="producto">
+                <span class="promo">15% off</span>
+              </div>
+            </a>
+            <h2>Kit Coco</h2>
+            <h4>BioCapilar</h4>
+            <h3>$ 300.00.-</h3>
+            <span class="rating">⭐⭐⭐⭐</span>
+            <a href="#" class="add-cart">Lo quiero!🤩</a>
+          </div>
+        </section>
+        <div>
+          <img src="/images/foto_consejos.jpg" alt="" style="width:100%; height: 500px;">
         </div>
-      </section>
-    </main>
-    <footer class="footer">
-        <div class="DatFooter">
-            <ul class="direcciones__footer">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Consejos</a></li>
-                <li><a href="#">Politica de devolucion</a></li>
-            </ul>
-            <div class="contacto__footer">
-                <h3>Contactanos</h3>
-                <ul class="redes__footer">
-                    <li><img src="/images/linkedln.png" alt=""></li>
-                    <li><img src="/images/twitter.png" alt=""></li>
-                    <li><img src="/images/Facebook.png" alt=""></li>
-                    <li><img src="/images/Instagram.png" alt=""></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copy__footer">
-            <a href="">Terminos y condiciones</a>
-            <p>Argentina 2022 - Derechos reservados</p>
-        </div>
-    </footer>
+  </main>
+  <footer class="footer">
+    <div class="DatFooter">
+      <ul class="direcciones__footer">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Consejos</a></li>
+        <li><a href="#">Politica de devolucion</a></li>
+      </ul>
+      <div class="contacto__footer">
+        <h3>Contactanos</h3>
+        <ul class="redes__footer">
+          <li><img src="/images/linkedln.png" alt=""></li>
+          <li><img src="/images/twitter.png" alt=""></li>
+          <li><img src="/images/Facebook.png" alt=""></li>
+          <li><img src="/images/Instagram.png" alt=""></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy__footer">
+      <a href="">Terminos y condiciones</a>
+      <p>Argentina 2022 - Derechos reservados</p>
+    </div>
+  </footer>
 </body>
 
 </html>
