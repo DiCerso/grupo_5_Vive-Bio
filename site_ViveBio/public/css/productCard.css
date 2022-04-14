@@ -10,6 +10,9 @@
 .productCard .producto__texto{
     box-shadow: 1px 1px 5px black;
     border-radius: 5px;
+    line-height: 30px;
+    padding: 15px;
+    color: var(--violetaOscuro);
 }
 
 
@@ -32,19 +35,27 @@
     border-top-right-radius: 25px;
   }
 
-.productCard .producto__cart{
+  .productCard .producto__cart{
+      margin-top: 20px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+  }
+
+.productCard .producto__cart a{
     margin-top: 2px;
     text-decoration: none;
     color: var(--violetaOscuro);
     background-color: aquamarine;
-    padding: 15px;
     border: 1px solid white;
     border-radius: 25px;
     font-size: 16px;
+    padding: 10px;
+    font-weight: bold;
   }
-  .productCard .producto__cart:hover{
+  .productCard .producto__cart a:hover{
     color: var(--verdeOscuro);
-    background-color: #FDF287;
+    background-color: #FDF287 ;
     border: 1px solid white;
   }
 
