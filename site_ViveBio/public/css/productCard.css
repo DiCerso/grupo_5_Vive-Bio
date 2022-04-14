@@ -86,7 +86,7 @@
     background-color: var(--verdeOscuro);
 }
 
-.tarjetas {
+.productCard .tarjetas {
     width: 100%;
     display: flex;
     gap: 50px;
@@ -96,7 +96,7 @@
     padding-bottom: 80px;
 }
 
-.card__perfil {
+.productCard .card__perfil {
     width: 310px;
     padding: 20px;
     box-shadow: 1px 1px 5px black;
@@ -106,38 +106,38 @@
     text-align: center;
 }
 
-.card__perfil p {
+.productCard .card__perfil p {
     padding-top: 10px;
     color: var(--VioletaOscuro);
 }
 
-.card__perfil:hover {
+.productCard .card__perfil:hover {
     border: solid var(--verdeOscuro) 2px;
 }
 
-.card__perfil:hover img {
+.productCard .card__perfil:hover img {
     transform: rotate(-360deg);
 }
 
-.card__nombre {
+.productCard .card__nombre {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 }
 
-.card__nombre img {
+.productCard .card__nombre img {
     width: 140px;
     border-radius: 50%;
     box-shadow: 2px 2px 5px black;
     transition: all .15s;
 }
 
-.card__nombre h2 {
+.productCard .card__nombre h2 {
     padding-top: 20px;
 }
 
-.card__descripcion {
+.productCard .card__descripcion {
     text-shadow: black;
 }
 
@@ -154,7 +154,7 @@
 
 }
 
-.productosRelacionados {
+.productCard .productosRelacionados {
     text-align: center;
     color: white;
     background-color: var(--verdeOscuro);
@@ -201,12 +201,12 @@
     transition: all 0.5s;
 }
 
-.estilo-c:hover .img-container img {
+.productCard .estilo-c:hover .img-container img {
     transform: scale(1.2);
 }
 
 
-.estilo-c .img-container .promo {
+.productCard .estilo-c .img-container .promo {
     position: absolute;
     top: 10px;
     left: 0;
@@ -218,7 +218,7 @@
     border-top-right-radius: 25px;
 }
 
-.estilo-c .info-container {
+.productCard .estilo-c .info-container {
     background-color: var(--verdeClaro);
     height: 180px;
     border-radius: 5px;
@@ -227,29 +227,29 @@
 }
 
 
-.estilo-c .info-container h2 {
+.productCard .estilo-c .info-container h2 {
     font-size: 22px;
     color: var(--VioletaOscuro);
 }
 
-.estilo-c .info-container h4 {
+.productCard .estilo-c .info-container h4 {
     font-size: 18px;
     color: var(--VioletaOscuro);
 }
 
-.estilo-c .info-container h3 {
+.productCard .estilo-c .info-container h3 {
     color: var(--verdeAmarillento)
 }
 
 
-.estilo-c .info-container h3,
+.productCard .estilo-c .info-container h3,
 .estilo-c .info-container .promo,
 .estilo-c .info-container span {
     padding: 15px;
     width: 90%;
 }
 
-.estilo-c .add-cart {
+.productCard .estilo-c .add-cart {
     margin-top: 2px;
     text-decoration: none;
     color: var(--VioletaOscuro);
@@ -260,13 +260,13 @@
     font-size: 14px;
 }
 
-.estilo-c .add-cart:hover {
+.productCard .estilo-c .add-cart:hover {
     color: var(--verdeOscuro);
     background-color: var(--verdeAmarillento);
     border: 1px solid white;
 }
 
-.productCard .banner img {
+.productCard .productCard .banner img {
     display: none;
 }
 
@@ -325,7 +325,8 @@
 
 
     /* Nuestra Comunidad Opina */
-    .tarjetas {
+
+    .productCard .tarjetas {
         width: 100%;
         display: flex;
         gap: 20px;
@@ -338,7 +339,7 @@
         align-items: center;
     }
 
-    .card__perfil {
+    .productCard .card__perfil {
         width: 180px;
         padding: 20px;
         flex-direction: column;
@@ -359,7 +360,7 @@
         align-items: center;
     }
 
-    .productosRelacionados {
+    .productCard .productosRelacionados {
         text-align: center;
         margin-bottom: 10px;
         height: 100px;
@@ -377,7 +378,7 @@
         margin-bottom: 40px;
     }
 
-    .estilo-c .img-container .promo {
+    .productCard .estilo-c .img-container .promo {
         position: absolute;
         top: 10px;
         left: 0;
@@ -387,7 +388,7 @@
         border-top-right-radius: 25px;
     }
 
-    .estilo-c .info-container {
+    .productCard .estilo-c .info-container {
         height: 140px;
         border-radius: 5px;
         padding-left: 10px;
@@ -395,22 +396,22 @@
     }
 
 
-    .estilo-c .info-container h2 {
+    .productCard .estilo-c .info-container h2 {
         font-size: 16px;
 
     }
 
-    .estilo-c .info-container h4 {
+    .productCard .estilo-c .info-container h4 {
         font-size: 12px;
 
     }
 
-    .estilo-c .info-container h3 {
+    .productCard .estilo-c .info-container h3 {
         font-size: 24px;
     }
 
 
-    .estilo-c .info-container h3,
+    .productCard .estilo-c .info-container h3,
     .estilo-c .info-container .promo,
     .estilo-c .info-container span {
         padding: 15px;
@@ -419,7 +420,7 @@
 
 
 
-    .estilo-c .add-cart {
+    .productCard .estilo-c .add-cart {
         padding: 5px;
         border: 1px solid white;
         border-radius: 15px;
@@ -483,7 +484,7 @@
 
 
     /* Nuestra Comunidad Opina */
-    .tarjetas {
+    .productCard .tarjetas {
         width: 100%;
         display: flex;
         gap: 20px;
@@ -495,7 +496,7 @@
         align-items: center;
     }
 
-    .card__perfil {
+    .productCard .card__perfil {
         width: 180px;
         padding: 20px;
         flex-direction: column;
@@ -517,7 +518,7 @@
         align-items: center;
     }
 
-    .productosRelacionados {
+    .productCard .productosRelacionados {
         text-align: center;
         margin-bottom: 10px;
         height: 100px;
@@ -536,7 +537,7 @@
         margin-bottom: 40px;
     }
 
-    .estilo-c .img-container .promo {
+    .productCard .estilo-c .img-container .promo {
         position: absolute;
         top: 10px;
         left: 0;
@@ -546,7 +547,7 @@
         border-top-right-radius: 25px;
     }
 
-    .estilo-c .info-container {
+    .productCard .estilo-c .info-container {
         height: 140px;
         border-radius: 5px;
         padding-left: 10px;
@@ -554,22 +555,22 @@
     }
 
 
-    .estilo-c .info-container h2 {
+    .productCard .estilo-c .info-container h2 {
         font-size: 16px;
 
     }
 
-    .estilo-c .info-container h4 {
+    .productCard .estilo-c .info-container h4 {
         font-size: 12px;
 
     }
 
-    .estilo-c .info-container h3 {
+    .productCard .estilo-c .info-container h3 {
         font-size: 24px;
     }
 
 
-    .estilo-c .info-container h3,
+    .productCard .estilo-c .info-container h3,
     .estilo-c .info-container .promo,
     .estilo-c .info-container span {
         padding: 15px;
@@ -578,7 +579,7 @@
 
 
 
-    .estilo-c .add-cart {
+    .productCard .estilo-c .add-cart {
         padding: 5px;
         border: 1px solid white;
         border-radius: 15px;
