@@ -23,6 +23,10 @@ app.get('/productCard', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'productCard.html'))
 });
 
+app.get('/productAll', (req,res) => {
+    return res.sendFile(path.resolve(__dirname, 'views', 'productAll.html'))
+});
+
 app.get('/carrito', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'productCart.html'))
 });
