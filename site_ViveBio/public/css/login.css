@@ -41,9 +41,9 @@
     width: 80%;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
-    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    box-shadow: 5px 5px 10px var(--VerdeSuave);
     padding: 20px;
-    border: 1px solid green;
+    border: 1px solid var(--verdeFuerte);
 
 }
 
@@ -59,7 +59,7 @@
     margin: 5px 0 5px;
     padding: 10px 5px;
     border-radius: 10px;
-    border: 1px solid green;
+    border: 1px solid var(--verdeFuerte);
 }
 
 .login_center {
@@ -77,7 +77,7 @@
 }
 
 .login_button button {
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeOscuro);
     color: black;
     border-radius: 10px;
     padding: 5px 10px;
@@ -102,35 +102,39 @@
 
 .login_google button {
     padding: 5px;
-    font-size: 10px;
-    background-color: var(--verdeclaro);
+    font-size: 30px;
+    background-color: var(--VerdeSuave);
     border-radius: 10px;
-    width: 160px;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
-    border: 1px solid green;
+    border: 1px solid var(--verdeFuerte);
 }
 
 .login_facebook button {
     padding: 5px;
-    font-size: 23px;
-    background-color: var(--verdeclaro);
+    font-size: 30px;
+    background-color: var(--VerdeSuave);
     border-radius: 10px;
     color: blue;
-    border: 1px solid green;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--verdeFuerte);
 }
 
-.login button:hover {
-    transition: all 0.4s;
-    background-color: rgb(87, 187, 87);
-}
+
 
 .login_google button i {
-    font-size: 30px;
-    color: black;
+    color: red;
     text-align: center;
 }
 
 @media (min-width: 425px) {
+    .login button:hover {
+        transition: all 0.4s;
+        background-color: var(--verdeFuerte);
+    }
+
     .login_form-box input {
         width: 70%;
     }
@@ -169,6 +173,10 @@
     .login_form-box input {
         width: 70%;
     }
+    .header_login a img {
+        width: 250px;
+        margin-bottom: 10px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -176,9 +184,4 @@
         width: 450px;
         height: 340px;
     }
-
-    .header_login a img {
-        width: 250px;
-    }
-
 }
