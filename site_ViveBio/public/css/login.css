@@ -170,6 +170,10 @@
     .login_form-box input {
         width: 70%;
     }
+    .header_login a img {
+        width: 250px;
+        margin-bottom: 10px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -177,9 +181,4 @@
         width: 450px;
         height: 340px;
     }
-
-    .header_login a img {
-        width: 250px;
-    }
-
 }
