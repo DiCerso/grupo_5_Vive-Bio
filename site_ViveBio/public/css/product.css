@@ -40,25 +40,38 @@
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  box-shadow: none;
 }
 
 
 .product .main__categorías li a:hover {
-  color: aquamarine;
+  color: var(--aquamarine);
   border-radius: 8px;
 }
 
+
 /* Artículos */
+.product .títulos {
+  text-align: center;
+  color: white;
+  background-color: var(--verdeOscuro);
+  margin: 40px 0;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
 
 .product main h2 {
-  background-image: url('/images/tex.jpeg');
-  background-repeat: no-repeat;
-  color: white;
+  background-color: var(--aquamarine);
+  color: var(--VioletaOscuro);
   text-align: center;
   margin: auto;
   border-radius: 8px;
   width: 90%;
   margin-bottom: 30px 0;
+  box-shadow: 10px 5px 5px black;
 }
 
 .product .main__contenedor-img-txt {
@@ -66,13 +79,14 @@
   flex-direction: column;
   background-repeat: no-repeat;
   width: 100%;
+  margin-bottom: 40px;
 }
-
-.product .main__texto:hover {
+ 
+.product .main__texto:hover{
   opacity: 0.3;
   filter: alpha(opacity=100);
   zoom: 1;
-  color: aquamarine;
+  color: var(--aquamarine);
 }
 
 
@@ -80,19 +94,18 @@
 .product .main__contenedor-img-txt img {
   width: 100%;
   border-radius: 10px 10px 0 0;
-  margin-bottom: -3.5px;
-  z-index: 10;
+  margin-bottom: -4px;
 }
 
 
 .product .main__contenedor-img-txt p {
   text-align: center;
-  background-image: url('/images/tex.jpeg');
+  background-color:var(--verdeOscuro);
   background-repeat: no-repeat;
   height: 100%;
   padding: 10px;
   border-radius: 0px 0 10px 10px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 
@@ -102,6 +115,13 @@
 
 .product article {
   padding: 40px;
+}
+
+.product .banner img {
+  width: 100%;
+  transform: scale(1);
+  margin-bottom: -7px;
+  display: block;
 }
 
 /* Responsive Tablet */
@@ -115,6 +135,10 @@
     flex-direction: row;
     justify-content: space-evenly;
     font-weight: bold;
+  }
+
+  .product .main__categorías a {
+    box-shadow: 10px 5px 5px black;
   }
 
   /* Artículos */

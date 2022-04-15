@@ -62,29 +62,21 @@ Footer
     justify-content: space-between;
     padding-top: 20px ;
 }
-
-
 .footer .DatFooter .direcciones__footer li a{
     font-size: 20px;
 }
-
 .footer .DatFooter .direcciones__footer li{
     margin-bottom: 10px;
 }
-
-
-
 .footer .DatFooter .contacto__footer h3{
     display: none;
 }
-
 .footer .DatFooter .redes__footer{
     align-self: flex-end;
 }
 .footer .DatFooter .redes__footer li{
     margin-bottom: 20px;
 }
-
 .footer .copy__footer{
     font-size: 18px;
     margin-left: 20px;

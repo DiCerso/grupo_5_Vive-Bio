@@ -8,18 +8,12 @@
 }
 
 
-.header__logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .header__logo img{
-    width: 70%;
+    width: 200px;
 }
 
 
-.header__burger{
+header .header__burger{
     display: block;
     color: rgb(0, 134, 34);
     background-color: var(--verdeAmarillento);
@@ -57,8 +51,8 @@
 .header__localizacion{
     display: none;
 }
-
 @media(min-width: 426px){
+
     .header{
         flex-direction: column;
         background-color: var(--transparencia);
@@ -147,7 +141,7 @@
     }
 
     .header__opciones li{
-        border-right: solid 1px black;
+        border-right: solid 1px black;/*le coloco una linea a la derecha*/
         width: 25%;
         text-align: center;
     }
@@ -187,7 +181,7 @@
     }
 
     .header__iconos a{
-        background-color: var(--verdeClaro-Opaco);
+        background-color: var(--VerdeClaro-Opaco);
         margin-right: 2px;
         height: 40px;
         display: flex;
@@ -225,7 +219,4 @@
         display: flex;
     }
     
-    .header a{
-        font-weight: bold;
-    }
 }
