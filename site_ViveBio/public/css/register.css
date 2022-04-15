@@ -50,7 +50,7 @@
     margin: 5px 0 5px;
     padding: 10px 5px;
     border-radius: 10px;
-    border: 1px solid green;
+    border: 1px solid var(--verdeOscuro);
 }
 
 
@@ -93,7 +93,7 @@
 }
 
 .register_button button {
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeOscuro);
     color: black;
     border-radius: 12px;
     padding: 5px 10px;
@@ -101,7 +101,7 @@
 
 .register button:hover {
     transition: all 0.4s;
-    background-color: rgb(87, 187, 87);
+    background-color: var(--verdeFuerte);
 }
 
 @media (min-width: 768px) {
