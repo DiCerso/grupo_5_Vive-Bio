@@ -184,7 +184,7 @@ header .header__burger{
     }
 
     .header__iconos a{
-        background-color: var(--VerdeClaro-Opaco);
+        background-color: var(--verdeClaro-Opaco);
         margin-right: 2px;
         height: 40px;
         display: flex;
