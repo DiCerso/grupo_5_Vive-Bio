@@ -1,0 +1,21 @@
+.carrito main {
+    background-color: var(--amarillo);
+    width: 100%;
+    padding: 20px 0;
+    background-image: center;
+}
+
+.carrito logo {
+    width: 30%;
+    padding: 20px 0;
+    background-image: center;
+}
+
+
+
+.img jabon con petalo {
+    width: 20%;
+    margin: 5px;
+}
+
+

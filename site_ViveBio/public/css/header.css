@@ -1,10 +1,8 @@
 .header{
-    background-color: var(--verdeClaro-Opaco);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 10px;
+    header {
+        background-color: var(--amarillo);
+        padding: 20px 0;
+        background-image: url('/public/img/mercado liebre.png'), right top;
 }
 
 
