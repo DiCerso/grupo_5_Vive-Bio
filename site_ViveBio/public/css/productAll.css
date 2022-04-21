@@ -4,7 +4,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     padding: 30px;
-
+    text-shadow: none;
 }
 
 .productAll .títulos {

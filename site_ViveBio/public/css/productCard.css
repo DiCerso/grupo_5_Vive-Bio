@@ -1,10 +1,13 @@
 /* Producto principal */
+.productCard h1 p h3 h4{
+    text-shadow: none;
+}
 
 .productCard .producto {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 20px;
+    padding: 30px;
     margin-bottom: 40px;
 
 }
@@ -89,16 +92,16 @@
 .productCard .tarjetas {
     width: 100%;
     display: flex;
+    flex-direction: column;
     gap: 50px;
-    flex: wrap;
+    flex-wrap:nowrap;
     justify-content: space-evenly;
-    padding: 20px;
-    padding-bottom: 80px;
+    padding: 50px 30px;
 }
 
 .productCard .card__perfil {
-    width: 310px;
-    padding: 20px;
+    width: 100%;
+    padding: 10px;
     box-shadow: 1px 1px 5px black;
     border-radius: 5px;
     background-color: var(--verdeClaro);
@@ -278,7 +281,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        padding: 10px;
+        padding: 30px;
         margin-bottom: 20px;
 
     }
@@ -329,20 +332,15 @@
     .productCard .tarjetas {
         width: 100%;
         display: flex;
-        gap: 20px;
-        flex: nowrap;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        padding: 20px;
+        flex-direction: column;
+        gap: 50px;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        padding: 30px;
         padding-bottom: 80px;
-        align-items: center;
     }
 
     .productCard .card__perfil {
-        width: 180px;
-        padding: 20px;
-        flex-direction: column;
         font-size: 14px;
 
     }
@@ -488,17 +486,6 @@
 
 
     /* Nuestra Comunidad Opina */
-    .productCard .tarjetas {
-        width: 100%;
-        display: flex;
-        gap: 20px;
-        flex: nowrap;
-        flex-direction: column;
-        justify-content: center;
-        padding: 20px;
-        padding-bottom: 80px;
-        align-items: center;
-    }
 
     .productCard .card__perfil {
         width: 180px;
