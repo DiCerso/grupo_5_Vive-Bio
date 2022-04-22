@@ -97,13 +97,6 @@
 }
 
 
-.productAll .estilo-c .info-container h3,
-.estilo-c .info-container .promo,
-.estilo-c .info-container span {
-    padding: 15px;
-    width: 90%;
-}
-
 .productAll .estilo-c .add-cart {
     margin-top: 2px;
     text-decoration: none;
@@ -184,13 +177,6 @@
 }
 
 
-.productAll .estilo-c .info-container h3,
-.estilo-c .info-container .promo,
-.estilo-c .info-container span {
-    padding: 15px;
-    width: 70%;
-}
-
 
 
 .productAll .estilo-c .add-cart {
@@ -260,14 +246,6 @@
 
 .productAll .estilo-c .info-container h3 {
     font-size: 24px;
-}
-
-
-.productAll .estilo-c .info-container h3,
-.estilo-c .info-container .promo,
-.estilo-c .info-container span {
-    padding: 15px;
-    width: 70%;
 }
 
 
