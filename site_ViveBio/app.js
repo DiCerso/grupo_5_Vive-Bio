@@ -16,15 +16,15 @@ app.get('/login', (req,res) => {
 });
 
 app.get('/product', (req,res) => {
-    return res.sendFile(path.resolve(__dirname, 'views', 'productDetail.html'))
+    return res.sendFile(path.resolve(__dirname, 'views', 'productAll.html'))
 });
 
 app.get('/productCard', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'productCard.html'))
 });
 
-app.get('/productAll', (req,res) => {
-    return res.sendFile(path.resolve(__dirname, 'views', 'productAll.html'))
+app.get('/productdetail', (req,res) => {
+    return res.sendFile(path.resolve(__dirname, 'views', 'productDetail.html'))
 });
 
 app.get('/carrito', (req,res) => {
