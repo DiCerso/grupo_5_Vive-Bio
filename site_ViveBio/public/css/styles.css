@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Roboto:wght@300&display=swap');
 @import './variables.css';
 @import './general.css';
+@import './header.css';
+@import './footer.css';
 @import './home.css';
 @import './login.css';
 @import './register.css';
 @import './carrito.css';
-@import './producto.css';
+@import './product.css';
+@import './productCard.css';
+@import './productAll.css';
