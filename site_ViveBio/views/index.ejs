@@ -1,56 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/c5fd8ed388.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://kit.fontawesome.com/5a8fb06a25.js" crossorigin="anonymous"></script>
-    <title>Home</title>
-</head>
+<%- include('./partials/head', {
+    title : "Home"
+}) %> 
 
 <body class="home">
-    <header class="header">
-        <div class="header__container">
-            <div class="header__logo">
-                <img src="/images/logo.png" alt="logo">
-            </div>
-            <div class="header__busqueda">
-                <input type="text" class="barra">
-                <img src="/images/Lupa.png" alt="" class="barra__lupa">
-            </div>
-            <div class="header__user">
-                <a href="/login">
-                    <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
-                    <p>Usuario</p>
-                </a>
-            </div>
-        </div>
-        <div class="header__burger">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav class="header__nav">
-            <div class="header__localizacion">
-                <a href="">Estas en "lugar"</a>
-            </div>
-            <div class="header__opciones">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/product">Productos</a></li>
-                    <li><a href="">Quienes somos</a></li>
-                    <li><a href="">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="header__iconos">
-                <a href="#"><img src="/images/configuracion.png" alt=""></a>
-                <a href="#"><img src="/images/campana.png" alt=""></a>
-                <a href="/carrito"><img src="/images/carrito.png" alt=""></a>
-                <a href="#"><img src="/images/corazon.png" alt=""></a>
-            </div>
-        </nav>
-    </header>
+    <%- include('./partials/header') %> 
     <div class="carrusel__home">
         <img src="/images/logo.png" alt="logo" class="banner">
     </div>
@@ -153,30 +109,7 @@
             </article>
         </section>
     </main>
-    <footer class="footer">
-        <div class="DatFooter">
-            <ul class="direcciones__footer">
-                <li><a href="/">Home</a></li>
-                <li><a href="/productAll">Productos</a></li>
-                <li><a href="#">Consejos</a></li>
-                <li><a href="#">Política de devolución</a></li>
-            </ul>
-            <div class="contacto__footer">
-                <h3>Contactanos</h3>
-                <ul class="redes__footer">
-
-                    <li><a href="#"><img class="footer__img-redes" src="/images/linkedln.png" alt=""></li></a>
-                    <li><a href="#"><img class="footer__img-redes" src="/images/twitter.png" alt=""></li></a>
-                    <li><a href="#"><img class="footer__img-redes" src="/images/Facebook.png" alt=""></li></a>
-                    <li><a href="#"><img class="footer__img-redes" src="/images/Instagram.png" alt=""></li></a>
-                </ul>
-            </div>
-        </div>
-        <div class="copy__footer">
-            <a href="">Terminos y condiciones</a>
-            <p>Argentina 2022 - Derechos reservados</p>
-        </div>
-    </footer>
+    <%- include('./partials/footer') %> 
 </body>
 
 </html>

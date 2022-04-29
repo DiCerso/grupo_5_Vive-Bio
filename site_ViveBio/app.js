@@ -5,9 +5,30 @@ const port = 3030;
 
 app.use(express.static('public'));
 
-app.get('/', (req,res) => {
+app.set(path.resolve(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+
+
+/*rutas dinamicas */
+const indexRouter  = require('./routes/index');
+
+
+app.get('/', indexRouter);
+
+
+
+
+
+
+
+
+
+
+/*rutas */
+/* app.get('/', (req,res) => {
     return res.sendFile(path.resolve(__dirname,'views','index.html'))
-});
+}); */
 app.get('/register', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'register.html'))
 });
