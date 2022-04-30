@@ -1,21 +1,148 @@
-.carrito main {
-    background-color: var(--amarillo);
+.carrito-contenedor {
+   
+    background-color: rgba(184, 247, 196, 0.8);
+    color:rgb(92, 92, 92);
+    width: 95%;
+    padding: 5px;
+    margin: 10px auto;
+    text-align: center;
+    box-sizing: border-box;
+    /* border: solid 2px orange;  */  
+}
+
+.carrito_pasos p {
     width: 100%;
-    padding: 20px 0;
-    background-image: center;
+    padding: 10px;
+    color: rgb(47, 46, 46);
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
 }
 
-.carrito logo {
-    width: 30%;
-    padding: 20px 0;
-    background-image: center;
+.carrito-box {
+    width: 100%;
+    border: solid 2px #383843;
+    display: flex;
+    flex-direction: row;
+}
+
+.carrito-images {
+    width: 100%;
+}
+
+.carrito-images img {
+    width: 100%;
+    padding: 5px;  
+}
+
+.carrito-titulo h3 {
+    width: 100%;
+    color: rgb(47, 46, 46);
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    /* border: solid 2px green; */
 }
 
 
-
-.img jabon con petalo {
-    width: 20%;
-    margin: 5px;
+.carrito-contenedor p {
+    padding: 10px;
+    color: rgb(34, 34, 34);
+    text-align: left;
+    margin-left: 5px;
+    /* border: solid 2px yellow; */
 }
 
+.carrito-buttons1 {
+    width: 100%;
+    font-size: 12px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between ;
+    /* border: solid 2px rgb(118, 12, 12); */
+ }
+
+.carrito-buttons2 {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    /* border: solid 2px rgb(118, 12, 12); */
+ }
+
+.carrito-contenedor-lista {
+    /* background-color: rgba(184, 247, 196, 0.8); */
+    color:rgb(92, 92, 92);
+    width: 100%;
+    padding: 5px;
+    text-align: left;
+    
+    margin-bottom: 10px;
+    /* border: solid 2px orange; */ 
+}
+
+
+.carrito-contenedor-lista h4 {
+    color: rgb(47, 46, 46);
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+.carrito-precio {
+    width: 100%;
+    text-decoration: none;
+    text-shadow: 0 0 2px black;
+}
+
+.carrito-input {
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    justify-content:center;
+    /* border: solid 2px rgb(199, 71, 246); */
+}
+
+.carrito-lista {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 5px;
+    text-shadow: 0 0 2px black;
+    display: flex;
+    justify-content: space-around;
+    /* border: solid 2px rgb(118, 12, 12); */
+}
+
+/* npx nodemon app */
+
+
+
+/*  <main>
+
+        <section class="carrito_container">
+            <div class="carrito_pasos">
+                <p>paso 1 - paso 2- paso 3</p>
+            </div>
+            
+            <article class="carrito_box">
+                <div class="carrito_detalle">
+                    <div class="carrito_imagen">
+                        <img src="/images/producto1.jpeg" alt="">
+                    </div>
+                    <div class="carrito_detail-product">
+                        <h3>Titulo de producto</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, nam!</p>
+                    </div>
+                </div>
+                <div class="carrito_articulo-buttons">
+                    <button type="submit">modificar</button>
+                    <button type="submit">eliminar</button>
+                </div>
+                </div>
+            </article>
+
+        </section>
+
+
+    </main*/
 

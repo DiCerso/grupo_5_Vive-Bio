@@ -53,81 +53,103 @@
     </header>
 
 
-    <main class="Carrito">
+    <main>
+        <section class="carrito-contenedor">
 
-        <div>
-            caja contenedora con transparencia
-        </div>
+            <div class="carrito_pasos">
+                <p>Paso 1 - Paso 2 - Paso 3</p>
+            </div>
 
-        <p>Paso 1 - Paso 2 - Paso 3</p>
-       
-        <section>
-            <article>
-                <div>
-                    <span>
-                        <br>Jabón con Pétalos</br>
-                        <img src="images/jabon con petalos.jpg" alt="">
-                        <p>$220-</p>
-                        <br>El jabón de Pétalos contiene aceites naturales que devuelven 
-                            la humedad e hidratación a tu piel; de igual manera conseguirás 
-                            una piel suave y lisa debido a su efecto astringente que regenera 
-                            la epidermis. Su alto contenido en vitamina C y propiedades antioxidantes, 
-                            le darán a tu piel un aspecto rejuvenecedor.</br>
-                            <p>CANTIDAD 1</p>
-                    </span>
-    
-                <div>
-                    <button>Modificar</button>
-                    <button>Eliminar</button>
+            <!--JABON CON PETALOS-->
+            <article class="carrito-box">
+                <div class="carrito-images">
+                    <img src="images/jabon con petalos.jpg" alt="">
                 </div>
-    
-                    <span>
-                        <br>Jabón y Esponja Vegetal</br>
-                        <img src="images/jabon y esponja vegetal.jpg" alt="">
-                        <p>$860-</p>
-                        <br>Esponja vegetal (luffa cylindrica) y jabón natural 
-                           con plantas medicinales de distinta variedad.</br>
-                        <p>CANTIDAD 1</p>
-                    </span>
-    
-    
-                <div>
-                    <button>Modificar</button>
-                    <button>Eliminar</button>
+
+                <div class="carrito-titulo">
+                    <h3>Jabón con Pétalos</h3>
+                    <h4>Este contiene aceites naturales que devuelven
+                        la humedad e hidratación a tu piel.
+                        <!--; de igual manera conseguirás 
+                        una piel suave y lisa debido a su efecto astringente que regenera 
+                        la epidermis. Su alto contenido en vitamina C y propiedades antioxidantes, 
+                        le darán a tu piel un aspecto rejuvenecedor.-->
+                    </h4>
                 </div>
-    
-    
-                    <span>
-                        <br>Toalla de Algodón</br>
-                        <img src="images/toallas de algodon.jpg" alt="">
-                        <p>$990-</p>
-                        <br>Básicos Premium para crear tu hogar ideal.</br>
-                        <p>CANTIDAD 1</p>
-                    </span>
-    
-                <div>
-                    <button>Modificar</button>
-                    <button>Eliminar</button>
+            </article>
+
+            <!-- BOTONES -->
+            <div>
+                <div class="carrito-buttons1">
+                    <h2>CANTIDAD 1</h2>
+                    <h2>$220-</h2>
                 </div>
-             </article>
-         </section>
-        
 
-       <section>
-           <br>Cupón de Descuento<br>
+                <div class="carrito-buttons2">
+                    <button type="submit">modificar</button>
+                    <button type="submit">eliminar</button>
+                </div>
 
-           <p>Precio de Lista</p>
-           <p>Precio al Contado</p>
-           <p>Precio Contado/Cuotas</p>
+            </div>
 
-           <br>Seleccionar Método de Pago<br>
-           
-       </section>
+
+          <!--   <div>
+                <div class="carrito-buttons1">
+                    <h2>CANTIDAD 1</h2>
+                    <h2>$220-</h2>
+                </div>
+
+                <div class="carrito-buttons2">
+                    <button type="submit">modificar</button>
+                    <button type="submit">eliminar</button>
+                </div>
+
+            </div> -->
+
+            <!-- LISTA -->
+            <div class="carrito-contenedor-lista">
+
+                <h4>Cupón de Descuento</h4>
+
+                <div class="carrito-input">
+                    <input id="icons-search" name="icons-search" type="text" placeholder="Search 16,083 icons..."
+                        class="rounded">
+                </div>
+
+                <p>Precio de Lista</p>
+                <p>Precio al Contado</p>
+                <p>Precio Contado/Cuotas</p>
+
+                <h4>Seleccione Método de Pago</h4>
+
+
+                <div class="carrito-lista">
+                    <select name="Tarjetas de Crédito" id="Tarjetas de Crédito">
+                        <optgroup label="Tarjetas de Crédito">
+                            <option value="Mercado Pago">Mercado Pago</option>
+                            <option value="Visa">Visa</option>
+                            <option value="American Express">American Express</option>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="Cabal">Cabal</option>
+                            <option value="Diners Club">Diners Club</option>
+                        </optgroup>
+                    </select>
+
+                    <select name="Centros de Pago" id="Centros de Pago">
+                        <optgroup label="Centros de Pago">Centros de Pago</optgroup>
+                        <option value="Rapipago">Rapipago</option>
+                        <option value="Pago Facil">Pago Fácil</option>
+                        <option value="Zona Pago">Zona Pago</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+        </section>
 
     </main>
 
 
-    <footer class="footer">
+    <!--<footer class="footer">
         <div class="DatFooter">
             <ul class="direcciones__footer">
                 <li><a href="/">Home</a></li>
@@ -153,4 +175,4 @@
     </footer>
 </body>
 
-</html>
+</html>-->
