@@ -87,19 +87,24 @@
     color: rgb(47, 46, 46);
     width: 100%;
     padding: 5px;
+    margin-top: 10px;
     text-align: center;
+    /* border: solid 2px rgb(199, 71, 246); */
 }
 
-.carrito-precio {
+/* .carrito-precio {
     width: 100%;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
     text-decoration: none;
     text-shadow: 0 0 2px black;
-}
+    border: solid 2px rgb(199, 71, 246);
+} */
 
 .carrito-input {
     width: 100%;
     display: flex;
-    padding-bottom: 15px;
+    padding: 10px;
     justify-content:center;
     /* border: solid 2px rgb(199, 71, 246); */
 }
