@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ejs": "^3.1.7",
     "express": "^4.17.3"
   },
   "name": "grupo_5_proyecto",

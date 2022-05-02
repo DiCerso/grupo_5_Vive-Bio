@@ -5,9 +5,30 @@ const port = 3030;
 
 app.use(express.static('public'));
 
-app.get('/', (req,res) => {
+app.set(path.resolve(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+
+
+/*rutas dinamicas */
+const indexRouter  = require('./routes/index');
+
+
+app.get('/', indexRouter);
+
+
+
+
+
+
+
+
+
+
+/*rutas */
+/* app.get('/', (req,res) => {
     return res.sendFile(path.resolve(__dirname,'views','index.html'))
-});
+}); */
 app.get('/register', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'register.html'))
 });
@@ -16,15 +37,15 @@ app.get('/login', (req,res) => {
 });
 
 app.get('/product', (req,res) => {
-    return res.sendFile(path.resolve(__dirname, 'views', 'productDetail.html'))
+    return res.sendFile(path.resolve(__dirname, 'views', 'productAll.html'))
 });
 
 app.get('/productCard', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'productCard.html'))
 });
 
-app.get('/productAll', (req,res) => {
-    return res.sendFile(path.resolve(__dirname, 'views', 'productAll.html'))
+app.get('/productdetail', (req,res) => {
+    return res.sendFile(path.resolve(__dirname, 'views', 'productDetail.html'))
 });
 
 app.get('/carrito', (req,res) => {
