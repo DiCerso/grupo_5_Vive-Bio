@@ -30,7 +30,7 @@
 
 .product .main__categorías a {
   color: white;
-  background-image: url('/images/tex.jpeg');
+  background-color: var(--azulSuave);
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -42,6 +42,8 @@
   margin-left: 10px;
   margin-right: 10px;
   box-shadow: none;
+    border-radius: 100%;
+    box-shadow: none;
 }
 
 
@@ -90,12 +92,20 @@
   color: var(--aquamarine);
 }
 
+.product .image {
+	width: 50%;
+	border-bottom: 200px solid transparent;
+	border-left: 60px solid white;
+}
 
 
-.product .main__contenedor-img-txt img {
+.product .image img {
   width: 100%;
-  border-radius: 10px 10px 0 0;
-  margin-bottom: -4px;
+  width: 100%;
+	height: 200px;
+	position: relative;
+	z-index: -1;
+	transform: translateX(-60px);
 }
 
 
@@ -194,3 +204,58 @@
 /* Menú Categorías */
 
 /* Artículos */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #2e2e2e;
+	color: #1e1e1e;
+	font-family: 'Montserrat', sans-serif;
+}
+.container {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	align-items: center;
+	position: relative;
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("/images/jabon_antiseptico.jpg");
+	background-size: cover;
+	-webkit-filter: blur(25px);
+	z-index: -1;
+}
+.box {
+	width: 800px;
+	display: flex;
+	height: 200px;
+	transform:translatex(60px)
+}
+.content {
+	width: calc(50% - 90px);
+	background-color: white;
+	line-height: 1.4;
+	padding: 10px;
+}
+.content h3 {
+	margin-bottom: 5px;
+}
+.image {
+	width: 50%;
+	border-bottom: 200px solid transparent;
+	border-left: 60px solid white;
+}
+.image img {
+	width: 100%;
+	height: 200px;
+	position: relative;
+	z-index: -1;
+	transform: translateX(-60px);
+}
