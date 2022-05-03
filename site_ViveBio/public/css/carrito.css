@@ -63,6 +63,7 @@
     width: 100%;
     font-size: 12px;
     padding: 10px;
+    margin: 10px 0 10px;
     display: flex;
     justify-content: space-between;
     border: solid 3px #aa80a6;
