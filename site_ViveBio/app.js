@@ -12,9 +12,13 @@ app.set('view engine', 'ejs');
 
 /*rutas dinamicas */
 const indexRouter  = require('./routes/index');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/product');
 
 
-app.get('/', indexRouter);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/products', productsRouter);
 
 
 
