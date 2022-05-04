@@ -1,4 +1,4 @@
-# Retrospectivas Sprint 1
+/* # Retrospectivas Sprint 1
 
 + ### Hacer más:
   + Adaptarse.
@@ -36,12 +36,12 @@
 + ### Seguir haciendo:
   + Adaptarse.
   + Centrarse más en visualización de código.
-  + Preguntar antes de hacer un cambio significativo.
+  + Preguntar antes de hacer un cambio significativo. */
 
 
 | Retrospectiva | Primer Sprint | Segundo Sprint | Tercer Sprint |
 | ------------- | ------------- | ------------- | ------------- |
-| Hacer más  | + Adaptarse + Centrarse más en visualización de código. | + Comunicarse. + Ponerse en el lugar del otro.| |
+| Hacer más  | - Adaptarse  - Centrarse más en visualización de código. | + Comunicarse. + Ponerse en el lugar del otro.| |
 | Empezar a hacer  |   + Comprender puntos de vista. + Preguntar sobre dudas de código.  |   + Realizar más prácticas individuales y grupales. | |
 | Hacer menos  | + Guardarse lo que a uno no le gusta. | + Ser individualista.  | |
 | Dejar de hacer  | + Desestimar aportes sin considerarlos. | + Posponer daylis, plazos. | |
