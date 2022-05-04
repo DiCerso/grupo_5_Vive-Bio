@@ -13,11 +13,9 @@
 
 .header_register img {
     width: 150px;
-    padding-bottom: 10px;
-    padding-top: 5px;
 }
 
-.container {
+.register_container {
     width: 270px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
@@ -52,7 +50,7 @@
     margin: 5px 0 5px;
     padding: 10px 5px;
     border-radius: 10px;
-    border: 1px solid green;
+    border: 1px solid var(--verdeOscuro);
 }
 
 
@@ -95,7 +93,7 @@
 }
 
 .register_button button {
-    background-color: var(--verdeclaro);
+    background-color: var(--verdeOscuro);
     color: black;
     border-radius: 12px;
     padding: 5px 10px;
@@ -103,12 +101,13 @@
 
 .register button:hover {
     transition: all 0.4s;
-    background-color: rgb(87, 187, 87);
+    background-color: var(--verdeFuerte);
 }
 
 @media (min-width: 768px) {
     .header_register img {
-        width: 180px;
+        width: 250px;
+        margin-bottom: 10px;
     }
 
     .box_1 {
@@ -121,5 +120,15 @@
 
     .container {
         width: 350px;
+        height: 500px;
+    }
+    .register_form-box{
+        margin: 10px 0;
+    }
+    .register_form-box:first-child {
+        margin-top: 0;
+    }
+    .register_form-box:last-child{
+        margin-bottom: 0;
     }
 }
