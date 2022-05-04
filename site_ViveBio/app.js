@@ -4,13 +4,11 @@ const app = express();
 const port = 3030;
 
 
-app.use(express.static('public'));
+app.use(express.static(path.joiin(__dirname,'public')));
 
 // View engine setup
-app.set(path.resolve(__dirname, 'views'));
+app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-
 
 /*rutas dinámicas */
 const indexRouter  = require('./routes/index');
@@ -44,4 +42,4 @@ app.get('/carrito', (req,res) => {
     return res.sendFile(path.resolve(__dirname, 'views', 'productCart.html'))
 }); */
 
-app.listen(port, () => console.log(`Server running in port http://localhost:${port}`))
+app.listen(port, () => console.log(`Server running in port http://localhost:${port}`));

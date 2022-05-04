@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head',{
+        title : 'Nuevo producto'
+    })  %> 
+
+
+<body class="register">
+    <%- include('./partials/header') %> 
+
+    <main>
+        <section>
+            <h1>Agregar Producto</h1>
+            <hr>
+            <form method="POST" action="">
+                <article>
+                <div class="register__form-box">
+                    <label for="name">Nombre del producto</label>
+                    <input class="register__form-input" type="text" id="name" name="name">
+                </div>
+                <div class="register__form-box">
+                    <label for="price">Precio</label>
+                    <input class="register__form-input" type="number" id="price" name="price" step="0.01" placeholder="Product Price">
+                </div>
+         
+                <div class="register__form-box">
+                        <label for="category">Categorias</label>
+                        <select class="register__form-select" name="category" id="category">
+                            <option value="" hidden selected>Selecciona la categoría...</option>
+                          <% categories.forEach(category => { %>
+                            <option value="<%= category.id %>"><%= category.name %></option>
+                          <% }) %>
+                        </select>
+                </div>
+              
+            </article>
+               
+                <button type="submit" value="Save">Guardar</button>
+              
+                    <button type="reset">Limpiar</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+    <%- include('./partials/footer') %> 
+</body>
+
+</html>
