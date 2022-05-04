@@ -1,5 +1,5 @@
 module.exports = {
-    productCard : (req,res) => res.render('productCard'),
+    Card : (req,res) => res.render('productCard'),
         /*
         const {idProduct} = req.params;
         const product = products.find(product => product.id === +idProduct);
@@ -7,7 +7,8 @@ module.exports = {
             product
         })*/
 
-    productAll : (req,res) => res.render('productAll'),
-
-    cart : (req,res) => res.render('productCart')
+    All : (req,res) => res.render('productAll'),
+    Cart : (req,res) => res.render('productCart'),
+    add : (req,res) => res.render('addProducts'),
+    edit : (req,res) => res.render('editProducts')
 }
