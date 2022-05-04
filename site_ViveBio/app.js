@@ -7,15 +7,17 @@ const port = 3030;
 app.use(express.static('public'));
 
 // View engine setup
-app.set(path.resolve(__dirname, 'views'));
+app.set(path.resolve(__dirname,'views'));
 app.set('view engine', 'ejs');
 
 /*rutas dinámicas */
 const indexRouter  = require('./routes/index');
 const productsRouter = require('./routes/product');
+const usersRouter = require('./routes/users')
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
+app.use('/users', usersRouter)
 
 
 app.listen(port, () => console.log(`Server running in port http://localhost:${port}`));
