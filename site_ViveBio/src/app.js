@@ -7,10 +7,12 @@ const port = 3030;
 app.use(express.static('public'));
 
 // View engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "ejs");
 
-app.set('views', __dirname + '/views');
+/* app.set('views', __dirname + '/views'); */
 //app.set(path.resolve('views', __dirname + '/src/views'));
-app.set('view engine', 'ejs');
+/* app.set('view engine', 'ejs'); */
 app.use(express.static(path.join(__dirname,'..','public')));
 
 /*rutas dinámicas */
