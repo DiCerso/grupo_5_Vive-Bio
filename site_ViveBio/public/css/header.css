@@ -53,6 +53,10 @@ header .header__burger {
     display: none;
 }
 
+.user_control{
+    display: none;
+}
+
 @media(min-width: 426px) {
 
     .header {
