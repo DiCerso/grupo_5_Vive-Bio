@@ -8,40 +8,44 @@
                 <main>
                     <div class="edit_find">
                         <label for="">Buscar Producto</label>
-                        <input type="text">
+                        <input type="text" style="padding:5px;">
                     </div>
                     <section class="add_container">
                         <h3>Editar Producto</h3>
                         <form action="" method="">
-                            <article>
-                                <div class="add_form-box">
-                                    <label for="name"><strong>Nombre</strong></label>
-                                    <input class="" type="text" id="name" name="name">
+                            <article class="camps_container">
+                                <div class="sub_container">
+                                    <div class="add_form-box">
+                                        <label for="name"><strong>Nombre</strong></label>
+                                        <input class="" type="text" id="name" name="name" style="padding:5px;">
+                                    </div>
+                                    <div class="add_form-box">
+                                        <label for="image"><strong>Imagen</strong></label>
+                                        <input type="file" id="image" name="image" multiple>
+                                    </div>
+                                    <div class="add_form-box">
+                                        <label for="category"><strong>Categoría</strong></label>
+                                        <select name="category" id="category">
+                                            <option value="" hidden selected>Selecciona la categoría...</option>
+                                        </select>
+                                    </div>
+                                    <div class="add_form-box">
+                                        <label for="size"><strong>Tamaño</strong></label>
+                                        <select name="size" id="size">
+                                            <option value="" hidden selected>Selecciona el tamaño...</option>
+                                        </select>
+                                    </div>
+                                    <div class="add_form-box">
+                                        <label for="price"><strong>Precio</strong></label>
+                                        <input class="" type="number" id="price" name="price" style="padding:5px;">
+                                    </div>
                                 </div>
-                                <div class="add_form-box-description">
-                                    <label for="desciption"><strong>Descripción</strong></label>
-                                    <textarea type="text" id="desciption" name="desciption" rows="3"
-                                        cols="35"></textarea>
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="image"><strong>Imagen</strong></label>
-                                    <input type="file" id="image" name="image" multiple>
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="category"><strong>Categoría</strong></label>
-                                    <select name="category" id="category">
-                                        <option value="" hidden selected>Selecciona la categoría...</option>
-                                    </select>
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="size"><strong>Tamaño</strong></label>
-                                    <select name="size" id="size">
-                                        <option value="" hidden selected>Selecciona el tamaño...</option>
-                                    </select>
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="price"><strong>Precio</strong></label>
-                                    <input class="" type="number" id="price" name="price">
+                                <div>
+                                    <div class="add_form-box-description">
+                                        <label for="desciption"><strong>Descripción</strong></label>
+                                        <textarea type="text" id="desciption" name="desciption" rows="3" cols="35"
+                                            style="resize: none; padding:5px;"></textarea>
+                                    </div>
                                 </div>
                             </article>
                             </div>

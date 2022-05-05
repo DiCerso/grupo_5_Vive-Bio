@@ -14,3 +14,16 @@
     margin: 10px 0 10px;
     border-radius: 10px;
 }
+.edit_find input{
+    border-radius: 5px;
+    border: 1px solid green;
+}
+
+@media (min-width: 768px){
+    .edit_find{
+        width: 600px;
+    }
+    .edit_find input{
+        width: 300px;
+    }
+}
