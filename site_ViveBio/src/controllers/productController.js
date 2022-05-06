@@ -14,3 +14,4 @@ module.exports = {
     add : (req,res) => res.render(path.resolve('./src/views/products/addProducts')),
     edit : (req,res) => res.render(path.resolve('./src/views/products/editProducts'))
 }
+
