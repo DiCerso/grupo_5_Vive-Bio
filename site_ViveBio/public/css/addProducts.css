@@ -1,17 +1,19 @@
 .addProducts main {
-    display: flex;
+    display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px 0 10px;
 }
 
 .add_container {
+    margin: 10px 0 10px;
     width: 90%;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
-    padding: 20px;
-    border: 1px solid green;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
 }
 
 
@@ -53,13 +55,15 @@
     text-align: center;
     margin: 25px 0 10px;
 }
+
 .add_button button {
     background-color: var(--verdeOscuro);
     color: black;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 5px 10px;
     margin: 0 10px 0;
 }
+
 .add_container label {
     margin: 5px 0 5px;
 }
@@ -74,6 +78,7 @@
     .add_container {
         width: 630px;
         align-items: center;
+        border-radius: 10px;
     }
 
     .camps_container {
@@ -97,5 +102,5 @@
         margin: 5px 0 5px;
     }
 
-    
+
 }
