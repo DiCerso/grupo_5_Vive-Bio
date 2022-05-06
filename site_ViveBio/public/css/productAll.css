@@ -302,6 +302,7 @@
     .productAll .card.estilo-c {
         width: 295px;
     }
+}
 
 @media (min-width: 960px) {
     .productAll .productosRelacionados {
