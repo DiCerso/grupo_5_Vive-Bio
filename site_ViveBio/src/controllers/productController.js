@@ -1,7 +1,10 @@
-const path = require('path');
+
 
 module.exports = {
-    Card : (req,res) => res.render(path.resolve('./src/views/products/productCard')),
+    Card : (req,res) => {
+        return res.render('productCard')
+    },
+
         /*
         const {idProduct} = req.params;
         const product = products.find(product => product.id === +idProduct);
@@ -14,4 +17,5 @@ module.exports = {
     add : (req,res) => res.render(path.resolve('./src/views/products/addProducts')),
     edit : (req,res) => res.render(path.resolve('./src/views/products/editProducts'))
 }
+
 
