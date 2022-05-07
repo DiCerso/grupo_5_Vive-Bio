@@ -1,118 +1,4 @@
 /*MOBILE*/
-.productAll .producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 10px;
-    margin-bottom: 20px;
-    margin-top: 30px;
-}
-
-
-/*NOMBRE PRODUCTO*/
-.productAll .producto__texto h1 {
-    font-size: 16px;
-    color: var(--azulSuave);
-    text-align: center;
-    text-shadow: none;
-}
-
-
-/*BOX TEXTO*/
-.productAll .producto__texto {
-    line-height: 25px;
-    text-align: justify;
-    border-radius: 5px;
-    width: 90%;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px rgb(161, 206, 152);
-    padding: 20px 10px;
-    border: 1px solid green;
-}
-
-/*TEXTO*/
-.productAll .producto__texto p {
-    color: var(--VioletaOscuro);
-    padding: 20px 10px;
-    background-color: var(--aquamarineSuave);
-    box-shadow: 1px 1px 5px var(--grisSuave);
-    border-radius: 5px;
-    text-shadow: none;
-}
-
-
-/*BOX IMAGEN*/
-.productAll .producto__imagen {
-    background-color: var(--verdeClaro);
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px rgb(161, 206, 152);
-    padding: 20px;
-    border: 1px solid green;
-    margin-top: 10px;
-}
-
-.productAll .producto__imagen h2 {
-    font-size: 20px;
-    padding: 10px;
-}
-
-.productAll .box-info .rating {
-    font-size: 25px;
-}
-
-.productAll .box-imagen img {
-    width: 100%;
-    border-radius: 50%;
-}
-
-/*BOX TEXTO*/
-.productAll .box-info {
-    display: flex;
-    align-items: flex-end;
-    justify-content: end;
-    flex-direction: column;
-}
-
-/* ÍCONOS */
-.productAll .producto__cart {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.productAll .producto__cart button {
-    font-size: 33px;
-    background-color: var(--azulSuave);
-    color: white;
-    border-radius: 25px;
-    padding: 8px;
-}
-
-.productAll .button {
-    display: flex;
-    flex-direction: column;
-}
-
-.productAll .producto__cart a {
-    text-decoration: none;
-    color: white;
-    background-color: var(--azulSuave);
-    border-radius: 50%;
-    font-size: 80px;
-    padding: 20px;
-}
-
-.productAll .producto__cart a:hover {
-    color: var(--azulSuave);
-    background-color: white;
-    border: 1px solid var(--azul);
-}
-
-
-/* PRODUCTOS RELACIONADOS */
 .productAll .row {
     width: 100%;
     display: flex;
@@ -121,6 +7,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.productAll .titulares {
+    text-align: center;
+    color: white;
+    background-color: var(--verdeOscuro);
+    margin: 30px 0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
 }
 
 .productAll .productosRelacionados {
@@ -150,6 +48,25 @@
     padding: 15px;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
+    color: var(--azulMarino);
+}
+
+.productAll .estilo-c .img-container {
+    overflow: hidden;
+    height: 300px;
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.productAll .estilo-c .img-container img {
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+.productAll .estilo-c:hover .img-container img {
+    transform: scale(1.2);
 }
 
 .productAll .estilo-c .info-container {
@@ -165,24 +82,9 @@
     width: 33%;
 }
 
-
-.productAll .estilo-c .img-container {
-    overflow: hidden;
-    height: 300px;
-    position: relative;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.productAll .estilo-c .img-container img {
-    width: 100%;
-    position: absolute;
-    top: -20%;
-    transition: all 0.5s;
-}
-
-.productAll .estilo-c:hover .img-container img {
-    transform: scale(1.2);
+.productAll .box-nombre-edit{
+    display: flex;
+    justify-content: space-between;
 }
 
 /*NOMBRE PRODUCTO*/
@@ -201,7 +103,7 @@
 
 /*PROPIEDAD PRODUCTO*/
 .productAll .estilo-c .info-container span {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .productAll .estilo-c .info-container h3 {
@@ -236,43 +138,25 @@
     border-radius: 30%;
 }
 
-.productAll .titulares {
-    text-align: center;
-    color: white;
-    background-color: var(--verdeOscuro);
-    margin: 30px 0;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-}
-
 .productAll .estilo-c .add-cart:hover {
     color: var(--azulSuave);
     background-color: white;
     border: 1px solid var(--azulSuave);
 }
 
-.productAll .banner img{
-    width: 100%;
-    margin-bottom: -5px;
-}
-
 @media(min-width: 460px) {
-     
     .productAll .row {
         flex-direction: row;
         justify-content: space-around;
     }
 
     .productAll .card.estilo-c {
-        width: 83%;
+        width: 49%;
     }
 
     /*NOMBRE PRODUCTO*/
     .productAll .estilo-c .info-container h2 {
-        font-size: 26px;
+        font-size: 22px;
     }
 
     /*CATEGORÍA PRODUCTO*/
@@ -285,6 +169,11 @@
         font-size: 22px;
     }
 
+    .productAll .estilo-c .img-container img {
+        top: 0;
+        height: 100%;
+      }
+
     .productAll .estilo-c .add-cart {
         padding: 5px;
         border-radius: 15px;
@@ -293,26 +182,29 @@
 
     .productAll .estilo-c:hover {
         box-shadow: 0 0 8px black;
-        
     }
 }
 
+    @media (min-width: 760px) {
+        /*PRODUCTOS RELACIONADOS*/
+        .productAll .productosRelacionados {
+            margin-bottom: 30px;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+        }
 
-@media (min-width: 660px) {
-    .productAll .card.estilo-c {
-        width: 295px;
-    }
+        .productAll .card.estilo-c {
+            width: 30%;
+        }
+
+        /*PROPIEDAD PRODUCTO*/
+        .productAll .estilo-c .info-container span {
+        font-size: 20px;
+}
 }
 
-@media (min-width: 960px) {
-    .productAll .productosRelacionados {
-        margin-bottom: 30px;
-        height: 60px;
-        display: flex;
-        flex-direction: row;
-    }
-
-    .productAll .iconos-eco {
-        width: 97%;
-    }
+.productAll .banner img{
+    width: 100%;
+    margin-bottom: -5px;
 }
