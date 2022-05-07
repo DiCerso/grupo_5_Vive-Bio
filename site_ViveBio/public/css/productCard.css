@@ -50,7 +50,6 @@
     color: var(--VioletaOscuro);
     padding: 20px 10px;
     background-color: var(--aquamarineSuave);
-    box-shadow: 1px 1px 5px var(--grisSuave);
     border-radius: 5px;
     text-shadow: none;
 }
