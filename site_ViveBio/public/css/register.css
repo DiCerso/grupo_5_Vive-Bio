@@ -17,11 +17,13 @@
 
 .register_container {
     width: 270px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px rgb(161, 206, 152);
     padding: 20px;
-    border: 1px solid green;
+    margin: 10px 0 10px;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
 }
 
 .box_1 {
@@ -47,9 +49,9 @@
 
 .register_form-input {
     width: 100%;
-    margin: 5px 0 5px;
+    margin: 10px 0 10px;
     padding: 10px 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid var(--verdeOscuro);
 }
 

@@ -4,7 +4,7 @@
     "express": "^4.17.3",
     "nodemon": "^2.0.16",
     "to": "^0.2.9",
-    "update": "^0.7.4"
+    "update": "^0.4.2"
   },
   "name": "grupo_5_proyecto",
   "description": "Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador.\r Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. \r Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.",
