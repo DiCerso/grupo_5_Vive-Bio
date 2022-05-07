@@ -23,10 +23,10 @@
 
 .carrito-box {
     width: 100%;
-    border: solid 2px #7FA794;
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    flex-direction: row;
     border: solid 3px #aa80a6;
     border-radius: 20px;
 }
@@ -42,6 +42,12 @@
     border-radius: 20px;
 }
 
+.carrito-texto-productos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .carrito-titulo h3 {
     width: 100%;
     color: rgb(47, 46, 46);
@@ -49,6 +55,14 @@
     justify-content: center;
     padding: 12px;
     /* border: solid 2px green; */
+}
+.carrito-contenedor-lista h4 {
+    color: rgb(47, 46, 46);
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
+    /* border: solid 2px rgb(199, 71, 246); */
 }
 
 .carrito-contenedor p {
@@ -63,19 +77,19 @@
     width: 100%;
     font-size: 12px;
     padding: 10px;
-    margin: 10px 0 10px;
+    margin: 10px 0 5px;
     display: flex;
     justify-content: space-between;
     border: solid 3px #aa80a6;
     border-radius: 20px;
     /* border: solid 2px rgb(118, 12, 12); */
- }
+}
 
- .carrito-buttons2 button{
+.carrito-buttons2 button{
     background-color: rgba(190, 118, 232, 0.3);
     font-size: 17px;
     padding: 10px;
-    margin: 10px 0 20px;
+    margin: 5px 0 20px;
     border: solid 3px #aa80a6;
     border-radius: 20px;
 }
@@ -85,7 +99,7 @@
     display: flex;
     justify-content: space-around;
     /* border: solid 2px rgb(118, 12, 12); */
- }
+}
 
 .carrito-contenedor-lista {
     /* background-color: rgba(184, 247, 196, 0.8); */
@@ -95,15 +109,6 @@
     text-align: left;
     margin-bottom: 10px;
     /* border: solid 2px orange; */ 
-}
-
-.carrito-contenedor-lista h4 {
-    color: rgb(47, 46, 46);
-    width: 100%;
-    padding: 5px;
-    margin-top: 10px;
-    text-align: center;
-    /* border: solid 2px rgb(199, 71, 246); */
 }
 
 .carrito-input {
@@ -140,17 +145,146 @@
 }
 
 .carrito-buttons3 {
-   width: 100%;
-   padding: 10px;
-   display: flex;
-   justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
    /* border: solid 2px rgb(118, 12, 12); */
 }
 
-@media
+
+            
 
 
 
+
+            /* 460 */
+
+ @media (min-width: 460px){
+    carrito-box {
+    width: 100%;
+    height: 50%;
+    border: solid 2px #7FA794;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+}
+
+@media (min-width: 460px){
+    .carrito-images {
+    width: 60%;
+}
+}
+
+@media (min-width: 460px) {
+.carrito-images img {
+width: 100%;
+padding: 5px;  
+border-radius: 20px;
+display: flex;
+justify-content: left;
+}
+}
+
+@media (min-width: 460px) {
+    .carrito-texto-productos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+}
+
+@media (min-width: 460px) {
+.carrito titulo h3 {
+width: 100%;
+height: 30%;
+margin-top: 40px;
+color: rgb(47, 46, 46);
+display: flex;
+justify-content: center;
+padding: 20px;
+
+/* border: solid 2px green; */
+}
+}
+
+@media (min-width: 460px) {
+.carrito-contenedor-lista h4 {
+color: rgb(47, 46, 46);
+width: 100%;
+padding: 5px;
+margin-top: 60px;
+text-align: center;
+/* border: solid 2px rgb(199, 71, 246); */
+}
+}
+
+
+
+           /* 768 */
+
+ @media (min-width: 768px){
+    carrito-box {
+    width: 100%;
+    height: 50%;
+    border: solid 2px #7FA794;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+}
+
+@media (min-width: 768px){
+    .carrito-images {
+    width: 60%;
+}
+}
+
+@media (min-width: 768px) {
+.carrito-images img {
+width: 100%;
+padding: 5px;  
+border-radius: 20px;
+display: flex;
+justify-content: left;
+}
+}
+
+@media (min-width: 768px) {
+    .carrito-texto-productos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+}
+
+@media (min-width: 768px) {
+.carrito titulo h3 {
+width: 100%;
+height: 30%;
+margin-top: 40px;
+color: rgb(47, 46, 46);
+display: flex;
+justify-content: center;
+padding: 20px;
+
+/* border: solid 2px green; */
+}
+}
+
+@media (min-width: 768px) {
+.carrito-contenedor-lista h4 {
+color: rgb(47, 46, 46);
+width: 100%;
+padding: 5px;
+margin-top: 60px;
+text-align: center;
+/* border: solid 2px rgb(199, 71, 246); */
+}
+}
 
 
 
