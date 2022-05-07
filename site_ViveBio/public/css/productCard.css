@@ -397,8 +397,6 @@
 }
 
     @media (min-width: 760px) {
-
-        /* ************************************************************************* */
         /* Producto principal */
         .productCard .producto__texto h1 {
             font-size: 24px;
@@ -460,7 +458,7 @@
         }
 
         /*PROPIEDAD PRODUCTO*/
-    .productCard .estilo-c .info-container span {
+        .productCard .estilo-c .info-container span {
         font-size: 20px;
 }
         .productCard .iconos-eco {
