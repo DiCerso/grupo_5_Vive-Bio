@@ -193,7 +193,7 @@ segunda parte del main
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
     )
-    ,url(/images/shampoo-argán.jpg);
+    ,url(/images/producto1.jpeg);
     background-size: cover;
 }
 
@@ -206,7 +206,7 @@ segunda parte del main
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
     )
-    ,url(/images/acondicionador-natural-de-coco-3.jpg);
+    ,url(/images/producto2.jpeg);
     background-size: cover;
 }
 
@@ -217,7 +217,7 @@ segunda parte del main
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
     )
-    ,url(/images/2en1almendras.jpg);
+    ,url(/images/producto3.jpeg);
     background-size: cover;
 }
 

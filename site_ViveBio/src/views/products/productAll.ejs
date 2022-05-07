@@ -1,211 +1,630 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head', {
-        title : "Product All"
-      }) %> 
+<%- include('../partials/head', { title : "Productos" }) %>
 
-<body class="productAll">
-    <%- include('./partials/header') %> 
-    <main>
-            <h2 class="títulos">Productos Recomendados<h2>
+        <body class="productAll">
+                <%- include('../partials/header') %>
+     <main>
+        <h2 class="titulares">Productos Recomendados</h2>
         <section class="row">
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/jabon_humectante_2.jpg" alt="producto">
-                                    <span class="promo">10% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2> Jabón Humectante</h2>
-                                    <h4>BioCorporal</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/jabonExfo_luffa.jpg" alt="producto">
-                                    <span class="promo">25% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2> Kit Exfoliante </h2>
-                                    <h4>BioSpa<h4>
-                                    <h3>$ 600.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/jaboncito_exfoliantes.jpg" alt="producto">
-                                    <span class="promo">15% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Kit Coco</h2>
-                                    <h4>BioCapilar</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
         </section>
-            <h2 class="títulos">BioCapilar<h2>
+        <h2 class="titulares">BioCapilar</h2>
         <section class="row">
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/Shampoo-almendras-01.jpg" alt="producto">
-                                    <span class="promo">10% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Shampoo Almendras</h2>
-                                    <h4>BioCapilar</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/Shampoo-geranio-12.jpg" alt="producto">
-                                    <span class="promo">25% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Shampoo Geranio</h2>
-                                    <h4>BioCapilar<h4>
-                                    <h3>$ 600.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/Shampoo-karité-02.jpg" alt="producto">
-                                    <span class="promo">15% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Shampoo Karité</h2>
-                                    <h4>BioCapilar</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
         </section>
-            <h2 class="títulos">BioCorporal<h2>
+        <h2 class="titulares">BioCorporal</h2>
         <section class="row">
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/jabon_antiseptico-07.jpg" alt="producto">
-                                    <span class="promo">10% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Jabón Antiséptico</h2>
-                                    <h4>BioCorporal</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/jabon-exfoliante-08.jpg" alt="producto">
-                                    <span class="promo">25% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Jabon Exfoliante</h2>
-                                    <h4>BioCorporal<h4>
-                                    <h3>$ 600.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/jabon-humectante-14.jpg" alt="producto">
-                                    <span class="promo">15% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Jabon Humectante</h2>
-                                    <h4>BioCorporal</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
         </section>
-             <h2 class="títulos">BioSpa<h2>
+        <h2 class="titulares">BioSpa</h2>
         <section class="row">
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/JabonLuffa-09.jpg" alt="producto">
-                                    <span class="promo">10% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Kit Hidratante</h2>
-                                    <h4>BioSpa</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/JabonLuffa-10.jpg" alt="producto">
-                                    <span class="promo">25% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Kit Exfoliante</h2>
-                                    <h4>BioSpa<h4>
-                                    <h3>$ 600.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
-                            <div class="card estilo-c">
-                                    <a href="#">
-                            <div class="img-container">
-                                    <img src="/images/JabonLuffa-11.jpg" alt="producto">
-                                    <span class="promo">15% off</span>
-                            </div>
-                            <div class="info-container">
-                                    <h2>Kit Humectante</h2>
-                                    <h4>BioSpa</h4>
-                                    <h3>$ 300.00.-</h3>
-                                    </a>
-                                    <span class="rating">⭐⭐⭐⭐</span>
-                                    <a href="#" class="add-cart">Lo quiero! 🛒</a>
-                            </div>
-                            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="card estilo-c">
+                <a href="/products/Card">
+                    <div class="img-container">
+                        <img src="JabonLuffa-09.jpg" alt="producto">
+                        <span class="promo">15% off</span>
+                    </div>
+                    <div class="info-container">
+                        <div class="box-nombre-edit">
+                            <h2>Kit Coco</h2>
+                            <a href="/products/Edit"><i class="fa-solid fa-file-pen"></i></a>
+                        </div>
+                        <h4>BioCapilar</h4>
+                        <span>-Humectante-</span>
+                        <h3>$ 300.00.-</h3>
+                </a>
+                <div class="card-c-iconos">
+                    <span class="rating">⭐⭐⭐⭐</span>
+                    <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                    <div class="buttons">
+                        <button><i class="fa-solid fa-share-nodes"></i></button>
+                        <button><i class="fa-solid fa-star"></i></button>
+                    </div>
+                </div>
+            </div>
+            </div>
         </section>
-                            <div class="banner">
-                                    <img src="/images/ViveBio-ecoFriendly.png" alt="">
-                            </div>
+
+        <div class="banner">
+            <img src="/images/ViveBio-ecoFriendly.png" alt="">
+        </div>
     </main>
 
-    <%- include('./partials/footer') %> 
-</body>
+                        <%- include('../partials/footer') %>
+        </body>
 
 </html>

@@ -1,41 +1,107 @@
-.addProducts main{
+.addProducts main {
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px 0 10px;
-}
-.add_container{
-    width: 90%;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px rgb(161, 206, 152);
-    padding: 20px;
-    border: 1px solid green;
 }
 
-.add_container h3{
+.add_container {
+    padding: 20px 0 20px;
+    margin: 10px 0 10px;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+}
+
+
+
+.add_container h3 {
     font-size: 25px;
     text-align: center;
-    color:black;
+    color: black;
     margin: 10px;
 }
 
-.add_form-box{
+.add_form-box {
     text-align: center;
     padding: 8px;
     margin: 10px;
 }
-.add_form-box input{
+
+.add_form-box input {
     border: 1px solid var(--verdeFuerte);
     padding: 3px;
     font-size: 11px;
 }
-.add_form-box-description{
+
+.add_form-box-description {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.add_form-box-description textarea{
-    border: 1px solid green;
+
+.add_form-box-description textarea {
+    border: 1px solid var(--verdeFuerte);
+}
+
+.add_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.add_button button {
+    background-color: var(--verdeOscuro);
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 0 10px 0;
+}
+
+.add_container label {
+    margin: 5px 0 5px;
+}
+
+@media (min-width: 425px) {
+    .add_container {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .add_container {
+        width: 630px;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .camps_container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .add_form-box-description {
+        display: flex;
+        flex-direction: column;
+        padding-top: 13px;
+    }
+
+    .add_form-box-description textarea {
+        height: 320px;
+    }
+
+    .add_form-box {
+        display: flex;
+        flex-direction: column;
+        margin: 5px 0 5px;
+    }
+
+
 }

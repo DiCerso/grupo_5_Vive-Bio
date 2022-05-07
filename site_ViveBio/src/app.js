@@ -4,26 +4,26 @@ const app = express();
 const port = 3030;
 
 
-/*Routers*/
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const productsRouter = require('./routes/product');
+app.use(express.static('public'));
 
-/*Middlewares*/
-app.use(express.json());
+// View engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "ejs");
+
+/* app.set('views', __dirname + '/views'); */
+//app.set(path.resolve('views', __dirname + '/src/views'));
+/* app.set('view engine', 'ejs'); */
 app.use(express.static(path.join(__dirname,'..','public')));
 
-/*Routes*/
-app.use('/', indexRouter)
+/*rutas dinámicas */
+const indexRouter  = require('./routes/index');
+const productsRouter = require('./routes/product');
+const usersRouter = require('./routes/users')
+
+
+app.use('/', indexRouter);
+app.use('/products', productsRouter);
 app.use('/users', usersRouter)
-app.use('/product', productsRouter)
 
-// view engine setup
-app.set('views', path.resolve(__dirname, 'views'));
-app.set('view engine', 'ejs'); 
-
-  
-module.exports = app;
 
 app.listen(port, () => console.log(`Server running in port http://localhost:${port}`));
-

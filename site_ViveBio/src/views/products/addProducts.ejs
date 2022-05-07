@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <%- include('./partials/head', { title : "Agregar Producto" }) %>
 
     <body class="addProducts">
         <%- include('./partials/header') %>
+=======
+<%- include('../partials/head', { title : "Agregar Producto" }) %>
+
+    <body class="addProducts">
+        <%- include('../partials/header') %>
+>>>>>>> 55ba5bea292ed72bbb6154c2ac46db6d542e59f6
             <main>
                 <section class="add_container">
                     <h3>Agregar Producto</h3>
                     <form action="" method="">
+<<<<<<< HEAD
                         <article>
                             <div class="add_form-box">
                                 <label for="name"><strong>Nombre</strong></label>
@@ -36,13 +44,46 @@
                             <div class="add_form-box">
                                 <label for="price"><strong>Precio</strong></label>
                                 <input class="" type="number" id="price" name="price">
+=======
+                        <article class="camps_container">
+                            <div class="sub_container">
+                                <div class="add_form-box">
+                                    <label for="name"><strong>Nombre</strong></label>
+                                    <input class="" type="text" id="name" name="name" style="padding:5px;">
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="image"><strong>Imagen</strong></label>
+                                    <input type="file" id="image" name="image" multiple>
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="category"><strong>Categoría</strong></label>
+                                    <select name="category" id="category">
+                                        <option value="" hidden selected>Selecciona la categoría...</option>
+                                    </select>
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="price"><strong>Precio</strong></label>
+                                    <input class="" type="number" id="price" name="price" style="padding:5px;">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="add_form-box-description">
+                                    <label for="desciption"><strong>Descripción</strong></label>
+                                    <textarea type="text" id="desciption" name="desciption" rows="3" cols="35"
+                                        style="resize: none; padding:5px;"></textarea>
+                                </div>
+>>>>>>> 55ba5bea292ed72bbb6154c2ac46db6d542e59f6
                             </div>
                         </article>
                         </div>
                         </div>
                         <div class="register_center">
 
+<<<<<<< HEAD
                             <div class="register_button">
+=======
+                            <div class="add_button">
+>>>>>>> 55ba5bea292ed72bbb6154c2ac46db6d542e59f6
                                 <button type="submit">Enviar</button>
                                 <button type="reset">Limpiar</button>
                             </div>
@@ -50,7 +91,14 @@
                     </form>
                 </section>
             </main>
+<<<<<<< HEAD
             <%- include('./partials/footer') %>
     </body>
 
 </html>
+=======
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>
+>>>>>>> 55ba5bea292ed72bbb6154c2ac46db6d542e59f6
