@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    Card : (req,res) => res.render(path.resolve('./src/views/products/productCard'),
+    Card : (req,res) => res.render(path.resolve('./src/views/products/productCard')),
     All : (req,res) => res.render(path.resolve('./src/views/products/productAll')),
     Cart : (req,res) => res.render(path.resolve('./src/views/products/productCart')),
     add : (req,res) => res.render(path.resolve('./src/views/products/addProducts')),
