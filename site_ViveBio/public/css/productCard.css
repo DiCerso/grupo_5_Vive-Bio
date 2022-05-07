@@ -8,6 +8,20 @@
     margin-top: 30px;
 }
 
+.edit_product-button{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.edit_product-button a{
+    color:black;
+    padding: 5px;
+    margin: 20px;
+    border: 1px solid var(--verdeOscuro);
+    border-radius: 10px;
+    background-color: var(--verdeClaro);
+}
 
 /*NOMBRE PRODUCTO*/
 .productCard .producto__texto h1 {
@@ -463,3 +477,4 @@
             width: 97%;
         }
     }
+}
