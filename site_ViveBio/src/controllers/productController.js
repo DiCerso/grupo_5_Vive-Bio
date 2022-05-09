@@ -8,9 +8,3 @@ module.exports = {
     edit : (req,res) => res.render(path.resolve('./src/views/products/editProducts'))
 }
 
-      /*
-        const {idProduct} = req.params;
-        const product = products.find(product => product.id === +idProduct);
-        return res.render('productCard',{
-            product
-        })*/
