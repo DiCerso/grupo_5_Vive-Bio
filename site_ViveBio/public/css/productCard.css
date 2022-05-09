@@ -166,6 +166,7 @@
     width: 100%;
     position: absolute;
     transition: all 0.5s;
+    height: 100%;
 }
 
 .productCard .estilo-c:hover .img-container img {
