@@ -17,7 +17,13 @@
     border: 1px solid var(--verdeFuerte);
 }
 
+.add_input:hover{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+}
 
+.add_input:focus{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+}
 
 .add_container h3 {
     font-size: 25px;
@@ -30,12 +36,15 @@
     text-align: center;
     padding: 8px;
     margin: 10px;
+    transition: 0.5s;
 }
 
 .add_form-box input {
     border: 1px solid var(--verdeFuerte);
     padding: 3px;
     font-size: 11px;
+    transition: 0.5s;
+    border-radius: 5px;
 }
 
 .add_form-box-description {
@@ -43,10 +52,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+    
 }
 
 .add_form-box-description textarea {
     border: 1px solid var(--verdeFuerte);
+    transition: 0.5s;
+    border-radius: 5px;
 }
 
 .add_button {
