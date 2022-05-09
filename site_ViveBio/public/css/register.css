@@ -53,6 +53,7 @@
     padding: 10px 5px;
     border-radius: 5px;
     border: 1px solid var(--verdeOscuro);
+    transition: 0.5s;
 }
 
 
@@ -82,6 +83,13 @@
 
 }
 
+.register_form-input:hover{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+}
+
+.register_form-input:focus{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+}
 .register_button {
     display: flex;
     justify-content: center;
