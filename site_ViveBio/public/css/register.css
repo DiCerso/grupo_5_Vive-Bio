@@ -1,0 +1,144 @@
+.register main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_register img {
+    width: 150px;
+}
+
+.register_container {
+    width: 270px;
+    padding: 20px;
+    margin: 10px 0 10px;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+}
+
+.box_1 {
+    font-size: 12px;
+}
+
+.box_2 {
+    font-size: 10px;
+    text-align: end;
+}
+
+.box_introduccion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.register_form-box {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.register_form-input {
+    width: 100%;
+    margin: 10px 0 10px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid var(--verdeOscuro);
+    transition: 0.5s;
+}
+
+
+.register h1 {
+    padding: 10px 0 10px;
+    color: black;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.register label {
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+.register_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register_terminos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.register_form-input:hover{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+}
+
+.register_form-input:focus{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+}
+.register_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register_form-box:first-child {
+    margin-top: 0;
+}
+
+.register_button button {
+    background-color: var(--verdeOscuro);
+    color: black;
+    border-radius: 12px;
+    padding: 5px 10px;
+}
+
+.register button:hover {
+    transition: all 0.4s;
+    background-color: var(--verdeFuerte);
+}
+
+@media (min-width: 768px) {
+    .header_register img {
+        width: 250px;
+        margin-bottom: 10px;
+    }
+
+    .box_1 {
+        font-size: 15px;
+    }
+
+    .box_2 {
+        font-size: 12px;
+    }
+
+    .container {
+        width: 350px;
+        height: 500px;
+    }
+    .register_form-box{
+        margin: 10px 0;
+    }
+    .register_form-box:first-child {
+        margin-top: 0;
+    }
+    .register_form-box:last-child{
+        margin-bottom: 0;
+    }
+}

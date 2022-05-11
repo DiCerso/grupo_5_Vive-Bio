@@ -1,0 +1,26 @@
+:root{
+    --verdeClaro: #D0EDCA;
+    --verdeAmarillento: #D9E66B;
+    --verdeClaro-Opaco: rgba(208, 237, 202, 0.5);
+    --grisClaro: #C4C4C4;
+    --trasparencia: rgba(0,0,0,0);
+    --verdeOscuro: #7FA794;
+    --VioletaOscuro: #383843;
+    --verdeSuave:#B4DCB1;
+    --celeste: #b9dff8;
+    --marrónSuave: #DCDE6E;
+    --ocre: #D9E66B;
+    --azulMarino: #383843;
+    --azul: #43446C;
+    --azulSuave: #3F3F82;
+    --lila: #AA80A6;
+    --rosa: #E27FC4;
+    --aquamarine: #B9F3CE;
+    --verdeFuerte: #3DBF26;
+    --rosado: #E27FC4;
+    --cremita: #FDF287;
+    --aquamarineSuave: #E7F9EE;
+    --grisSuave: #6a6060;
+    --celesteSuave: #d9ebf7;
+    --green-background-cards: #8daea5;
+}
