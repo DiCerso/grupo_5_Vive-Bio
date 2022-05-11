@@ -14,6 +14,63 @@
 }
 
 
+/************************************************
+ANIMACIÓN DE INTRO
+*************************************************/
+
+.intro {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--verdeOscuro);
+    transition: 1.5s;
+}
+
+.welcome-header {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    text-shadow: 0 1px 3px black;
+}
+
+.letter {
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+    font-size: 1.1rem;
+}
+
+.letter.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.letter.fade {
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+#pic {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    opacity: 0;
+}
+
+#pic.active {
+    opacity: 1;
+    transition: 0.5s;
+}
 /*************************************************
 primera parte del main
 *************************************************/
@@ -242,6 +299,10 @@ segunda parte del main
 
 @media(min-width:426px) {
 
+    .letter {
+        font-size: 2rem;
+    }
+
 
     .home main .sect1 {
         flex-direction: row;
@@ -302,6 +363,10 @@ segunda parte del main
 
 
 @media(min-width: 768px) {
+
+    .letter {
+        font-size: 2.5rem;
+    }
 
     .home main .sect1 #art__home4 {
         display: none;
