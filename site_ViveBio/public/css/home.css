@@ -239,6 +239,7 @@ segunda parte del main
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .barra__cate__home p{
@@ -339,17 +340,16 @@ segunda parte del main
 
     }
 
+    .home .sect2 .categorias__home .barra__cate__home{
+        transition: all 0.5s;
+    }
 
-    .home .sect2 .categorias__home:hover .corporal__home{
-        transform: scale(1.1);
-        filter: blur(0px);
-    }
-    .home .sect2 .categorias__home:hover .capilar__home{
-        transform: scale(1.2);
-        filter: blur(0px);
-    }
+
+    .home .sect2 .categorias__home:hover .corporal__home,
+    .home .sect2 .categorias__home:hover .barra__cate__home,
+    .home .sect2 .categorias__home:hover .capilar__home,
     .home .sect2 .categorias__home:hover .spa__home{
-        transform: scale(1.2);
+        transform: scale(1.1);
         filter: blur(0px);
     }
 
