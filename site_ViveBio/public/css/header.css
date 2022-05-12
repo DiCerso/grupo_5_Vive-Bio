@@ -120,6 +120,7 @@ header .header__burger {
         margin-left: 5px;
         width: 45px;
         height: 45px;
+        cursor: pointer;
     }
 
     .header__user {
