@@ -64,6 +64,15 @@
     padding: 10px 5px;
     border-radius: 10px;
     border: 1px solid var(--verdeFuerte);
+    transition: 0.5s;
+}
+
+.login_form-input:hover{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+}
+
+.login_form-input:focus{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
 }
 
 .login_center {
