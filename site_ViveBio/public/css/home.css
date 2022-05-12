@@ -168,22 +168,36 @@ segunda parte del main
 }
 
 .home .sect2 .categorias__home {
+    overflow: hidden;
     width: 100%;
     margin: 0 auto;
     height: 300px;
     margin-bottom: 50px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
 }
+
+.home .sect2 .categorias__home .corporal__home:hover{
+    transform: scale(1.2);
+    filter: blur(10px);
+}
+.home .sect2 .categorias__home .capilar__home:hover{
+    transform: scale(1.2);
+    filter: blur(10px);
+}
+.home .sect2 .categorias__home .spa__home:hover{
+    transform: scale(1.2);
+    filter: blur(10px);
+}
+
 
 #cate {
     width: 100%;
     height: 100%;
     background-position: center center;
-    position: relative;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 
 
 
@@ -195,6 +209,7 @@ segunda parte del main
     )
     ,url(/images/producto1.jpeg);
     background-size: cover;
+    transition: all 0.5s;
 }
 
 
@@ -208,6 +223,7 @@ segunda parte del main
     )
     ,url(/images/producto2.jpeg);
     background-size: cover;
+    transition: all 0.5s;
 }
 
 .home .sect2 .categorias__home .spa__home {
@@ -219,6 +235,7 @@ segunda parte del main
     )
     ,url(/images/producto3.jpeg);
     background-size: cover;
+    transition: all 0.5s;
 }
 
 
