@@ -3,6 +3,9 @@
 
 | `Retrospectiva` | ***Hacer más***  | ***Empezar a hacer*** | ***Hacer menos***  | ***Dejar de hacer*** | ***Seguir haciendo***  | 
 | :-------------- | :--------------: | :-------------------: | :----------------: | :------------------: | ---------------------: |
-| `Primer Sprint` | + Adaptarse.  -Centrarse más en visualización de código. | -Comprender puntos de vista. -Preguntar sobre dudas de código. | -Guardarse lo que a uno no le gusta. | -Desestimar aportes sin considerarlos. | -Comunicarse. -Preguntar antes de hacer un cambio significativo.  |
+| `Primer Sprint` | - Adaptarse.  -Centrarse más en visualización de código. | -Comprender puntos de vista. -Preguntar sobre dudas de código. | -Guardarse lo que a uno no le gusta. | -Desestimar aportes sin considerarlos. | -Comunicarse. -Preguntar antes de hacer un cambio significativo.  |
 | `Segundo Sprint` | -Comunicarse. -Ponerse en el lugar del otro.|  -Realizar más prácticas individuales y grupales. | -Ser individualista. | -Posponer daylis, plazos. | -Adaptarse. -Centrarse más en visualización de código. -Preguntar antes de hacer un cambio significativo. | 
 | `Tercer Sprint` | -Daylis |  -Realizar más prácticas individuales y grupales. | -Ser individualista. | -Posponer daylis, plazos. | -Adaptarse. -Centrarse más en visualización de código. -Preguntar antes de hacer un cambio significativo. | 
+--------------------------------
+
+[TOCM]
