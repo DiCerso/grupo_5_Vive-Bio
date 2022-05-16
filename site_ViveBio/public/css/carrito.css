@@ -9,6 +9,12 @@
     /* border: solid 2px orange;  */  
 }
 
+.carrito-contenedor-general {
+    width: 100%;
+    /* border: solid 2px orange; */
+}
+
+
 .carrito_pasos p {
     background-color: rgba(190, 118, 232, 0.3);
     width: 90%;
@@ -158,143 +164,122 @@
 
  @media (min-width: 460px){
     carrito-box {
-    width: 100%;
-    height: 50%;
-    border: solid 2px #7FA794;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
-}
-}
+    width: 100%; 
+}}
 
 @media (min-width: 460px){
     .carrito-images {
     width: 60%;
-}
-}
+}}
 
 @media (min-width: 460px) {
 .carrito-images img {
 width: 100%;
-padding: 5px;  
-border-radius: 20px;
-display: flex;
-justify-content: left;
-}
-}
+/* display: flex;
+justify-content: left; */
+}}
 
 @media (min-width: 460px) {
     .carrito-texto-productos {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-}
+}}
 
 @media (min-width: 460px) {
 .carrito titulo h3 {
 width: 100%;
 height: 30%;
-margin-top: 40px;
-color: rgb(47, 46, 46);
 display: flex;
 justify-content: center;
-padding: 20px;
-
-/* border: solid 2px green; */
-}
-}
+}}
 
 @media (min-width: 460px) {
 .carrito-contenedor-lista h4 {
-color: rgb(47, 46, 46);
 width: 100%;
-padding: 5px;
-margin-top: 60px;
 text-align: center;
-/* border: solid 2px rgb(199, 71, 246); */
-}
-}
+}}
+
+@media (min-width: 768px) {
+    .carrito-cupon-lista { 
+        width: 90%;  
+}}
 
 
 
            /* 768 */
     @media (min-width: 768px){
         .carrito-contenedor {
-            width: 60%;
+            width: 90%;
             display: flex;
-            flex-wrap: wrap;
-        }}
+            justify-content: center;
+            border-radius: 20px;
+    }}
 
     @media (min-width: 768px){
-            .carrito-box {
-                width: 60%;
-                display: flex;
-                flex-wrap: wrap;
-        }}
+    .carrito-contenedor-general {
+        width: 100%;
+    }}
+
 
     @media (min-width: 768px){
-    carrito-box {
-    width: 100%;
-    height: 50%;
-    border: solid 2px #7FA794;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
-    }
-}
+        .carrito-box {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+    }}
 
 @media (min-width: 768px){
     .carrito-images {
     width: 60%;
-}
-}
+}}
 
 @media (min-width: 768px) {
 .carrito-images img {
 width: 100%;
-padding: 5px;  
-border-radius: 20px;
 display: flex;
 justify-content: left;
-}
-}
+}}
 
 @media (min-width: 768px) {
     .carrito-texto-productos {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-}
+}}
 
 @media (min-width: 768px) {
 .carrito titulo h3 {
-width: 100%;
-height: 30%;
-margin-top: 40px;
-color: rgb(47, 46, 46);
 display: flex;
 justify-content: center;
-padding: 20px;
 
-/* border: solid 2px green; */
-}
-}
+}}
 
 @media (min-width: 768px) {
 .carrito-contenedor-lista h4 {
-color: rgb(47, 46, 46);
 width: 100%;
-padding: 5px;
-margin-top: 60px;
 text-align: center;
-/* border: solid 2px rgb(199, 71, 246); */
-}
-}
+}}
 
+@media (min-width: 768px) {
+    .carrito-buttons1 {
+    width: 90%;
+}}
+
+@media (min-width: 768px) {
+        .carrito-buttons2 {
+        width: 90%;
+}}
+
+@media (min-width: 768px) {
+    .carrito-cupon-lista { 
+        width: 90%;  
+}}
+
+@media (min-width: 768px) {
+    .carrito-buttons3 {
+    width: 90%;
+    }}
 
 
 
