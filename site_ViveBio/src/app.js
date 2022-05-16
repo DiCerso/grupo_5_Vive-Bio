@@ -6,7 +6,7 @@ const port = 3030;
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname,'..','public')));
 
 /*rutas dinámicas */
 const indexRouter = require('./routes/index');
