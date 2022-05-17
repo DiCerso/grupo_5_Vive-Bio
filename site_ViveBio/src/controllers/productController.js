@@ -1,3 +1,4 @@
+const products = require('../data/products');
 const path = require('path');
 const fs = require('fs');
 const products = require('../data/products.json');
