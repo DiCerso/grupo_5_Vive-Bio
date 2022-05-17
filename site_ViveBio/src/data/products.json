@@ -7,8 +7,8 @@
       "category": 2,
       "property": "Exfoliante",
       "price": 300,
-      "volume": 90,
-      "discount": 30,
+      "volume": "90",
+      "discount": "30",
       "image": []
    },
    {
@@ -166,5 +166,15 @@
       "volume": 140,
       "discount": 25,
       "image": []
+   },
+   {
+      "name": "Producto de prueba",
+      "category": "2",
+      "volume": "100",
+      "discount": "10",
+      "property": "Curativas",
+      "price": "200",
+      "id": 15,
+      "image": "image-1652823692086.png"
    }
 ]
