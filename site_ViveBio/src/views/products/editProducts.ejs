@@ -1,58 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<%- include('../partials/head', { title : "Agregar Producto" }) %>
-
-    <body class="addProducts">
-        <%- include('../partials/header') %>
-            <main>
-                <section class="add_container">
-                    <h3>Agregar Producto</h3>
-                    <form action="" method="">
-                        <article class="camps_container">
-                            <div class="sub_container">
-                                <div class="add_form-box">
-                                    <label for="name"><strong>Nombre</strong></label>
-                                    <input class="" type="text" id="name" name="name" style="padding:5px;">
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="image"><strong>Imagen</strong></label>
-                                    <input type="file" id="image" name="image" multiple>
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="category"><strong>Categoría</strong></label>
-                                    <select name="category" id="category">
-                                        <option value="" hidden selected>Selecciona la categoría...</option>
-                                    </select>
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="price"><strong>Precio</strong></label>
-                                    <input class="" type="number" id="price" name="price" style="padding:5px;">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="add_form-box-description">
-                                    <label for="desciption"><strong>Descripción</strong></label>
-                                    <textarea type="text" id="desciption" name="desciption" rows="3" cols="35"
-                                        style="resize: none; padding:5px;"></textarea>
-                                </div>
-                            </div>
-                        </article>
-                        </div>
-                        </div>
-                        <div class="register_center">
-
-                            <div class="add_button">
-                                <button type="submit">Enviar</button>
-                                <button type="reset">Limpiar</button>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-=======
-=======
->>>>>>> develop
 <%- include('../partials/head', { title : "Editar Producto" }) %>
 
     <body class="edit_product">
@@ -65,7 +12,7 @@
                     </div> -->
                     <section class="add_container">
                         <h3>Editar Producto</h3>
-                        <form action="" method="">
+                        <form action="/Products/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                             <article class="camps_container">
                                 <div class="sub_container">
                                     <div class="add_form-box">
@@ -74,7 +21,7 @@
                                     </div>
                                     <div class="add_form-box">
                                         <label for="image"><strong>Imagen</strong></label>
-                                        <input class="add_input" type="file" id="image" name="image" multiple>
+                                        <input class="add_input" type="file" id="image"  value="<%= product.image %> " name="image" multiple>
                                     </div>
                                     <div class="add_form-box">
                                         <label for="category"><strong>Categoría</strong></label>
@@ -93,9 +40,9 @@
                                 </div>
                                 <div>
                                     <div class="add_form-box-description">
-                                        <label for="desciption"><strong>Descripción</strong></label>
-                                        <textarea class="add_input" type="text" id="desciption" name="desciption" rows="3" cols="35"
-                                            style="resize: none; padding:5px;"><%= product.description %> </textarea>
+                                        <label for="description"><strong>Descripción</strong></label>
+                                        <textarea class="add_input" type="text" id="description" name="description" rows="3" cols="35"
+                                            style="resize: none; padding:5px;"><%= product.description.trim() %></textarea>
                                     </div>
                                 </div>
                             </article>
@@ -111,10 +58,6 @@
                         </form>
                     </section>
                 </main>
-<<<<<<< HEAD
->>>>>>> 55ba5bea292ed72bbb6154c2ac46db6d542e59f6
-=======
->>>>>>> develop
             </main>
             <%- include('../partials/footer') %>
     </body>

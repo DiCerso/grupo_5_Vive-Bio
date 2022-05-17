@@ -24,7 +24,7 @@ router.get('/All', All);
 router.get('/add', add);
 router.post('/add',upload.single('image'), store);
 router.get('/edit/:id', edit);
-router.put('/update/:id',upload.single('image'),update)
+router.put('/update/:id',upload.array('image'),update)
 router.delete("/remove/:id", remove)
 
 
