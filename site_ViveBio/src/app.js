@@ -3,6 +3,8 @@ const path = require('path');
 const app = express();
 const port = 3030;
 
+const methodOverride = require('method-override');
+
 
 app.use(express.static('public'));
 
@@ -11,11 +13,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname,'..','public')));
 
+//manipulacion JSON
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 /*rutas dinámicas */
 const indexRouter  = require('./routes/index');
 const productsRouter = require('./routes/product');
 const usersRouter = require('./routes/users')
 
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);

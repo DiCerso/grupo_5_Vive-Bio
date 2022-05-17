@@ -7,7 +7,7 @@
             <main>
                 <section class="add_container">
                     <h3>Agregar Producto</h3>
-                    <form action="" method="">
+                    <form action="" enctype="multipart/form-data" method="post">
                         <article class="camps_container">
                             <div class="sub_container">
                                 <div class="add_form-box">
@@ -21,7 +21,8 @@
                                 <div class="add_form-box">
                                     <label for="category"><strong>Categoría</strong></label>
                                     <select name="category" id="category">
-                                        <option value="" hidden selected>Selecciona la categoría...</option>
+                                        <option value="" hidden >Selecciona la categoría...</option>
+                                        <option value="1" selected>1</option>
                                     </select>
                                 </div>
                                 <div class="add_form-box">
@@ -31,8 +32,8 @@
                             </div>
                             <div>
                                 <div class="add_form-box-description">
-                                    <label for="desciption"><strong>Descripción</strong></label>
-                                    <textarea class="add_input" type="text" id="desciption" name="desciption" rows="3" cols="35"
+                                    <label for="description"><strong>Descripción</strong></label>
+                                    <textarea class="add_input" type="text" id="description" name="desciption" rows="3" cols="35"
                                         style="resize: none; padding:5px;"></textarea>
                                 </div>
                             </div>

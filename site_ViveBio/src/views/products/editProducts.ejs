@@ -17,7 +17,7 @@
                                 <div class="sub_container">
                                     <div class="add_form-box">
                                         <label for="name"><strong>Nombre</strong></label>
-                                        <input class="add_input" type="text" id="name" name="name" style="padding:5px;">
+                                        <input value="<%= product.name %>" class="add_input" type="text" id="name" name="name" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box">
                                         <label for="image"><strong>Imagen</strong></label>
@@ -26,19 +26,23 @@
                                     <div class="add_form-box">
                                         <label for="category"><strong>Categoría</strong></label>
                                         <select name="category" id="category">
-                                            <option value="" hidden selected>Selecciona la categoría...</option>
+                                            <option value="" hidden >Selecciona la categoría...</option>
+                                            <option value="<%= product.category %>"  selected>1</option>
+                                            <option value="2">2</option>
+
+
                                         </select>
                                     </div>
                                     <div class="add_form-box">
                                         <label for="price"><strong>Precio</strong></label>
-                                        <input class="add_input" type="number" id="price" name="price" style="padding:5px;">
+                                        <input value="<%= product.price %>" class="add_input" type="number" id="price" name="price" style="padding:5px;">
                                     </div>
                                 </div>
                                 <div>
                                     <div class="add_form-box-description">
                                         <label for="desciption"><strong>Descripción</strong></label>
                                         <textarea class="add_input" type="text" id="desciption" name="desciption" rows="3" cols="35"
-                                            style="resize: none; padding:5px;"></textarea>
+                                            style="resize: none; padding:5px;"><%= product.description %> </textarea>
                                     </div>
                                 </div>
                             </article>

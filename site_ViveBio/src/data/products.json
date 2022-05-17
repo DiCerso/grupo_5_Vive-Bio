@@ -1,0 +1,25 @@
+[
+   {
+      "name": "producto 1",
+      "id": 1,
+      "description": "lorem impsu",
+      "image": "image",
+      "category": 2,
+      "price": 3000
+   },
+   {
+      "name": "producto 2",
+      "id": 2,
+      "description": "lorem impsu",
+      "image": "image",
+      "category": 2,
+      "price": 3000
+   },
+   {
+      "name": "producto 3",
+      "category": "1",
+      "price": "200000",
+      "id": 3,
+      "image": "image-1652806677517.jpg"
+   }
+]
