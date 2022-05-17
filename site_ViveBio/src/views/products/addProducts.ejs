@@ -7,31 +7,50 @@
             <main>
                 <section class="add_container">
                     <h3>Agregar Producto</h3>
-                    <form action="" method="">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <article class="camps_container">
                             <div class="sub_container">
                                 <div class="add_form-box">
-                                    <label for="name"><strong>Nombre</strong></label>
+                                    <label for="name">Nombre</label>
                                     <input class="add_input" type="text" id="name" name="name" style="padding:5px;">
                                 </div>
                                 <div class="add_form-box">
-                                    <label for="image"><strong>Imagen</strong></label>
-                                    <input class="add_input" type="file" id="image" name="image" multiple>
-                                </div>
-                                <div class="add_form-box">
-                                    <label for="category"><strong>Categoría</strong></label>
-                                    <select name="category" id="category">
+                                    <label for="category">Categoría</label>
+                                    <select class="add_input" name="category" id="category">
                                         <option value="" hidden selected>Selecciona la categoría...</option>
+                                        <% category.forEach(categori => { %>
+                                            <option value="<%= categori.id %>" ><%= categori.name %> </option>
+                                        <% }) %>
                                     </select>
                                 </div>
                                 <div class="add_form-box">
-                                    <label for="price"><strong>Precio</strong></label>
-                                    <input class="add_input" type="number" id="price" name="price" style="padding:5px;">
+                                    <label for="volume">Peso (g)</label>
+                                    <input class="add_input" type="number" id="volume" name="volume" style="padding:5px;">
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="price">Precio</label>
+                                    <input class="add_input"  type="number" id="price" name="price" style="padding:5px;">
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="discount">Descuento</label>
+                                    <input class="add_input" type="number" id="discount" name="discount" style="padding:5px;">
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="image">Imagen</label>
+                                    <input class="add_input" type="file" id="image"  name="image" accept="image/*" multiple>
                                 </div>
                             </div>
                             <div>
+                                <div class="add_form-box">
+                                    <label for="ingredients">Ingredientes</label>
+                                    <input class="add_input" type="text" id="ingredients" name="ingredients" style="padding:5px;">
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="property">Propiedades</label>
+                                    <input class="add_input" type="text" id="property" name="property" style="padding:5px;">
+                                </div>
                                 <div class="add_form-box-description">
-                                    <label for="desciption"><strong>Descripción</strong></label>
+                                    <label for="desciption">Descripción</label>
                                     <textarea class="add_input" type="text" id="desciption" name="desciption" rows="3" cols="35"
                                         style="resize: none; padding:5px;"></textarea>
                                 </div>

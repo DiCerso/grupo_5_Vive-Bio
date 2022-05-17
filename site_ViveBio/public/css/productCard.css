@@ -479,4 +479,8 @@
     .productCard .iconos-eco {
         width: 97%;
     }
+
+    .container-imagen-texto{
+        display: flex;
+    }
 }

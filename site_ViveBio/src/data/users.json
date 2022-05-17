@@ -1,18 +1,13 @@
 [
     {
-        "usuario": "lautaro",
-        "contraseña": 12346
-    },
-    {
-        "usuario": "mayra",
-        "contraseña": 12346
-    },
-    {
-        "usuario": "angelika",
-        "contraseña": 12346
-    },
-    {
-        "usuario": "fernando",
-        "contraseña": 12346
+        "id":1,
+        "firstName":"example",
+        "lastName":"example",
+        "user":"example",
+        "email":"example@example",
+        "password":"asd",
+        "password2":"asd",
+        "category":1,
+        "image":"imagen.jpg"
     }
 ]
