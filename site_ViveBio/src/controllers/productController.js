@@ -28,7 +28,7 @@ module.exports = {
             price,
             description,
             id: (+lastId + 1),
-            image
+            image: image.length > 0 ? image : ["noimage.jpeg"]
         })
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
@@ -59,6 +59,11 @@ module.exports = {
                     price: +price,
                     description,
                     image: image ? image : product.image
+                }
+                if(req.files){
+                    if(fs.existsSync(path.resolve(__dirname,'..','public','images',product.img)) && product.img !== "noimage.jpeg"){
+                        fs.unlinkSync(path.resolve(__dirname,'..','public','images',product.img))
+                    }
                 }
                 return productact;
             }
