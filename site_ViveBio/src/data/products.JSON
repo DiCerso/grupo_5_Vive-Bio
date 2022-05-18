@@ -86,7 +86,7 @@
     {
         "id": 8,
         "name": "🌷Acondicionador Aceite de Argán🌷",
-        "description": "Gracias a sus antioxidante y humectantes naturales, es un excelente aliado para agregar brillo y humedad natural a tu cabello, desapareciendo el frizz y dejándolo sedoso y de fácil manejo 💚.",        
+        "description": "Gracias a sus antioxidantes y humectantes naturales, es un excelente aliado para agregar brillo y humedad natural a tu cabello, desapareciendo el frizz y dejándolo sedoso y de fácil manejo 💚.",        
         "ingredients": "Aceite de Argán, Manteca de Cacao.",
         "price": 400,
         "category": 1,
@@ -144,7 +144,7 @@
         "image": []
     },
     {
-        "id": 12,
+        "id": 13,
         "name": "🍊Luffa y Jabón Cítrico + Jabonera🍊",
         "description": "Ideal para hacerle un mimo a nuestros pies 🥰. Es la base de nuestro cuerpo, en ellos residen muchísimas terminales nerviosas, que cargan y descargan energía constantemente, por eso es importante cuidarlos 😍. Posee propiedades antisépticas, antibacterianas, humectantes y tonificantes. La luffa (o esponja vegetal) funciona como exfoliante natural, gracias a su textura. 💚",
         "ingredients": "Naranja, Café, Canela, Caléndula, Manzanilla, Aceite de Coco.",
@@ -156,7 +156,7 @@
         "image": []
     },
     {
-        "id": 13,
+        "id": 14,
         "name": "💮Luffa y Jabón Alcanfor + Jabonera💮",
         "description": "Una bomba de aromas frescos y propiedades terapéuticas que nos obsequian las hierbas 🌿. El Alcanfor regula la secreción sebácea, Laurel: ayuda a combatir la dermatitis. Lavanda: regenera células cutáneas, combate el acné. Romero: cicatriza, refresca y alisa la piel. Tea Tree: cicatrizante, antifúngico y desodorante. Regálate un momento de auto-cuidado y relax 💚.",
         "ingredients": "Alcanfor, Laurel, Lavanda, Romero, Tea Tree.",
