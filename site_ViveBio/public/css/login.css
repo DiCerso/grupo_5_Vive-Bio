@@ -39,10 +39,6 @@
 
 .login_container {
     width: 80%;
-    /* background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px var(--VerdeSuave);
-    border: 1px solid ; */
     padding: 20px;
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
     border-radius: 5px;
@@ -62,15 +58,12 @@
     width: 100%;
     margin: 5px 0 5px;
     padding: 10px 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid var(--verdeFuerte);
     transition: 0.5s;
 }
 
-.login_form-input:hover{
-    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
-}
-
+.login_form-input:hover,
 .login_form-input:focus{
     box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
 }
@@ -122,6 +115,8 @@
     height: 50px;
     margin-right: 10px;
     border: 1px solid var(--verdeFuerte);
+    color: red;
+    text-align: center;
 }
 
 .login_facebook button {
@@ -133,14 +128,14 @@
     width: 50px;
     height: 50px;
     border: 1px solid var(--verdeFuerte);
-}
-
-
-
-.login_google button i {
-    color: red;
     text-align: center;
 }
+
+
+
+/* .login_google button i {
+    
+} */
 
 @media (min-width: 425px) {
     .login button:hover {
