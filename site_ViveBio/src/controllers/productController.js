@@ -7,10 +7,17 @@ const fs = require('fs');
 
 
 module.exports = {
-    Card: (req, res) => res.render('products/productCard', {
+    Card: (req, res) => 
+        res.render('products/productCard', {
         products
     }),
-    All: (req, res) => res.render('products/productAll'),
+    All: (req, res) => {
+        const {id} = +req.params.id
+        const product = products.find(product => product.id === +id)
+
+        res.render('products/productAll'),{
+        product
+    }},
     Cart: (req, res) => res.render('products/productCart'),
     add: (req, res) => {
         return res.render('products/addProducts', { category });
@@ -77,9 +84,9 @@ module.exports = {
     remove: (req, res) => {
         const { id } = req.params;
 
-        const produtFilter = products.filter(product => product.id !== +id);
+        const productFilter = products.filter(product => product.id !== +id);
 
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(produtFilter, null, 3), 'utf-8')
+        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
         return res.redirect('/products/All');
     }
