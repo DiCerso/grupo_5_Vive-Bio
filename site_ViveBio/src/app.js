@@ -3,14 +3,11 @@ const path = require('path');
 const app = express();
 const port = 3030;
 
-<<<<<<< HEAD
-=======
 const methodOverride = require('method-override');
 
 
 app.use(express.static('public'));
 
->>>>>>> develop
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
@@ -32,9 +29,4 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter)
 
 
-<<<<<<< HEAD
-
 app.listen(port, () => console.log(`Server running in port http://localhost:${port}`));
-=======
-app.listen(port, () => console.log(`Server running in port http://localhost:${port}`));
->>>>>>> develop

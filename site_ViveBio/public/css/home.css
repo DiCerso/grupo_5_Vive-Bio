@@ -9,7 +9,8 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.home .carrusel__home .banner{
+
+.home .carrusel__home .banner {
     width: 150px;
 }
 
@@ -75,6 +76,113 @@ ANIMACIÓN DE INTRO
     opacity: 1;
     transition: 0.5s;
 }
+
+/**********************************************
+Carrusel
+**********************************************/
+.slider {
+    width: calc(100% - 20px);
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0px;
+    margin: 10px;
+}
+
+.slides input {
+    display: none;
+}
+
+.slides {
+    width: 500%;
+    height: 300px;
+    display: flex;
+}
+
+.slides img {
+    width: 100%;
+}
+
+.slide {
+    width: 20%;
+    transition: 2s;
+}
+
+.navigation-manual {
+    position: absolute;
+    width: 95%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid var(--verdeOscuro);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -20%;
+}
+
+#radio3:checked~.first {
+    margin-left: -40%;
+}
+
+#radio4:checked~.first {
+    margin-left: -60%;
+}
+
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    margin-top: 260px;
+}
+
+.navigation-auto div {
+    border: 2px solid var(--verdeOscuro);
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked~.navigation-auto .auto-btn1 {
+    background: var(--verdeOscuro);
+}
+
+#radio2:checked~.navigation-auto .auto-btn2 {
+    background: var(--verdeOscuro);
+}
+
+#radio3:checked~.navigation-auto .auto-btn3 {
+    background: var(--verdeOscuro);
+}
+
+#radio4:checked~.navigation-auto .auto-btn4 {
+    background: var(--verdeOscuro);
+}
+
+
+
 /*************************************************
 primera parte del main
 *************************************************/
@@ -184,18 +292,21 @@ primera parte del main
     justify-content: flex-end;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-.precio{
+
+.precio {
     display: flex;
     margin-top: 10px;
     flex-direction: row;
     justify-content: center;
 }
 
-.precio h4{    
-    text-decoration: line-through;/*tachamos el precio*/
+.precio h4 {
+    text-decoration: line-through;
+    /*tachamos el precio*/
     color: var(--azulMarino);
 }
-.precio p{
+
+.precio p {
     font-size: 30px;
     color: black;
     margin-left: 10px;
@@ -253,11 +364,8 @@ segunda parte del main
 
 .home .sect2 .categorias__home .corporal__home {
     /* background-image: url(/images/shampoo-argán.jpg); */
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    )
-    ,url(/images/producto1.jpeg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url(/images/producto1.jpeg);
     background-size: cover;
     transition: all 0.5s;
 }
@@ -266,24 +374,18 @@ segunda parte del main
 
 .home .sect2 .categorias__home .capilar__home {
     /* background-image: url(/images/acondicionador-natural-de-coco-3.jpg); */
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    )
-    ,url(/images/producto2.jpeg);
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url(/images/producto2.jpeg);
     background-size: cover;
     transition: all 0.5s;
 }
 
 .home .sect2 .categorias__home .spa__home {
     /* background-image: url(/images/2en1almendras.jpg); */
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    )
-    ,url(/images/producto3.jpeg);
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url(/images/producto3.jpeg);
     background-size: cover;
     transition: all 0.5s;
 
@@ -300,10 +402,10 @@ segunda parte del main
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.barra__cate__home p{
+.barra__cate__home p {
     font-size: 24px;
 }
 
@@ -349,7 +451,7 @@ segunda parte del main
 
     .home main .subtitulo__home h1 {
         padding: 5px;
-        
+
     }
 
     .home main .nombre-categorias__home h1 {
@@ -397,19 +499,19 @@ segunda parte del main
         justify-content: space-evenly;
     }
 
-    .home .sect2 .categorias__home{
+    .home .sect2 .categorias__home {
         width: 275px;
         height: 275px;
     }
 
     .home .sect2 .categorias__home .capilar__home,
     .home .sect2 .categorias__home .corporal__home,
-    .home .sect2 .categorias__home .spa__home{
+    .home .sect2 .categorias__home .spa__home {
         filter: blur(3px);
 
     }
 
-    .home .sect2 .categorias__home .barra__cate__home{
+    .home .sect2 .categorias__home .barra__cate__home {
         transition: all 0.5s;
     }
 
@@ -417,7 +519,7 @@ segunda parte del main
     .home .sect2 .categorias__home:hover .corporal__home,
     .home .sect2 .categorias__home:hover .barra__cate__home,
     .home .sect2 .categorias__home:hover .capilar__home,
-    .home .sect2 .categorias__home:hover .spa__home{
+    .home .sect2 .categorias__home:hover .spa__home {
         transform: scale(1.1);
         filter: blur(0px);
     }
