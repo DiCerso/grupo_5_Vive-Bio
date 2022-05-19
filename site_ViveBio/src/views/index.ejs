@@ -5,9 +5,49 @@
 
     <body class="home">
         <%- include('./partials/header') %>
-            <div class="carrusel__home">
+            <!-- <div class="carrusel__home">
                 <img src="/images/logo.png" alt="logo" class="banner">
+            </div> -->
+            <!-- Inicio de carrusel -->
+            <div class="slider">
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <!-- imagenes de carrusel -->
+                    <div class="slide first">
+                        <img src="/images/producto1.jpeg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="/images/producto2.jpeg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="/images/producto3.jpeg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="/images/producto1.jpeg" alt="">
+                    </div>
+                    <!-- fin de imagenes de carrusel -->
+                    <!-- botones manuales -->
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                    </div>
+                    <!-- fin de botones manuales -->
+                </div>
+                <!-- botones para automatico -->
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
+                <!-- fin de botones automaticos -->
             </div>
+            <!-- fin de carrusel -->
             <main>
                 <div class="subtitulo__home">
                     <h1>Productos en Oferta</h1>
@@ -126,6 +166,7 @@
                 </section>
             </main>
             <%- include('./partials/footer') %>
+                <script type="text/javascript" src="/javascript/carrusel.js"></script>
     </body>
 
 </html>
