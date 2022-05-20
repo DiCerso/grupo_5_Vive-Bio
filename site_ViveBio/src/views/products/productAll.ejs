@@ -8,7 +8,7 @@
             <main>
                 <h2 class="titulares">Productos Recomendados</h2>
                 <section class="row">
-                <% products.forEach(({id,name,category,price,discount,property}) => { %>
+                <% products.forEach(({id,name,price,discount,property}) => { %>
                     <article>                    
                     <div class="card estilo-c">
                         <div class="img-container">
@@ -18,7 +18,7 @@
                         <div class="info-container">
                             <div class="Card-info-texto">
                                 <a href="/products/Card/<%= id %> "><h2><%= name %> </h2></a>
-                                <h4><%= category %> </h4>
+                                <h4><%= category.name %> </h4>
                                 <span>-<%= property %> -</span>
                                 <h3>$<%= price %> .-</h3>
                                 <span class="rating">⭐⭐⭐⭐</span>

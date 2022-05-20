@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.productAll article{
+    width: 100%;
+}
+
 .productAll .productosRelacionados {
     color: white;
     background-color: var(--verdeOscuro);
@@ -78,7 +82,8 @@
 
 /*NOMBRE PRODUCTO*/
 .productAll .estilo-c .info-container h2 {
-    font-size: 24px;
+    padding-top: 5px;
+    font-size: 18px;
     text-shadow: none;
     color: var(--azulSuave);
 }
@@ -223,7 +228,7 @@
 
     /*NOMBRE PRODUCTO*/
     .productAll .estilo-c .info-container h2 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     /*CATEGORÍA PRODUCTO*/
@@ -266,7 +271,7 @@
 
     /*PROPIEDAD PRODUCTO*/
     .productAll .estilo-c .info-container span {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .productAll .iconos-eco {

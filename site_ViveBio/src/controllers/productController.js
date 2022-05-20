@@ -15,7 +15,8 @@ module.exports = {
     })},
     All: (req, res) => {
         return res.render('products/productAll',{
-            products
+            products,
+            category
         })},
     Cart: (req, res) => res.render('products/productCart'),
     add: (req, res) => {

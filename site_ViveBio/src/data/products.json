@@ -109,7 +109,7 @@
     },
     {
         "id": 10,
-        "name": "🏵️Shampoo y Acondicionador Almendras🏵️",
+        "name": "🏵️Shamp/Acond Almendras🏵️",
         "description": "Gracias a su alto contendido de proteínas, minerales y vitaminas A, B y E; hidrata, nutre y suaviza el cabello. Brinda protección solar, define rizos y combate la dermatitis seborreica. 💚",
         "ingredients": "Aceite de Almendras, de Oliva.",
         "price": 600,
@@ -121,7 +121,7 @@
     },
     {
         "id": 11,
-        "name": "🌺Shampoo y Acondicionador Karité🌺",
+        "name": "🌺Shamp/Acond Karité🌺",
         "description": "La formulación del aceite de karité es de vitamina A, E y F, que en conjunto le devuelven el brillo, suavidad, fuerza y le da una mejor resistencia. 💚",
         "ingredients": "Manteca de Karité, Aceite de Uva.",
         "price": 600,
@@ -133,7 +133,7 @@
     },
     {
         "id": 12,
-        "name": "🌿Shampoo y Acondicionador Salvia🌿",
+        "name": "🌿Shamp/Acond Salvia🌿",
         "description": "Las propiedades astringentes de la Salvia, hacen de esta receta, una solución ideal para la limpieza y belleza de tu cabello graso. 💚",
         "ingredients": "Aceite de Salvia, de Oliva.",
         "price": 600,
