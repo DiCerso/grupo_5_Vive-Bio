@@ -18,21 +18,13 @@
                 <h5>-Exfoliante-</h5>
                 <h3> BioSpa </h3>
                 <div class="box-info-precio">
-                  <h2>$ 300</h2>
+                  <h2>$<%= product.price %> </h2>
                   <span class="rating">⭐⭐⭐⭐</span>
                 </div>
               </div>
             </div>
             <div class="box-texto-iconos">
-              <p>La luffa (o esponja vegetal) tiene propiedades exfoliantes, ideal
-                para zonas a suavizar: codos, pies, manos. <br>
-                ♻️Cuando consideramos que ha cumplido su ciclo, la podemos tirar en el compost, o
-                cualquier parte de la tierra; por éste motivo es importante usar jabones biodegradables.
-                Para no contaminar el suelo con restos de susltancias químicas, que pueden quedar alojadas
-                en la esponja.♻️ <br>
-                🌻<span style="font-weight: bold;">Nuestra versión exfoliante de Naranja y Café
-                  combate el acné y la secrecion sebácea, dejando un delicioso aroma en la piel 🍊</span> <br>
-                Cuidar tu piel y la salud de la Tierra, sin maltratar animales, es posible; <br>
+              <p><%= product.description %> >
                 <br> SUMATE AL CAMBIO💚
               </p>
               <div class="producto__cart">
@@ -44,7 +36,7 @@
                 <div class="producto-iconos">
                   <a href="#"><i class="fa-solid fa-star"></i></a>
                   <a href=""><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="/products/Edit/1"><i class="fa-solid fa-pen"></i></a><!--pongo 1 para producto 1, pero despues cambiar-->
+                  <a href="/products/Edit/<%= id %> "><i class="fa-solid fa-pen"></i></a><!--pongo 1 para producto 1, pero despues cambiar-->
                   <form action="/Products/remove/<%= products.id %>?_method=DELETE" method="POST"> 
                     <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
                   </form>

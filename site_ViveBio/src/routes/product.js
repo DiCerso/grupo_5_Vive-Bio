@@ -20,7 +20,7 @@ const upload = multer({
 
 /*Products*/
 router
-    .get('/Card', Card)
+    .get('/Card/:id', Card)
     .get('/All', All)
     .get('/add', add)
     .post('/add',upload.single('image'), store)

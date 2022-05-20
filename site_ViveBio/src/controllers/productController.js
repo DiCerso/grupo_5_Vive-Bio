@@ -7,17 +7,16 @@ const fs = require('fs');
 
 
 module.exports = {
-    Card: (req, res) => 
-        res.render('products/productCard', {
-        products
-    }),
-    All: (req, res) => {
-        const {id} = +req.params.id
+    Card: (req, res) => {
+        const {id} = +req.params;
         const product = products.find(product => product.id === +id)
-
-        res.render('products/productAll'),{
-        product
-    }},
+        return res.render('products/productCard',{
+            product
+    })},
+    All: (req, res) => {
+        return res.render('products/productAll',{
+            products
+        })},
     Cart: (req, res) => res.render('products/productCart'),
     add: (req, res) => {
         return res.render('products/addProducts', { category });
