@@ -5,12 +5,12 @@
     flex-wrap: wrap;
     padding: 30px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    
+    /* align-items: stretch; */
+align-content: center;justify-content: space-evenly;}
 
 .productAll article{
-    width: 100%;
+    width: 50%;
 }
 
 .productAll .productosRelacionados {
@@ -220,10 +220,10 @@
     .productAll .row {
         flex-direction: row;
         justify-content: space-around;
-    }
+    align-content: center;}
 
     .productAll .card.estilo-c {
-        width: 49%;
+        /* width: 49%; */
     }
 
     /*NOMBRE PRODUCTO*/
@@ -266,7 +266,7 @@
     }
 
     .productAll .card.estilo-c {
-        width: 30%;
+        /* width: 30%; */
     }
 
     /*PROPIEDAD PRODUCTO*/

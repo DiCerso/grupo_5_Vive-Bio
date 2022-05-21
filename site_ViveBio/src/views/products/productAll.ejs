@@ -8,11 +8,11 @@
             <main>
                 <h2 class="titulares">Productos Recomendados</h2>
                 <section class="row">
-                <% products.forEach(({id,name,price,discount,property}) => { %>
+                <% products.forEach(({id,name,price,discount,property,image}) => { %>
                     <article>                    
                     <div class="card estilo-c">
                         <div class="img-container">
-                            <img src="/images/jabon-humectante-14.jpg" alt="producto">
+                            <img src="/images/<%= image %> " alt="producto">
                             <span class="promo"><%= discount %>% off</span>
                         </div>
                         <div class="info-container">

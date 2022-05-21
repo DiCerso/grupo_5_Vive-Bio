@@ -14,11 +14,11 @@
             <div class="container-imagen-texto">
               <div class="producto__imagen">
                 <div class="box-imagen">
-                  <img src="/images/JabonLuffa-11.jpg" alt="...">
+                  <img src="/images/<%= product.image %>"  alt="...">
                 </div>
                 <div class="box-info">
-                  <h5>-Exfoliante-</h5>
-                  <h3> BioSpa </h3>
+                  <h5>-<%= product.property %>-</h5>
+                  <h3><%= product.category %>  </h3>
                   <div class="box-info-precio">
                     <h2>$<%= product.price %>
                     </h2>
@@ -33,7 +33,7 @@
                 </p>
                 <div class="producto__cart">
                   <div class="info-precio">
-                    <h4>Precio efectivo: $ <%= product.price %> .-</h4>
+                    <h4>Precio pago en efectivo: $ <%= product.price %> .-</h4>
                     <h5>Promoción: <%= product.discount %> % off (* Hasta agotar stock)</h5>
                     <h6>Peso: <%= product.volume %> grs.</h6>
                   </div>
@@ -51,11 +51,11 @@
             </div>
             <h2 class="titulares">Productos Relacionados</h2>
             <section class="row">
-              <% products.forEach(({id,name,price,discount,property})=> { %>
+              <% products.forEach(({id,name,price,discount,property,image})=> { %>
                 <article>
                   <div class="card estilo-c">
                     <div class="img-container">
-                      <img src="/images/jabon-humectante-14.jpg" alt="producto">
+                      <img src="/images/<%= image %> " alt="producto">
                       <span class="promo">
                         <%= discount %>% off
                       </span>
