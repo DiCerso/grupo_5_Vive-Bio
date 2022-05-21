@@ -8,234 +8,139 @@
       <main>
         <section class="producto">
           <div class="producto__texto">
-            <h1><%= products.name %></h1>
+            <h1>
+              <%= product.name %>
+            </h1>
             <div class="container-imagen-texto">
-            <div class="producto__imagen">
-              <div class="box-imagen">
-                <img src="/images/JabonLuffa-11.jpg" alt="...">
+              <div class="producto__imagen">
+                <div class="box-imagen">
+                  <img src="/images/JabonLuffa-11.jpg" alt="...">
+                </div>
+                <div class="box-info">
+                  <h5>-Exfoliante-</h5>
+                  <h3> BioSpa </h3>
+                  <div class="box-info-precio">
+                    <h2>$<%= product.price %>
+                    </h2>
+                    <span class="rating">⭐⭐⭐⭐</span>
+                  </div>
+                </div>
               </div>
-              <div class="box-info">
-                <h5>-Exfoliante-</h5>
-                <h3> BioSpa </h3>
-                <div class="box-info-precio">
-                  <h2>$<%= product.price %> </h2>
-                  <span class="rating">⭐⭐⭐⭐</span>
+              <div class="box-texto-iconos">
+                <p>
+                  <%= product.description %>
+                    <br> SUMATE AL CAMBIO💚
+                </p>
+                <div class="producto__cart">
+                  <div class="info-precio">
+                    <h4>Precio efectivo: $ <%= product.price %> .-</h4>
+                    <h5>Promoción: <%= product.discount %> % off (* Hasta agotar stock)</h5>
+                    <h6>Peso: <%= product.volume %> grs.</h6>
+                  </div>
+                  <div class="producto-iconos">
+                    <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
+                      <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                    </form>
+                    <a href="/products/Edit/<%= product.id %> "><i class="fa-solid fa-pen"></i></a>
+                    <a href="#"><i class="fa-solid fa-star"></i></a>
+                    <a href=""><i class="fa-solid fa-share-nodes"></i></a>
+                    <a href="/productCarrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="box-texto-iconos">
-              <p><%= product.description %> >
-                <br> SUMATE AL CAMBIO💚
-              </p>
-              <div class="producto__cart">
-                <div class="info-precio">
-                  <h4>Precio efectivo: $ 300.-</h4>
-                  <h5>Promoción: 30% off (* Hasta agotar stock)</h5>
-                  <h6>Peso: 90 grs. Cantidad: 1 u</h6>
+            <h2 class="titulares">Productos Relacionados</h2>
+            <section class="row">
+              <% products.forEach(({id,name,price,discount,property})=> { %>
+                <article>
+                  <div class="card estilo-c">
+                    <div class="img-container">
+                      <img src="/images/jabon-humectante-14.jpg" alt="producto">
+                      <span class="promo">
+                        <%= discount %>% off
+                      </span>
+                    </div>
+                    <div class="info-container">
+                      <div class="Card-info-texto">
+                        <a href="/products/Card/<%= id %> ">
+                          <h2>
+                            <%= name %>
+                          </h2>
+                        </a>
+                        <h4>
+                          <%= category.name %>
+                        </h4>
+                        <span>-<%= property %> -</span>
+                        <h3>$<%= price %> .-</h3>
+                        <span class="rating">⭐⭐⭐⭐</span>
+                      </div>
+                      <div class="card-c-iconos">
+                        <div class="iconos-white">
+                          <a href="/products/Card/<%= id %> "><i class="fa-solid fa-eye"></i></a>
+                          <a href="/products/Edit/<%= id %> "><i class="fa-solid fa-pen"></i></a>
+                          <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                          <a href="#"><i class="fa-solid fa-star"></i></a>
+                        </div>
+                        <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <% }) %>
+            </section>
+            <h2 class="titulares">Nuestra comunidad</h2>
+            <section class="comunidad">
+              <div class="box-perfiles">
+                <div class="card__perfil">
+                  <div class="card__nombre">
+                    <div class="card__nombre_box-img">
+                      <img src="/images/cara8.jpg" alt="">
+                    </div>
+                    <h2>Ramiro Cunar</h2>
+                  </div>
+                  <div class="card__descripcion">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+                      dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
+                      adipisicing
+                      elit.</p>
+                  </div>
                 </div>
-                <div class="producto-iconos">
-                  <a href="#"><i class="fa-solid fa-star"></i></a>
-                  <a href=""><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="/products/Edit/<%= id %> "><i class="fa-solid fa-pen"></i></a><!--pongo 1 para producto 1, pero despues cambiar-->
-                  <form action="/Products/remove/<%= products.id %>?_method=DELETE" method="POST"> 
-                    <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
-                  </form>
-                  <a href="/productCarrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="card__perfil">
+                  <div class="card__nombre">
+                    <div class="card__nombre_box-img">
+                      <img src="/images/cara5.jpg" alt="">
+                    </div>
+                    <h2>Mariana Blas</h2>
+                  </div>
+                  <div class="card__descripcion">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+                      dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
+                      adipisicing
+                      elit.</p>
+                  </div>
+                </div>
+                <div class="card__perfil">
+                  <div class="card__nombre">
+                    <div class="card__nombre_box-img">
+                      <img src="/images/cara4.jpg" alt="">
+                    </div>
+                    <h2>Samira Luna</h2>
+                  </div>
+                  <div class="card__descripcion">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+                      dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
+                      adipisicing
+                      elit.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-        </div>
-        <h2 class="titulares">Productos Relacionados</h2>
-        <section class="row">
-          <div class="card estilo-c">
-            <div class="img-container">
-              <img src="/images/jabon-humectante-14.jpg" alt="producto">
-              <span class="promo">10% off</span>
-            </div>
-            <div class="info-container">
-              <div class="Card-info-texto">
-                <h2>Jabón Rosas</h2>
-                <h4>BioCorporal</h4>
-                <span>-Humectante-</span>
-                <h3>$300.00.-</h3>
-                <span class="rating">⭐⭐⭐⭐</span>
+              <div class="iconos-eco">
+                <img src="/images/icono1.jpg" alt="">
+                <img src="/images/icono2.jpg" alt="">
+                <img src="/images/icono3.jpg" alt="">
+                <img src="/images/icono4.jpg" alt="">
               </div>
-              <div class="card-c-iconos">
-                <div class="iconos-white">
-                  <a href="/products/Card"><i class="fa-solid fa-eye"></i></a>
-                  <a href="/products/Edit"><i class="fa-solid fa-pen"></i></a>
-                  <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="#"><i class="fa-solid fa-star"></i></a>
-                </div>
-                <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
-              </div>
-            </div>
-          </div>
-          <div class="card estilo-c">
-            <div class="img-container">
-              <img src="/images/jabon-humectante-14.jpg" alt="producto">
-              <span class="promo">10% off</span>
-            </div>
-            <div class="info-container">
-              <div class="Card-info-texto">
-                <h2>Jabón Rosas</h2>
-                <h4>BioCorporal</h4>
-                <span>-Humectante-</span>
-                <h3>$300.00.-</h3>
-                <span class="rating">⭐⭐⭐⭐</span>
-              </div>
-              <div class="card-c-iconos">
-                <div class="iconos-white">
-                  <a href="/products/Card"><i class="fa-solid fa-eye"></i></a>
-                  <a href="/products/Edit"><i class="fa-solid fa-pen"></i></a>
-                  <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="#"><i class="fa-solid fa-star"></i></a>
-                </div>
-                <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
-              </div>
-            </div>
-          </div>
-          <div class="card estilo-c">
-            <div class="img-container">
-              <img src="/images/jabon-humectante-14.jpg" alt="producto">
-              <span class="promo">10% off</span>
-            </div>
-            <div class="info-container">
-              <div class="Card-info-texto">
-                <h2>Jabón Rosas</h2>
-                <h4>BioCorporal</h4>
-                <span>-Humectante-</span>
-                <h3>$300.00.-</h3>
-                <span class="rating">⭐⭐⭐⭐</span>
-              </div>
-              <div class="card-c-iconos">
-                <div class="iconos-white">
-                  <a href="/products/Card"><i class="fa-solid fa-eye"></i></a>
-                  <a href="/products/Edit"><i class="fa-solid fa-pen"></i></a>
-                  <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="#"><i class="fa-solid fa-star"></i></a>
-                </div>
-                <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
-              </div>
-            </div>
-          </div>
-          <div class="card estilo-c">
-            <div class="img-container">
-              <img src="/images/jabon-humectante-14.jpg" alt="producto">
-              <span class="promo">10% off</span>
-            </div>
-            <div class="info-container">
-              <div class="Card-info-texto">
-                <h2>Jabón Rosas</h2>
-                <h4>BioCorporal</h4>
-                <span>-Humectante-</span>
-                <h3>$300.00.-</h3>
-                <span class="rating">⭐⭐⭐⭐</span>
-              </div>
-              <div class="card-c-iconos">
-                <div class="iconos-white">
-                  <a href="/products/Card"><i class="fa-solid fa-eye"></i></a>
-                  <a href="/products/Edit"><i class="fa-solid fa-pen"></i></a>
-                  <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="#"><i class="fa-solid fa-star"></i></a>
-                </div>
-                <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
-              </div>
-            </div>
-          </div>
-          <div class="card estilo-c">
-            <div class="img-container">
-              <img src="/images/jabon-humectante-14.jpg" alt="producto">
-              <span class="promo">10% off</span>
-            </div>
-            <div class="info-container">
-              <div class="Card-info-texto">
-                <h2>Jabón Rosas</h2>
-                <h4>BioCorporal</h4>
-                <span>-Humectante-</span>
-                <h3>$300.00.-</h3>
-                <span class="rating">⭐⭐⭐⭐</span>
-              </div>
-              <div class="card-c-iconos">
-                <div class="iconos-white">
-                  <a href="/products/Card"><i class="fa-solid fa-eye"></i></a>
-                  <a href="/products/Edit"><i class="fa-solid fa-pen"></i></a>
-                  <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="#"><i class="fa-solid fa-star"></i></a>
-                </div>
-                <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
-              </div>
-            </div>
-          </div>
-          <div class="card estilo-c">
-            <div class="img-container">
-              <img src="/images/jabon-humectante-14.jpg" alt="producto">
-              <span class="promo">10% off</span>
-            </div>
-            <div class="info-container">
-              <div class="Card-info-texto">
-                <h2>Jabón Rosas</h2>
-                <h4>BioCorporal</h4>
-                <span>-Humectante-</span>
-                <h3>$300.00.-</h3>
-                <span class="rating">⭐⭐⭐⭐</span>
-              </div>
-              <div class="card-c-iconos">
-                <div class="iconos-white">
-                  <a href="/products/Card"><i class="fa-solid fa-eye"></i></a>
-                  <a href="/products/Edit"><i class="fa-solid fa-pen"></i></a>
-                  <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                  <a href="#"><i class="fa-solid fa-star"></i></a>
-                </div>
-                <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <h2 class="titulares">Nuestra comunidad</h2>
-        <section class="comunidad">
-          <div class="box-perfiles">
-            <div class="card__perfil">
-              <div class="card__nombre">
-                <img src="/images/cara8.jpg" alt="">
-                <h2>Ramiro Cunar</h2>
-              </div>
-              <div class="card__descripcion">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                  dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing
-                  elit.</p>
-              </div>
-            </div>
-            <div class="card__perfil">
-              <div class="card__nombre">
-                <img src="/images/cara5.jpg" alt="">
-                <h2>Mariana Blas</h2>
-              </div>
-              <div class="card__descripcion">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                  dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing
-                  elit.</p>
-              </div>
-            </div>
-            <div class="card__perfil">
-              <div class="card__nombre">
-                <img src="/images/cara4.jpg" alt="">
-                <h2>Samira Luna</h2>
-              </div>
-              <div class="card__descripcion">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                  dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur adipisicing
-                  elit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="iconos-eco">
-            <img src="/images/icono1.jpg" alt="">
-            <img src="/images/icono2.jpg" alt="">
-            <img src="/images/icono3.jpg" alt="">
-            <img src="/images/icono4.jpg" alt="">
-          </div>
-        </section>
+            </section>
       </main>
       <%- include('../partials/footer') %>
   </body>

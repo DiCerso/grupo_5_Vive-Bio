@@ -8,11 +8,10 @@ const fs = require('fs');
 
 module.exports = {
     Card: (req, res) => {
-        const {id} = +req.params;
+        const { id } = req.params;
         const product = products.find(product => product.id === +id)
-        return res.render('products/productCard',{
-            product
-    })},
+        return res.render('products/productCard', { products,product,category })
+    },
     All: (req, res) => {
         return res.render('products/productAll',{
             products,
