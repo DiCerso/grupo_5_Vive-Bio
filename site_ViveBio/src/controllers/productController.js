@@ -4,8 +4,6 @@ const path = require('path');
 const fs = require('fs');
 
 
-
-
 module.exports = {
     Card: (req, res) => res.render('products/productCard', {
         products
