@@ -31,15 +31,15 @@ Header mobile
 }
 
 .mobile_logo img {
-    width: 80%;
+    width: 90%;
 }
 
 .nav_mobile_menu {
     width: 75%;
     display: flex;
     justify-content: flex-end;
-    padding-right: 10px;
-    font-size: 25px;
+    margin-right: 10px;
+    font-size: 35px;
     color: var(--verdeOscuro);
 }
 
