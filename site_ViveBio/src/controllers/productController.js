@@ -9,22 +9,18 @@ const fs = require('fs');
 module.exports = {
     Card: (req, res) => {
         const { id } = req.params;
-        const product = products.find(product => product.id === +id)
-        let category = products.filter(product => product.category === +product.category)
-        const bioCapilar = products.filter(product => product.category === 1);
-        const bioCorporal = products.filter(product => product.category === 2);
-        const bioSpa = products.filter(product => product.category === 3);
-        return res.render('products/productCard', { products,product,category,bioCapilar,bioCorporal,bioSpa});
+        const product = products.find(product => product.id === +id);
+        let categories = products.filter(product => product.category === category.id);
+        return res.render('products/productCard', {products, product, category});
     },
     All: (req, res) => {
         const { id } = req.params;
-        const product = products.find(product => product.id === +id)
-            const productos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
-            const bioCapilar = products.filter(product => product.category === 1);
-            const bioCorporal = products.filter(product => product.category === 2);
-            const bioSpa = products.filter(product => product.category === 3);
-            return res.render('products/productAll', { products,product,category,bioCapilar,bioCorporal,bioSpa});
-        },
+        const product = products.find(product => product.id === +id);
+        const bioCapilar = products.filter(product => product.category === 1);
+        const bioCorporal = products.filter(product => product.category === 2);
+        const bioSpa = products.filter(product => product.category === 3);
+        return res.render('products/productAll', {products, product, category, bioCapilar, bioCorporal, bioSpa });
+    },
     Cart: (req, res) => res.render('products/productCart'),
     add: (req, res) => {
         return res.render('products/addProducts', { category });
@@ -52,11 +48,11 @@ module.exports = {
     edit: (req, res) => {
         const { id } = req.params;
         let product = products.find(product => product.id === +id)
-        return res.render('products/editProducts', { product,category })
+        return res.render('products/editProducts', { product, category })
 
     },
     update: (req, res) => {
-        let { name, category, price, description,discount,volume,property } = req.body;
+        let { name, category, price, description, discount, volume, property } = req.body;
         let { id } = req.params;
         let image = req.files.map(image => image.filename);
 
@@ -74,9 +70,9 @@ module.exports = {
                     description,
                     image: image ? image : product.image
                 }
-                if(req.files){
-                    if(fs.existsSync(path.resolve(__dirname,'..','public','images',product.img)) && product.img !== "noimage.jpeg"){
-                        fs.unlinkSync(path.resolve(__dirname,'..','public','images',product.img))
+                if (req.files) {
+                    if (fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', product.img)) && product.img !== "noimage.jpeg") {
+                        fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', product.img))
                     }
                 }
                 return productact;

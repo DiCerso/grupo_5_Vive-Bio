@@ -18,7 +18,6 @@
                 </div>
                 <div class="box-info">
                   <h5>-<%= product.property %>-</h5>
-                  <h3><%= product.category %>  </h3>
                   <div class="box-info-precio">
                     <h2>$<%= product.price %>
                     </h2>
@@ -51,7 +50,6 @@
             </div>
             <h2 class="titulares">Productos Relacionados</h2>
             <section class="row">
-              <% if (category === +product.id.category) { %>
                 <% products.forEach(({id,name,price,discount,property,image})=> { %>
                   <article>
                     <div class="card estilo-c">
@@ -86,7 +84,6 @@
                   </article>
                   <% }) %>
               </section>
-              <% } %>
             <h2 class="titulares">Nuestra comunidad</h2>
             <section class="comunidad">
               <div class="box-perfiles">
