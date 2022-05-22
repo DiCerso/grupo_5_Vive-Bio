@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 /*rutas dinámicas */
-const indexRouter  = require('./routes/index');
+const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/product');
 const usersRouter = require('./routes/users')
 
