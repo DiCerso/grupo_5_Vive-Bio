@@ -10,10 +10,6 @@
     background-position: center;
 }
 
-.home .carrusel__home .banner {
-    width: 150px;
-}
-
 
 /************************************************
 ANIMACIÓN DE INTRO
@@ -77,16 +73,17 @@ ANIMACIÓN DE INTRO
     transition: 0.5s;
 }
 
+
+
 /**********************************************
 Carrusel
 **********************************************/
 .slider {
-    width: calc(100% - 20px);
-    height: 300px;
-    border-radius: 5px;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     padding: 0px;
-    margin: 10px;
+    position: relative;
 }
 
 .slides input {
@@ -95,13 +92,62 @@ Carrusel
 
 .slides {
     width: 500%;
-    height: 300px;
+    height: 100vh;
     display: flex;
 }
 
-.slides img {
+.slides p {
+    position: absolute;
+    top: 35%;
+    background-color: rgba(0, 0, 0, 0.25);
     width: 100%;
+    text-align: center;
+    padding: 100px 0 100px;
 }
+
+/* .slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.img_1 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/ViveBio.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.img_2 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/ViveBio-3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.img_3 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/carousel_img_3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.img_4 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/carousel_img_1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
 
 .slide {
     width: 20%;
@@ -110,8 +156,8 @@ Carrusel
 
 .navigation-manual {
     position: absolute;
-    width: 95%;
-    margin-top: -40px;
+    width: 100%;
+    top: 95%;
     display: flex;
     justify-content: center;
 }
@@ -149,9 +195,9 @@ Carrusel
 .navigation-auto {
     position: absolute;
     display: flex;
-    width: 95%;
+    width: 100%;
+    top: 95%;
     justify-content: center;
-    margin-top: 260px;
 }
 
 .navigation-auto div {
@@ -412,6 +458,21 @@ segunda parte del main
 
 
 @media(min-width:426px) {
+
+    /* START CARROUSEL TABLET*/
+    .slider {
+        margin: 50px 0 50px;
+        height: 300px;
+    }
+
+    .slides p {
+        top: 23%;
+        padding: 70px;
+    }
+    /*END CAROUSEL TABLET*/
+    .mobile_header {
+        display: none;
+    }
 
     .letter {
         font-size: 2rem;
