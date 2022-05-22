@@ -10,7 +10,10 @@ module.exports = {
     Card: (req, res) => {
         const { id } = req.params;
         const product = products.find(product => product.id === +id)
-        return res.render('products/productCard', { products,product,category })
+        const bioCapilar = products.filter(product => product.category === 1);
+        const bioCorporal = products.filter(product => product.category === 2);
+        const bioSpa = products.filter(product => product.category === 3);
+        return res.render('products/productCard', { products,product,category,bioCapilar,bioCorporal,bioSpa});
     },
     All: (req, res) => {
         return res.render('products/productAll',{
