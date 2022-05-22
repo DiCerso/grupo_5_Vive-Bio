@@ -20,7 +20,7 @@
 
 /*BOX TEXTO*/
 .productCard .producto__texto {
-    /* line-height: 25px; */
+    line-height: 25px;
     text-align: justify;
     width: 90%;
     margin: auto;
@@ -38,17 +38,17 @@
     background-color: var(--aquamarineSuave);
     border-radius: 5px;
     text-shadow: none;
-line-height: 25px;/* margin-left: 10px; */}
+line-height: 25px;/* margin-left: 10px; */font-size: 12px;}
 
 /*BOX IMAGEN*/
 .productCard .producto__imagen {
     background-color: var(--verdeClaro);
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
-    padding: 20px;
+    padding: 11px;
     border: 1px solid green;
     margin-top: 10px;
-}
+width: 100%;}
 
 .productCard .box-info {
     display: flex;
@@ -86,20 +86,11 @@ line-height: 25px;/* margin-left: 10px; */}
     padding-top: 10px;
 }
 
-.productCard .producto__cart button {
-    font-size: 33px;
-    background-color: var(--azulSuave);
-    color: white;
-    border-radius: 50%;
-    padding: 8px;
+.productCard .producto-iconos {
+    display: inline-flex;
 }
 
-.productCard .button {
-    display: flex;
-    flex-direction: column;
-}
-
-.productCard .producto__cart a {
+.productCard .producto__cart a, button{
     font-size: 30px;
     background-color: var(--azulSuave);
     color: white;
@@ -206,10 +197,6 @@ line-height: 25px;/* margin-left: 10px; */}
 }
 
 /*PROPIEDAD PRODUCTO*/
-.productCard .estilo-c .info-container span {
-    /* font-size: 14px; */
-}
-
 .productCard .estilo-c .info-container h3 {
     font-size: 24px;
 }
@@ -225,7 +212,7 @@ line-height: 25px;/* margin-left: 10px; */}
     border-radius: 25px;
 }
 
-.productCard .card-c-iconos {
+.productCard .card-c-iconos, .buttons {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
@@ -271,7 +258,7 @@ display: inline-flex;justify-content: center;align-content: flex-end;}
     gap: 10px;
     flex-wrap: nowrap;
     padding-bottom: 50px;
-}
+justify-content: center;align-content: center;}
 
 .productCard .card__perfil {
     border: 2px solid antiquewhite;
@@ -331,7 +318,6 @@ font-size: 15px;}
 }
 
 @media(min-width: 460px) {
-    /* ************************************************************************************ */
     /* Producto principal */
 
     .productCard .producto {
@@ -372,10 +358,6 @@ font-size: 15px;}
     .productCard .row {
         flex-direction: row;
         justify-content: space-around;
-    }
-
-    .productCard .card.estilo-c {
-        /* width: 100%; */
     }
 
     /*NOMBRE PRODUCTO*/
@@ -426,9 +408,12 @@ font-size: 15px;}
 
     }
 
+    .productCard .producto__imagen {
+        width: 450%;height: 100%;}
+
     .productCard .producto__cart {
-        gap: 10px;
-        flex-direction: column;
+        /* gap: 60px; */
+        
         align-items: center;
         justify-content: flex-end;
     align-content: flex-end;}
@@ -438,7 +423,6 @@ font-size: 15px;}
     }
 
     .productCard .producto-iconos {
-        display: flex;
         gap: 10px;
         padding-top: 10px;
     }

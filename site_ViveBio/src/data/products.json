@@ -68,7 +68,7 @@
        "category": 1,
        "property": "Humectante",
        "volume": 90,
-       "discount": 0,
+       "discount": 10,
        "image": "Shampoo-geranio-12.png"
     },
     {
@@ -80,7 +80,7 @@
        "category": 1,
        "property": "Hidratante",
        "volume": 90,
-       "discount": 0,
+       "discount": 10,
        "image": "Acondicionador-coco-3-4.jpg"
     },
     {
@@ -92,7 +92,7 @@
        "category": 1,
        "property": "Humectante",
        "volume": 90,
-       "discount": 0,
+       "discount": 10,
        "image": "Acondicionador-argán-05.jpg"
     },
     {
@@ -104,7 +104,7 @@
        "category": 1,
        "property": "Hidratante",
        "volume": 90,
-       "discount": 0,
+       "discount": 10,
        "image": "Acondicionador-coco-4-4.jpg"
     },
     {
