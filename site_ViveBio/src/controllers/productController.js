@@ -10,7 +10,6 @@ module.exports = {
     Card: (req, res) => {
         const { id } = req.params;
         const product = products.find(product => product.id === +id);
-        let categories = products.filter(product => product.category === category.id);
         return res.render('products/productCard', {products, product, category});
     },
     All: (req, res) => {
