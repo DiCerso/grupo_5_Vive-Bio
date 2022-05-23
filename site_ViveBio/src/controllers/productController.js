@@ -1,5 +1,5 @@
 const products = require('../data/products');
-const category = require('../data/categories');
+const category = require('../data/categoria');
 const path = require('path');
 const fs = require('fs');
 
@@ -8,7 +8,8 @@ module.exports = {
     Card: (req, res) => {
         const { id } = req.params;
         const product = products.find(product => product.id === +id);
-        return res.render('products/productCard', {products, product, category});
+        const categories = products.filter(product => product.category == 1);
+        return res.render('products/productCard', {products, product, categories, category});
     },
     All: (req, res) => {
         const { id } = req.params;

@@ -1,15 +1,16 @@
-.header {
-    background-color: var(--verdeClaro-Opaco);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-/*     padding-bottom: 10px; */
+.header .background{
+    background-image: url('/images/Rr.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding-bottom: 10px; 
 }
 
 /*******************************************
 Header mobile
 **********************************************/
+
 
 .mobile_header {
     width: 100%;
