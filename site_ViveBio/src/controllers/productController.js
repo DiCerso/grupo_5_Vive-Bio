@@ -16,7 +16,7 @@ module.exports = {
         const bioCapilar = products.filter(product => product.category === 1);
         const bioCorporal = products.filter(product => product.category === 2);
         const bioSpa = products.filter(product => product.category === 3);
-        return res.render('products/productAll', {products, product, category, bioCapilar, bioCorporal, bioSpa });
+        return res.render('products/productAll', {products, product, category, bioCapilar, bioCorporal, bioSpa});
     },
     Cart: (req, res) => res.render('products/productCart'),
     add: (req, res) => {
