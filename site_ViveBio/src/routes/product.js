@@ -19,13 +19,14 @@ const upload = multer({
 })
 
 /*Products*/
-router.get('/Card', Card);
-router.get('/All', All);
-router.get('/add', add);
-router.post('/add',upload.single('image'), store);
-router.get('/edit/:id', edit);
-router.put('/update/:id',upload.array('image'),update)
-router.delete("/remove/:id", remove)
+router
+    .get('/Card/:id', Card)
+    .get('/All', All)
+    .get('/add', add)
+    .post('/add',upload.single('image'), store)
+    .get('/edit/:id', edit)
+    .put('/update/:id',upload.array('image'),update)
+    .delete("/remove/:id", remove)
 
 
 

@@ -6,6 +6,21 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 var app = express();
 
+const methodOverride = require('method-override');
+
+
+app.use(express.static('public'));
+
+// View engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname,'..','public')));
+
+//manipulacion JSON
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+/*rutas dinámicas */
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/product');
 const usersRouter = require('./routes/users')

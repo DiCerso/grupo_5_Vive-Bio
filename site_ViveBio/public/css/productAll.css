@@ -3,10 +3,19 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 30px;
+    /* padding: 60px; */
     flex-direction: column;
     justify-content: center;
+}
+
+.productAll article {
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
 }
 
 .productAll .productosRelacionados {
@@ -22,8 +31,10 @@
 }
 
 .productAll .card.estilo-c {
-    width: 300px;
+    width: 100%;
     margin-bottom: 40px;
+    justify-content: center;
+    align-content: center;
 }
 
 
@@ -67,10 +78,6 @@
     padding-top: 5px;
 }
 
-.productAll .card {
-    width: 33%;
-}
-
 .productAll .box-nombre-edit {
     display: flex;
     justify-content: space-between;
@@ -78,7 +85,8 @@
 
 /*NOMBRE PRODUCTO*/
 .productAll .estilo-c .info-container h2 {
-    font-size: 24px;
+    padding-top: 5px;
+    font-size: 18px;
     text-shadow: none;
     color: var(--azulSuave);
 }
@@ -213,17 +221,20 @@
 
 @media(min-width: 460px) {
     .productAll .row {
+        width: 100%;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        align-content: center;
+        align-items: center;
     }
 
-    .productAll .card.estilo-c {
-        width: 49%;
+    .productAll article {
+        width: 40%;
     }
 
     /*NOMBRE PRODUCTO*/
     .productAll .estilo-c .info-container h2 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     /*CATEGORÍA PRODUCTO*/
@@ -260,19 +271,22 @@
         flex-direction: row;
     }
 
-    .productAll .card.estilo-c {
+    .productAll article {
         width: 30%;
+        /* gap: 6px; */
     }
 
     /*PROPIEDAD PRODUCTO*/
     .productAll .estilo-c .info-container span {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .productAll .iconos-eco {
         width: 97%;
     }
 }
+
+
 
 .productAll .banner img {
     width: 100%;
