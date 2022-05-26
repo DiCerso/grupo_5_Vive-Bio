@@ -4,12 +4,20 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    overflow: hidden;
 /*     padding-bottom: 10px; */
 }
 
 /*******************************************
 Header mobile
 **********************************************/
+.header_mobile-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+}
+
 
 .mobile_header {
     width: 100%;
@@ -17,9 +25,7 @@ Header mobile
     display: flex;
     align-items: center;
     position: absolute;
-    border: 1px solid rgba(127, 167, 148, 0.1);
-    z-index: 2;
-    border:none;
+    z-index: 4;
 }
 
 .mobile_logo {
@@ -40,33 +46,57 @@ Header mobile
     margin-right: 10px;
     font-size: 35px;
     color: var(--verdeOscuro);
+    text-shadow: 1px 1px 2px black;
 }
 
-
-
-
-/* 
-header .header__burger {
-    display: block;
-    color: rgb(0, 134, 34);
-    background-color: var(--verdeAmarillento);
-    font-size: 1.5rem;
-    padding: 8px;
-    margin: 10px auto;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+.options_mobile{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 60vw;
+    height: 100vh;
+    z-index: 2;
+    right: 0;
+    background-color: var(--verdeOscuro);
     text-align: center;
-    border: 1px solid black;
-} */
-
-
-/* .header .menu {
-    width: 60px;
-    height: 50px;
-    margin-top: 10px;
+    margin-right: -60vw;
+    transition: all 1s;
 }
- */
+
+.options_mobile ul li{
+    border-top: 1px solid rgb(94, 94, 94);
+    padding: 20px 0 20px;
+}
+
+.options_mobile ul li:last-child{
+    border-bottom: 1px solid rgb(94, 94, 94);
+}
+.options_mobile ul li:first-child{
+    margin-top: 100px;
+}
+
+.shadow_mobile{
+    width: 40vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    z-index: 2;
+    margin-left: -40vw;
+    transition: all 1s;
+}
+
+.mostrar{
+    margin-right: 0;
+}
+
+.mostrar2{
+    margin-left: 0;
+}
+
+
+/*end header mobile*/
+
 .header__logo{
     display:none;
 }
@@ -96,6 +126,9 @@ header .header__burger {
 }
 
 @media(min-width: 426px) {
+    .options_mobile{
+        display: none;
+    }
 
     .header {
         flex-direction: column;
