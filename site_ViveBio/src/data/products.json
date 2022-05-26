@@ -184,18 +184,5 @@
       "image": [
          "JabonLuffa-11.jpg"
       ]
-   },
-   {
-      "name": "hola",
-      "category": 1,
-      "volume": "23",
-      "discount": "23",
-      "property": "23",
-      "price": "23",
-      "description": "asdasd",
-      "id": 15,
-      "image": [
-         "noimage.jpg"
-      ]
    }
 ]
