@@ -7,9 +7,16 @@ const fs = require('fs');
 
 
 module.exports = {
-    Card: (req, res) => res.render('products/productCard', {
-        products
-    }),
+    Card: (req, res) => {
+        const {id} = req.params;
+
+        product = products.find(product => product.id === +id);
+
+        return res.render('products/productCard', {
+            product
+        })
+    },
+
     All: (req, res) => res.render('products/productAll'),
     Cart: (req, res) => res.render('products/productCart'),
     add: (req, res) => {
@@ -18,7 +25,8 @@ module.exports = {
     store: (req, res) => {
         const { name, category, price, description, property, volume, discount } = req.body;
         const lastId = products[products.length - 1].id;
-        const image = req.file.filename;
+        const image = req.files.filename;
+
         products.push({
             name,
             category,
@@ -28,7 +36,7 @@ module.exports = {
             price,
             description,
             id: (+lastId + 1),
-            image: image.length > 0 ? image : ["noimage.jpeg"]
+            image: image ? image : ["noimage.jpg"]
         })
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
@@ -39,7 +47,6 @@ module.exports = {
         const { id } = req.params;
         let product = products.find(product => product.id === +id)
         return res.render('products/editProducts', { product,category })
-
     },
     update: (req, res) => {
         let { name, category, price, description,discount,volume,property } = req.body;
@@ -58,12 +65,14 @@ module.exports = {
                     category: +category,
                     price: +price,
                     description,
-                    image: image ? image : product.image
+                    image: image.length > 0 ? image : product.image
                 }
                 if(req.files){
-                    if(fs.existsSync(path.resolve(__dirname,'..','public','images',product.img)) && product.img !== "noimage.jpeg"){
-                        fs.unlinkSync(path.resolve(__dirname,'..','public','images',product.img))
-                    }
+                    product.image.forEach(image => {
+                        if(fs.existsSync(path.resolve(__dirname,'..','public','images',image)) && image !== "noimage.jpg"){
+                            fs.unlinkSync(path.resolve(__dirname,'..','public','images',image))
+                        }
+                    });
                 }
                 return productact;
             }
@@ -77,10 +86,20 @@ module.exports = {
     remove: (req, res) => {
         const { id } = req.params;
 
-        const produtFilter = products.filter(product => product.id !== +id);
+        const productFilter = products.filter(product => product.id !== +id);
 
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(produtFilter, null, 3), 'utf-8')
+        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
         return res.redirect('/products/All');
+    },
+    search : (req, res) => {
+        const keyboard = req.query.keyboard;
+
+        const result = products.filter(product => product.name.toLowerCase().includes(keyboard.toLowerCase()))
+
+
+        return res.render('products/productSearch', {result})
+
+
     }
 }

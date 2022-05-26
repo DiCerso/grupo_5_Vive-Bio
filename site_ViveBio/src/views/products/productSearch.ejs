@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', { title : "Home" }) %>
+
+    <body class="home">
+        <%- include('../partials/header') %>
+            <main>
+                <div class="subtitulo__home">
+                    <h1>Busqueda</h1>
+                </div>
+                <section class="sect1">
+                    <% result.forEach(product => { %>
+                            <article class="art__home">
+                                <div class="nombreart__home">
+                                    <h1><%= product.name %> </h1>
+                                </div>
+                                <div class="imgart__home">
+                                    <img src="/images/<%= product.image %>" alt="">
+                                </div>
+                                <div class="precio">
+                                    <h4><%= product.price %> $ </h4>
+                                    <% if (product.discount) { %>
+                                        <p><%= product.price - (product.price / product.discount)%> $ </p>
+                                    <% }else{ %>
+                                        <p><%= product.price %> $ </p>
+                                    <% } %> 
+                                </div>
+                                <div class="verart__home">
+                                    <a href="/Products/Card/<%= product.id %>">Ver mas</a>
+                                </div>
+                            </article>
+                    <% }) %>
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

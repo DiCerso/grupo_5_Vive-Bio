@@ -4,48 +4,52 @@
       "name": "🍊Jabón Cítrico🍊",
       "description": "Nos encanta ésta versión exfoliante y los resultados que brinda 😍. Es una bomba para embellecer nuestra pieln sin químicos dañinos. Naranja: el ácido cítrico seca el acné, es antioxidante 🍊. Café: reactiva la circulación, es antioxidante y funciona como exfoliante 💚",
       "ingredients": "Oleato de Naranja, Mandarina, Café y Cedrón.",
+      "dest" : true,
       "category": 2,
       "property": "Exfoliante",
       "price": 300,
       "volume": "90",
       "discount": "30",
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 2,
       "name": "🌹Jabón Rosas🌹",
       "description": "Para ésta versión, gracias a la combinación de activos naturales con Oleato de Artemisa, ofrecemos una opción ideal para pieles sensibles 🍀. Posee propiedades humectantes, tonificantes, combate el acné, alivia zonas enrojecidas por lastimaduras, suavizando el cutis 💚.",
       "ingredients": "Aloe Vera, Oleato de Artemisa, Rosas y Manzanilla.",
+      "dest" : true,
       "category": 2,
       "property": "Humectante",
       "price": 300,
       "volume": 90,
       "discount": 20,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 3,
       "name": "🌸Jabón Lavanda🌸",
       "description": "En ésta versión, combinamos el poder hidratante del Aloe Vera 🌿, las propiedades cicatrizantes, venotónicas y revitalizantes del Romero 🌱, además de los beneficios que la Lavanda aporta: es una gran antioxidante, antiséptica y antiinflamatoria 💚.",
       "ingredients": "Aloe Vera, Romero, Lavanda",
+      "dest" : true,
       "price": 300,
       "category": 2,
       "property": "Hidratante",
       "volume": 90,
       "discount": 20,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 4,
       "name": "🌿Jabón Menta y Tea Tree🌿",
       "description": "Para ésta versión combinamos ingredientes naturales que aportan sus propiedades antibacterianas, antiinflamatorias, analgésicas, refrescantes y tonificantes 🌼. Tea Tree: alivia quemaduras y cicatiza 🍀. El Oleato a base de aceite de Chía aporta Omega 3, aumentando la producción de colágeno en la piel 💚.",
       "ingredients": "Aceite de Menta, Tea Three, Oleato de Cedrón, de Caléndula y de Aceite de Chía.",
+      "dest" : true,
       "price": 300,
       "category": 2,
       "property": "Antiséptico",
       "volume": 90,
       "discount": 40,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 5,
@@ -57,7 +61,7 @@
       "property": "Tonificante",
       "volume": 90,
       "discount": 40,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 6,
@@ -69,7 +73,7 @@
       "property": "Humectante",
       "volume": 90,
       "discount": 0,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 7,
@@ -81,7 +85,7 @@
       "property": "Hidratante",
       "volume": 90,
       "discount": 0,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 8,
@@ -93,7 +97,7 @@
       "property": "Humectante",
       "volume": 90,
       "discount": 0,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 9,
@@ -105,7 +109,7 @@
       "property": "Hidratante",
       "volume": 90,
       "discount": 0,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 10,
@@ -117,7 +121,7 @@
       "property": "Humectante",
       "volume": 120,
       "discount": 20,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 11,
@@ -129,7 +133,7 @@
       "property": "Hidratante",
       "volume": 120,
       "discount": 20,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 12,
@@ -141,7 +145,7 @@
       "property": "Revitalizante",
       "volume": 120,
       "discount": 20,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 13,
@@ -153,7 +157,7 @@
       "property": "Exfoliante",
       "volume": 140,
       "discount": 25,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    },
    {
       "id": 14,
@@ -165,6 +169,6 @@
       "property": "Tonificante",
       "volume": 140,
       "discount": 25,
-      "image": []
+      "image": ["Acondicionador-argán-03.jpg"]
    }
 ]
