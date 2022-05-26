@@ -2,14 +2,14 @@
    {
       "id": 1,
       "name": "🍊Jabón Cítrico🍊",
-      "description": "Nos encanta ésta versión exfoliante y los resultados que brinda 😍. Es una bomba para embellecer nuestra pieln sin químicos dañinos. Naranja: el ácido cítrico seca el acné, es antioxidante 🍊. Café: reactiva la circulación, es antioxidante y funciona como exfoliante 💚",
+      "description": "Nos encanta ésta versión exfoliante y los resultados que brinda 😍. Es una bomba para embellecer nuestra piel sin químicos dañinos. Naranja: el ácido cítrico seca el acné, es antioxidante 🍊. Café: reactiva la circulación, es antioxidante y funciona como exfoliante 💚",
       "ingredients": "Oleato de Naranja, Mandarina, Café y Cedrón.",
       "category": 2,
       "property": "Exfoliante",
       "price": 300,
       "volume": 90,
       "discount": 30,
-      "image": []
+      "image": "Jabon-exfoliante-08.jpg"
    },
    {
       "id": 2,
@@ -21,7 +21,7 @@
       "price": 300,
       "volume": 90,
       "discount": 20,
-      "image": []
+      "image": "jabon-humectante-14.jpg"
    },
    {
       "id": 3,
@@ -33,7 +33,7 @@
       "property": "Hidratante",
       "volume": 90,
       "discount": 20,
-      "image": []
+      "image": "jabon-humectante-15.jpg"
    },
    {
       "id": 4,
@@ -45,7 +45,7 @@
       "property": "Antiséptico",
       "volume": 90,
       "discount": 40,
-      "image": []
+      "image": "Jabon-antiseptico-07.jpg"
    },
    {
       "id": 5,
@@ -57,71 +57,59 @@
       "property": "Tonificante",
       "volume": 90,
       "discount": 40,
-      "image": []
+      "image": "Jabon-menta-16.jpg"
    },
    {
       "id": 6,
-      "name": "🌷Shampoo Aceite de Argán🌷",
+      "name": "🌷Shampoo Argán🌷",
       "description": "Tiene la capacidad de restaurar la suavidad, la fuerza y el brillo de tu cabello, gracias a las propiedades antioxidantes que posee, a la vitamina E, al Omega 3 y a los ácidos grasos que penetran en el cabello regenerándolo totalmente desde la raíz a las puntas. 💚",
       "ingredients": "Aceite de Argán, Manteca de Cacao.",
       "price": 400,
       "category": 1,
       "property": "Humectante",
       "volume": 90,
-      "discount": 0,
-      "image": []
+      "discount": 10,
+      "image": "Shampoo-geranio-12.png"
    },
    {
       "id": 7,
-      "name": "🥥Shampoo Aceite de Coco🥥",
+      "name": "🥥Shampoo Coco🥥",
       "description": "Las múltiples propiedades del Aceite de Coco hidratan de manera natural, es anti-bacteriano, antifúngico y contiene nutrientes que ayudan a reparar la piel y el cabello 😍. Ideal para reparar los cabellos maltratados, revitalizar los folículos y nutrir en profundidad el cuero cabelludo 💚",
       "ingredients": "Aceite de Coco, Lavanda.",
       "price": 400,
       "category": 1,
       "property": "Hidratante",
       "volume": 90,
-      "discount": 0,
-      "image": []
+      "discount": 10,
+      "image": "Acondicionador-coco-3-4.jpg"
    },
    {
       "id": 8,
-      "name": "🌷Acondicionador Aceite de Argán🌷",
-      "description": "Gracias a sus antioxidante y humectantes naturales, es un excelente aliado para agregar brillo y humedad natural a tu cabello, desapareciendo el frizz y dejándolo sedoso y de fácil manejo 💚.",
+      "name": "🌷Acondicionador Argán🌷",
+      "description": "Gracias a sus antioxidantes y humectantes naturales, es un excelente aliado para agregar brillo y humedad natural a tu cabello, desapareciendo el frizz y dejándolo sedoso y de fácil manejo 💚.",
       "ingredients": "Aceite de Argán, Manteca de Cacao.",
       "price": 400,
       "category": 1,
       "property": "Humectante",
       "volume": 90,
-      "discount": 0,
-      "image": []
+      "discount": 10,
+      "image": "Acondicionador-argán-05.jpg"
    },
    {
       "id": 9,
-      "name": "🥥Acondicionador Aceite de Coco🥥",
+      "name": "🥥Acondicionador Coco🥥",
       "description": "Para un cabello brillante, suave y saludable 😍. Podrás desenredar tu cabello muy fácilmente y las puntas partidas serán reparadas. Fortalece los cabellos delgados, y así mejora el crecimiento natural 💚.",
       "ingredients": "Aceite de Coco, de Lavanda.",
       "price": 400,
       "category": 1,
       "property": "Hidratante",
       "volume": 90,
-      "discount": 0,
-      "image": []
-   },
-   {
-      "id": 10,
-      "name": "🏵️Shampoo y Acondicionador Almendras🏵️",
-      "description": "Gracias a su alto contendido de proteínas, minerales y vitaminas A, B y E; hidrata, nutre y suaviza el cabello. Brinda protección solar, define rizos y combate la dermatitis seborreica. 💚",
-      "ingredients": "Aceite de Almendras, de Oliva.",
-      "price": 600,
-      "category": 1,
-      "property": "Humectante",
-      "volume": 120,
-      "discount": 20,
-      "image": []
+      "discount": 10,
+      "image": "Acondicionador-coco-4-4.jpg"
    },
    {
       "id": 11,
-      "name": "🌺Shampoo y Acondicionador Karité🌺",
+      "name": "🌺Shamp/Acond Karité🌺",
       "description": "La formulación del aceite de karité es de vitamina A, E y F, que en conjunto le devuelven el brillo, suavidad, fuerza y le da una mejor resistencia. 💚",
       "ingredients": "Manteca de Karité, Aceite de Uva.",
       "price": 600,
@@ -129,11 +117,11 @@
       "property": "Hidratante",
       "volume": 120,
       "discount": 20,
-      "image": []
+      "image": "Shampoo-karité-02.jpg"
    },
    {
       "id": 12,
-      "name": "🌿Shampoo y Acondicionador Salvia🌿",
+      "name": "🌿Shamp/Acond Salvia🌿",
       "description": "Las propiedades astringentes de la Salvia, hacen de esta receta, una solución ideal para la limpieza y belleza de tu cabello graso. 💚",
       "ingredients": "Aceite de Salvia, de Oliva.",
       "price": 600,
@@ -141,30 +129,30 @@
       "property": "Revitalizante",
       "volume": 120,
       "discount": 20,
-      "image": []
+      "image": "Acondicionador-salvia-06.png"
    },
    {
       "id": 13,
-      "name": "🍊Luffa y Jabón Cítrico + Jabonera🍊",
-      "description": "Ideal para hacerle un mimo a nuestros pies 🥰. Es la base de nuestro cuerpo, en ellos residen muchísimas terminales nerviosas, que cargan y descargan energía constantemente, por eso es importante cuidarlos 😍. Posee propiedades antisépticas, antibacterianas, humectantes y tonificantes. La luffa (o esponja vegetal) funciona como exfoliante natural, gracias a su textura. 💚",
+      "name": "🍊Kit Cítrico🍊",
+      "description": "Ideal para hacerle un mimo a nuestros pies 🥰. Es la base de nuestro cuerpo, en ellos residen muchísimas terminales nerviosas, que cargan y descargan energía constantemente, por eso es importante cuidarlos 😍. Posee propiedades antisépticas, antibacterianas, humectantes y tonificantes. La luffa (o esponja vegetal) funciona como exfoliante natural, gracias a su textura. (El kit incluye Luffa, Jabón y Jabonera). 💚",
       "ingredients": "Naranja, Café, Canela, Caléndula, Manzanilla, Aceite de Coco.",
       "price": 800,
       "category": 3,
       "property": "Exfoliante",
       "volume": 140,
       "discount": 25,
-      "image": []
+      "image": "JabonLuffa-09.jpg"
    },
    {
       "id": 14,
-      "name": "💮Luffa y Jabón Alcanfor + Jabonera💮",
-      "description": "Una bomba de aromas frescos y propiedades terapéuticas que nos obsequian las hierbas 🌿. El Alcanfor regula la secreción sebácea, Laurel: ayuda a combatir la dermatitis. Lavanda: regenera células cutáneas, combate el acné. Romero: cicatriza, refresca y alisa la piel. Tea Tree: cicatrizante, antifúngico y desodorante. Regálate un momento de auto-cuidado y relax 💚.",
+      "name": "💮Kit Alcanfor💮",
+      "description": "Una bomba de aromas frescos y propiedades terapéuticas que nos obsequian las hierbas 🌿. El Alcanfor regula la secreción sebácea, Laurel: ayuda a combatir la dermatitis. Lavanda: regenera células cutáneas, combate el acné. Romero: cicatriza, refresca y alisa la piel. Tea Tree: cicatrizante, antifúngico y desodorante. Regálate un momento de auto-cuidado y relax. (El kit incluye Luffa, Jabón y Jabonera)💚.",
       "ingredients": "Alcanfor, Laurel, Lavanda, Romero, Tea Tree.",
       "price": 800,
       "category": 3,
       "property": "Tonificante",
       "volume": 140,
       "discount": 25,
-      "image": []
+      "image": "JabonLuffa-11.jpg"
    }
 ]
