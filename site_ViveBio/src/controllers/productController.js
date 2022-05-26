@@ -39,7 +39,7 @@ module.exports = {
             price,
             description,
             id: (+lastId + 1),
-            image: image ? image : ["noimage.jpg"]
+            image: image.length > 0 ? image : ["noimage.jpg"]
         })
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
