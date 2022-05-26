@@ -28,7 +28,7 @@ module.exports = {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
         const { name, category, price, description, property, volume, discount } = req.body;
         const lastId = products[products.length - 1].id;
-        const image = req.files.filename;
+        const image = req.files.map(image => image.filename);
 
         products.push({
             name,
@@ -100,9 +100,6 @@ module.exports = {
 
         const result = products.filter(product => product.name.toLowerCase().includes(keyboard.toLowerCase()))
 
-
         return res.render('products/productSearch', {result})
-
-
     }
 }
