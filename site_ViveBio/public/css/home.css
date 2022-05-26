@@ -9,9 +9,224 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.home .carrusel__home .banner{
-    width: 150px;
+
+
+/************************************************
+ANIMACIÓN DE INTRO
+*************************************************/
+
+.intro {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/images/fondo-intro.gif);
+    transition: 1.5s;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    box-shadow: 0 1px 3px black;
 }
+
+.welcome-header {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    text-shadow: 0 1px 3px black;
+}
+
+.letter {
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+    font-size: 1.1rem;
+}
+
+.letter.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.letter.fade {
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+#pic {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    opacity: 0;
+}
+
+#pic.active {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+
+
+/**********************************************
+Carrusel
+**********************************************/
+.slider {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+}
+
+.slides input {
+    display: none;
+}
+
+.slides {
+    width: 500%;
+    height: 100vh;
+    display: flex;
+}
+
+.slides p {
+    position: absolute;
+    top: 35%;
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    text-align: center;
+    padding: 100px 0 100px;
+}
+
+/* .slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.img_1 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/ViveBio.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.img_2 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/ViveBio-3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.img_3 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/carousel_img_3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.img_4 {
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/carousel_img_1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+
+.slide {
+    width: 20%;
+    transition: 2s;
+}
+
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    top: 95%;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid var(--verdeOscuro);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -20%;
+}
+
+#radio3:checked~.first {
+    margin-left: -40%;
+}
+
+#radio4:checked~.first {
+    margin-left: -60%;
+}
+
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 95%;
+    justify-content: center;
+}
+
+.navigation-auto div {
+    border: 2px solid var(--verdeOscuro);
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked~.navigation-auto .auto-btn1 {
+    background: var(--verdeOscuro);
+}
+
+#radio2:checked~.navigation-auto .auto-btn2 {
+    background: var(--verdeOscuro);
+}
+
+#radio3:checked~.navigation-auto .auto-btn3 {
+    background: var(--verdeOscuro);
+}
+
+#radio4:checked~.navigation-auto .auto-btn4 {
+    background: var(--verdeOscuro);
+}
+
 
 
 /*************************************************
@@ -123,18 +338,21 @@ primera parte del main
     justify-content: flex-end;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-.precio{
+
+.precio {
     display: flex;
     margin-top: 10px;
     flex-direction: row;
     justify-content: center;
 }
 
-.precio h4{    
-    text-decoration: line-through;/*tachamos el precio*/
+.precio h4 {
+    text-decoration: line-through;
+    /*tachamos el precio*/
     color: var(--azulMarino);
 }
-.precio p{
+
+.precio p {
     font-size: 30px;
     color: black;
     margin-left: 10px;
@@ -192,11 +410,8 @@ segunda parte del main
 
 .home .sect2 .categorias__home .BioCorporal__home {
     /* background-image: url(/images/shampoo-argán.jpg); */
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    )
-    ,url(/images/producto1.jpeg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url(/images/producto1.jpeg);
     background-size: cover;
     transition: all 0.5s;
 }
@@ -205,24 +420,18 @@ segunda parte del main
 
 .home .sect2 .categorias__home .BioCapilar__home {
     /* background-image: url(/images/acondicionador-natural-de-coco-3.jpg); */
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    )
-    ,url(/images/producto2.jpeg);
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url(/images/producto2.jpeg);
     background-size: cover;
     transition: all 0.5s;
 }
 
 .home .sect2 .categorias__home .BioSpa__home {
     /* background-image: url(/images/2en1almendras.jpg); */
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    )
-    ,url(/images/producto3.jpeg);
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url(/images/producto3.jpeg);
     background-size: cover;
     transition: all 0.5s;
 
@@ -239,16 +448,35 @@ segunda parte del main
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.barra__cate__home p{
+.barra__cate__home p {
     font-size: 24px;
 }
 
 
 
 @media(min-width:426px) {
+
+    /* START CARROUSEL TABLET*/
+    .slider {
+        margin: 50px 0 50px;
+        height: 300px;
+    }
+
+    .slides p {
+        top: 23%;
+        padding: 70px;
+    }
+    /*END CAROUSEL TABLET*/
+    .mobile_header {
+        display: none;
+    }
+
+    .letter {
+        font-size: 2rem;
+    }
 
 
     .home main .sect1 {
@@ -284,7 +512,7 @@ segunda parte del main
 
     .home main .subtitulo__home h1 {
         padding: 5px;
-        
+
     }
 
     .home main .nombre-categorias__home h1 {
@@ -311,6 +539,10 @@ segunda parte del main
 
 @media(min-width: 768px) {
 
+    .letter {
+        font-size: 2.5rem;
+    }
+
     .home main .sect1 #art__home4 {
         display: none;
     }
@@ -328,7 +560,7 @@ segunda parte del main
         justify-content: space-evenly;
     }
 
-    .home .sect2 .categorias__home{
+    .home .sect2 .categorias__home {
         width: 275px;
         height: 275px;
     }
@@ -340,7 +572,7 @@ segunda parte del main
 
     }
 
-    .home .sect2 .categorias__home .barra__cate__home{
+    .home .sect2 .categorias__home .barra__cate__home {
         transition: all 0.5s;
     }
 

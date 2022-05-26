@@ -1,4 +1,11 @@
 {
+  "name": "grupo_5_proyecto",
+  "description": "Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador.\r Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. \r Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/bin/www"
+  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -7,13 +14,10 @@
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",
-    "multer": "^1.4.4"
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.16"
   },
-  "name": "grupo_5_proyecto",
-  "description": "Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador.\r Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. \r Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.",
-  "version": "1.0.0",
-  "main": "./src/app.js",
-  "scripts": {
-    "start": "node ./src/bin/www"
+  "nodemonConfig": {
+    "ignore": "src/data/*.json"
   }
 }

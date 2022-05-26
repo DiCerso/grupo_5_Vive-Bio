@@ -5,14 +5,15 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('grupo-5-vive-bio:server');
+/* var debug = require('debug')('craftsy:server'); */
+var debug = require('debug')('site-vivebio:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3030');
 app.set('port', port);
 
 /**
@@ -88,3 +89,7 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+console.log(`Server running in http://localhost:${port}`)
+
+
