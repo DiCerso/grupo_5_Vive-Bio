@@ -21,7 +21,7 @@
 /*BOX TEXTO*/
 .productCard .producto__texto {
     line-height: 25px;
-    text-align: justify;
+    align-items: center;
     width: 90%;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.9);
@@ -38,7 +38,10 @@
     background-color: var(--aquamarineSuave);
     border-radius: 5px;
     text-shadow: none;
-line-height: 25px;margin-top: 20px;font-size: 15px;}
+    line-height: 25px;
+    margin-top: 20px;
+    font-size: 15px;
+}
 
 /*BOX IMAGEN*/
 .productCard .producto__imagen {
@@ -47,8 +50,9 @@ line-height: 25px;margin-top: 20px;font-size: 15px;}
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
     padding: 11px;
     border: 1px solid green;
-    margin-top: 10px;
-width: 100%;}
+    margin: auto;
+    width: 100%;
+}
 
 .productCard .box-info {
     display: flex;
@@ -90,12 +94,17 @@ width: 100%;}
     display: inline-flex;
 }
 
-.productCard .producto__cart a, button{
+.productCard .producto__cart a,
+button {
     font-size: 30px;
     background-color: var(--azulSuave);
     color: white;
     border-radius: 50%;
     padding: 10px;
+    align-content: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .productCard .producto__cart a:hover {
@@ -169,8 +178,8 @@ width: 100%;}
     border-bottom-right-radius: 10px;
     background-color: var(--green-background-cards);
     height: 170px;
-    padding-left: 10px;
     padding-top: 5px;
+    text-align: center;
 }
 
 .productCard .card {
@@ -187,6 +196,13 @@ width: 100%;}
     font-size: 18px;
     text-shadow: none;
     color: var(--azulSuave);
+}
+
+/*PRECIO PRODUCTO */
+.productCard .estilo-c .info-container p {
+    font-size: 24px;
+    margin: 5px 0px;
+    background-color: var(--aquamarineSuave);
 }
 
 /*CATEGORÍA PRODUCTO*/
@@ -212,7 +228,8 @@ width: 100%;}
     border-radius: 25px;
 }
 
-.productCard .card-c-iconos, .buttons {
+.productCard .card-c-iconos,
+.buttons {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
@@ -225,7 +242,10 @@ width: 100%;}
     border-radius: 50%;
     font-size: 10px;
     padding: 4px;
-display: inline-flex;justify-content: center;align-content: flex-end;}
+    display: inline-flex;
+    justify-content: center;
+    align-content: flex-end;
+}
 
 .productCard .card-c-iconos .buttons {
     display: flex;
@@ -258,42 +278,43 @@ display: inline-flex;justify-content: center;align-content: flex-end;}
     gap: 10px;
     flex-wrap: nowrap;
     padding-bottom: 50px;
-justify-content: center;align-content: center;}
+    justify-content: center;
+    align-content: center;
+}
 
 .productCard .card__perfil {
     border: 2px solid antiquewhite;
     width: 100%;
     padding: 10px;
     border-radius: 20px;
-    /* background-color: rgba(127, 255, 212, 0.5); */
-    ;
     color: var(--VioletaOscuro);
     text-align: center;
-overflow: scroll;height: 150px;}
+    overflow: scroll;
+    height: 150px;
+}
 
 .productCard .card__perfil p {
-    /* padding-top: 10px; */
     color: var(--VioletaOscuro);
     text-shadow: none;
-    /* font-size: 12px; */
     font-size: 10px;
     background-color: rgba(127, 255, 212, 0.9);
     border-radius: 8px;
 }
 
-.productCard .card__nombre_box-img{
+.productCard .card__nombre_box-img {
     width: 100%;
     padding-top: 10px;
-/* align-items: center; *//* display: flex; *//* justify-content: center; */}
+}
 
-.productCard .card__nombre_box-img img{
+.productCard .card__nombre_box-img img {
     width: 40%;
     border-radius: 15%;
 }
 
 .productCard .card__nombre h2 {
     padding-top: 5px;
-font-size: 15px;}
+    font-size: 15px;
+}
 
 .productCard .iconos-eco {
     margin: 10px;
@@ -409,18 +430,24 @@ font-size: 15px;}
     }
 
     .productCard .producto__imagen {
-        width: 44%;height: 50%;}
+        width: 44%;
+        height: 50%;
+    }
 
     .productCard .producto__cart {
         /* gap: 60px; */
-        
-        flex-direction: row;align-items: flex-end;
+
+        flex-direction: row;
+        align-items: flex-end;
         justify-content: space-evenly;
-    align-content: flex-end;flex-wrap: wrap;}
+        align-content: flex-end;
+        flex-wrap: wrap;
+    }
 
     .productCard .box-texto-iconos {
-        /* width: 80%; */
-    padding: 10px;}
+        margin: auto;
+        padding: 10px;
+    }
 
     .productCard .producto-iconos {
         gap: 10px;
@@ -459,7 +486,9 @@ font-size: 15px;}
         width: 97%;
     }
 
-    .container-imagen-texto{
+    .container-imagen-texto {
         display: flex;
-    height: 100%;width: 100%;}
+        height: 100%;
+        width: 100%;
+    }
 }
