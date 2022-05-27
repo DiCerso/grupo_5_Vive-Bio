@@ -1,20 +1,34 @@
 <header class="header">
-    <div class="mobile_header">
-        <div class="mobile_logo">
-            <a href="/"><img src="/images/logo.png" alt="logo"></a>
+    <div class="header_mobile-container" id="header_mobile">
+        <div class="mobile_header">
+            <div class="mobile_logo">
+                <a href="/"><img src="/images/logo.png" alt="logo"></a>
+            </div>
+            <div class="nav_mobile_menu">
+                <span id="btnMenu"><i class="fas fa-bars"></i></span>
+            </div>
         </div>
-        <div class="nav_mobile_menu">
-            <i class="fas fa-bars"></i>
+        <div class="shadow_mobile" id="shadow"></div>
+        <div class="options_mobile" id="menu">
+            <div class="usuario_mobile">
+                <a href="/users/login"><i class="fas fa-user-circle"></i>Login</a>
+            </div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products/all">Productos</a></li>
+                <li><a href="">Quienes somos</a></li>
+                <li><a href="">Contacto</a></li>
+            </ul>
         </div>
     </div>
     <div class="header__container">
         <div class="header__logo">
             <a href="/"><img src="/images/logo.png" alt="logo"></a>
-        </div> 
-        <div class="header__busqueda">
-            <input type="text" class="barra" style="padding-left:5px;">
-            <button type="submit" class="barra__lupa"><i class="fas fa-search"></i></button>
         </div>
+            <form class="header__busqueda" action="/Products/search" method="GET">
+                <input type="text" name="keyboard" class="barra" style="padding-left:5px;">
+                <button  type="submit"  class="barra__lupa"><i class="fas fa-search"></i></button>
+            </form>
         <div class="header__user">
             <a href="/users/login">
                 <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
@@ -23,9 +37,6 @@
             </a>
         </div>
     </div>
-    <!-- <div class="header__burger">
-        
-    </div> -->
     <nav class="header__nav">
         <div class="header__localizacion">
             <a href="">Estas en "lugar"</a>
@@ -45,4 +56,7 @@
             <a href="#"><img src="/images/corazon.png" alt=""></a>
         </div>
     </nav>
+
+
+
 </header>

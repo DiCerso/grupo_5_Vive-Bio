@@ -14,7 +14,7 @@
             <div class="container-imagen-texto">
               <div class="producto__imagen">
                 <div class="box-imagen">
-                  <img src="/images/<%= product.image %>"  alt="...">
+                  <img src="/images/<%= product.image %>" alt="...">
                 </div>
                 <div class="box-info">
                   <h5>-<%= product.property %>-</h5>
@@ -50,40 +50,41 @@
             </div>
             <h2 class="titulares">Productos Relacionados</h2>
             <section class="row">
-                <% products.forEach(({id,name,price,discount,property,image})=> { %>
-                  <article>
-                    <div class="card estilo-c">
-                      <div class="img-container">
-                        <img src="/images/<%= image %> " alt="producto">
-                        <span class="promo">
-                          <%= discount %>% off
-                        </span>
+
+              <% relation.forEach(({id,image,name,discount,property,price})=> { %>
+                <article>
+                  <div class="card estilo-c">
+                    <div class="img-container">
+                      <img src="/images/<%= image %> " alt="producto">
+                      <span class="promo">
+                        <%= discount %>% off
+                      </span>
+                    </div>
+                    <div class="info-container">
+                      <div class="Card-info-texto">
+                        <a href="/products/Card/<%= id %> ">
+                          <h2>
+                            <%= name %>
+                          </h2>
+                        </a>
+                        <span>-<%= property %> -</span>
+                        <h3>$<%= price %> .-</h3>
+                        <span class="rating">⭐⭐⭐⭐</span>
                       </div>
-                      <div class="info-container">
-                        <div class="Card-info-texto">
-                          <a href="/products/Card/<%= id %> ">
-                            <h2>
-                              <%= name %>
-                            </h2>
-                          </a>
-                          <span>-<%= property %> -</span>
-                          <h3>$<%= price %> .-</h3>
-                          <span class="rating">⭐⭐⭐⭐</span>
+                      <div class="card-c-iconos">
+                        <div class="iconos-white">
+                          <a href="/products/Card/<%= id %> "><i class="fa-solid fa-eye"></i></a>
+                          <a href="/products/Edit/<%= id %> "><i class="fa-solid fa-pen"></i></a>
+                          <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                          <a href="#"><i class="fa-solid fa-star"></i></a>
                         </div>
-                        <div class="card-c-iconos">
-                          <div class="iconos-white">
-                            <a href="/products/Card/<%= id %> "><i class="fa-solid fa-eye"></i></a>
-                            <a href="/products/Edit/<%= id %> "><i class="fa-solid fa-pen"></i></a>
-                            <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                            <a href="#"><i class="fa-solid fa-star"></i></a>
-                          </div>
-                          <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
-                        </div>
+                        <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
                       </div>
                     </div>
-                  </article>
-                  <% }) %>
-              </section>
+                  </div>
+                </article>
+                <% }) %>
+            </section>
             <h2 class="titulares">Nuestra comunidad</h2>
             <section class="comunidad">
               <div class="box-perfiles">
@@ -101,33 +102,14 @@
                       elit.</p>
                   </div>
                 </div>
-                <div class="card__perfil">
-                  <div class="card__nombre">
-                    <div class="card__nombre_box-img">
-                      <img src="/images/cara5.jpg" alt="">
-                    </div>
-                    <h2>Mariana Blas</h2>
-                  </div>
-                  <div class="card__descripcion">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                      dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
-                      adipisicing
-                      elit.</p>
-                  </div>
-                </div>
-                <div class="card__perfil">
-                  <div class="card__nombre">
-                    <div class="card__nombre_box-img">
-                      <img src="/images/cara4.jpg" alt="">
-                    </div>
-                    <h2>Samira Luna</h2>
-                  </div>
-                  <div class="card__descripcion">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                      dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
-                      adipisicing
-                      elit.</p>
-                  </div>
+                <div class="producto-iconos">
+                  <a href="#"><i class="fa-solid fa-star"></i></a>
+                  <a href=""><i class="fa-solid fa-share-nodes"></i></a>
+                  <a href="/products/Edit/<%= product.id %>"><i class="fa-solid fa-pen"></i></a><!--pongo 1 para producto 1, pero despues cambiar-->
+                  <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST"> 
+                    <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                  </form>
+                  <a href="/productCarrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
               </div>
               <div class="iconos-eco">
@@ -139,6 +121,7 @@
             </section>
       </main>
       <%- include('../partials/footer') %>
+        <script src="/javascript/menuMobile.js"></script>
   </body>
 
 </html>

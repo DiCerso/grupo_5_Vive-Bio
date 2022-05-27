@@ -267,9 +267,9 @@ primera parte del main
 .home .sect1 .art__home .nombreart__home {
     text-align: center;
     background-color: #7FA794;
-    border-radius: 19px;
+    border-radius: 12px;
     width: 85%;
-    height: 30px;
+    height: 50px;
     margin: 10px auto;
     display: flex;
     /*coloco como un contenedor flex*/
@@ -408,7 +408,7 @@ segunda parte del main
 
 
 
-.home .sect2 .categorias__home .corporal__home {
+.home .sect2 .categorias__home .BioCorporal__home {
     /* background-image: url(/images/shampoo-argán.jpg); */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)), url(/images/producto1.jpeg);
@@ -418,7 +418,7 @@ segunda parte del main
 
 
 
-.home .sect2 .categorias__home .capilar__home {
+.home .sect2 .categorias__home .BioCapilar__home {
     /* background-image: url(/images/acondicionador-natural-de-coco-3.jpg); */
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.5),
@@ -427,7 +427,7 @@ segunda parte del main
     transition: all 0.5s;
 }
 
-.home .sect2 .categorias__home .spa__home {
+.home .sect2 .categorias__home .BioSpa__home {
     /* background-image: url(/images/2en1almendras.jpg); */
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.5),
@@ -565,9 +565,9 @@ segunda parte del main
         height: 275px;
     }
 
-    .home .sect2 .categorias__home .capilar__home,
-    .home .sect2 .categorias__home .corporal__home,
-    .home .sect2 .categorias__home .spa__home {
+    .home .sect2 .categorias__home .BioCapilar__home,
+    .home .sect2 .categorias__home .BioCorporal__home,
+    .home .sect2 .categorias__home .BioSpa__home{
         filter: blur(3px);
 
     }
@@ -577,10 +577,10 @@ segunda parte del main
     }
 
 
-    .home .sect2 .categorias__home:hover .corporal__home,
+    .home .sect2 .categorias__home:hover .BioCorporal__home,
     .home .sect2 .categorias__home:hover .barra__cate__home,
-    .home .sect2 .categorias__home:hover .capilar__home,
-    .home .sect2 .categorias__home:hover .spa__home {
+    .home .sect2 .categorias__home:hover .BioCapilar__home,
+    .home .sect2 .categorias__home:hover .BioSpa__home{
         transform: scale(1.1);
         filter: blur(0px);
     }

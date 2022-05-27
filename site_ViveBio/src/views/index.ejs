@@ -55,120 +55,44 @@
                     <h1>Productos en Oferta</h1>
                 </div>
                 <section class="sect1">
-                    <article class="art__home">
-                        <div class="nombreart__home">
-                            <h1>producto 1</h1>
-                        </div>
-                        <div class="imgart__home">
-                            <img src="/images/producto1.jpeg" alt="">
-                        </div>
-                        <div class="precio">
-                            <h4>$600</h4>
-                            <p>$300</p>
-                        </div>
-                        <div class="verart__home">
-                            <a href="/Products/Card">Ver mas</a>
-                        </div>
-                    </article>
-                    <article class="art__home">
-                        <div class="nombreart__home">
-                            <h1>producto 1</h1>
-                        </div>
-                        <div class="imgart__home">
-                            <img src="/images/producto3.jpeg" alt="">
-                        </div>
-                        <div class="precio">
-                            <h4>$600</h4>
-                            <p>$300</p>
-                        </div>
-                        <div class="verart__home">
-                            <a href="/Products/Card">Ver mas</a>
-                        </div>
-                    </article>
-                    <article class="art__home">
-                        <div class="nombreart__home">
-                            <h1>producto 2</h1>
-                        </div>
-                        <div class="imgart__home">
-                            <img src="/images/producto2.jpeg" alt="">
-                        </div>
-                        <div class="precio">
-                            <h4>$600</h4>
-                            <p>$300</p>
-                        </div>
-                        <div class="verart__home">
-                            <a href="/Products/Card">Ver mas</a>
-                        </div>
-                    </article>
-                    <article class="art__home">
-                        <div class="nombreart__home">
-                            <h1>producto 3</h1>
-                        </div>
-                        <div class="imgart__home">
-                            <img src="/images/producto3.jpeg" alt="">
-                        </div>
-                        <div class="precio">
-                            <h4>$600</h4>
-                            <p>$300</p>
-                        </div>
-                        <div class="verart__home">
-                            <a href="/Products/Card">Ver mas</a>
-                        </div>
-                    </article>
-                    <article class="art__home" id="art__home4">
-                        <div class="nombreart__home">
-                            <h1>producto 1</h1>
-                        </div>
-                        <div class="imgart__home">
-                            <img src="/images/producto1.jpeg" alt="">
-                        </div>
-                        <div class="precio">
-                            <h4>$600</h4>
-                            <p>$300</p>
-                        </div>
-                        <div class="verart__home">
-                            <a href="/Products/Card">Ver mas</a>
-                        </div>
-                    </article>
-                    <article class="vermas__home">
-                        <div class='vermas-general'>
-                            <a href="/Products/All">Ver mas</a>
-                        </div>
-                    </article>
-                </section>
+                    <% products.forEach(product => { %>
+                        <% if (product.dest) { %>
+                            <article class="art__home">
+                                <div class="nombreart__home">
+                                    <h1><%= product.name %> </h1>
+                                </div>
+                                <div class="imgart__home">
+                                    <img src="/images/<%= product.image %>" alt="">
+                                </div>
+                                <div class="precio">
+                                    <h4><%= product.price %> $ </h4>
+                                    <p><%= product.price - (product.price / product.discount)%>$ </p>
+                                </div>
+                                <div class="verart__home">
+                                    <a href="/Products/Card/<%= product.id %>">Ver mas</a>
+                                </div>
+                            </article>
+                        <% } %>
+                    <% }) %>
                 <div class='nombre-categorias__home'>
                     <h1>Categorias</h1>
                 </div>
                 <section class="sect2">
-
-                    <article class="categorias__home">
-                        <a href="/Products/All">
-                            <div class="corporal__home" id="cate"></div>
-                            <div class="barra__cate__home">
-                                <p>BioCorporal</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="categorias__home">
-                        <a href="/Products/All">
-                            <div class="capilar__home" id="cate"></div>
-                            <div class="barra__cate__home">
-                                <p>BioCapilar</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="categorias__home">
-                        <a href="/Products/All">
-                            <div class="spa__home" id="cate"></div>
-                            <div class="barra__cate__home">
-                                <p>BioSpa</p>
-                            </div>
-                        </a>
-                    </article>
+                    <% category.forEach(cate => { %>
+                        <article class="categorias__home">
+                            <a href="/Products/All#<%= cate.name %>">
+                                <div class="<%= cate.name %>__home" id="cate"></div>
+                                <div class="barra__cate__home">
+                                    <p><%= cate.name %></p>
+                                </div>
+                            </a>
+                        </article>
+                    <% }) %>
                 </section>
             </main>
             <%- include('./partials/footer') %>
                 <script type="text/javascript" src="/javascript/carrusel.js"></script>
+                <script src="/javascript/menuMobile.js"></script>
     </body>
 
 </html>
