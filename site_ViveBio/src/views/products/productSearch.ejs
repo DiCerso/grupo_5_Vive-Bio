@@ -10,6 +10,7 @@
                     <h1>Busqueda</h1>
                 </div>
                 <section class="sect1">
+                    <% if (result.length > 0) { %>
                     <% result.forEach(product => { %>
                             <article class="art__home">
                                 <div class="nombreart__home">
@@ -31,6 +32,11 @@
                                 </div>
                             </article>
                     <% }) %>
+                    <% }else{ %>
+                        <div class="alert alert-warning mt-1">
+                           <h2> No se encontraron coincidencias 🧐 </h2>
+                        </div>
+                    <% } %>
             </main>
             <%- include('../partials/footer') %>
     </body>

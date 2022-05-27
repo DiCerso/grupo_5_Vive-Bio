@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-.header .background{
-    background-image: url('/images/Rr.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    padding-bottom: 10px; 
-=======
 .header {
     background-color: var(--verdeClaro-Opaco);
     display: flex;
@@ -15,7 +6,6 @@
     width: 100%;
     overflow: hidden;
 /*     padding-bottom: 10px; */
->>>>>>> develop
 }
 
 /*******************************************
@@ -27,7 +17,6 @@ Header mobile
     overflow: hidden;
     position: absolute;
 }
-
 
 
 .mobile_header {
