@@ -19,7 +19,12 @@
                 <div class="box-info">
                   <h5>-<%= product.property %>-</h5>
                   <div class="box-info-precio">
-                    <h2>$<%= product.price %>
+                    <h2> 
+                    <span> 💲 </span> <% if (product.discount) { %>
+                        <%= product.price - (product.price * product.discount / 100) %> 
+                    <% }else{ %>
+                        <%= product.price %>
+                    <% } %> 
                     </h2>
                     <span class="rating">⭐⭐⭐⭐</span>
                   </div>
@@ -32,7 +37,12 @@
                 </p>
                 <div class="producto__cart">
                   <div class="info-precio">
-                    <h4>Precio pago en efectivo: $ <%= product.price %> .-</h4>
+                    <h4>Precio pago en efectivo: $
+                      <% if (product.discount) { %>
+                      <%= product.price - (product.price * product.discount / 100) %> 
+                  <% }else{ %>
+                      <%= product.price %>
+                  <% } %> .-</h4>
                     <h5>Promoción: <%= product.discount %> % off (* Hasta agotar stock)</h5>
                     <h6>Peso: <%= product.volume %> grs.</h6>
                   </div>
@@ -41,9 +51,9 @@
                       <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
                     </form>
                     <a href="/products/Edit/<%= product.id %> "><i class="fa-solid fa-pen"></i></a>
+                    <a href="/productCarrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
                     <a href="#"><i class="fa-solid fa-star"></i></a>
                     <a href=""><i class="fa-solid fa-share-nodes"></i></a>
-                    <a href="/productCarrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
                   </div>
                 </div>
               </div>
@@ -67,18 +77,24 @@
                             <%= name %>
                           </h2>
                         </a>
-                        <span>-<%= property %> -</span>
-                        <h3>$<%= price %> .-</h3>
-                        <span class="rating">⭐⭐⭐⭐</span>
+                        <h6 class="rating">⭐⭐⭐⭐</h6>
+                        <span>-<%= property %> -</span> 
+                        <p>$
+                        <% if (product.discount) { %>
+                          <%= product.price - (product.price * product.discount / 100) %> 
+                      <% }else{ %>
+                          <%= product.price %>
+                      <% } %> 
+                      </p>
                       </div>
                       <div class="card-c-iconos">
                         <div class="iconos-white">
                           <a href="/products/Card/<%= id %> "><i class="fa-solid fa-eye"></i></a>
                           <a href="/products/Edit/<%= id %> "><i class="fa-solid fa-pen"></i></a>
+                          <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
                           <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                           <a href="#"><i class="fa-solid fa-star"></i></a>
                         </div>
-                        <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
                       </div>
                     </div>
                   </div>
@@ -143,3 +159,4 @@
   </body>
 
 </html>
+
