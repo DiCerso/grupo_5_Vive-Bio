@@ -20,12 +20,12 @@ Header mobile
 
 
 .mobile_header {
-    width: 100%;
+    width: 100vw;
     height: 70px;
-    display: flex;
     align-items: center;
+    display: flex;
     position: fixed;
-    z-index: 4;
+    z-index: 5;
 }
 
 .mobile_logo {

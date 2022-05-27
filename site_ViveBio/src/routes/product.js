@@ -25,7 +25,7 @@ router
     .get('/add', add)
     .post('/add',upload.single('image'), store)
     .get('/edit/:id', edit)
-    .put('/update/:id',upload.array('image'),update)
+    .put('/update/:id',upload.single('image'),update)
     .delete("/remove/:id", remove)
 
 
