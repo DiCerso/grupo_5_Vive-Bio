@@ -1,125 +1,14 @@
 [
-    {
-        "id": 1,
-        "name": "BioCapilar",
-        "products" : [
-            {
-                "id": 6,
-                "name": "🌷Shampoo Argán🌷",
-                "price": 400,
-                "property": "Humectante",
-                "volume": 90,
-                "discount": 10,
-                "image": "Shampoo-geranio-12.png"
-            },
-            {
-                "id": 7,
-                "name": "🥥Shampoo Coco🥥",
-                "price": 400,
-                "property": "Hidratante",
-                "discount": 10,
-                "image": "Acondicionador-coco-3-4.jpg"
-             },
-             {
-                "id": 8,
-                "name": "🌷Acondicionador Argán🌷",
-                "price": 400,
-                "property": "Humectante",
-                "discount": 0,
-                "image": "Acondicionador-argán-05.jpg"
-             },
-             {
-                "id": 9,
-                "name": "🥥Acondicionador Coco🥥",
-                "price": 400,
-                "property": "Hidratante",
-                "discount": 0,
-                "image": "Acondicionador-coco-4-4.jpg"
-             },
-             {
-                "id": 11,
-                "name": "🌺Shamp/Acond Karité🌺",
-                "price": 600,
-                "property": "Hidratante",
-                "discount": 20,
-                "image": "Shampoo-karité-02.jpg"
-             },
-             {
-                "id": 12,
-                "name": "🌿Shamp/Acond Salvia🌿",
-                "price": 600,
-                "property": "Revitalizante",
-                "discount": 20,
-                "image": "Acondicionador-salvia-06.png"
-             }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "BioCorporal",
-        "products": [
-            {
-                "id": 1,
-                "name": "🍊Jabón Cítrico🍊",
-                "property": "Exfoliante",
-                "price": 300,
-                "discount": 30,
-                "image": "Jabon-exfoliante-08.jpg"
-             },
-             {
-                "id": 2,
-                "name": "🌹Jabón Rosas🌹",
-                "property": "Humectante",
-                "price": 300,
-                "discount": 20,
-                "image": "jabon-humectante-14.jpg"
-             },
-             {
-                "id": 3,
-                "name": "🌸Jabón Lavanda🌸",
-                "price": 300,
-                "property": "Hidratante",
-                "discount": 20,
-                "image": "jabon-humectante-15.jpg"
-             },
-             {
-                "id": 4,
-                "name": "🌿Jabón Menta y Tea Tree🌿",
-                "price": 300,
-                "property": "Antiséptico",
-                "discount": 40,
-                "image": "Jabon-antiseptico-07.jpg"
-             },
-             {
-                "id": 5,
-                "name": "🌳Jabón Menta, y Eucalipto🌳",
-                "price": 300,
-                "property": "Tonificante",
-                "discount": 40,
-                "image": "Jabon-menta-16.jpg"
-             }
-        ]
-    },
-    {
-        "id": 3,
-        "name": "BioSpa",
-        "products": [
-            {
-                "id": 13,
-                "name": "🍊Kit Cítrico🍊",
-                "price": 800,
-                "property": "Exfoliante",
-                "discount": 25,
-                "image": "JabonLuffa-09.jpg"
-             },
-             {
-                "id": 14,
-                "name": "💮Kit Alcanfor💮",
-                "price": 800,
-                "property": "Tonificante",
-                "discount": 25,
-                "image": "JabonLuffa-11.jpg"
-             }
-        ]
-    }
+   {
+      "id": 1,
+      "name": "BioCapilar"
+   },
+   {
+      "id": 2,
+      "name": "BioCorporal"
+   },
+   {
+      "id": 3,
+      "name": "BioSpa"
+   }
 ]
