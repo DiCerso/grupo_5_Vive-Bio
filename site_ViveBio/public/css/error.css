@@ -1,4 +1,3 @@
-
 /*======================
     404 page
 =======================*/
@@ -11,7 +10,7 @@
 
 .error .page_404  img{ width:100%;}
 
-.error.four_zero_four_bg{
+.error .four_zero_four_bg{
  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
     height: 400px;
     background-position: center center;
@@ -21,12 +20,9 @@
  
  .error .four_zero_four_bg{
     font-size:80px;
+    color: var(--verdeFuerte);
  }
 
-
-.error .four_zero_four_bg h3,h1,p{
-    color: var(--verdeFuerte);
-}
 
 .error .contant_box_404 p,h3{
     color: var(--verdeFuerte);
@@ -38,6 +34,7 @@
     background: #39ac31;
     margin: 20px 0;
     display: inline-block;
+    border-radius: 10px;
 }
 
 .error .contant_box_404{
