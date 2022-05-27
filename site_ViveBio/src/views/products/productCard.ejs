@@ -102,33 +102,14 @@
                       elit.</p>
                   </div>
                 </div>
-                <div class="card__perfil">
-                  <div class="card__nombre">
-                    <div class="card__nombre_box-img">
-                      <img src="/images/cara5.jpg" alt="">
-                    </div>
-                    <h2>Mariana Blas</h2>
-                  </div>
-                  <div class="card__descripcion">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                      dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
-                      adipisicing
-                      elit.</p>
-                  </div>
-                </div>
-                <div class="card__perfil">
-                  <div class="card__nombre">
-                    <div class="card__nombre_box-img">
-                      <img src="/images/cara4.jpg" alt="">
-                    </div>
-                    <h2>Samira Luna</h2>
-                  </div>
-                  <div class="card__descripcion">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                      dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
-                      adipisicing
-                      elit.</p>
-                  </div>
+                <div class="producto-iconos">
+                  <a href="#"><i class="fa-solid fa-star"></i></a>
+                  <a href=""><i class="fa-solid fa-share-nodes"></i></a>
+                  <a href="/products/Edit/<%= product.id %>"><i class="fa-solid fa-pen"></i></a><!--pongo 1 para producto 1, pero despues cambiar-->
+                  <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST"> 
+                    <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                  </form>
+                  <a href="/productCarrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
               </div>
               <div class="iconos-eco">

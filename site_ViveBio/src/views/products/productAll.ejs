@@ -7,7 +7,7 @@
         <%- include('../partials/header') %>
             <main>
                 <section class="main">
-                    <h2 class="titulares">BioCapilar</h2>
+                    <h2 class="titulares" id="BioCapilar">BioCapilar</h2>
                     <section class="row">
                         <% bioCapilar.forEach(({id,name,price,discount,property,image})=> { %>
                             <article>
@@ -48,7 +48,7 @@
                             </article>
                             <% }) %>
                     </section>
-                    <h2 class="titulares">BioCorporal</h2>
+                    <h2 class="titulares" id="BioCorporal">BioCorporal</h2>
                     <section class="row">
                         <% bioCorporal.forEach(({id,name,price,discount,property,image})=> { %>
                             <article>
@@ -89,7 +89,7 @@
                             </article>
                             <% }) %>
                     </section>
-                    <h2 class="titulares">BioSpa</h2>
+                    <h2 class="titulares" id="BioSpa" >BioSpa</h2>
                     <section class="row">
                         <% bioSpa.forEach(({id,name,price,discount,property,image})=> { %>
                             <article>

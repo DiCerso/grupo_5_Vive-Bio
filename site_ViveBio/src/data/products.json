@@ -2,14 +2,17 @@
    {
       "id": 1,
       "name": "🍊Jabón Cítrico🍊",
-      "description": "Nos encanta ésta versión exfoliante y los resultados que brinda 😍. Es una bomba para embellecer nuestra piel sin químicos dañinos. Naranja: el ácido cítrico seca el acné, es antioxidante 🍊. Café: reactiva la circulación, es antioxidante y funciona como exfoliante 💚",
+      "description": "encanta ésta versión exfoliante y los resultados que brinda 😍. Es una bomba para embellecer nuestra piel sin químicos dañinos. Naranja: el ácido cítrico seca el acné, es antioxidante 🍊. Café: reactiva la circulación, es antioxidante y funciona como exfoliante 💚",
       "ingredients": "Oleato de Naranja, Mandarina, Café y Cedrón.",
       "category": 2,
+      "dest": true,
       "property": "Exfoliante",
       "price": 300,
-      "volume": 90,
-      "discount": 30,
-      "image": "Jabon-exfoliante-08.jpg"
+      "volume": "90",
+      "discount": "30",
+      "image": [
+         "Jabon-exfoliante-08.jpg"
+      ]
    },
    {
       "id": 2,
@@ -17,11 +20,14 @@
       "description": "Para ésta versión, gracias a la combinación de activos naturales con Oleato de Artemisa, ofrecemos una opción ideal para pieles sensibles 🍀. Posee propiedades humectantes, tonificantes, combate el acné, alivia zonas enrojecidas por lastimaduras, suavizando el cutis 💚.",
       "ingredients": "Aloe Vera, Oleato de Artemisa, Rosas y Manzanilla.",
       "category": 2,
+      "dest": true,
       "property": "Humectante",
       "price": 300,
       "volume": 90,
       "discount": 20,
-      "image": "jabon-humectante-14.jpg"
+      "image": [
+         "jabon-humectante-14.jpg"
+      ]
    },
    {
       "id": 3,
@@ -30,10 +36,13 @@
       "ingredients": "Aloe Vera, Romero, Lavanda",
       "price": 300,
       "category": 2,
+      "dest": true,
       "property": "Hidratante",
       "volume": 90,
       "discount": 20,
-      "image": "jabon-humectante-15.jpg"
+      "image": [
+         "jabon-humectante-15.jpg"
+      ]
    },
    {
       "id": 4,
@@ -42,10 +51,13 @@
       "ingredients": "Aceite de Menta, Tea Three, Oleato de Cedrón, de Caléndula y de Aceite de Chía.",
       "price": 300,
       "category": 2,
+      "dest": true,
       "property": "Antiséptico",
       "volume": 90,
       "discount": 40,
-      "image": "Jabon-antiseptico-07.jpg"
+      "image": [
+         "Jabon-antiseptico-07.jpg"
+      ]
    },
    {
       "id": 5,
@@ -57,7 +69,9 @@
       "property": "Tonificante",
       "volume": 90,
       "discount": 40,
-      "image": "Jabon-menta-16.jpg"
+      "image": [
+         "Jabon-menta-16.jpg"
+      ]
    },
    {
       "id": 6,
@@ -69,7 +83,9 @@
       "property": "Humectante",
       "volume": 90,
       "discount": 10,
-      "image": "Shampoo-geranio-12.png"
+      "image": [
+         "Shampoo-geranio-12.png"
+      ]
    },
    {
       "id": 7,
@@ -81,7 +97,9 @@
       "property": "Hidratante",
       "volume": 90,
       "discount": 10,
-      "image": "Acondicionador-coco-3-4.jpg"
+      "image": [
+         "Acondicionador-coco-3-4.jpg"
+      ]
    },
    {
       "id": 8,
@@ -93,7 +111,9 @@
       "property": "Humectante",
       "volume": 90,
       "discount": 10,
-      "image": "Acondicionador-argán-05.jpg"
+      "image": [
+         "Acondicionador-argán-05.jpg"
+      ]
    },
    {
       "id": 9,
@@ -105,7 +125,9 @@
       "property": "Hidratante",
       "volume": 90,
       "discount": 10,
-      "image": "Acondicionador-coco-4-4.jpg"
+      "image": [
+         "Acondicionador-coco-4-4.jpg"
+      ]
    },
    {
       "id": 11,
@@ -117,7 +139,9 @@
       "property": "Hidratante",
       "volume": 120,
       "discount": 20,
-      "image": "Shampoo-karité-02.jpg"
+      "image": [
+         "Shampoo-karité-02.jpg"
+      ]
    },
    {
       "id": 12,
@@ -129,7 +153,9 @@
       "property": "Revitalizante",
       "volume": 120,
       "discount": 20,
-      "image": "Acondicionador-salvia-06.png"
+      "image": [
+         "Acondicionador-salvia-06.png"
+      ]
    },
    {
       "id": 13,
@@ -141,7 +167,9 @@
       "property": "Exfoliante",
       "volume": 140,
       "discount": 25,
-      "image": "JabonLuffa-09.jpg"
+      "image": [
+         "JabonLuffa-09.jpg"
+      ]
    },
    {
       "id": 14,
@@ -153,6 +181,8 @@
       "property": "Tonificante",
       "volume": 140,
       "discount": 25,
-      "image": "JabonLuffa-11.jpg"
+      "image": [
+         "JabonLuffa-11.jpg"
+      ]
    }
 ]
