@@ -1,0 +1,52 @@
+/*======================
+    404 page
+=======================*/
+
+.error .container{
+    width: 100%;
+}
+.error .page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+}
+
+.error .page_404  img{ width:100%;}
+
+.error .four_zero_four_bg{
+ background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center center;
+    background-size: cover;
+ }
+ 
+ 
+ .error .four_zero_four_bg{
+    font-size:80px;
+    color: var(--verdeFuerte);
+ }
+
+
+.error .contant_box_404 p,h3{
+    color: var(--verdeFuerte);
+}
+
+.error .link_404{			 
+    color: white;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.error .contant_box_404{
+    margin-top:-50px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+@media(min-width: 768px){
+    .error .contant_box_404{
+        margin-top: 0px;
+    }
+}

@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="precio">
                                     <h4><%= product.price %> $ </h4>
-                                    <p><%= product.price - (product.price / product.discount)%>$ </p>
+                                    <p><%= product.price - (product.price * product.discount / 100) %> $ </p>
                                 </div>
                                 <div class="verart__home">
                                     <a href="/Products/Card/<%= product.id %>">Ver mas</a>

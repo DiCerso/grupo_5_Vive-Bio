@@ -21,7 +21,7 @@
 /*BOX TEXTO*/
 .productCard .producto__texto {
     line-height: 25px;
-    text-align: justify;
+    align-items: center;
     width: 90%;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.9);
@@ -178,8 +178,8 @@ button {
     border-bottom-right-radius: 10px;
     background-color: var(--green-background-cards);
     height: 170px;
-    padding-left: 10px;
     padding-top: 5px;
+    text-align: center;
 }
 
 .productCard .card {
@@ -196,6 +196,13 @@ button {
     font-size: 18px;
     text-shadow: none;
     color: var(--azulSuave);
+}
+
+/*PRECIO PRODUCTO */
+.productCard .estilo-c .info-container p {
+    font-size: 24px;
+    margin: 5px 0px;
+    background-color: var(--aquamarineSuave);
 }
 
 /*CATEGORÍA PRODUCTO*/

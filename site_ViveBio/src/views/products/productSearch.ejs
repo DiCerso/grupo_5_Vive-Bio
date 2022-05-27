@@ -7,7 +7,7 @@
         <%- include('../partials/header') %>
             <main>
                 <div class="subtitulo__home">
-                    <h1>Busqueda</h1>
+                    <h1>Resultados para tu búsqueda</h1>
                 </div>
                 <section class="sect1">
                     <% if (result.length > 0) { %>
@@ -22,7 +22,7 @@
                                 <div class="precio">
                                     <h4><%= product.price %> $ </h4>
                                     <% if (product.discount) { %>
-                                        <p><%= product.price - (product.price / product.discount)%> $ </p>
+                                        <p><%= product.price - (product.price * product.discount / 100) %> $ </p>
                                     <% }else{ %>
                                         <p><%= product.price %> $ </p>
                                     <% } %> 
@@ -34,7 +34,7 @@
                     <% }) %>
                     <% }else{ %>
                         <div class="alert alert-warning mt-1">
-                           <h2> No se encontraron coincidencias 🧐 </h2>
+                          <h2>  No se encontraron coincidencias 🧐 </h2>
                         </div>
                     <% } %>
             </main>
