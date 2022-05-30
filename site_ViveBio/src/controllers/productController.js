@@ -47,8 +47,9 @@ module.exports = {
         return res.redirect('/products/All')
     },
     edit: (req, res) => {
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
         const { id } = req.params;
-        let product = products.find(product => product.id === +id)
+        let product = products.find(product => product.id === +id)  
         return res.render('products/editProducts', { product,category })
     },
     update: (req, res) => {
