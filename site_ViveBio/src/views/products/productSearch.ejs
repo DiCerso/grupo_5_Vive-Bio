@@ -10,33 +10,41 @@
                     <h1>Resultados para tu búsqueda</h1>
                 </div>
                 <section class="sect1">
-                    <% if (result.length > 0) { %>
-                    <% result.forEach(product => { %>
+                    <% if (result.length> 0) { %>
+                        <% result.forEach(product=> { %>
                             <article class="art__home">
                                 <div class="nombreart__home">
-                                    <h1><%= product.name %> </h1>
+                                    <h1>
+                                        <%= product.name %>
+                                    </h1>
                                 </div>
                                 <div class="imgart__home">
                                     <img src="/images/<%= product.image %>" alt="">
                                 </div>
                                 <div class="precio">
-                                    <h4><%= product.price %> $ </h4>
+                                    <h4>
+                                        <%= product.price %> $
+                                    </h4>
                                     <% if (product.discount) { %>
-                                        <p><%= product.price - (product.price / product.discount)%> $ </p>
-                                    <% }else{ %>
-                                        <p><%= product.price %> $ </p>
-                                    <% } %> 
+                                        <p>
+                                            <%= product.price - (product.price / product.discount)%> $
+                                        </p>
+                                        <% }else{ %>
+                                            <p>
+                                                <%= product.price %> $
+                                            </p>
+                                            <% } %>
                                 </div>
                                 <div class="verart__home">
                                     <a href="/Products/Card/<%= product.id %>">Ver mas</a>
                                 </div>
                             </article>
-                    <% }) %>
-                    <% }else{ %>
-                        <div class="alert alert-warning mt-1">
-                          <h2>  No se encontraron coincidencias 🧐 </h2>
-                        </div>
-                    <% } %>
+                            <% }) %>
+                                <% }else{ %>
+                                    <div>
+                                        <h2> No se encontraron coincidencias 🧐 </h2>
+                                    </div>
+                                    <% } %>
             </main>
             <%- include('../partials/footer') %>
     </body>
