@@ -58,7 +58,6 @@ module.exports = {
         let image = req.files.map(image => image.filename);
         let productact = products.map(product => {
             if (product.id === +id) {
-
                 let productact = {
                     ...product,
                     name,
