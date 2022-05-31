@@ -13,7 +13,9 @@ module.exports = {
     }),
 
     processRegister: (req, res) => {
+        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
         let errors = validationResult(req);
+
         if (errors.isEmpty()) {
             let { firstName, lastName, email, user, password } = req.body;
             let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
@@ -29,10 +31,14 @@ module.exports = {
             users.push(newUser);
             fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
             return res.redirect("/");
-        }else{
-            return res.render('users/register',{
-                errores : errors.mapped(),
-                old : req.body
+        } else {
+
+            fs.unlinkSync(
+                path.resolve(__dirname, "..", "..", "public", "images", "users", req.file.filename)
+            );
+            return res.render('users/register', {
+                errores: errors.mapped(),
+                old: req.body
             })
         };
 

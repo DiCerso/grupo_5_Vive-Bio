@@ -4,8 +4,11 @@ const upload = require('../middlewares/uploadImageAvatar');
 const { login, register, processRegister } = require('../controllers/usersControllers');
 const registerValidator = require('../validations/registerValidator');
 
+
+
 router.get('/login', login)
-    .get('/register', register)
-    .post('/register', upload.single('image'), registerValidator, processRegister)
+router.get('/register', register)
+router.post('/register', upload.single('image'), registerValidator, processRegister)
+
 
 module.exports = router;

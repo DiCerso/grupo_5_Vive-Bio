@@ -184,5 +184,18 @@
       "image": [
          "JabonLuffa-11.jpg"
       ]
+   },
+   {
+      "name": "Producto de prueba",
+      "category": 2,
+      "volume": "1212",
+      "discount": "23",
+      "property": "Curativas",
+      "price": 54323,
+      "description": "sdtdsatsdt",
+      "id": 15,
+      "image": [
+         "image 1653962265455.jpg"
+      ]
    }
 ]

@@ -8,31 +8,31 @@ const read = fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.jso
 
 module.exports = {
     Card: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const { id } = req.params;
         const product = products.find(product => product.id === +id);
         const relation = products.filter(relation => +relation.category === +product.category)
-        return res.render('products/productCard', {products,relation, product, category});
+        return res.render('products/productCard', { products, relation, product, category });
     },
     All: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const bioCapilar = products.filter(product => product.category === 1);
         const bioCorporal = products.filter(product => product.category === 2);
         const bioSpa = products.filter(product => product.category === 3);
-        return res.render('products/productAll', {products, category, bioCapilar, bioCorporal, bioSpa});
+        return res.render('products/productAll', { products, category, bioCapilar, bioCorporal, bioSpa });
     },
     add: (req, res) => {
         return res.render('products/addProducts', { category });
     },
     store: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const { name, category, price, description, property, volume, discount } = req.body;
         const lastId = products[products.length - 1].id;
         const image = req.files.map(image => image.filename);
 
         products.push({
             name,
-            category : +category,
+            category: +category,
             volume,
             discount,
             property,
@@ -47,10 +47,10 @@ module.exports = {
         return res.redirect('/products/All')
     },
     edit: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const { id } = req.params;
-        let product = products.find(product => product.id === +id)  
-        return res.render('products/editProducts', { product,category })
+        let product = products.find(product => product.id === +id)
+        return res.render('products/editProducts', { product, category })
     },
     update: (req, res) => {
         let { name, category, price, description, discount, volume, property } = req.body;
@@ -70,10 +70,10 @@ module.exports = {
                     description,
                     image: image.length > 0 ? image : product.image
                 }
-                if(req.files){
+                if (req.files) {
                     product.image.forEach(image => {
-                        if(fs.existsSync(path.resolve(__dirname,'..','public','images',image)) && image !== "noimage.jpg"){
-                            fs.unlinkSync(path.resolve(__dirname,'..','public','images',image))
+                        if (fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', image)) && image !== "noimage.jpg") {
+                            fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', image))
                         }
                     });
                 }
@@ -81,9 +81,8 @@ module.exports = {
             }
             return product;
         });
-
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productact, null, 3), 'utf-8');
-        return res.redirect('/')
+        return res.redirect('/products/all')
 
     },
     remove: (req, res) => {
@@ -95,11 +94,11 @@ module.exports = {
 
         return res.redirect('/products/All');
     },
-    search : (req, res) => {
+    search: (req, res) => {
         const keyboard = req.query.keyboard;
 
         const result = products.filter(product => product.name.toLowerCase().includes(keyboard.toLowerCase()))
 
-        return res.render('products/productSearch', {result})
+        return res.render('products/productSearch', { result })
     }
 }

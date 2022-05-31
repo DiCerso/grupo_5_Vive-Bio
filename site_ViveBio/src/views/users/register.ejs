@@ -31,7 +31,8 @@
                             <div class="register_form-box">
                                 <label for="firstName">Nombre</label>
                                 <input class="register_form-input" type="text" id="firstName" name="firstName"
-                                    placeholder="Ingresa tu nombre">
+                                    placeholder="Ingresa tu nombre"
+                                    value="<%= locals.old && old.firstName ? old.firstName : null %>">
                                 <span class="register_alert"">
                                     <%= locals.errores && errores.firstName ? errores.firstName.msg : null %>
                                 </span>
@@ -40,7 +41,8 @@
                             <div class=" register_form-box">
                                     <label for="lastName">Apellido</label>
                                     <input class="register_form-input" type="text" id="lastName" name="lastName"
-                                        placeholder="Ingresa tu apellido">
+                                        placeholder="Ingresa tu apellido"
+                                        value="<%= locals.old && old.lastName ? old.lastName : null %>">
                                     <span class="register_alert"">
                                         <%= locals.errores && errores.lastName ? errores.lastName.msg : null %>
                                     </span>
@@ -48,7 +50,8 @@
                             <div class=" register_form-box">
                                         <label for="email">E-mail</label>
                                         <input class="register_form-input" type="email" id="email" name="email"
-                                            placeholder="Ingresa tu email">
+                                            placeholder="Ingresa tu email"
+                                            value="<%= locals.old && old.email ? old.email : null %>">
                                         <span class="register_alert"">
                                         <%= locals.errores && errores.email ? errores.email.msg : null %>
                                     </span>
@@ -56,7 +59,8 @@
                             <div class=" register_form-box">
                                             <label for="user">Usuario</label>
                                             <input class="register_form-input" type="user" id="user" name="user"
-                                                placeholder="Ingresa usuario">
+                                                placeholder="Ingresa usuario"
+                                                value="<%= locals.old && old.user ? old.user : null %>">
                                             <span class="register_alert"">
                                         <%= locals.errores && errores.user ? errores.user.msg : null %>
                                     </span>
@@ -83,18 +87,23 @@
                             
                             <div class=" register_form-box">
                                                             <label for="image">Imagen de perfil</label>
-                                                            <input class="register_form-input" type="file" name="image" id="image">
+                                                            <input class="register_form-input" type="file" name="image"
+                                                                id="image">
                                                 </div>
                             </div>
                     </article>
-                    </div>
-                    </div>
                     <div class="register_terminos">
                         <input class="" type="checkbox" name="terminos" id="terminos">
                         <label for="terminos" style="font-size: 12px;">Acepto términos y condiciones</label>
+
                     </div>
-                    <div class="register_button">
-                        <button type="submit">Enviar</button>
+                    <div class="register_errors-box">
+                        <span class="register_alert"">
+                        <%= locals.errores && errores.terminos ? errores.terminos.msg : null %>
+                    </span>
+                    </div>
+                    <div class=" register_button">
+                            <button type="submit">Enviar</button>
                     </div>
                 </form>
             </section>
