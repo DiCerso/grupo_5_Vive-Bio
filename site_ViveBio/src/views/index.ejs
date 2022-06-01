@@ -5,7 +5,7 @@
 
     <body class="home">
         <%- include('./partials/header') %>
-        
+
             <!-- Inicio de carrusel -->
             <div class="slider">
                 <div class="slides">
@@ -55,39 +55,48 @@
                     <h1>Productos en Oferta</h1>
                 </div>
                 <section class="sect1">
-                    <% products.forEach(product => { %>
+                    <% products.forEach(product=> { %>
                         <% if (product.dest) { %>
                             <article class="art__home">
                                 <div class="nombreart__home">
-                                    <h1><%= product.name %> </h1>
+                                    <h1>
+                                        <%= product.name %>
+                                    </h1>
                                 </div>
                                 <div class="imgart__home">
                                     <img src="/images/<%= product.image %>" alt="">
                                 </div>
                                 <div class="precio">
-                                    <h4><%= product.price %> $ </h4>
-                                    <p><%= product.price - (product.price * product.discount / 100) %> $ </p>
+                                    <h4>
+                                        <%= product.price %> $
+                                    </h4>
+                                    <p>
+                                        <%= product.price - (product.price * product.discount / 100) %> $
+                                    </p>
                                 </div>
                                 <div class="verart__home">
                                     <a href="/Products/Card/<%= product.id %>">Ver mas</a>
                                 </div>
                             </article>
-                        <% } %>
-                    <% }) %>
+                            <% } %>
+                                <% }) %>
+                </section>
                 <div class='nombre-categorias__home'>
                     <h1>Categorias</h1>
                 </div>
                 <section class="sect2">
-                    <% category.forEach(cate => { %>
+                    <% category.forEach(cate=> { %>
                         <article class="categorias__home">
                             <a href="/Products/All#<%= cate.name %>">
                                 <div class="<%= cate.name %>__home" id="cate"></div>
                                 <div class="barra__cate__home">
-                                    <p><%= cate.name %></p>
+                                    <p>
+                                        <%= cate.name %>
+                                    </p>
                                 </div>
                             </a>
                         </article>
-                    <% }) %>
+                        <% }) %>
                 </section>
             </main>
             <%- include('./partials/footer') %>
