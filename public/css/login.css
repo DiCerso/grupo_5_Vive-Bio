@@ -1,9 +1,9 @@
-.login main {
+.login_general_container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 80px;
 }
 
 .login_box_1 {
@@ -19,10 +19,15 @@
     display: none;
 }
 
-.header_login {
+.login_form-container {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header_login {
+    display: none;
 }
 
 .header_login a img {
@@ -36,17 +41,18 @@
     letter-spacing: 5px;
 }
 
+.box_introduccion {
+    display: flex;
+    justify-content: space-between;
+}
+
 
 .login_container {
     width: 80%;
-    /* background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px var(--VerdeSuave);
-    border: 1px solid ; */
     padding: 20px;
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, .15);
+    background-color: rgba(255, 255, 255, .4);
     backdrop-filter: blur(5px);
     border: 1px solid var(--verdeFuerte);
 }
@@ -62,24 +68,12 @@
     width: 100%;
     margin: 5px 0 5px;
     padding: 10px 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid var(--verdeFuerte);
     transition: 0.5s;
 }
 
-.login_form-input:hover{
-    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
-}
 
-.login_form-input:focus{
-    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
-}
-
-.login_center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 .login_button {
     display: flex;
@@ -92,8 +86,10 @@
 .login_button button {
     background-color: var(--verdeOscuro);
     color: black;
-    border-radius: 10px;
-    padding: 5px 10px;
+    border-radius: 8px;
+    padding: 5px 5px;
+    font-size: 15px;
+
 }
 
 .login label {
@@ -110,39 +106,56 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 0 5px;
 }
 
 .login_google button {
-    padding: 5px;
     font-size: 30px;
-    background-color: var(--VerdeSuave);
+    background-color: transparent;
     border-radius: 10px;
     width: 50px;
     height: 50px;
     margin-right: 10px;
     border: 1px solid var(--verdeFuerte);
+    color: red;
+    text-align: center;
 }
 
 .login_facebook button {
-    padding: 5px;
     font-size: 30px;
-    background-color: var(--VerdeSuave);
+    background-color: transparent;
     border-radius: 10px;
     color: blue;
     width: 50px;
     height: 50px;
     border: 1px solid var(--verdeFuerte);
-}
-
-
-
-.login_google button i {
-    color: red;
     text-align: center;
 }
 
+.login_remember-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 @media (min-width: 425px) {
+    .login_form-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header_login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login .header_login_mobile {
+        display: none;
+    }
+
     .login button:hover {
         transition: all 0.4s;
         background-color: var(--verdeFuerte);
@@ -173,22 +186,42 @@
 }
 
 @media (min-width: 768px) {
+    .login_form-container {
+        width: 50%;
+    }
+
+    .login_video {
+        display: flex;
+
+    }
+
+    .login_container_video {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .login main {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly
     }
 
-    .login_video {
-        display: block;
-    }
 
     .login_form-box input {
         width: 70%;
     }
+
     .header_login a img {
-        width: 250px;
+        width: 180px;
         margin-bottom: 10px;
+    }
+
+    .login_form-input:hover,
+    .login_form-input:focus {
+        box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
     }
 }
 

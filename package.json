@@ -1,17 +1,26 @@
 {
-  "name": "proyecto-integrador-heroku-version",
-  "version": "0.0.0",
+  "name": "grupo_5_proyecto",
+  "description": "Vive Bio se dedica a la comercialización de productos de higiene personal, de origen natural, orgánicos, biodegradables y veganos. Los productos que ofrece al mercado entre sus variedades son: jabones, esponjas, sahumos, shampoo y acondicionador.\r Mercado: el consumidor ideal, es aquél interesado en conocer alternativas naturales para su cuidado personal. \r Cómo nos acomodamos al mercado: los productos que ofrece la empresa garantizan, desde su producción hasta todos sus componentes, ser beneficiosos para la salud sin tener impacto negativo en el medio ambiente.",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./src/bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "^3.1.8",
+    "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.1",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "method-override": "^3.0.0",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.16"
+  },
+  "nodemonConfig": {
+    "ignore": "src/data/*.json"
   }
 }
