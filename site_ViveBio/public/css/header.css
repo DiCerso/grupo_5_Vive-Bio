@@ -53,13 +53,13 @@ Header mobile
     display: flex;
     flex-direction: column;
     position: fixed;
-    width: 60vw;
+    width: 100vw;
     height: 100vh;
     z-index: 2;
     right: 0;
     background-color: var(--verdeOscuro);
     text-align: center;
-    margin-right: -60vw;
+    margin-right: -100vw;
     transition: 1s;
 }
 
@@ -75,30 +75,9 @@ Header mobile
     margin-top: 50px;
 }
 
-.shadow_mobile{
-    width: 40vw;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
-    left: 0;
-    z-index: 2;
-    margin-left: -40vw;
-    transition: 1s;
-}
-
 .mostrar{
     margin-right: 0;
     position: fixed;
-}
-
-.mostrar2{
-    margin-left: 0;
-    position: fixed;
-}
-
-.fix_nav{
-    position: fixed;
-    z-index: 5;
 }
 
 .usuario_mobile{

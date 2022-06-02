@@ -10,6 +10,9 @@
     background-position: center;
 }
 
+.no_scroll {
+    overflow: hidden;
+}
 
 /************************************************
 ANIMACIÓN DE INTRO
@@ -453,7 +456,6 @@ segunda parte del main
 
 
 @media(min-width:426px) {
-
     /* START CARROUSEL TABLET*/
     .slider {
         margin: 50px 0 50px;
@@ -464,6 +466,7 @@ segunda parte del main
         top: 23%;
         padding: 70px;
     }
+
     /*END CAROUSEL TABLET*/
     .mobile_header {
         display: none;
@@ -562,7 +565,7 @@ segunda parte del main
 
     .home .sect2 .categorias__home .BioCapilar__home,
     .home .sect2 .categorias__home .BioCorporal__home,
-    .home .sect2 .categorias__home .BioSpa__home{
+    .home .sect2 .categorias__home .BioSpa__home {
         filter: blur(3px);
 
     }
@@ -575,7 +578,7 @@ segunda parte del main
     .home .sect2 .categorias__home:hover .BioCorporal__home,
     .home .sect2 .categorias__home:hover .barra__cate__home,
     .home .sect2 .categorias__home:hover .BioCapilar__home,
-    .home .sect2 .categorias__home:hover .BioSpa__home{
+    .home .sect2 .categorias__home:hover .BioSpa__home {
         transform: scale(1.1);
         filter: blur(0px);
     }

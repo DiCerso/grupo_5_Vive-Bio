@@ -32,10 +32,11 @@ module.exports = {
             fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
             return res.redirect("/");
         } else {
-
-            fs.unlinkSync(
-                path.resolve(__dirname, "..", "..", "public", "images", "users", req.file.filename)
-            );
+            if (req.file) {
+                fs.unlinkSync(
+                    path.resolve(__dirname, "..", "public", "images", "users", req.file.filename)
+                );
+            }
             return res.render('users/register', {
                 errores: errors.mapped(),
                 old: req.body
