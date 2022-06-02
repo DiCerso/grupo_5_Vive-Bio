@@ -19,6 +19,11 @@ module.exports = {
                 user
             }
 
+            if(req.body.recordar){
+                res.cookie('userViveBio',req.session.userLogin,{maxAge: 1000*60*2})
+            }
+            
+
           return res.redirect('/');
         }else{
           return res.render('users/login',{
