@@ -32,8 +32,9 @@ app.use(session({
   saveUninitialized: true,
   cookie : {}
 }));
-app.use(localsCheck);
 app.use(cookieCheck);
+app.use(localsCheck);
+
 
 
 
