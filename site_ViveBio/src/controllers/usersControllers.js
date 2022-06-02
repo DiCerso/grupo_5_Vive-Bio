@@ -2,20 +2,16 @@ const { validationResult } = require("express-validator");
 const fs = require("fs");
 const bcryptjs = require('bcryptjs');
 const path = require("path");
-const categoryUsers = require('../data/categoryUsers.json');
+/* const categoryUsers = require('../data/categoryUsers.json'); */
 const users = require('../data/users.json');
 
 module.exports = {
     login: (req, res) => res.render('users/login'),
 
-    register: (req, res) => res.render('users/register', {
-        categoryUsers, old: req.body
-    }),
+    register: (req, res) => res.render('users/register'),
 
     processRegister: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
         let errors = validationResult(req);
-
         if (errors.isEmpty()) {
             let { firstName, lastName, email, user, password } = req.body;
             let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
