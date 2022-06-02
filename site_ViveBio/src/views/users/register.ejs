@@ -30,13 +30,17 @@
                         <div class="register_sub-container1">
                             <div class="register_form-box">
                                 <label for="firstName">Nombre</label>
-                                <input
-                                    class="register_form-input <%= locals.errores && errores.firstName ? 'register_error_input' : null %>"
-                                    type="text" id="firstName" name="firstName" placeholder="Ingresa tu nombre"
-                                    value="<%= locals.old && old.firstName ? old.firstName : null %>">
-                                <div
-                                    class="register_error_box-stamp <%= locals.errores && errores.firstName ? 'register_error_icon' : null %>">
-                                    <span class="register_error_stamp"></span>
+
+                                <div class="register_box-input">
+                                    <input
+                                        class="register_form-input <%= locals.errores && errores.firstName ? 'register_error_input' : null %>"
+                                        type="text" id="firstName" name="firstName" placeholder="Ingresa tu nombre"
+                                        value="<%= locals.old && old.firstName ? old.firstName : null %>">
+                                    
+                                    <div
+                                        class="register_error_box-stamp <%= locals.errores && errores.firstName ? 'register_error_icon' : null %>">
+                                        <span class="register_error_stamp"></span>
+                                    </div>
                                 </div>
                                 <span class="register_alert"">
                                     <%= locals.errores && errores.firstName ? errores.firstName.msg : null %>
@@ -45,13 +49,15 @@
 
                             <div class=" register_form-box">
                                     <label for="lastName">Apellido</label>
-                                    <input
-                                        class="register_form-input <%= locals.errores && errores.lastName ? 'register_error_input' : null %>"
-                                        type="text" id="lastName" name="lastName" placeholder="Ingresa tu apellido"
-                                        value="<%= locals.old && old.lastName ? old.lastName : null %>">
-                                    <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.lastName ? 'register_error_icon' : null %>">
-                                        <span class="register_error_stamp"></span>
+                                    <div class="register_box-input">
+                                        <input
+                                            class="register_form-input <%= locals.errores && errores.lastName ? 'register_error_input' : null %>"
+                                            type="text" id="lastName" name="lastName" placeholder="Ingresa tu apellido"
+                                            value="<%= locals.old && old.lastName ? old.lastName : null %>">
+                                        <div
+                                            class="register_error_box-stamp <%= locals.errores && errores.lastName ? 'register_error_icon' : null %>">
+                                            <span class="register_error_stamp"></span>
+                                        </div>
                                     </div>
                                     <span class="register_alert"">
                                         <%= locals.errores && errores.lastName ? errores.lastName.msg : null %>
@@ -59,13 +65,15 @@
                             </div>
                             <div class=" register_form-box">
                                         <label for="email">E-mail</label>
-                                        <input
-                                            class="register_form-input <%= locals.errores && errores.email ? 'register_error_input' : null %>"
-                                            type="email" id="email" name="email" placeholder="Ingresa tu email"
-                                            value="<%= locals.old && old.email ? old.email : null %>">
-                                        <div
-                                            class="register_error_box-stamp <%= locals.errores && errores.email ? 'register_error_icon' : null %>">
-                                            <span class="register_error_stamp"></span>
+                                        <div class="register_box-input">
+                                            <input
+                                                class="register_form-input <%= locals.errores && errores.email ? 'register_error_input' : null %>"
+                                                type="email" id="email" name="email" placeholder="Ingresa tu email"
+                                                value="<%= locals.old && old.email ? old.email : null %>">
+                                            <div
+                                                class="register_error_box-stamp <%= locals.errores && errores.email ? 'register_error_icon' : null %>">
+                                                <span class="register_error_stamp"></span>
+                                            </div>
                                         </div>
                                         <span class="register_alert"">
                                         <%= locals.errores && errores.email ? errores.email.msg : null %>
@@ -73,13 +81,15 @@
                             </div>
                             <div class=" register_form-box">
                                             <label for="user">Usuario</label>
-                                            <input
-                                                class="register_form-input <%= locals.errores && errores.user ? 'register_error_input' : null %>"
-                                                type="user" id="user" name="user" placeholder="Ingresa usuario"
-                                                value="<%= locals.old && old.user ? old.user : null %>">
-                                            <div
-                                                class="register_error_box-stamp <%= locals.errores && errores.user ? 'register_error_icon' : null %>">
-                                                <span class="register_error_stamp"></span>
+                                            <div class="register_box-input">
+                                                <input
+                                                    class="register_form-input <%= locals.errores && errores.user ? 'register_error_input' : null %>"
+                                                    type="user" id="user" name="user" placeholder="Ingresa usuario"
+                                                    value="<%= locals.old && old.user ? old.user : null %>">
+                                                <div
+                                                    class="register_error_box-stamp <%= locals.errores && errores.user ? 'register_error_icon' : null %>">
+                                                    <span class="register_error_stamp"></span>
+                                                </div>
                                             </div>
                                             <span class="register_alert"">
                                         <%= locals.errores && errores.user ? errores.user.msg : null %>
@@ -105,13 +115,15 @@
                             </div>
                             <div class=" register_form-box">
                                                         <label for="password2">Repite tu contraseña</label>
-                                                        <input
-                                                            class="register_form-input <%= locals.errores && errores.password2 ? 'register_error_input' : null %>"
-                                                            type="password" id="password2" name="password2"
-                                                            placeholder="Vuelve a ingresa tu contraseña">
-                                                        <div
-                                                            class="register_error_box-stamp <%= locals.errores && errores.password2 ? 'register_error_icon' : null %>">
-                                                            <span class="register_error_stamp"></span>
+                                                        <div class="register_box-input">
+                                                            <input
+                                                                class="register_form-input <%= locals.errores && errores.password2 ? 'register_error_input' : null %>"
+                                                                type="password" id="password2" name="password2"
+                                                                placeholder="Vuelve a ingresa tu contraseña">
+                                                            <div
+                                                                class="register_error_box-stamp <%= locals.errores && errores.password2 ? 'register_error_icon' : null %>">
+                                                                <span class="register_error_stamp"></span>
+                                                            </div>
                                                         </div>
                                                         <span class="register_alert"">
                                         <%= locals.errores && errores.password2 ? errores.password2.msg : null %>

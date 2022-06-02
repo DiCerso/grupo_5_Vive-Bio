@@ -13,7 +13,9 @@
     color: white;
 }
 
-
+.register_box-input{
+    height: 55px;
+}
 
 .register_error_box-stamp {
     width: 25px;
