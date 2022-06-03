@@ -12,7 +12,7 @@ module.exports = {
         let errors = validationResult(req);
         if(errors.isEmpty()) {
     //levantar sesión
-            const {id,user} = users.find(user => user.email === req.body.email);
+            const {id,user} = users.find(user => user.user === req.body.user);
 
             req.session.userLogin = {
                 id,
@@ -27,7 +27,7 @@ module.exports = {
           return res.redirect('/');
         }else{
           return res.render('users/login',{
-               errores : errores.mapped(),
+               errors : errors.mapped(),
                old : req.body
             });
         }
