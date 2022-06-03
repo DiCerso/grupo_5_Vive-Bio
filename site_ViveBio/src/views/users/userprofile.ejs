@@ -1,21 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', { title : "Register" }) %>
+<%- include('../partials/head', { title : "user" }) %>
 
 
-    <body class="register">
-        <div class="header_register">
+    <body class="user">
+        <div class="logo__user">
             <a href="/"><img src="/images/logo.png" alt=""></a>
         </div>
-        <div class="header_register_mobile">
+        <div class="header__user__mobile">
             <%- include('../partials/header') %>
         </div>
         <main>
-            <section class="register_container">
+            <section class="user__container">
+                <div class="user__perfil">
+                    <div class="user__head">
+                        <div class="user__img">
+                            <img src="/images/users/<%= user.image %>" alt="">
+                        </div>
+                        <div class="user__names">
+                            <h2><%= user.firstName %> </h2>
+                            <h2><%= user.lastName %> </h2>
+                        </div>
+                    </div>
+                    <div class="user__options">
+                        <a href="">Editar Perfil</a><!--esto de momento lo dejamos sin funcionalidad-->
+                        <a href="/carrito">Carrito de compras</a>
+                    </div>
+                </div>
+                <h1>Datos del usuario</h1>
+                <div class="user__dats">
+                    <div class="user__info">
+                        <h3> usuario : </h3>
+                        <h4><%= user.user %></h4>
+                    </div>
+                    <div class="user__info">
+                        <h3>Email:  </h3>
+                        <h4><%= user.email %></h4>
+                    </div>
+                    <div class="user__info">
+                        <h3>Rol : </h3>
+                        <h4> <%= user.category %> </h4>
+                    </div>
+                    <div class="user__info">
+                        <h3>password : </h3>
+                        <h4> <%= userLogin.contra %> </h4>
+                    </div>
+                </div>
+                <div class="user__historial">
+                    <h3>Historial de compras:</h3>
+                    <h4>No se encontraron compras realizadas</h4><!--cuando tengamos base de datos agregaremos esto-->
+                </div>
+                
             </section>
         </main>
     </body>
+    <%- include('../partials/footer') %>
     <script src="/javascript/menuMobile.js"></script>
 
 </html>

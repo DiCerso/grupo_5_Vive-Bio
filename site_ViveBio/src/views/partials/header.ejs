@@ -35,15 +35,21 @@
                 <button  type="submit"  class="barra__lupa"><i class="fas fa-search"></i></button>
             </form>
         <div class="header__user">
-            <a href="/users/login">
-                <i class="fa-regular fa-circle-user icon__user"></i>
+            
+                
                 <% if (locals.userLogin) { %>
-                <p><%= userLogin.user %> </p>
+                <a href="/users/profile/<%= userLogin.id %>">
+                    <i class="fa-regular fa-circle-user icon__user"></i>
+                    <p><%= userLogin.user %> </p>
+                </a>
                 <a href="/users/logout" class="logout"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
                 <% }else{ %>
+            <a href="/users/login">
+                <i class="fa-regular fa-circle-user icon__user"></i>
                 <p>Logueate</p>
-                <% } %>
             </a>
+                <% } %>
+            
         </div>
     </div>
     <nav class="header__nav">

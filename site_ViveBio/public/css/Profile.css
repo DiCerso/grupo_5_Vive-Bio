@@ -1,0 +1,151 @@
+.user .logo__user {
+    display: none;
+}
+
+.user .logo__user img {
+    width: 150px;
+}
+
+.user .user__container {
+    width: 300px;
+    padding: 20px;
+    margin: 85px auto 85px auto ;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+}
+
+.user .user__perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.user .user__perfil .user__head{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 80%;
+}
+
+.user h3{
+    color: var(--VioletaOscuro);
+}
+
+.user .user__names{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.user .user__img{
+    width: 100px;
+}
+
+.user .user__img img{
+    width: 100%;
+    border-radius: 35px;
+}
+
+.user__options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.user__options a{
+    background-color: #7FA794;
+    text-align: center;
+    width: 110px;
+    height: 45px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 19px;
+}
+
+
+.user h1{
+    text-shadow: none;
+    color: black;
+}
+
+@media (min-width: 425px) {
+
+
+
+    .user .user__dats{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .user .user__info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .user .user__container {
+        width: 90%;
+        margin-top: 25px;
+    }
+
+    .user .logo__user img {
+    width: 150px;
+    }
+
+    .user .user__img{
+        width: 100px;
+    }
+
+
+    .user .header__user__mobile {
+        display: none;
+    }
+
+    .user .logo__user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20%;
+    }
+}
+
+@media(min-width: 645px){
+
+    .user .user__names{
+        width: 70%;
+    }
+
+    .user .user__perfil{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .user .user__options{
+        flex-direction: column;
+    }
+
+    .user .user__dats{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .user .user__info{
+        width: 50%;
+    }
+
+    .user .user__container {
+        width: 630px;
+        height: calc(100vh-130px);
+    }
+}

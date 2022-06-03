@@ -18,15 +18,5 @@
       "password": "$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2",
       "image": "defaultAvatar.jpg",
       "category": "admin"
-   },
-   {
-      "id": 3,
-      "firstName": "pedor",
-      "lastName": "asdasd",
-      "email": "qasldmvq@gmail.com",
-      "user": "caca",
-      "password": "$2a$10$n2AF8j.Ex1wqoUQM4tqDJe/.WcfCZBIEdp9NrCth6nCNeyi2OzRAy",
-      "image": "defaultAvatar.jpg",
-      "category": "user"
    }
 ]
