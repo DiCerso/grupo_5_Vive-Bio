@@ -148,7 +148,17 @@
                         <%= locals.errores && errores.terminos ? errores.terminos.msg : null %>
                     </span>
                     </div>
+<<<<<<< HEAD
                     <div class=" register_button">
+=======
+                    <div class="register_center">
+                        <div class="register_terminos">
+                            <input class="" type="checkbox" name="terminos" id="terminos">
+                            <label for="terminos" style="font-size: 12px;">Acepto términos y condiciones</label>
+                            <span class="errors"><%= locals.errors && errors.terminos ? errors.terminos.msg : null%> </span>
+                        </div>
+                        <div class="register_button">
+>>>>>>> branch-May
                             <button type="submit">Enviar</button>
                     </div>
                 </form>

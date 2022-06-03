@@ -11,6 +11,30 @@ module.exports = {
     register: (req, res) => res.render('users/register', {
         categoryUsers, old: req.body
     }),
+    processLogin: (req, res) => {
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            //levantar sesión
+            const { id, user } = users.find(user => user.user === req.body.user);
+
+            req.session.userLogin = {
+                id,
+                user
+            }
+
+            if (req.body.recordar) {
+                res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 2 })
+            }
+
+
+            return res.redirect('/');
+        } else {
+            return res.render('users/login', {
+                errors: errors.mapped(),
+                old: req.body
+            });
+        }
+    },
 
     processRegister: (req, res) => {
         const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
@@ -30,7 +54,19 @@ module.exports = {
             }
             users.push(newUser);
             fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
+
+
+
+            //levanto sesion
+            const { id } = newUser
+
+            req.session.userLogin = {
+                id,
+                user: user.trim(),
+            }
+
             return res.redirect("/");
+
         } else {
             if (req.file) {
                 fs.unlinkSync(
@@ -43,5 +79,19 @@ module.exports = {
             })
         };
 
+    },
+    logout: (req, res) => {
+        req.session.destroy()
+        return res.redirect('/')
     }
 }
+
+
+
+
+
+
+
+
+
+

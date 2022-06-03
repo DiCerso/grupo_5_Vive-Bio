@@ -5,12 +5,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
 var app = express();
+const session = require('express-session');
+const localsCheck = require('./middlewares/localsCheck');
+const cookieCheck = require('./middlewares/cookieCheck');
 
 const session = require('express-session');
 
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/product');
-const usersRouter = require('./routes/users')
+const usersRouter = require('./routes/users');
+
 
 
 // view engine setup
@@ -24,6 +28,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
+app.use(session({
+  secret : 'ViveBio proyect',
+  resave: false,
+  saveUninitialized: true,
+  cookie : {}
+}));
+app.use(cookieCheck);
+app.use(localsCheck);
+
+
+
 
 app.use(session({
   secret : 'ViveBio proyect',

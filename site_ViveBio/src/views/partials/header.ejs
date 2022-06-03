@@ -9,9 +9,15 @@
             </div>
         </div>
         <div class="options_mobile" id="menu">
-            <div class="usuario_mobile">
-                <a href="/users/login"><i class="fas fa-user-circle"></i>Login</a>
-            </div>
+            <% if (!locals.userLogin) { %>
+                <div class="usuario_mobile">
+                    <a href="/users/login"><i class="fas fa-user-circle"></i>Login</a>
+                </div>
+            <% } else{ %>
+                <h3>Hola <%= userLogin.user %> </h3>
+                <a href="/users/logout">Logout</a>
+             <% } %>
+              
             <ul class="menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/products/all">Productos</a></li>
