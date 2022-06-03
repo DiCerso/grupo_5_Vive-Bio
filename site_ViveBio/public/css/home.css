@@ -234,9 +234,14 @@ primera parte del main
     position: center;
     margin: 0 auto;
     margin-bottom: 50px;
-    width: 90%;
+    width: 85%;
     display: flex;
     flex-direction: column;
+}
+
+.home .izquierda, 
+.home .derecha{
+    display: none;
 }
 
 .home main .subtitulo__home {
@@ -259,6 +264,9 @@ primera parte del main
     border-radius: 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
+}
+.home .part_2{
+    display: none;
 }
 
 
@@ -485,7 +493,7 @@ segunda parte del main
     }
 
     .home main .sect1 .art__home {
-        width: 270px;
+        width: 260px;
     }
 
     .home main .sect1 .art__home .imgart__home img {
@@ -536,6 +544,43 @@ segunda parte del main
 
 
 @media(min-width: 768px) {
+
+    
+
+    .home .products{
+        position: relative;
+    }
+
+    .home .izquierda, 
+    .home .derecha{
+    display: block;
+    position: absolute;
+    font-size: 75px;
+    color: var(--verdeClaro);
+    }
+
+    .home .izquierda{
+        left: 1%;
+        top: 30%;
+    }
+    .home .derecha{
+        right: 51%;
+        top: 30%;
+    }
+
+    .home .products{
+        width: 200%;
+        display: flex;
+        row-gap: row;
+    }
+
+    .home  main .sect1{
+        width: 48%;
+    }
+
+    .home .part_2{
+        display: block;
+    }
 
     .letter {
         font-size: 2.5rem;

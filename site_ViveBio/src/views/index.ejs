@@ -54,33 +54,64 @@
                 <div class="subtitulo__home">
                     <h1>Productos en Oferta</h1>
                 </div>
-                <section class="sect1">
-                    <% products.forEach(product=> { %>
-                        <% if (product.dest) { %>
-                            <article class="art__home">
-                                <div class="nombreart__home">
-                                    <h1>
-                                        <%= product.name %>
-                                    </h1>
-                                </div>
-                                <div class="imgart__home">
-                                    <img src="/images/<%= product.image %>" alt="">
-                                </div>
-                                <div class="precio">
-                                    <h4>
-                                        <%= product.price %> $
-                                    </h4>
-                                    <p>
-                                        <%= product.price - (product.price * product.discount / 100) %> $
-                                    </p>
-                                </div>
-                                <div class="verart__home">
-                                    <a href="/Products/Card/<%= product.id %>">Ver mas</a>
-                                </div>
-                            </article>
+                <div class="products">
+                    <a class="izquierda"><i class="fa-solid fa-angle-left"></i></a>
+                    <a class="derecha"><i class="fa-solid fa-angle-right"></i></a>
+                    <section class="sect1">
+                        <% product1.forEach(product=> { %>
+                            <% if (product.dest) { %>
+                                <article class="art__home part_1">
+                                    <div class="nombreart__home">
+                                        <h1>
+                                            <%= product.name %>
+                                        </h1>
+                                    </div>
+                                    <div class="imgart__home">
+                                        <img src="/images/<%= product.image %>" alt="">
+                                    </div>
+                                    <div class="precio">
+                                        <h4>
+                                            <%= product.price %> $
+                                        </h4>
+                                        <p>
+                                            <%= product.price - (product.price * product.discount / 100) %> $
+                                        </p>
+                                    </div>
+                                    <div class="verart__home">
+                                        <a href="/Products/Card/<%= product.id %>">Ver mas</a>
+                                    </div>
+                                </article>
                             <% } %>
-                                <% }) %>
-                </section>
+                        <% }) %>
+                    </section>
+                    <section class="sect1">
+                        <% product2.forEach(product=> { %>
+                            <% if (product.dest) { %>
+                                <article class="art__home part_2">
+                                        <div class="nombreart__home">
+                                            <h1>
+                                                <%= product.name %>
+                                            </h1>
+                                        </div>
+                                        <div class="imgart__home">
+                                            <img src="/images/<%= product.image %>" alt="">
+                                        </div>
+                                        <div class="precio">
+                                            <h4>
+                                                <%= product.price %> $
+                                            </h4>
+                                            <p>
+                                                <%= product.price - (product.price * product.discount / 100) %> $
+                                            </p>
+                                        </div>
+                                    <div class="verart__home">
+                                        <a href="/Products/Card/<%= product.id %>">Ver mas</a>
+                                    </div>
+                                </article>
+                            <% } %>
+                        <% }) %>
+                    </section>
+                </div>
                 <div class='nombre-categorias__home'>
                     <h1>Categorias</h1>
                 </div>
