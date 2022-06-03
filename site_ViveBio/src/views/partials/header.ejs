@@ -36,9 +36,13 @@
             </form>
         <div class="header__user">
             <a href="/users/login">
-                <img src="/images/Usuario.png" alt="Usuario" class="icon__user">
-                <p>Usuario</p>
-                <a class="user_control" href="/products/add">Agregar Producto</a>
+                <i class="fa-regular fa-circle-user icon__user"></i>
+                <% if (locals.userLogin) { %>
+                <p><%= userLogin.user %> </p>
+                <a href="/users/logout" class="logout"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <% }else{ %>
+                <p>Logueate</p>
+                <% } %>
             </a>
         </div>
     </div>
@@ -55,10 +59,13 @@
             </ul>
         </div>
         <div class="header__iconos">
-            <a href="#"><img src="/images/configuracion.png" alt=""></a>
-            <a href="#"><img src="/images/campana.png" alt=""></a>
-            <a href="/carrito"><img src="/images/carrito.png" alt=""></a>
-            <a href="#"><img src="/images/corazon.png" alt=""></a>
+            <% if (locals.userLogin && userLogin.category == "admin") { %>
+                <a href="/products/add"><i class="fa-solid fa-plus"></i></a>
+            <% } %>
+            <a href="#"><i class="fa-solid fa-gear"></i></a>
+            <a href="#"><i class="fa-solid fa-bell"></i></a>
+            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
         </div>
     </nav>
 
