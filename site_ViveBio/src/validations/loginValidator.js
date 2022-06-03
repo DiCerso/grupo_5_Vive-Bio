@@ -8,7 +8,7 @@ module.exports = [
         .notEmpty().withMessage('Por favor, ingresa el nombre de usuario que elegiste al registrarte'),
     
     check('password')
-        .notEmpty.withMessage('Por favor, ingresa tu contraseña').bail()
+        .notEmpty().withMessage('Por favor, ingresa tu contraseña').bail()
         .custom((value, {req}) => {
             const user = users.find(user => user.email === req.body.email);
             if(!user){
