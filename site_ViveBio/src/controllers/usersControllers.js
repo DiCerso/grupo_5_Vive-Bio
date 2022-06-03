@@ -40,9 +40,7 @@ module.exports = {
     },
 
     processRegister: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
         let errors = validationResult(req);
-
         if (errors.isEmpty()) {
             let { firstName, lastName, email, user, password } = req.body;
             let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
