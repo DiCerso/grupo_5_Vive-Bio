@@ -9,5 +9,14 @@
       "password2": "asd",
       "category": "admin",
       "image": "imagen.jpg"
+   },
+   {
+      "id": 2,
+      "firstName": "lautaro",
+      "lastName": "Cersocimo",
+      "email": "lautaro_cer@hotmail.com",
+      "user": "hola",
+      "password": "$2a$10$CX4eXDLHNmGNz7sZ5Pp3G.McqWNQNgn8WsAhuuOitvJnh9.SG5XL2",
+      "image": "defaultAvatar.jpg"
    }
 ]

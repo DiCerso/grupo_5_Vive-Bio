@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../middlewares/uploadImageAvatar');
-const { login, register, processRegister } = require('../controllers/usersControllers');
 const registerValidator = require('../validations/registerValidator');
+const loginValidator = require ('../validations/loginValidator');
 const {login, processLogin, register, processRegister, logout} = require('../controllers/usersControllers');
 
 
@@ -17,7 +17,6 @@ router.get('/logout',logout);
 
 module.exports = router;
 
-const loginValidator = require ('../validations/loginValidator');
 
 
 
