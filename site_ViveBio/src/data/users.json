@@ -1,13 +1,22 @@
 [
    {
       "id": 1,
-      "firstName": "example",
-      "lastName": "example",
-      "user": "example",
-      "email": "example@example",
-      "password": "asd",
-      "password2": "asd",
+      "firstName": "lautaro",
+      "lastName": "Cersocimo",
+      "email": "lautaro_cer@hotmail.com",
+      "user": "Dicerso",
+      "password": "$2a$10$CX4eXDLHNmGNz7sZ5Pp3G.McqWNQNgn8WsAhuuOitvJnh9.SG5XL2",
       "category": "admin",
-      "image": "imagen.jpg"
+      "image": "defaultAvatar.jpg"
+   },
+   {
+      "id": 2,
+      "firstName": "fernando",
+      "lastName": "zigarra",
+      "email": "fernando.zigarra@gmail.com",
+      "user": "cacao",
+      "password": "$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2",
+      "image": "defaultAvatar.jpg",
+      "category": "admin"
    }
 ]

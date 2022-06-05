@@ -15,11 +15,11 @@ module.exports = {
         return res.render('products/productCard', { products, relation, product, category });
     },
     All: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const bioCapilar = products.filter(product => product.category === 1);
-        const bioCorporal = products.filter(product => product.category === 2);
-        const bioSpa = products.filter(product => product.category === 3);
-        return res.render('products/productAll', { products, category, bioCapilar, bioCorporal, bioSpa });
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        const bioCapilar = products.filter(product => +product.category === 1);
+        const bioCorporal = products.filter(product => +product.category === 2);
+        const bioSpa = products.filter(product => +product.category === 3);
+        return res.render('products/productAll', {products, category, bioCapilar, bioCorporal, bioSpa});
     },
     add: (req, res) => {
         return res.render('products/addProducts', { category });

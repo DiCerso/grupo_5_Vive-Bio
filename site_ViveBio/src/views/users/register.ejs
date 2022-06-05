@@ -36,13 +36,13 @@
                                         class="register_form-input <%= locals.errores && errores.firstName ? 'register_error_input' : null %>"
                                         type="text" id="firstName" name="firstName" placeholder="Ingresa tu nombre"
                                         value="<%= locals.old && old.firstName ? old.firstName : null %>">
-                                    
+
                                     <div
                                         class="register_error_box-stamp <%= locals.errores && errores.firstName ? 'register_error_icon' : null %>">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
-                                <span class="register_alert"">
+                                <span class="register_alert">
                                     <%= locals.errores && errores.firstName ? errores.firstName.msg : null %>
                                 </span>
                             </div>
@@ -59,7 +59,7 @@
                                             <span class="register_error_stamp"></span>
                                         </div>
                                     </div>
-                                    <span class="register_alert"">
+                                    <span class="register_alert">
                                         <%= locals.errores && errores.lastName ? errores.lastName.msg : null %>
                                     </span>
                             </div>
@@ -75,7 +75,7 @@
                                                 <span class="register_error_stamp"></span>
                                             </div>
                                         </div>
-                                        <span class="register_alert"">
+                                        <span class="register_alert">
                                         <%= locals.errores && errores.email ? errores.email.msg : null %>
                                     </span>
                             </div>
@@ -91,7 +91,7 @@
                                                     <span class="register_error_stamp"></span>
                                                 </div>
                                             </div>
-                                            <span class="register_alert"">
+                                            <span class="register_alert">
                                         <%= locals.errores && errores.user ? errores.user.msg : null %>
                                     </span>
                             </div>
@@ -109,7 +109,7 @@
                                                             <span class="register_error_stamp"></span>
                                                         </div>
                                                     </div>
-                                                    <span class="register_alert"">
+                                                    <span class="register_alert">
                                         <%= locals.errores && errores.password ? errores.password.msg : null %>
                                     </span>
                             </div>
@@ -125,7 +125,7 @@
                                                                 <span class="register_error_stamp"></span>
                                                             </div>
                                                         </div>
-                                                        <span class="register_alert"">
+                                                        <span class="register_alert">
                                         <%= locals.errores && errores.password2 ? errores.password2.msg : null %>
                                     </span>
                             </div>
@@ -144,7 +144,7 @@
                         <label for="terminos" style="font-size: 12px;">Acepto términos y condiciones</label>
                     </div>
                     <div class="register_errors-box">
-                        <span class="register_alert"">
+                        <span class="register_alert">
                         <%= locals.errores && errores.terminos ? errores.terminos.msg : null %>
                     </span>
                     </div>
