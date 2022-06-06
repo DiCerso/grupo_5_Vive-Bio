@@ -81,7 +81,6 @@ module.exports = {
                 id,
                 user: user.trim(),
                 contra, 
-                rol : rol.trim()
             }
 
             return res.redirect("/");
@@ -110,6 +109,9 @@ module.exports = {
         return res.render('users/userprofile', {user})
     }
 }
+
+
+
 
 
 
