@@ -2,7 +2,7 @@
    {
       "id": 1,
       "name": "🍊Jabón Cítrico🍊",
-      "description": "encanta ésta versión exfoliante y los resultados que brinda 😍. Es una bomba para embellecer nuestra piel sin químicos dañinos. Naranja: el ácido cítrico seca el acné, es antioxidante 🍊. Café: reactiva la circulación, es antioxidante y funciona como exfoliante 💚",
+      "description": "Nos encanta ésta versión exfoliante y los resultados que brinda 😍. Es una bomba para embellecer nuestra piel sin químicos dañinos. Naranja: el ácido cítrico seca el acné, es antioxidante 🍊. Café: reactiva la circulación, es antioxidante y funciona como exfoliante 💚",
       "ingredients": "Oleato de Naranja, Mandarina, Café y Cedrón.",
       "category": 2,
       "dest": true,
@@ -184,5 +184,5 @@
       "image": [
          "JabonLuffa-11.jpg"
       ]
-   } 
+   }
 ]
