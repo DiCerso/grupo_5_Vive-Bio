@@ -3,8 +3,6 @@ const category = require('../data/categories');
 const path = require('path');
 const fs = require('fs');
 
-const read = fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json'))
-
 
 module.exports = {
     Card: (req, res) => {
@@ -44,7 +42,7 @@ module.exports = {
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
 
-        return res.redirect('/products/All')
+        return res.redirect('products/All')
     },
     edit: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
@@ -81,7 +79,7 @@ module.exports = {
             return product;
         });
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productact, null, 3), 'utf-8');
-        return res.redirect('/products/all')
+        return res.redirect('products/all')
 
     },
     remove: (req, res) => {
@@ -91,7 +89,7 @@ module.exports = {
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
-        return res.redirect('/products/All');
+        return res.redirect('products/All');
     },
     search: (req, res) => {
         const keyboard = req.query.keyboard;
@@ -99,5 +97,12 @@ module.exports = {
         const result = products.filter(product => product.name.toLowerCase().includes(keyboard.toLowerCase()))
 
         return res.render('products/productSearch', { result })
+    },
+    list : (req, res) => {
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        const bioCapilar = products.filter(product => +product.category === 1);
+        const bioCorporal = products.filter(product => +product.category === 2);
+        const bioSpa = products.filter(product => +product.category === 3);
+        return res.render('products/list', {products, category, bioCapilar, bioCorporal, bioSpa});
     }
 }

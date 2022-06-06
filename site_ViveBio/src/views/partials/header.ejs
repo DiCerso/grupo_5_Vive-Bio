@@ -20,7 +20,11 @@
               
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="/products/all">Productos</a></li>
+                <% if (locals.userLogin && userLogin.category == "admin") { %>
+                    <li><a href="/products/list">lista</a></li>
+                <% }else{ %>
+                    <li><a href="/products/all">Productos</a></li>
+                <% }%>
                 <li><a href="">Quienes somos</a></li>
                 <li><a href="">Contacto</a></li>
             </ul>
@@ -59,7 +63,11 @@
         <div class="header__opciones">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/products/all">Productos</a></li>
+                <% if (locals.userLogin && userLogin.category == "admin") { %>
+                    <li><a href="/products/list">lista</a></li>
+                <% }else{ %>
+                    <li><a href="/products/all">Productos</a></li>
+                <% }%>
                 <li><a href="">Quienes somos</a></li>
                 <li><a href="">Contacto</a></li>
             </ul>
