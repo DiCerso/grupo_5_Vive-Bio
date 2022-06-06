@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', { title : "Edit Profile" }) %>
+
+    <body class="editProfile">
+        <%- include('../partials/header') %>
+            <main>
+                <form action="">
+                    <section class="edit_user__container">
+                        <div class="edit_user__perfil">
+                            <div class="edit_user__head">
+                                <div class="edit_user__img">
+                                    <img src="/images/users/defaultAvatar.jpg" alt="">
+                                    <label for="newImg"><i class="fas fa-pen"></i></label>
+                                    <input type="file" accept="image/*" id="newImg" name="newImg">
+                                </div>
+                                <div class="edit_user__names">
+                                    <input type="text" value="<%= user.firstName %>">
+                                    <input type="text" value="<%= user.lastName %>">
+                                </div>
+                            </div>
+                            <div class="edit_user__options">
+                                <button type="submit">Guardar Cambios</button>
+                                <button type="reset">Limpiar Cambios</button>
+                            </div>
+                        </div>
+                        <h2>Datos del usuario</h2>
+                        <div class="edit_user__dats">
+                            <div class="edit_user__info">
+                                <h3> usuario : </h3>
+                                <input type="text" value="<%= user.user %>">
+                            </div>
+                            <div class="edit_user__info">
+                                <h3>Email:  </h3>
+                                <input type="text" value="<%= user.email %>">
+                            </div>
+                            <div class="edit_user__info">
+                                <h3>Rol : </h3>
+                                <h4> <%= user.category %> </h4>
+                            </div>
+                            <div class="edit_user__info-pass">
+                                <h3>password : </h3>
+                                <h4 class="editProfile_box-pass"> <%= userLogin.contra %> </h4>
+                                <label for="editPass"><i class="fas fa-pen"></i></label>
+                            </div>
+                        </div>
+                        <div class="edit_user__historial">
+                            <h3>Historial de compras:</h3>
+                            <h4>No se encontraron compras realizadas</h4><!--cuando tengamos base de datos agregaremos esto-->
+                        </div>
+                        
+                    </section>
+                </form>
+            </main>
+    </body>
+    <%- include('../partials/footer') %>
+        <script src="/javascript/menuMobile.js"></script>
+
+</html>

@@ -5,12 +5,7 @@
 
 
     <body class="user">
-        <div class="logo__user">
-            <a href="/"><img src="/images/logo.png" alt=""></a>
-        </div>
-        <div class="header__user__mobile">
-            <%- include('../partials/header') %>
-        </div>
+        <%- include('../partials/header') %>
         <main>
             <section class="user__container">
                 <div class="user__perfil">
@@ -24,7 +19,7 @@
                         </div>
                     </div>
                     <div class="user__options">
-                        <a href="">Editar Perfil</a><!--esto de momento lo dejamos sin funcionalidad-->
+                        <a href="/users/profile/edit/<%= userLogin.id %>">Editar Perfil <i class="fas fa-edit"></i></a><!--esto de momento lo dejamos sin funcionalidad-->
                         <a href="/carrito">Carrito de compras</a>
                     </div>
                 </div>
