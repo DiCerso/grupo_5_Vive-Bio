@@ -33,7 +33,7 @@ module.exports = {
                 id,
                 user,
                 category,
-                contra
+                contra,
             }
 
             if (req.body.recordar) {
@@ -80,7 +80,8 @@ module.exports = {
             req.session.userLogin = {
                 id,
                 user: user.trim(),
-                contra
+                contra, 
+                rol : rol.trim()
             }
 
             return res.redirect("/");

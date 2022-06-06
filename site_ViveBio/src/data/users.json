@@ -18,5 +18,15 @@
       "password": "$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2",
       "image": "defaultAvatar.jpg",
       "category": "admin"
+   },
+   {
+      "id": 3,
+      "firstName": "May",
+      "lastName": "Cort",
+      "email": "mayrautopia@gmail.com",
+      "user": "Mayra",
+      "password": "$2a$10$I4W.oC98cWCdvoATgz4n5.uaINwRAr5fBi85JdfoRNa03LfwlFXiC",
+      "image": "defaultAvatar.jpg",
+      "category": "admin"
    }
 ]

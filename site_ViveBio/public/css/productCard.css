@@ -29,6 +29,8 @@
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
     padding: 20px 10px;
     border: 1px solid green;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 /*TEXTO*/
@@ -429,10 +431,30 @@ button {
 
     }
 
+    .productCard .container-imagen-texto {
+        width: 100%;
+        height: fit-content;
+      }
+
     .productCard .producto__imagen {
-        width: 44%;
-        height: 50%;
-    }
+        width: 50%;
+        object-fit: fill;
+        height: 500px;
+      }
+
+      .productCard .box-texto-iconos {
+        width: 50%;
+
+      }
+      .productCard .box-imagen {
+        height: 400px;
+      }
+
+    .productCard .box-imagen img{
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+  }
 
     .productCard .producto__cart {
         /* gap: 60px; */

@@ -34,17 +34,17 @@
                                             <span>-<%= property %> -</span>
                                             <p>
                                                 $ <% if (discount) { %>
-                                                    <%= price - (price * discount / 100) %>
+                                                    <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= product.price %>
+                                                            <%= toThousand(product.price) %>
                                                                 <% } %>
                                             </p>
 
                                         </div>
                                         <div class="card-c-iconos">
                                             <div class="iconos-white">
-                                                <a href="/products/Card/<%= id %>"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="/products/Edit/<%= id %>"><i class="fa-solid fa-pen"></i></a>
+                                                <a href="/products/Card/<%= id %>"><i class="fa-solid fa-eye" title="Ver producto"></i></a>
+                                                <a href="/products/Edit/<%= id %>"><i class="fa-solid fa-pen" title="Editar producto"></i></a>
                                                 <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
                                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                                 <a href="#"><i class="fa-solid fa-star"></i></a>
@@ -83,17 +83,17 @@
                                             <span>-<%= property %> -</span>
                                             <p>
                                                 $ <% if (discount) { %>
-                                                    <%= price - (price * discount / 100) %>
+                                                    <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= product.price %>
+                                                            <%= toThousand(product.price) %>
                                                                 <% } %>
                                             </p>
 
                                         </div>
                                         <div class="card-c-iconos">
                                             <div class="iconos-white">
-                                                <a href="/products/Card/<%= id %>"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="/products/Edit/<%= id %>"><i class="fa-solid fa-pen"></i></a>
+                                                <a href="/products/Card/<%= id %>"><i class="fa-solid fa-eye" title="Ver producto"></i></a>
+                                                <a href="/products/Edit/<%= id %>"><i class="fa-solid fa-pen" title="Editar producto"></i></a>
                                                 <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
                                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                                 <a href="#"><i class="fa-solid fa-star"></i></a>
@@ -132,17 +132,17 @@
                                             <span>-<%= property %> -</span>
                                             <p>
                                                 $ <% if (discount) { %>
-                                                    <%= price - (price * discount / 100) %>
+                                                    <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= product.price %>
+                                                            <%= toThousand(product.price) %>
                                                                 <% } %>
                                             </p>
 
                                         </div>
                                         <div class="card-c-iconos">
                                             <div class="iconos-white">
-                                                <a href="/products/Card/<%= id %>"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="/products/Edit/<%= id %>"><i class="fa-solid fa-pen"></i></a>
+                                                <a href="/products/Card/<%= id %>"><i class="fa-solid fa-eye" title="Ver producto"></i></a>
+                                                <a href="/products/Edit/<%= id %>"><i class="fa-solid fa-pen" title="Editar producto"></i></a>
                                                 <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
                                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                                 <a href="#"><i class="fa-solid fa-star"></i></a>
