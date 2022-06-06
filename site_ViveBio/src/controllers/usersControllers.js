@@ -6,27 +6,27 @@ const users = require('../data/users.json');
 
 module.exports = {
     login: (req, res) => {
-        
+
         return res.render('users/login')
-        
+
     },
 
     register: (req, res) => res.render('users/register', {
-         old: req.body
+        old: req.body
     }),
     processLogin: (req, res) => {
         const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
         let errors = validationResult(req);
-        let {password} = req.body;
+        let { password } = req.body;
         let contra = ""
-        for(let i = 1; i<= password.length ; i++){
+        for (let i = 1; i <= password.length; i++) {
             contra = contra + "*";
         }
-        
+
         if (errors.isEmpty()) {
             //levantar sesión
             const { id, user, category } = users.find(user => user.user === req.body.user);
-             
+
 
 
             req.session.userLogin = {
@@ -51,9 +51,9 @@ module.exports = {
 
     processRegister: (req, res) => {
         let errors = validationResult(req);
-        let {password} = req.body;
+        let { password } = req.body;
         let contra = ""
-        for(let i = 1; i<= password.length ; i++){
+        for (let i = 1; i <= password.length; i++) {
             contra = contra + "*";
         }
         if (errors.isEmpty()) {
@@ -67,7 +67,7 @@ module.exports = {
                 user: user.trim(),
                 password: bcryptjs.hashSync(password, 10),
                 image: req.file ? req.file.filename : "defaultAvatar.jpg",
-                category : "user"
+                category: "user"
             }
             users.push(newUser);
             fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
@@ -80,7 +80,7 @@ module.exports = {
             req.session.userLogin = {
                 id,
                 user: user.trim(),
-                contra, 
+                contra,
             }
 
             return res.redirect("/");
@@ -100,13 +100,13 @@ module.exports = {
     },
     logout: (req, res) => {
         req.session.destroy()
-        res.cookie('userViveBio',null,{maxAge : -1})
+        res.cookie('userViveBio', null, { maxAge: -1 })
         return res.redirect('/')
     },
     profile: (req, res) => {
-        const {id} = req.params;
+        const { id } = req.params;
         const user = users.find(user => user.id === +id);
-        return res.render('users/userprofile', {user})
+        return res.render('users/userprofile', { user })
     }
 }
 
