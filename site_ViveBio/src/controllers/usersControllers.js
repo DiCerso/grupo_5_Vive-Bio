@@ -50,11 +50,6 @@ module.exports = {
 
     processRegister: (req, res) => {
         let errors = validationResult(req);
-        let { password } = req.body;
-        let contra = ""
-        for (let i = 1; i <= password.length; i++) {
-            contra = contra + "*";
-        }
         if (errors.isEmpty()) {
             let { firstName, lastName, email, user, password } = req.body;
             let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
@@ -65,26 +60,15 @@ module.exports = {
                 email,
                 user: user.trim(),
                 password: bcryptjs.hashSync(password, 10),
-                image: req.file ? req.file.filename : "defaultAvatar.jpg",
-                category: "user"
+                image: req.file ? req.file.filename : "defaultAvatar.jpg"
             }
             users.push(newUser);
             fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
-            //levanto sesion
-            const { id } = newUser
-
-            req.session.userLogin = {
-                id,
-                user,
-                contra
-            }
-
             return res.redirect("/");
-
         } else {
             if (req.file) {
                 fs.unlinkSync(
-                    path.resolve(__dirname, "..", "public", "images", "users", req.file.filename)
+                    path.resolve(__dirname, '..', '..', 'public', 'images', 'users', req.file.filename)
                 );
             }
             return res.render('users/register', {
@@ -133,12 +117,12 @@ module.exports = {
                     if (req.file) {
                         if (
                             fs.existsSync(
-                                path.resolve(__dirname, "..", "public", "images", "users", user.image)
+                                path.resolve(__dirname, '..', '..', 'public', 'images', 'users', user.image)
                             ) &&
                             user.image !== "defaultAvatar.jpg"
                         ) {
                             fs.unlinkSync(
-                                path.resolve(__dirname, "..", "public", "images", "users", oldUser.image)
+                                path.resolve(__dirname, '..', '..', 'public', 'images', 'users', oldUser.image)
                             );
                         }
                     }
@@ -147,7 +131,7 @@ module.exports = {
                 return user;
             });
             fs.writeFileSync(
-                path.resolve(__dirname, "..", "data", "users.json"),
+                path.resolve(__dirname, '..', 'data', 'users.json'),
                 JSON.stringify(userEdited, null, 3),
                 "utf-8"
             );
