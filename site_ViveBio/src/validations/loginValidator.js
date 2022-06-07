@@ -5,10 +5,10 @@ const bcryptjs = require('bcryptjs');
 module.exports = [
     
     check('user')
-        .notEmpty().withMessage('Por favor, ingresa el nombre de usuario que elegiste al registrarte'),
+        .notEmpty().withMessage('Por favor, ingresa tu usuario.'),
     
     check('password')
-        .notEmpty().withMessage('Por favor, ingresa tu contraseña').bail()
+        .notEmpty().withMessage('Por favor, ingresa tu contraseña.').bail()
         .custom((value, {req}) => {
             const usuarios = users.find(usuario => usuario.user === req.body.user);
             if(!usuarios){

@@ -1,12 +1,12 @@
-.user .logo__user {
+.logo__user {
     display: none;
 }
 
-.user .logo__user img {
+.logo__user img {
     width: 150px;
 }
 
-.user .user__container {
+.user__container {
     width: 300px;
     padding: 20px;
     margin: 85px auto 85px auto ;
@@ -17,14 +17,14 @@
     border: 1px solid var(--verdeFuerte);
 }
 
-.user .user__perfil{
+.user__perfil{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
 }
 
-.user .user__perfil .user__head{
+.user__perfil .user__head{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -35,18 +35,18 @@
     color: var(--VioletaOscuro);
 }
 
-.user .user__names{
+.user__names{
     width: 45%;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.user .user__img{
+.user__img{
     width: 100px;
 }
 
-.user .user__img img{
+.user__img img{
     width: 100%;
     border-radius: 35px;
 }
@@ -55,6 +55,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    
+}
+
+.user__options a{
+    padding: 5px;
 }
 
 .user__options a{
@@ -75,6 +80,10 @@
     color: black;
 }
 
+.user__historial{
+    text-align: center;
+}
+
 @media (min-width: 425px) {
 
 
@@ -90,6 +99,7 @@
         flex-direction: column;
         margin-bottom: 10px;
         width: 100%;
+        margin: 15px 0 15px;
     }
 
     .user .user__container {

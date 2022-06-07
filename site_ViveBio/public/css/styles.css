@@ -12,6 +12,7 @@
 @import './productAll.css';
 @import './addProducts.css';
 @import './editProducts.css';
-@import './profile.css';
+@import './user.css';
 @import './list.css';
 @import './error.css';
+@import'./editProfile.css';

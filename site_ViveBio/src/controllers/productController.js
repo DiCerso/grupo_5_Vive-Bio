@@ -4,6 +4,16 @@ const path = require('path');
 const fs = require('fs');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const accent_map = { 'á': 'a', 'é': 'e', 'è': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'a', 'É': 'e', 'è': 'e', 'Í': 'i', 'Ó': 'o', 'Ú': 'u' };
+function accent_fold(s) {
+    if (!s) { return ''; }
+    var ret = '';
+    for (var i = 0; i < s.length; i++) {
+        ret += accent_map[s.charAt(i)] || s.charAt(i);
+    }
+    return ret;
+};
+
 
 module.exports = {
     Card: (req, res) => {
@@ -14,11 +24,11 @@ module.exports = {
         return res.render('products/productCard', { products, toThousand, relation, product, category });
     },
     All: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const bioCapilar = products.filter(product => +product.category === 1);
         const bioCorporal = products.filter(product => +product.category === 2);
         const bioSpa = products.filter(product => +product.category === 3);
-        return res.render('products/productAll', {products, toThousand, category, bioCapilar, bioCorporal, bioSpa});
+        return res.render('products/productAll', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
     },
     add: (req, res) => {
         return res.render('products/addProducts', { category });
@@ -93,10 +103,8 @@ module.exports = {
         return res.redirect('products/all');
     },
     search: (req, res) => {
-        const keyboard = req.query.keyboard;
-
-        const result = products.filter(product => product.name.toLowerCase().includes(keyboard.toLowerCase()))
-
+        const keywords = req.query.keyboard;
+        let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords.toLowerCase()) || product.description.toLowerCase().includes(keywords.toLowerCase()))
         return res.render('products/productSearch', { result })
     },
     list : (req, res) => {
