@@ -6,6 +6,8 @@ const editProfileValidator = require('../validations/editProfileValidator');
 const loginValidator = require ('../validations/loginValidator');
 const userCheck = require('../middlewares/userCheck');
 const logCheck = require('../middlewares/logCheck');
+const editcheck = require('../middlewares/editcheck')
+
 const {login, processLogin, register, processRegister, logout, profile,editProfile,processEditProfile} = require('../controllers/usersControllers');
 
 
@@ -17,7 +19,7 @@ router.get('/register', logCheck, register)
 router.post('/register', upload.single('image'), registerValidator, processRegister)
 router.get('/logout',logout);
 router.get('/profile/:id',userCheck, profile);
-router.get('/profile/edit/:id', editProfile )
+router.get('/profile/edit/:id', editcheck ,editProfile )
 router.put('/profile/edit/update/:id',upload.single('image'),editProfileValidator, processEditProfile)
 
 
