@@ -184,5 +184,18 @@
       "image": [
          "JabonLuffa-11.jpg"
       ]
+   },
+   {
+      "name": "hol",
+      "category": 1,
+      "volume": "23",
+      "discount": "23",
+      "property": "asdas",
+      "price": 23,
+      "description": "asd",
+      "id": 15,
+      "image": [
+         "image 1654614745121.jpeg"
+      ]
    }
 ]

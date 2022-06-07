@@ -10,7 +10,7 @@
           <div class="container-imagen-texto">
             <div class="producto__imagen">
               <div class="box-imagen">
-                <img src="/images/<%= product.image %>" alt="...">
+                <img src="/images/<%= product.image[0] %>" alt="...">
               </div>
               <div class="box-info">
                 <h5>-<%= product.property %>-</h5>
@@ -49,10 +49,10 @@
                 <div class="producto-iconos">
                   <% if (locals.userLogin) { %>
                     <% if (userLogin.category==="admin" ) { %>
-                      <form action="/products/remove/<%= product.id %>?_method=DELETE" method="POST">
+                      <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
                         <button type="submit" title="Eliminar producto"><i class="fa-solid fa-trash-can"></i></button>
                       </form>
-                      <a href="/products/Edit/<%= product.id%> " title="Editar producto"><i
+                      <a href="/Products/Edit/<%= product.id %>" title="Editar producto"><i
                           class="fa-solid fa-pen"></i></a>
                       <% } %>
                         <% } %>

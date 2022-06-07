@@ -31,6 +31,7 @@ module.exports = {
         return res.render('products/productAll', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
     },
     add: (req, res) => {
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         return res.render('products/addProducts', { category });
     },
     store: (req, res) => {
@@ -53,7 +54,7 @@ module.exports = {
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
 
-        return res.redirect('/products/all');
+        return res.redirect('/products/All');
     },
     edit: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
@@ -62,6 +63,7 @@ module.exports = {
         return res.render('products/editProducts', { product, category })
     },
     update: (req, res) => {
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         let { name, category, price, description, discount, volume, property } = req.body;
         let { id } = req.params;
         let image = req.files.map(image => image.filename);
@@ -80,8 +82,8 @@ module.exports = {
                 }
                 if (req.files) {
                     product.image.forEach(image => {
-                        if (fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', image)) && image !== "noimage.jpg") {
-                            fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', image))
+                        if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {
+                            fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', image))
                         }
                     });
                 }
@@ -90,22 +92,36 @@ module.exports = {
             return product;
         });
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productact, null, 3), 'utf-8');
-        return res.redirect('/products/all')
+        return res.redirect('/products/All')
 
     },
     remove: (req, res) => {
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const { id } = req.params;
 
         const productFilter = products.filter(product => product.id !== +id);
+        const productdeleted = products.filter(product => product.id === +id);
+
+
+        productdeleted[0].image.forEach(image => {
+            if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {
+                fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', image));
+            }
+        })
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
-        return res.redirect('products/all');
+
+        
+        
+
+        return res.redirect('/products/All');   
     },
     search: (req, res) => {
+        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const keywords = req.query.keyboard;
         let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords.toLowerCase()) || product.description.toLowerCase().includes(keywords.toLowerCase()))
-        return res.render('products/productSearch', { result })
+        return res.render('/products/productSearch', { result })
     },
     list : (req, res) => {
         const {category} = req.params;
@@ -113,6 +129,6 @@ module.exports = {
         const bioCapilar = products.filter(product => +product.category === 1);
         const bioCorporal = products.filter(product => +product.category === 2);
         const bioSpa = products.filter(product => +product.category === 3);
-        return res.render('products/list', {products, bioCapilar, bioCorporal, bioSpa});
+        return res.render('/products/list', {products, bioCapilar, bioCorporal, bioSpa});
     }
 }
