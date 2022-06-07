@@ -3,6 +3,7 @@ const fs = require("fs");
 const bcryptjs = require('bcryptjs');
 const path = require("path");
 const users = require('../data/users.json');
+const { find } = require("../validations/registerValidator");
 
 module.exports = {
     login: (req, res) => {
@@ -33,7 +34,7 @@ module.exports = {
                 id,
                 user,
                 category,
-                contra
+                contra,
             }
 
             if (req.body.recordar) {
@@ -79,8 +80,9 @@ module.exports = {
 
             req.session.userLogin = {
                 id,
-                user: user.trim(),
-                contra
+                user: user,
+                contra,
+                rol: rol
             }
 
             return res.redirect("/");
@@ -104,16 +106,59 @@ module.exports = {
         return res.redirect('/')
     },
     profile: (req, res) => {
+        
         const { id } = req.params;
         const user = users.find(user => user.id === +id);
         return res.render('users/userprofile', { user })
     },
-    editProfile: (req,res) => {
+    editProfile: (req, res) => {
         const { id } = req.params;
         const user = users.find(user => user.id === +id);
-        return res.render('users/editProfile',{ user })
+        return res.render('users/editProfile', { user })
+    },
+    processEditProfile: (req, res) => {
+        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
+        let { firstName, lastName, username, email } = req.body;
+        let { id } = req.params;
+        let oldUser = users.find(user => +user.id === +id);
+
+        let userEdited = users.map(user => {
+            if (+user.id === +id) {
+                let userEdited = {
+                    ...user,
+                    firstName,
+                    lastName,
+                    email,
+                    user: username,
+                    category: oldUser.category,
+                    password: oldUser.password,
+                    image: req.file ? req.file.filename : oldUser.image,
+                }
+                if (req.file) {
+                    if (
+                        fs.existsSync(
+                            path.resolve(__dirname, "..", "public", "images", "users", user.image)
+                        ) &&
+                        user.image !== "defaultAvatar.jpg"
+                    ) {
+                        fs.unlinkSync(
+                            path.resolve(__dirname, "..", "public", "images", "users", user.image)
+                        );
+                    }
+                }
+                return userEdited;
+            }
+            return user;
+        });
+        fs.writeFileSync(
+            path.resolve(__dirname, "..", "data", "users.json"),
+            JSON.stringify(userEdited, null, 3),
+            "utf-8"
+        );
+        return res.redirect("/");
     }
 }
+
 
 
 

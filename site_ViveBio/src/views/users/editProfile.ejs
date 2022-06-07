@@ -6,18 +6,18 @@
     <body class="editProfile">
         <%- include('../partials/header') %>
             <main>
-                <form action="">
+                <form action="/users/profile/edit/update/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <section class="edit_user__container">
                         <div class="edit_user__perfil">
                             <div class="edit_user__head">
                                 <div class="edit_user__img">
-                                    <img src="/images/users/defaultAvatar.jpg" alt="">
+                                    <img src="/images/users/<%= user.image %>" alt="">
                                     <label for="newImg"><i class="fas fa-pen"></i></label>
-                                    <input type="file" accept="image/*" id="newImg" name="newImg">
+                                    <input type="file" accept="image/*" id="image" name="image">
                                 </div>
                                 <div class="edit_user__names">
-                                    <input type="text" value="<%= user.firstName %>">
-                                    <input type="text" value="<%= user.lastName %>">
+                                    <input type="text" value="<%= user.firstName %>" name="firstName" id="firstName">
+                                    <input type="text" value="<%= user.lastName %>" name="lastName" id="newLastName">
                                 </div>
                             </div>
                             <div class="edit_user__options">
@@ -29,11 +29,11 @@
                         <div class="edit_user__dats">
                             <div class="edit_user__info">
                                 <h3> usuario : </h3>
-                                <input type="text" value="<%= user.user %>">
+                                <input type="text" value="<%= user.user %>" name="username" id="username">
                             </div>
                             <div class="edit_user__info">
                                 <h3>Email:  </h3>
-                                <input type="text" value="<%= user.email %>">
+                                <input type="text" value="<%= user.email %>" disabled name="email" id="email">
                             </div>
                             <div class="edit_user__info">
                                 <h3>Rol : </h3>

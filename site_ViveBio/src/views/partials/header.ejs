@@ -42,7 +42,7 @@
                     <i class="fa-regular fa-circle-user icon__user"></i>
                     <p><%= userLogin.user %> </p>
                 </a>
-                <a href="/users/logout" class="logout"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <a href="/users/logout" class="logout" title="Salir"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
                 <% }else{ %>
             <a href="/users/login">
                 <i class="fa-regular fa-circle-user icon__user"></i>
@@ -66,12 +66,12 @@
         </div>
         <div class="header__iconos">
             <% if (locals.userLogin && userLogin.category == "admin") { %>
-                <a href="/products/add"><i class="fa-solid fa-plus"></i></a>
+                <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
             <% } %>
-            <a href="#"><i class="fa-solid fa-gear"></i></a>
-            <a href="#"><i class="fa-solid fa-bell"></i></a>
-            <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
+            <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+            <a href="/carrito"><i class="fa-solid fa-cart-shopping" title="Carrito de compras"></i></a>
+            <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
         </div>
     </nav>
 

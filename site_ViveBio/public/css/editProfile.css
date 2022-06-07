@@ -75,7 +75,6 @@
     padding: 10px 5px;
     border-radius: 5px;
     border: 1px solid var(--verdeFuerte);
-    transition: 0.5s;
 }
 
 .edit_user__info-pass {
@@ -95,6 +94,7 @@
 .edit_user__img img {
     width: 100%;
     border-radius: 35px;
+    object-fit: contain;
 }
 
 .edit_user__options {
@@ -113,8 +113,12 @@
     margin-bottom: 5px;
     border-radius: 19px;
     font-size: 14px;
+    text-shadow: 0 0 2px black;
+    border: none;
 }
-edit_user__info
+.edit_user__historial{
+    text-align: center;
+}
 
 .editProfile h2 {
     margin: 10px 0 10px;
