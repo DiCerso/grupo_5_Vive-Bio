@@ -138,7 +138,7 @@ module.exports = {
                             user.image !== "defaultAvatar.jpg"
                         ) {
                             fs.unlinkSync(
-                                path.resolve(__dirname, "..", "public", "images", "users", user.image)
+                                path.resolve(__dirname, "..", "public", "images", "users", oldUser.image)
                             );
                         }
                     }
