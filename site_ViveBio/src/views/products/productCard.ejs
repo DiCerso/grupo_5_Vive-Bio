@@ -18,7 +18,7 @@
                   <h2>
                     <span> $ </span>
                     <% if (product.discount) { %>
-                      <%= product.price - (product.price * product.discount / 100) %>
+                      <%= toThousand(product.price - (product.price * product.discount / 100)) %>
                         <% }else{ %>
                           <%= toThousand(product.price) %>
                             <% } %>
@@ -40,7 +40,7 @@
                     <% if (product.discount) { %>
                       <%= toThousand(product.price - (product.price * product.discount / 100)) %>
                         <% }else{ %>
-                          <%= product.price %>
+                          <%= toThousand(product.price) %>
                             <% } %> .-
                   </h4>
                   <h5>Promoción: <%= product.discount %> % off (* Hasta agotar stock)</h5>
