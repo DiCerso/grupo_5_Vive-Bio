@@ -28,5 +28,15 @@
       "password": "$2a$10$I4W.oC98cWCdvoATgz4n5.uaINwRAr5fBi85JdfoRNa03LfwlFXiC",
       "image": "defaultAvatar.jpg",
       "category": "admin"
+   },
+   {
+      "id": 4,
+      "firstName": "adm",
+      "lastName": "adm",
+      "email": "adm@gmail.com",
+      "user": "admadm",
+      "password": "$2a$10$0C6YQmVu2cYXfnpbXnSkzu/rX6EhozlKb4mQC6k9NZwSLIo1yiQZW",
+      "category": "user",
+      "image": "defaultAvatar.jpg"
    }
 ]
