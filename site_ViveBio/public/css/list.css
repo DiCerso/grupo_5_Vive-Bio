@@ -1,0 +1,134 @@
+.list .list__container{
+    width: 90%;
+    padding: 20px;
+    margin: 85px auto 85px auto ;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+}
+
+.list .list__top{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 1px solid var(--verdeFuerte);
+    padding-bottom: 10px;
+}
+
+.list .list__cates{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 50px;
+    border: 1px solid var(--verdeFuerte);
+    border-radius: 5px;
+    background-color: var(--verdeClaro-Opaco);
+    align-items: center;
+    order: 2;
+}
+
+.list .list__cates a{
+    color: var(--verdeOscuro);
+    width: 50%;
+    text-align: center;
+}
+
+.list .list__cates .list__cates1,
+.list .list__cates .list__cates2{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+.list .list__busqueda{
+    width: 100%;
+    display: flex;
+    height: 50px;
+    row-gap: row;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+}
+
+.list .list__busqueda input{
+    width: 60%;
+    height: 35px;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 1px solid #7FA794;
+}
+
+.list .list__busqueda button{
+    background-color: var(--verdeOscuro);
+    color: black;
+    border-radius: 8px;
+    padding: 5px 5px;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.list .list__headproducts{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.list .list__headproducts .list__id{
+    width: 10%;
+    text-align: center;
+}
+
+.list .list__headproducts .list__name{
+    width: 50%;
+}
+
+.list .list__headproducts .list__price{
+    width: 25%;
+}
+.list .list__headproducts .list__options{
+    width: 15%;
+}
+
+
+@media(min-width:426px) {
+
+
+    .list .list__busqueda{
+        width: 50%;
+        order: 1;
+    }
+
+    .list .list__cates{
+        width: 50%;
+        order: 0;
+    }
+
+    .list .list__top{
+        flex-direction: row;
+    }
+
+}
+
+@media(min-width:760px) {
+
+    .list .list__cates .list__cates1,
+    .list .list__cates .list__cates2{
+        width: 45%;
+    }
+
+    .list .list__cates{
+        flex-direction: row;
+        width: 60%;
+    }
+
+    .list__busqueda{
+        width: 40%;
+    }
+}

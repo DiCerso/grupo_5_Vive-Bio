@@ -97,7 +97,7 @@
 }
 
 .productCard .producto__cart a,
-button {
+.productCard button {
     font-size: 30px;
     background-color: var(--azulSuave);
     color: white;

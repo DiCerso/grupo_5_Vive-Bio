@@ -10,12 +10,12 @@ const {add, edit, update, store, Card, All, remove, search, list} = require('../
 /*Products*/
 router.get('/Card/:id', Card);
 router.get('/All', All);
-router.get('/add', adminCheck, add);
+router.get('/add', admincheck, add);
 router.post('/add',upload.array('image'), store);
-router.get('/edit/:id', adminCheck, edit);
+router.get('/edit/:id', admincheck, edit);
 router.put('/update/:id',upload.array('image'),update);
-router.delete("/remove/:id",adminCheck, remove);
+router.delete("/remove/:id",admincheck, remove);
 router.get("/search", search);
-router.get("/list", admincheck ,list);
+router.get("/list/:category?", admincheck ,list);
 
 module.exports = router;
