@@ -53,6 +53,10 @@ module.exports = {
         if (errors.isEmpty()) {
             let { firstName, lastName, email, user, password } = req.body;
             let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
+            let contra = ""
+            for (let i = 1; i <= password.length; i++) {
+                contra = contra + "*";
+            }
             let newUser = {
                 id: lastID + 1,
                 firstName: firstName.trim(),
@@ -60,10 +64,18 @@ module.exports = {
                 email,
                 user: user.trim(),
                 password: bcryptjs.hashSync(password, 10),
+                category:"user",
                 image: req.file ? req.file.filename : "defaultAvatar.jpg"
             }
             users.push(newUser);
             fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
+            const category = "user";
+            req.session.userLogin = {
+                id:newUser.id,
+                user:newUser.user,
+                contra,
+                category
+            }
             return res.redirect("/");
         } else {
             if (req.file) {
