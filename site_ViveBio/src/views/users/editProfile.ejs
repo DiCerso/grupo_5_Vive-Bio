@@ -6,7 +6,8 @@
     <body class="editProfile">
         <%- include('../partials/header') %>
             <main>
-                <form action="/users/profile/edit/update/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <form action="/users/profile/edit/update/<%= user.id %>?_method=PUT" method="POST"
+                    enctype="multipart/form-data">
                     <section class="edit_user__container">
                         <div class="edit_user__perfil">
                             <div class="edit_user__head">
@@ -16,8 +17,14 @@
                                     <input type="file" accept="image/*" id="image" name="image">
                                 </div>
                                 <div class="edit_user__names">
-                                    <input type="text" value="<%= user.firstName %>" name="firstName" id="firstName">
-                                    <input type="text" value="<%= user.lastName %>" name="lastName" id="newLastName">
+                                    <input type="text" value="<%= locals.errores && errores.firstName ? old.firstName : user.firstName %>" name="firstName" id="firstName">
+                                    <span class="register_alert">
+                                        <%= locals.errores && errores.firstName ? errores.firstName.msg : null %>
+                                    </span>
+                                    <input type="text" value="<%= locals.errores && errores.lastName ? old.lastName : user.lastName %>" name="lastName" id="newLastName">
+                                    <span class="register_alert">
+                                        <%= locals.errores && errores.lastName ? errores.lastName.msg : null %>
+                                    </span>
                                 </div>
                             </div>
                             <div class="edit_user__options">
@@ -29,27 +36,35 @@
                         <div class="edit_user__dats">
                             <div class="edit_user__info">
                                 <h3> usuario : </h3>
-                                <input type="text" value="<%= user.user %>" name="username" id="username">
+                                <input type="text" value="<%= locals.errores && errores.username ? old.username : user.user %>" name="username" id="username">
+                                <span class="register_alert">
+                                    <%= locals.errores && errores.username ? errores.username.msg : null %>
+                                </span>
                             </div>
                             <div class="edit_user__info">
-                                <h3>Email:  </h3>
+                                <h3>Email: </h3>
                                 <input type="text" value="<%= user.email %>" disabled name="email" id="email">
                             </div>
                             <div class="edit_user__info">
                                 <h3>Rol : </h3>
-                                <h4> <%= user.category %> </h4>
+                                <h4>
+                                    <%= user.category %>
+                                </h4>
                             </div>
                             <div class="edit_user__info-pass">
                                 <h3>password : </h3>
-                                <h4 class="editProfile_box-pass"> <%= userLogin.contra %> </h4>
+                                <h4 class="editProfile_box-pass">
+                                    <%= userLogin.contra %>
+                                </h4>
                                 <label for="editPass"><i class="fas fa-pen"></i></label>
                             </div>
                         </div>
                         <div class="edit_user__historial">
                             <h3>Historial de compras:</h3>
-                            <h4>No se encontraron compras realizadas</h4><!--cuando tengamos base de datos agregaremos esto-->
+                            <h4>No se encontraron compras realizadas</h4>
+                            <!--cuando tengamos base de datos agregaremos esto-->
                         </div>
-                        
+
                     </section>
                 </form>
             </main>
