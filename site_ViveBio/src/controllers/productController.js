@@ -111,10 +111,6 @@ module.exports = {
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
-
-        
-        
-
         return res.redirect('/products/All');   
     },
     search: (req, res) => {

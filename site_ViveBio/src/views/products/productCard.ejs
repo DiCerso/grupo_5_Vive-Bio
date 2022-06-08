@@ -18,7 +18,7 @@
                   <h2>
                     <span> $ </span>
                     <% if (product.discount) { %>
-                      <%= product.price - (product.price * product.discount / 100) %>
+                      <%= toThousand(product.price - (product.price * product.discount / 100)) %>
                         <% }else{ %>
                           <%= toThousand(product.price) %>
                             <% } %>
@@ -39,7 +39,7 @@
                     <% if (product.discount) { %>
                       <%= toThousand(product.price - (product.price * product.discount / 100)) %>
                         <% }else{ %>
-                          <%= product.price %>
+                          <%= toThousand(product.price) %>
                             <% } %> .-
                   </h4>
                   <h5>Promoción: <%= product.discount %> % off (* Hasta agotar stock)</h5>
@@ -84,10 +84,10 @@
                       </a>
                       <span>-<%= property %> -</span>
                       <p>$
-                        <% if (product.discount) { %>
-                          <%= toThousand(product.price - (product.price * product.discount / 100)) %>
+                        <% if (discount) { %>
+                          <%= toThousand(price - (price * discount / 100)) %>
                             <% }else{ %>
-                              <%= toThousand(product.price) %>
+                              <%= toThousand(price) %>
                                 <% } %>
                       </p>
                     </div>
@@ -95,11 +95,11 @@
                       <div class="iconos-white">
                         <% if (locals.userLogin) { %>
                           <% if (userLogin.category==="admin" ) { %>
-                            <a href="/products/Card/<%= id %> " title="Ver producto"><i class="fa-solid fa-eye"></i></a>
                             <a href="/products/Edit/<%= id %> " title="Editar producto"><i
                                 class="fa-solid fa-pen"></i></a>
                             <% } %>
                               <% } %>
+                              <a href="/products/Card/<%= id %> " title="Ver producto"><i class="fa-solid fa-eye"></i></a>
                                 <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                 <a href="#"><i class="fa-solid fa-star"></i></a>
