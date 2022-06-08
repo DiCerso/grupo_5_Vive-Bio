@@ -80,7 +80,7 @@ module.exports = {
                     description,
                     image: image.length > 0 ? image : product.image
                 }
-                if (req.files) {
+                if (req.files.length > 0) {
                     product.image.forEach(image => {
                         if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {
                             fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', image))
