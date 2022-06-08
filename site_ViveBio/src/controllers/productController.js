@@ -122,10 +122,25 @@ module.exports = {
     },
     list : (req, res) => {
         const {category} = req.params;
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
-        const bioCapilar = products.filter(product => +product.category === 1);
-        const bioCorporal = products.filter(product => +product.category === 2);
-        const bioSpa = products.filter(product => +product.category === 3);
-        return res.render('/products/list', {products, bioCapilar, bioCorporal, bioSpa});
+        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
+        let keyboard = req.query.keyboard;
+        if(keyboard){
+            keyboard = accent_fold(keyboard.toLowerCase());
+            products = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keyboard))
+            return res.render('products/list', {products});
+        }
+        if(category == 0){
+            return res.render('products/list', {products});
+        }else if(category == 1){
+            products = products.filter(product => +product.category === 1);
+            return res.render('products/list', {products});
+        }else if(category == 2){
+            products = products.filter(product => +product.category === 2);
+            return res.render('products/list', {products});
+        }else if(category == 3){
+            products = products.filter(product => +product.category === 3);
+            return res.render('products/list', {products});
+        }
+        
     }
 }

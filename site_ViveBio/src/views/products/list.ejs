@@ -31,6 +31,21 @@
                     <h3 class="list__price">precio</h3>
                     <h3 class="list__options">opciones</h3> 
                 </div>
+                <section class="list__products">
+                    <% products.forEach(product => { %>
+                        <article class="list__product">
+                            <a class="list__id" href="/products/Card/<%= product.id %>"><%= product.id %> </a>
+                            <a class="list__name" href="/products/Card/<%= product.id %>"><%= product.name %> </a>
+                            <h4 class="list__price">$<%= product.price %> </h4>
+                            <div class="list__options">
+                                <form  method="POST" action="/Products/remove/<%= product.id %>?_method=DELETE">
+                                    <button class="list__delete" type="submit" title="Eliminar producto"><i class="fa-solid fa-trash-can"></i></button>
+                                </form>
+                                <a href="/Products/Edit/<%= product.id %>" class="list__edit" title="Editar producto"><i class="fa-solid fa-pen"></i></a> 
+                            </div>
+                        </article>
+                    <% }) %>
+                </section>
 
 
             </div>

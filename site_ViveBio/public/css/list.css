@@ -60,6 +60,7 @@
 .list .list__busqueda input{
     width: 60%;
     height: 35px;
+    padding-left: 5px;
     border-radius: 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border: 1px solid #7FA794;
@@ -80,24 +81,99 @@
     margin-top: 5px;
 }
 
-.list .list__headproducts .list__id{
+.list .list__id{
     width: 10%;
     text-align: center;
+    display: none;
+    color: var(--verdeFuerte);
 }
 
-.list .list__headproducts .list__name{
-    width: 50%;
+.list .list__name{
+    width: 65%;
+    display: flex;
+    align-items: center;
+    color: var(--verdeFuerte);
+
 }
 
-.list .list__headproducts .list__price{
+.list .list__price{
     width: 25%;
+    display: none;
 }
-.list .list__headproducts .list__options{
-    width: 15%;
+.list .list__options{
+    width: 35%;
 }
+
+.list .list__products{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.list .list__product{
+    padding: 5px 0px 5px 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    border: 1px solid var(--verdeFuerte);
+}
+
+.list .list__products .list__options{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.list .list__products .list__options:last-child{
+    margin-right: 10px;
+}
+
+
+.list .list__edit,
+.list .list__delete{
+    height: 35px;
+    width: 33px;
+    border: none;
+    font-size: 15px;
+    background-color: var(--azulSuave);
+    color: white;
+    padding: 10px;
+    border-radius: 10px ;
+    margin-right: 5px;
+    align-content: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
 
 
 @media(min-width:426px) {
+
+    .list .list__id{
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .list .list__name{
+        width: 65%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .list .list__options{
+        width: 25%;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 10px;
+    }
 
 
     .list .list__busqueda{
@@ -117,6 +193,31 @@
 }
 
 @media(min-width:760px) {
+
+    .list .list__id{
+        width: 7%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .list .list__name{
+        width: 58%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .list .list__price{
+        width: 20%;
+        display: flex;
+        align-items: center;
+    }
+    .list .list__options{
+        width: 15%;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 10px;
+    }
 
     .list .list__cates .list__cates1,
     .list .list__cates .list__cates2{

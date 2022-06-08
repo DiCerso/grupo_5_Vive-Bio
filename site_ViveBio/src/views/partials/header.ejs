@@ -22,7 +22,7 @@
                         <ul class="menu">
                             <li><a href="/">Home</a></li>
                             <% if (locals.userLogin && userLogin.category=="admin" ) { %>
-                                <li><a href="/products/list">lista</a></li>
+                                <li><a href="/products/list/0">lista</a></li>
                                 <% }else{ %>
                                     <li><a href="/products/all">Productos</a></li>
                                     <% }%>
@@ -68,7 +68,7 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <% if (locals.userLogin && userLogin.category=="admin" ) { %>
-                    <li><a href="/products/list">lista</a></li>
+                    <li><a href="/products/list/0">lista</a></li>
                     <% }else{ %>
                         <li><a href="/products/all">Productos</a></li>
                         <% }%>
