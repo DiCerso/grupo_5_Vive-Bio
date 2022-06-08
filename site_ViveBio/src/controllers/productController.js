@@ -119,9 +119,10 @@ module.exports = {
     },
     search: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const keywords = req.query.keyboard;
-        let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords.toLowerCase()) || product.description.toLowerCase().includes(keywords.toLowerCase()))
-        return res.render('/products/productSearch', { result })
+        const keywords = accent_fold(req.query.keyboard.toLowerCase());
+        let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords))
+        return res.render('products/productSearch', { result })
+        
     },
     list : (req, res) => {
         const {category} = req.params;
