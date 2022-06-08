@@ -66,6 +66,8 @@ module.exports = {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         let { name, category, price, description, discount, volume, property } = req.body;
         let { id } = req.params;
+        let oldProduct = products.find(product => +product.id === +id);
+        let oldImage = oldProduct.image;
         let image = req.files.map(image => image.filename);
         let productact = products.map(product => {
             if (product.id === +id) {
@@ -78,8 +80,9 @@ module.exports = {
                     category: +category,
                     price: +price,
                     description,
-                    image: image.length > 0 ? image : product.image
+                    image: image.length > 0 ? image : oldImage
                 }
+                
                 if (req.files.length > 0) {
                     product.image.forEach(image => {
                         if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {

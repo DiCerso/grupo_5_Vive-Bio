@@ -41,10 +41,6 @@
     </main>
 </body>  -->
 
-<h1>
-    <%= message %>
-</h1>
-<h2>
-    <%= error.status %>
-</h2>
-<h3><%= error.stack %></h3>
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
