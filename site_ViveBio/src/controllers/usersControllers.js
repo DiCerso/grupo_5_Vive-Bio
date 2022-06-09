@@ -3,7 +3,7 @@ const fs = require("fs");
 const bcryptjs = require('bcryptjs');
 const path = require("path");
 const users = require('../data/users.json');
-/* const { find } = require("../validations/registerValidator"); */
+
 
 module.exports = {
     login: (req, res) => {
@@ -24,15 +24,14 @@ module.exports = {
 
         if (errors.isEmpty()) {
             //levantar sesión
-            const { id, user, category } = users.find(user => user.user === req.body.user);
-
-
+            const { id, user, category, image } = users.find(user => user.user === req.body.user);
 
             req.session.userLogin = {
                 id,
                 user,
                 category,
                 contra,
+                image
             }
 
             if (req.body.recordar) {
@@ -64,17 +63,18 @@ module.exports = {
                 email,
                 user: user.trim(),
                 password: bcryptjs.hashSync(password, 10),
-                category:"user",
+                category: "user",
                 image: req.file ? req.file.filename : "defaultAvatar.jpg"
             }
             users.push(newUser);
             fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
             const category = "user";
             req.session.userLogin = {
-                id:newUser.id,
-                user:newUser.user,
+                id: newUser.id,
+                user: newUser.user,
                 contra,
-                category
+                category,
+                image
             }
             return res.redirect("/");
         } else {
@@ -114,6 +114,10 @@ module.exports = {
         let { id } = req.params;
         let oldUser = users.find(user => +user.id === +id);
         if (errors.isEmpty()) {
+            let contra = ""
+            for (let i = 1; i <= oldUser.password.length; i++) {
+                contra = contra + "*";
+            }
             let userEdited = users.map(user => {
                 if (+user.id === +id) {
                     let userEdited = {
@@ -126,6 +130,11 @@ module.exports = {
                         password: oldUser.password,
                         image: req.file ? req.file.filename : oldUser.image,
                     }
+                    req.session.userLogin.image =
+                        userEdited.image;
+                    
+                    console.log(req.session.userLogin.image)
+
                     if (req.file) {
                         if (
                             fs.existsSync(

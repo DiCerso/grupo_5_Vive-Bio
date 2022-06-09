@@ -15,23 +15,28 @@
                 </div>
                 <% } else{ %>
                     <div class="usuario_mobile-log">
-                        <img src="" alt="">
-                        <a href="/users/login"><i class="fas fa-user-circle"></i>Login</a>
+                        <a href="/users/profile/<%= userLogin.id %>">
+                            <img src="/images/users/<%= userLogin.image %>" alt="">
+                            <span style="font-size: 1.3rem;">
+                                <%= userLogin.user %>
+                            </span>
+                            <span style="text-transform:uppercase;font-size: 0.8rem;">
+                                <%= userLogin.category %>
+                            </span>
+                        </a>
+                        <a href="/users/logout" style="margin-top: 5px;font-size:0.8rem;color:var(--verdeFuerte)" title="Salir">Logout</a>
                     </div>
                     <% } %>
-
                         <ul class="menu">
                             <li><a href="/">Home</a></li>
-                            <% if (locals.userLogin && userLogin.category=="admin" ) { %>
-                                <li><a href="/products/list/0">lista</a></li>
-                                <% }else{ %>
-                                    <li><a href="/products/all">Productos</a></li>
-                                    <% }%>
-                                        <li><a href="">Quienes somos</a></li>
-                                        <li><a href="">Contacto</a></li>
+                            <li><a href="/products/all">Productos</a></li>
+                            <li><a href="">Quienes somos</a></li>
+                            <li><a href="">Contacto</a></li>
                         </ul>
         </div>
     </div>
+
+
     <div class="header__container">
         <div class="header__logo">
             <a href="/"><img src="/images/logo.png" alt="logo"></a>
