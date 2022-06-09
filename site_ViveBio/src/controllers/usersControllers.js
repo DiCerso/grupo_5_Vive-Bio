@@ -133,7 +133,10 @@ module.exports = {
                     req.session.userLogin.image =
                         userEdited.image;
                     
-                    console.log(req.session.userLogin.image)
+                    if (userEdited.user !== req.session.userLogin.user){
+                        req.session.userLogin.user = 
+                        userEdited.user
+                    }
 
                     if (req.file) {
                         if (
