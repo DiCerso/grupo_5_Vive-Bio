@@ -184,18 +184,5 @@
       "image": [
          "JabonLuffa-11.jpg"
       ]
-   },
-   {
-      "name": "hol",
-      "category": 1,
-      "volume": "23",
-      "discount": "23",
-      "property": "caca",
-      "price": 23,
-      "description": "asda",
-      "id": 15,
-      "image": [
-         "image 1654729429830.jpg"
-      ]
    }
 ]
