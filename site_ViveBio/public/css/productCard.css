@@ -154,7 +154,7 @@
 
 .productCard .estilo-c .img-container {
     overflow: hidden;
-    height: 300px;
+    height: 250px;
     position: relative;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -179,6 +179,9 @@
     height: 170px;
     padding-top: 5px;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .productCard .card {
@@ -192,7 +195,7 @@
 
 /*NOMBRE PRODUCTO*/
 .productCard .estilo-c .info-container h2 {
-    font-size: 18px;
+    font-size: 16px;
     text-shadow: none;
     color: var(--azulSuave);
 }
@@ -202,6 +205,7 @@
     font-size: 24px;
     margin: 5px 0px;
     background-color: var(--aquamarineSuave);
+    padding: 2px;
 }
 
 /*CATEGORÍA PRODUCTO*/
@@ -222,7 +226,6 @@
     text-decoration: none;
     color: white;
     background-color: var(--azulSuave);
-    padding: 10px;
     border: 1px solid white;
     border-radius: 25px;
 }
@@ -508,3 +511,4 @@
         width: 100%;
     }
 }
+
