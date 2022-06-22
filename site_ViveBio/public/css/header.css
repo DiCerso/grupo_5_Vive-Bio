@@ -16,6 +16,7 @@ Header mobile
     height: 100vh;
     overflow: hidden;
     position: absolute;
+    
 }
 .usuario_mobile-log a{
     display: flex;
@@ -88,7 +89,7 @@ Header mobile
 
 .mostrar{
     margin-right: 0;
-    position: fixed;
+    
 }
 
 .usuario_mobile{

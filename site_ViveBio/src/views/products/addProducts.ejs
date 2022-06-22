@@ -19,7 +19,7 @@
                                     <select class="add_input" name="category" id="category">
                                         <option value="" hidden selected>Selecciona la categoría...</option>
                                         <% category.forEach(categori => { %>
-                                            <option value="<%= categori.id %>" ><%= categori.name %> </option>
+                                            <option value="<%= categori.id %>"><%= categori.name %></option>
                                         <% }) %>
                                     </select>
                                 </div>
@@ -69,6 +69,7 @@
                 </section>
             </main>
             <%- include('../partials/footer') %>
+            <script src="/javascript/menuMobile.js"></script>
     </body>
 
 </html>
