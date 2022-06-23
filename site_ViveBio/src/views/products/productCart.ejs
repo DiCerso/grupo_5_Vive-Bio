@@ -6,7 +6,11 @@
         <%- include('../partials/header') %>
             <main>
                 <section class="cart_container">
-
+                    <div class="cart_pasos">
+                        <span class="cart_paso">Paso 1</span>
+                        <span class="cart_paso">Paso 2</span>
+                        <span class="cart_paso">Paso 3</span>
+                    </div>
                     <article class="cart_article_box">
                         <div class="cart_sect_1">
                             <div class="cart_sect_img">
@@ -35,57 +39,30 @@
                                 <form action="">
                                     <input type="submit" value="Eliminar">
                                 </form>
-                                
+
                             </div>
                         </div>
                     </article>
-                    <div class="cart_payment">
-                        <div class="add_form-box">
-                            <label for="payment">Medio de Pago</label>
-                            <select class="add_input" name="payment" id="payment">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                                <option value="">1</option>
-                            </select>
-                        </div>
-                        <div class="add_form-box">
-                            <label for="payment">Medio de Pago</label>
-                            <select class="add_input" name="payment" id="payment">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                                <option value="">1</option>
-                            </select>
-                        </div>
-                        <div class="add_form-box">
-                            <label for="payment">Medio de Pago</label>
-                            <select class="add_input" name="payment" id="payment">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                                <option value="">1</option>
-                            </select>
-                        </div>
-                        <div class="add_form-box">
-                            <label for="payment">Medio de Pago</label>
-                            <select class="add_input" name="payment" id="payment">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                                <option value="">1</option>
-                            </select>
-                        </div>
-                        <div class="add_form-box">
-                            <label for="payment">Medio de Pago</label>
-                            <select class="add_input" name="payment" id="payment">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                                <option value="">1</option>
-                            </select>
-                        </div>
-                        <div class="add_form-box">
-                            <label for="payment">Medio de Pago</label>
-                            <select class="add_input" name="payment" id="payment">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                                <option value="">1</option>
-                            </select>
-                        </div>
-                        
+                    <div class="cart_sect_playment">
+                        <label for="payment">Medio de Pago</label>
+                        <select class="cart_select_payment" name="payment" id="payment">
+                            <option value="" hidden selected>Selecciona un medio de Pago...</option>
+                            <option value="">1</option>
+                        </select>
+                        <label for="discount_code">Código de Descuento</label>
+                        <input class="cart_select_payment" type="text" placeholder="Ingresar aquí código de descuento">
+                        <label for="">Total</label>
+                        <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                        <label for="">Total con Descuento</label>
+                        <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                    </div>
+                    <div class="cart_buttons">
+                        <button class="cart_button" type="submit">Siguiente Paso</button>
+                        <button class="cart_button" type="reset">Limpiar Carrito</button>
                     </div>
                 </section>
             </main>
+            <%- include('../partials/footer') %>
             <script src="/javascript/menuMobile.js"></script>
     </body>
 
