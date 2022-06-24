@@ -40,8 +40,23 @@
                         </ul>
         </div>
     </div>
-
-
+    <!-- inicio opciones emergente -->
+    <div class="nav_emergente" id="emergente">
+        <div class="solapa" id="btnNavMob">
+            <span class="solapa1" id="solapa1"></span>
+            <span class="solapa2" id="solapa2"></span>
+        </div>
+        <div class="nav_options-emergente">
+             <% if (locals.userLogin && userLogin.category=="admin" ) { %>
+                <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
+                <% } %>
+                    <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
+                    <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+                    <a href="/products/cart"><i class="fa-solid fa-cart-shopping" title="Carrito de compras"></i></a>
+                    <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a> 
+        </div>
+    </div>
+    <!-- fin opciones emergente -->
     <div class="header__container">
         <div class="header__logo">
             <a href="/"><img src="/images/logo.png" alt="logo"></a>

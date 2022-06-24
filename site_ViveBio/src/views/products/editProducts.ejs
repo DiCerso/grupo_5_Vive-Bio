@@ -8,18 +8,20 @@
                 <main>
                     <section class="add_container">
                         <h3>Editar Producto</h3>
-                        <form action="/products/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <form action="/products/update/<%= product.id %>?_method=PUT" method="POST"
+                            enctype="multipart/form-data">
                             <article class="camps_container">
                                 <div class="sub_container">
                                     <div class="add_form-box">
                                         <label for="name">Nombre</label>
-                                        <input value="<%= product.name %>" class="add_input" type="text" id="name" name="name" style="padding:5px;">
+                                        <input value="<%= product.name %>" class="add_input" type="text" id="name"
+                                            name="name" style="padding:5px;">
                                     </div>
-                                    
+
                                     <div class="add_form-box">
                                         <label for="category">Categoría</label>
                                         <select class="add_input" name="category" id="category">
-                                            <% category.forEach(categori => { %>
+                                            <% category.forEach(categori=> { %>
                                                 <option value="<%= categori.id %>" <%=categori.id===product.category
                                                     ? 'selected' : null %>><%= categori.name %>
                                                 </option>
@@ -28,33 +30,40 @@
                                     </div>
                                     <div class="add_form-box">
                                         <label for="volume">Peso (g)</label>
-                                        <input value="<%= product.volume %>" class="add_input" type="number" id="volume" name="volume" style="padding:5px;">
+                                        <input value="<%= product.volume %>" class="add_input" type="number" id="volume"
+                                            name="volume" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box">
                                         <label for="price">Precio</label>
-                                        <input value="<%= product.price %>" class="add_input" type="number" id="price" name="price" style="padding:5px;">
+                                        <input value="<%= product.price %>" class="add_input" type="number" id="price"
+                                            name="price" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box">
                                         <label for="discount">Descuento</label>
-                                        <input value="<%= product.discount %>" class="add_input" type="number" id="discount" name="discount" style="padding:5px;">
+                                        <input value="<%= product.discount %>" class="add_input" type="number"
+                                            id="discount" name="discount" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box">
                                         <label for="image">Imagen</label>
-                                        <input class="add_input" type="file" id="image"  name="image" accept="image/*" multiple>
+                                        <input class="add_input" type="file" id="image" name="image" accept="image/*"
+                                            multiple>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="add_form-box">
                                         <label for="ingredients">Ingredientes</label>
-                                        <input value="<%= product.ingredients %>" class="add_input" type="text" id="ingredients" name="ingredients" style="padding:5px;">
+                                        <input value="<%= product.ingredients %>" class="add_input" type="text"
+                                            id="ingredients" name="ingredients" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box">
                                         <label for="property">Propiedades</label>
-                                        <input value="<%= product.property %>" class="add_input" type="text" id="property" name="property" style="padding:5px;">
+                                        <input value="<%= product.property %>" class="add_input" type="text"
+                                            id="property" name="property" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box-description">
                                         <label for="description">Descripción</label>
-                                        <textarea class="add_input" type="text" id="description" name="description" rows="3" cols="35"
+                                        <textarea class="add_input" type="text" id="description" name="description"
+                                            rows="3" cols="35"
                                             style="resize: none; padding:5px;"><%= product.description.trim() %></textarea>
                                     </div>
                                 </div>
@@ -73,6 +82,8 @@
                 </main>
             </main>
             <%- include('../partials/footer') %>
+                <script src="/javascript/menuMobile.js"></script>
+                <script src="/javascript/navEmergent.js"></script>
     </body>
 
 </html>
