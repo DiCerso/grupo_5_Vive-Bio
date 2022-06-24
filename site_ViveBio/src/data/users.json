@@ -1,42 +1,38 @@
 [
    {
-      "id": 1,
       "firstName": "lautaro",
       "lastName": "Cersocimo",
       "email": "lautaro_cer@hotmail.com",
-      "user": "Dicerso",
+      "username": "Dicerso",
       "password": "$2a$10$CX4eXDLHNmGNz7sZ5Pp3G.McqWNQNgn8WsAhuuOitvJnh9.SG5XL2",
-      "category": "admin",
+      "rol_id": 1,
       "image": "defaultAvatar.jpg"
    },
    {
-      "id": 2,
       "firstName": "fernando",
       "lastName": "zigarra",
       "email": "fer_0007_6@hotmail.com",
-      "user": "cacao",
+      "username": "cacao",
       "password": "$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2",
       "image": "image-Avatar-1654737986404.png",
-      "category": "admin"
+      "rol_id": 1
    },
    {
-      "id": 3,
       "firstName": "May",
       "lastName": "Cort",
       "email": "mayrautopia@gmail.com",
-      "user": "Mayra",
+      "username": "Mayra",
       "password": "$2a$10$I4W.oC98cWCdvoATgz4n5.uaINwRAr5fBi85JdfoRNa03LfwlFXiC",
       "image": "defaultAvatar.jpg",
-      "category": "admin"
+      "rol_id": 1
    },
    {
-      "id": 4,
       "firstName": "adm",
       "lastName": "adm",
       "email": "adm@gmail.com",
-      "user": "admadm",
+      "username": "admadm",
       "password": "$2a$10$0C6YQmVu2cYXfnpbXnSkzu/rX6EhozlKb4mQC6k9NZwSLIo1yiQZW",
-      "category": "user",
+      "rol_id": 2,
       "image": "defaultAvatar.jpg"
    }
 ]
