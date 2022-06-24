@@ -6,8 +6,8 @@
       "category": 2,
       "property_id": 1,
       "price": 300,
-      "volume": "90",
-      "discount": "30",
+      "volume": 90,
+      "discount": 30,
       "visits" : 0,
       "image": [
          "Jabon-exfoliante-08.jpg"
@@ -22,6 +22,7 @@
       "price": 300,
       "volume": 90,
       "discount": 20,
+      "visits" : 0,
       "image": [
          "jabon-humectante-14.jpg"
       ]
@@ -34,6 +35,7 @@
       "property_id": 1,
       "volume": 90,
       "discount": 20,
+      "visits" : 0,
       "image": [
          "jabon-humectante-15.jpg"
       ]
@@ -46,6 +48,7 @@
       "property_id": 1,
       "volume": 90,
       "discount": 40,
+      "visits" : 0,
       "image": [
          "Jabon-antiseptico-07.jpg"
       ]
@@ -58,6 +61,7 @@
       "property_id": 1,
       "volume": 90,
       "discount": 40,
+      "visits" : 0,
       "image": [
          "Jabon-menta-16.jpg"
       ]
@@ -70,6 +74,7 @@
       "property_id": 1,
       "volume": 90,
       "discount": 10,
+      "visits" : 0,
       "image": [
          "Shampoo-geranio-12.png"
       ]
@@ -82,6 +87,7 @@
       "property_id": 1,
       "volume": 90,
       "discount": 10,
+      "visits" : 0,
       "image": [
          "Acondicionador-coco-3-4.jpg"
       ]
@@ -94,6 +100,7 @@
       "property_id": 1,
       "volume": 90,
       "discount": 10,
+      "visits" : 0,
       "image": [
          "Acondicionador-argán-05.jpg"
       ]
@@ -106,6 +113,7 @@
       "property_id": 1,
       "volume": 90,
       "discount": 10,
+      "visits" : 0,
       "image": [
          "Acondicionador-coco-4-4.jpg"
       ]
@@ -119,6 +127,7 @@
       "property_id": 1,
       "volume": 120,
       "discount": 20,
+      "visits" : 0,
       "image": [
          "Shampoo-karité-02.jpg"
       ]
@@ -132,6 +141,7 @@
       "property_id": 1,
       "volume": 120,
       "discount": 20,
+      "visits" : 0,
       "image": [
          "Acondicionador-salvia-06.png"
       ]
@@ -145,6 +155,7 @@
       "property_id": 1,
       "volume": 140,
       "discount": 25,
+      "visits" : 0,
       "image": [
          "JabonLuffa-09.jpg"
       ]
@@ -158,6 +169,7 @@
       "property_id": 1,
       "volume": 140,
       "discount": 25,
+      "visits" : 0,
       "image": [
          "JabonLuffa-11.jpg"
       ]
