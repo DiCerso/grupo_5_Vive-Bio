@@ -1,7 +1,6 @@
-const products = require('../data/products');
-const category = require('../data/categories');
 const path = require('path');
-const fs = require('fs');
+const Category = require('../database/models/Category');
+const Product = require('../database/models/Product');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const accent_map = { 'á': 'a', 'é': 'e', 'è': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'a', 'É': 'e', 'è': 'e', 'Í': 'i', 'Ó': 'o', 'Ú': 'u' };
@@ -16,55 +15,78 @@ function accent_fold(s) {
 
 
 module.exports = {
-    Card: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { id } = req.params;
-        const product = products.find(product => product.id === +id);
-        const relation = products.filter(relation => +relation.category === +product.category)
-        return res.render('products/productCard', { products, toThousand, relation, product, category });
-    },
+
     All: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const bioCapilar = products.filter(product => +product.category === 1);
         const bioCorporal = products.filter(product => +product.category === 2);
         const bioSpa = products.filter(product => +product.category === 3);
         return res.render('products/productAll', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
     },
-    add: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        return res.render('products/addProducts', { category });
-    },
-    store: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { name, category, price, description, property, volume, discount } = req.body;
-        const lastId = products[products.length - 1].id;
-        const image = req.files.map(image => image.filename);
 
-        products.push({
-            name,
-            category: +category,
-            volume,
-            discount,
-            property,
-            price,
-            description,
-            id: (+lastId + 1),
-            image: image.length > 0 ? image : ["noimage.jpg"]
+    Card: (req, res) => {
+        Product.findByPk(req.params.id)
+        .then(product => {
+            return res.render('products/productCard', { toThousand, product });
         })
+        .catch(error => console.log(error));
+    },
 
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
+    add: (req, res) => {
+        Category.findAll()
+        .then(categories => {
+            return res.render('products/addProducts', { categories });
+        })
+    },
 
+    store: (req, res) => {
+        Product.create({
+            name : req.body.name,
+            category_id : req.body.category,
+            volume : req.body.volume,
+            price : req.body.price,
+            discount : req.body.discount,
+/*             IMAGES */
+            ingredients : req.body.ingredients,
+            description : req.body.description,
+            stock : req.body.stock,
+            property_id : req.body.property
+        })
         return res.redirect('/products/All');
     },
+
     edit: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { id } = req.params;
-        let product = products.find(product => product.id === +id)
-        return res.render('products/editProducts', { product, category })
+        let productId = Product.findByPk(req.params.id)
+        let categoryResult = Category.findAll()
+        Promise.All([productId, categoryResult])
+        .then(function([product,categories]){
+            return res.render('products/editProducts', { product, categories })
+        })
+
     },
+
     update: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        let { name, category, price, description, discount, volume, property } = req.body;
+        Product.update({
+            name : req.body.name,
+            category_id : req.body.category,
+            volume : req.body.volume,
+            price : req.body.price,
+            discount : req.body.discount,
+/*             IMAGES */
+            ingredients : req.body.ingredients,
+            description : req.body.description,
+            stock : req.body.stock,
+            property_id : req.body.property
+        },{
+            where : {
+                id : req.params.id
+            }
+        })
+            res.redirect('/products/' + req.params.id)
+
+        },
+
+
+/*         let { name, category, price, description, discount, volume, property } = req.body;
         let { id } = req.params;
         let oldProduct = products.find(product => +product.id === +id);
         let oldImage = oldProduct.image;
@@ -93,28 +115,17 @@ module.exports = {
                 return productact;
             }
             return product;
-        });
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productact, null, 3), 'utf-8');
-        return res.redirect('/products/All')
+        }); */
 
-    },
+
+
     remove: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { id } = req.params;
-
-        const productFilter = products.filter(product => product.id !== +id);
-        const productdeleted = products.filter(product => product.id === +id);
-
-
-        productdeleted[0].image.forEach(image => {
-            if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {
-                fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', image));
+        Product.destroy({
+            where : {
+                id : req.params.id
             }
         })
-
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
-
-        return res.redirect('/products/All');   
+            res.redirect('/products/All');   
     },
     search: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
@@ -124,9 +135,9 @@ module.exports = {
         
     },
     list : (req, res) => {
-        const {category} = req.params;
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
-        let keyboard = req.query.keyboard;
+/*         const {category} = req.params; */
+/*         let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json'))); */
+/*         let keyboard = req.query.keyboard;
         if(keyboard){
             keyboard = accent_fold(keyboard.toLowerCase());
             products = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keyboard))
@@ -143,7 +154,13 @@ module.exports = {
         }else if(category == 3){
             products = products.filter(product => +product.category === 3);
             return res.render('products/list', {products});
-        }
+        } */
+
+        Product.findAll()
+        .then(products => {
+            return res.render('products/list', {products});
+        })
+        .catch(error => console.log(error));
         
     }
 }
