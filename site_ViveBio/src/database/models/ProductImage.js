@@ -2,7 +2,7 @@ const Product = require("./Product");
 
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "Product_image";
+    const alias = "ProductImage";
 
     const cols = {
 
@@ -38,8 +38,17 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updateTimestamp'
     };
 
-    
+    const ProductImage = sequelize.define(alias, cols, config);
+
+    ProductImage.associate = function(models){
+        ProductImage.belongsTo(models.Product,{
+            as : 'product',
+            foreignKey : 'product_id'
+        })
+}
+
+    return ProductImage
+
 }
 
 
-const Product_image = sequelize.define(alias, cols, config);

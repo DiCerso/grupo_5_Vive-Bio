@@ -135,6 +135,16 @@ module.exports = {
         
     },
     list : (req, res) => {
+
+        Product.findAll()
+        .then(products => {
+            return res.render('products/list', {products});
+        })
+        .catch(error => console.log(error));
+        
+    }
+
+    
 /*         const {category} = req.params; */
 /*         let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json'))); */
 /*         let keyboard = req.query.keyboard;
@@ -156,11 +166,5 @@ module.exports = {
             return res.render('products/list', {products});
         } */
 
-        Product.findAll()
-        .then(products => {
-            return res.render('products/list', {products});
-        })
-        .catch(error => console.log(error));
-        
-    }
+ 
 }

@@ -1,4 +1,5 @@
 const Product = require("./Product");
+const User = require ("./User");
 
 module.exports = (sequelize, dataTypes) => {
 
@@ -52,12 +53,17 @@ module.exports = (sequelize, dataTypes) => {
 
     Favourite.associate = function(models){
 
-        Favourite.belongsToMany(models.Products,{
-            as : '',
-            foreignKey : 'category_id'
+        Favourite.belongsTo(models.Product,{
+            as : 'products',
+            foreignKey : 'product_id',
             })
-     
-        }
+
+        Favourite.belongsTo(models.User,{
+            as : 'users',
+            foreignKey : 'user_id',
+            })
+
+        } 
 
 
     return Favourite;
