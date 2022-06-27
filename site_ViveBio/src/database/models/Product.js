@@ -40,7 +40,7 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         ingredients : {
-            type : dataTypes.TEXT.UNSIGNED,
+            type : dataTypes.TEXT,
             allowNull : false,
         },
 
@@ -72,9 +72,9 @@ module.exports = (sequelize, dataTypes) => {
 
     const config = {
         tableName : "products",
-        timestamps : true,
+        timestamps : false,
         createdAt: false,
-        updatedAt: 'updateTimestamp'
+        updatedAt: false
     };
 
 

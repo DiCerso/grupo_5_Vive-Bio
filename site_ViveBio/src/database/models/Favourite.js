@@ -14,11 +14,6 @@ module.exports = (sequelize, dataTypes) => {
                 primaryKey : true
             },
 
-        name : {
-                type : dataTypes.STRING(45),
-                allowNull : false,
-            },
-
         product_id : {
                 type : dataTypes.INTEGER,
                 allowNull : false,
@@ -32,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
                 type : dataTypes.INTEGER,
                 allowNull : false,
                 references: {
-                    model: Users,
+                    model: User,
                     key: 'id',
                             }
                     }
@@ -42,9 +37,9 @@ module.exports = (sequelize, dataTypes) => {
 
     const config = {
         tableName : "favourites",
-        timestamps : true,
+        timestamps : false,
         createdAt: false,
-        updatedAt: 'updateTimestamp'
+        //updatedAt: 'updateTimestamp'
     };
 
 

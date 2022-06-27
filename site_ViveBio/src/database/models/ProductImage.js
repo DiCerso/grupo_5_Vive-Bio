@@ -29,13 +29,11 @@ module.exports = (sequelize, dataTypes) => {
 
                 }
 
-
-
     const config = {
         tableName : "products_images",
-        timestamps : true,
+        timestamps : false,
         createdAt: false,
-        updatedAt: 'updateTimestamp'
+        //updatedAt: 'updateTimestamp'
     };
 
     const ProductImage = sequelize.define(alias, cols, config);

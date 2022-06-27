@@ -22,9 +22,9 @@ module.exports = (sequelize, dataTypes) => {
 
     const config = {
         tableName : "properties",
-        timestamps : true,
+        timestamps : false,
         createdAt: false,
-        updatedAt: 'updateTimestamp'
+        //updatedAt: 'updateTimestamp'
     };
 
 
