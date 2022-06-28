@@ -37,24 +37,32 @@
                             </div>
                             <div class="cart_box_button">
                                 <form action="">
-                                    <input type="submit" value="Eliminar">
+                                    <input class="cart_button" type="submit" value="Eliminar">
                                 </form>
 
                             </div>
                         </div>
                     </article>
                     <div class="cart_sect_playment">
-                        <label for="payment">Medio de Pago</label>
-                        <select class="cart_select_payment" name="payment" id="payment">
-                            <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                            <option value="">1</option>
-                        </select>
-                        <label for="discount_code">Código de Descuento</label>
-                        <input class="cart_select_payment" type="text" placeholder="Ingresar aquí código de descuento">
-                        <label for="">Total</label>
-                        <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
-                        <label for="">Total con Descuento</label>
-                        <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                        <div class="cart_sect_playment_sub">
+                            <label for="payment">Medio de Pago</label>
+                            <select class="cart_select_payment" name="payment" id="payment">
+                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
+                                <option value="">1</option>
+                            </select>
+                        </div>
+                        <div class="cart_sect_playment_sub">
+                            <label for="discount_code">Código de Descuento</label>
+                            <input class="cart_select_payment" type="text" placeholder="Ingresar aquí código de descuento">
+                        </div>
+                        <div class="cart_sect_playment_sub">
+                            <label for="">Total</label>
+                            <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                        </div>
+                        <div class="cart_sect_playment_sub">
+                            <label for="">Total con Descuento</label>
+                            <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                        </div>
                     </div>
                     <div class="cart_buttons">
                         <button class="cart_button" type="submit">Siguiente Paso</button>

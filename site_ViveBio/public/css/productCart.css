@@ -148,3 +148,35 @@
     color: white;
     border: 1px solid var(--verdeFuerte);
 }
+
+@media (min-width: 768px){
+    .cart_pasos{
+        justify-content: space-around;
+    }
+
+    .cart_article_box{
+        flex-direction: row;
+    }
+    .cart_sect_2{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .cart_sect_playment{
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        align-items: flex-start;
+    }
+    .cart_sect_playment_sub{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 50%;
+    }
+    .cart_sect_playment_sub label{
+        width: 70%;
+        text-align: start;
+    }
+    
+}
