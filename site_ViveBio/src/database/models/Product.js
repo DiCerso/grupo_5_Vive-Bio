@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "Product";
+    const alias = "Products";
 
     const cols = {
 
@@ -22,7 +22,7 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         price: {
-            type: dataTypes.DECIMAL(4, 2).UNSIGNED,
+            type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         },
 
@@ -62,6 +62,14 @@ module.exports = (sequelize, dataTypes) => {
                 model: Category,
                 key: 'id',
             }
+        },
+        ingredients : {
+            type: dataTypes.TEXT,
+            allowNull : false
+        },
+        visits : {
+            type: dataTypes.INTEGER,
+            allowNull: false,
         }
     }
 

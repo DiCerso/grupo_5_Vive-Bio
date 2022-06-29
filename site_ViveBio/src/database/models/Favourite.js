@@ -3,7 +3,7 @@ const User = require("./User");
 
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "Favourite";
+    const alias = "Favourites";
 
     const cols = {
 
