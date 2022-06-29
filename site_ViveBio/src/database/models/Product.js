@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, dataTypes) => {
 
     const alias = "Products";
@@ -50,7 +51,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Property,
+                model: {
+                    tableName : 'properties'
+                },
                 key: 'id',
             }
         },
@@ -59,7 +62,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Category,
+                model: {
+                    tableName : 'categories'
+                },
                 key: 'id',
             }
         },

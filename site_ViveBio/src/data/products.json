@@ -9,7 +9,7 @@
       "price": 300,
       "volume": 90,
       "discount": 30,
-      "visits": 0
+      "visits": 3
    },
    {
       "name": "Jabón Rosas",
@@ -21,7 +21,7 @@
       "price": 300,
       "volume": 90,
       "discount": 20,
-      "visits": 0
+      "visits": 3
    },
    {
       "name": "Jabón Lavanda",
@@ -33,7 +33,7 @@
       "stock" : 1,
       "volume": 90,
       "discount": 20,
-      "visits": 0
+      "visits": 3
    },
    {
       "name": "Jabón Menta y Tea Tree",
@@ -45,7 +45,7 @@
       "stock" : 1,
       "volume": 90,
       "discount": 40,
-      "visits": 0
+      "visits": 3
    },
    {
       "name": "Jabón Menta, y Eucalipto",

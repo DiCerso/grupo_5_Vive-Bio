@@ -1,4 +1,4 @@
-const Product = require("./Product");
+'use strict';
 
 module.exports = (sequelize, dataTypes) => {
 
@@ -22,7 +22,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             references: {
-                model: Product,
+                model: {
+                    tableName : 'products'
+                },
                 key: 'id',
             }
         },

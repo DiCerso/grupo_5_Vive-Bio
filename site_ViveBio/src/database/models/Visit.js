@@ -1,6 +1,6 @@
+'use strict';
 module.exports = (sequelize, datatypes) => {
     const alias = 'Visits'
-
 
     const cols = {
         id : {
@@ -13,7 +13,9 @@ module.exports = (sequelize, datatypes) => {
             type : datatypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
-                model: User,
+                model: {
+                    tableName : 'users'
+                },
                 key: 'id',
             }
         },
@@ -21,7 +23,9 @@ module.exports = (sequelize, datatypes) => {
             type : datatypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
-                model: Product,
+                model: {
+                    tableName : 'products'
+                },
                 key: 'id',
             }
         }
