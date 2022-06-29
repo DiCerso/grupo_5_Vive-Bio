@@ -1,5 +1,4 @@
-const Product = require("./Product");
-const User = require("./User");
+'use strict';
 
 module.exports = (sequelize, dataTypes) => {
 
@@ -18,7 +17,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Product,
+                model: {
+                    tableName : 'products'
+                },
                 key: 'id',
             }
         },
@@ -27,7 +28,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: User,
+                model: {
+                    tableName : 'users'
+                },
                 key: 'id',
             }
         }

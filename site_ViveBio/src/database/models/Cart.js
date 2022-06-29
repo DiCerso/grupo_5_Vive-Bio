@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, dataTypes) => {
     const alias = 'Carts'
 
@@ -12,7 +13,9 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
-                model: User,
+                model: {
+                    tableName : 'users'
+                },
                 key: 'id',
             }
         },
@@ -20,7 +23,9 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
-                model: Product,
+                model: {
+                    tableName : 'products'
+                },
                 key: 'id',
             }
         },
@@ -28,7 +33,9 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
-                model: Payment,
+                model: {
+                    tableName : 'payments'
+                },
                 key: 'id',
             }
         },
@@ -36,7 +43,9 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
-                model: Order,
+                model: {
+                    tableName : 'orders'
+                },
                 key: 'id',
             }
         }

@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = (sequelize, dataTypes) => {
 
     const alias = "Users";
@@ -33,7 +35,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             references: {
-                model: Rol,
+                model: {
+                    tableName : 'rols'
+                },
                 key: 'id',
             }
         },
