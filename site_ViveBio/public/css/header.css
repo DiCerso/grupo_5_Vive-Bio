@@ -17,7 +17,17 @@ Header mobile
     overflow: hidden;
     position: absolute;
 }
-
+.usuario_mobile-log a{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.usuario_mobile-log img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
 
 .mobile_header {
     width: 100vw;
@@ -53,6 +63,7 @@ Header mobile
     display: flex;
     flex-direction: column;
     position: fixed;
+    padding-top: 10vh;
     width: 100vw;
     height: 100vh;
     z-index: 2;

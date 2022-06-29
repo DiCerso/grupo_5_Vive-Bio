@@ -38,15 +38,6 @@ app.use(localsCheck);
 
 
 
-
-app.use(session({
-  secret : 'ViveBio proyect',
-  resave: false,
-  saveUninitialized: true,
-  cookie : {}
-
-}));
-
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
