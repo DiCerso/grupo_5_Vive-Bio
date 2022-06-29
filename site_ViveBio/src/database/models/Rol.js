@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
     
-    const alias = "Rol"
+    const alias = "Rols"
 
 
     const cols = {

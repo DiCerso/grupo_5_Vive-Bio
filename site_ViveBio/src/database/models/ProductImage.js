@@ -2,48 +2,51 @@ const Product = require("./Product");
 
 module.exports = (sequelize, dataTypes) => {
 
-    const alias = "ProductImage";
+    const alias = "ProductsImages";
 
     const cols = {
 
-        id : {
-                type : dataTypes.INTEGER,
-                autoIncrement : true,
-                allowNull : false,
-                primaryKey : true
-            },
+        id: {
+            type: dataTypes.INTEGER.UNSIGNED,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
+        },
 
-        name : {
-                type : dataTypes.STRING(45),
-                allowNull : false,
-            },
+        name: {
+            type: dataTypes.STRING(45),
+            allowNull: false,
+        },
 
-        product_id : {
-                type : dataTypes.INTEGER,
-                allowNull : false,
-                references: {
-                            model: Product,
-                            key: 'id',
-                            }
-                },        
+        product_id: {
+            type: dataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+            references: {
+                model: Product,
+                key: 'id',
+            }
+        },
+        primary : {
+            type : dataTypes.TINYINT(1)
+        }
 
-                }
+    }
 
     const config = {
-        tableName : "products_images",
-        timestamps : false,
+        tableName: "productsimages",
+        timestamps: false,
         createdAt: false,
         //updatedAt: 'updateTimestamp'
     };
 
     const ProductImage = sequelize.define(alias, cols, config);
 
-    ProductImage.associate = function(models){
-        ProductImage.belongsTo(models.Product,{
-            as : 'product',
-            foreignKey : 'product_id'
+    ProductImage.associate = function (models) {
+        ProductImage.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: 'product_id'
         })
-}
+    }
 
     return ProductImage
 
