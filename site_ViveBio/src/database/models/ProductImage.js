@@ -1,25 +1,25 @@
 'use strict';
 
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
-    const alias = "ProductsImages";
+    const alias = "ProductImage";
 
     const cols = {
 
         id: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
 
         name: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false,
         },
 
         product_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             references: {
                 model: {
@@ -29,7 +29,7 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         primary : {
-            type : dataTypes.TINYINT(1)
+            type : DataTypes.TINYINT(1)
         }
 
     }

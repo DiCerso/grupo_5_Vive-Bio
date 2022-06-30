@@ -1,20 +1,20 @@
 'use strict';
 
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
-    const alias = "Favourites";
+    const alias = "Favourite";
 
     const cols = {
 
         id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
 
         product_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: {
@@ -25,7 +25,7 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         user_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: {

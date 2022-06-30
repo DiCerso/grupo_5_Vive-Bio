@@ -1,17 +1,17 @@
 'use strict';
-module.exports = (sequelize, dataTypes) => {
-    const alias = 'Orders'
+module.exports = (sequelize, DataTypes) => {
+    const alias = 'Order'
 
 
     const cols = {
         id : {
-            type : dataTypes.INTEGER,
+            type : DataTypes.INTEGER,
             autoIncrement : true,
             allowNull : false,
             primaryKey : true
         },
         status_id : {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         user_id : {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         total : {
-            type: dataTypes.DECIMAL(6,2).UNSIGNED,
+            type: DataTypes.DECIMAL(6,2).UNSIGNED,
             allowNull : false
         }
     }

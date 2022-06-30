@@ -1,38 +1,38 @@
 'use strict';
 
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
-    const alias = "Users";
+    const alias = "User";
 
     const cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
         fristname: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false
         },
         lastname: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false
         },
         email: {
-            type: dataTypes.STRING(100),
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         username: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false
         },
         password: {
-            type: dataTypes.STRING(100),
+            type: DataTypes.STRING(100),
             allowNull: false
         },
         rol_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
             references: {
                 model: {
@@ -42,7 +42,7 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         image: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false
         }
     }
@@ -75,13 +75,13 @@ module.exports = (sequelize, dataTypes) => {
             as: 'visit',
             foreignKey: 'user_id'
         })
-        User.belongsToMany(models.Product,{
+        /* User.belongsToMany(models.Product,{
             as : 'product',
             through : 'favourites',
             foreignKey : 'user_id',
             otherKey : 'product_id',
             timestamps : false
-        })
+        }) */
         
     }
 

@@ -1,54 +1,54 @@
 'use strict';
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
-    const alias = "Products";
+    const alias = "Product";
 
     const cols = {
 
         id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
 
         name: {
-            type: dataTypes.STRING(100),
+            type: DataTypes.STRING(100),
             allowNull: false,
         },
 
         volume: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         },
 
         price: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         },
 
         discount: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: true,
         },
 
         stock: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         },
 
         ingredients: {
-            type: dataTypes.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
 
         description: {
-            type: dataTypes.TEXT,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
 
         property_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: {
@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         category_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: {
@@ -69,11 +69,11 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         ingredients : {
-            type: dataTypes.TEXT,
+            type: DataTypes.TEXT,
             allowNull : false
         },
         visits : {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
         }
     }
@@ -98,7 +98,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'category_id'
         })
 
-        Product.belongsTo(models.Property, {
+         Product.belongsTo(models.Property, {
             as: 'property',
             foreignKey: 'property_id'
         })
@@ -128,7 +128,7 @@ module.exports = (sequelize, dataTypes) => {
         Product.hasMany(models.Visit,{
             as : 'visit',
             foreignKey : 'product_id'
-        })
+        }) 
     }
 
     return Product

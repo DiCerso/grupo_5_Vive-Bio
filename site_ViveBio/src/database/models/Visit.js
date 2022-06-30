@@ -1,16 +1,16 @@
 'use strict';
-module.exports = (sequelize, datatypes) => {
-    const alias = 'Visits'
+module.exports = (sequelize, DataTypes) => {
+    const alias = 'Visit'
 
     const cols = {
         id : {
-            type : dataTypes.INTEGER,
+            type : DataTypes.INTEGER,
             autoIncrement : true,
             allowNull : false,
             primaryKey : true
         },
         user_id : {
-            type : datatypes.INTEGER.UNSIGNED,
+            type : DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -20,7 +20,7 @@ module.exports = (sequelize, datatypes) => {
             }
         },
         prduct_id : {
-            type : datatypes.INTEGER.UNSIGNED,
+            type : DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -39,7 +39,7 @@ module.exports = (sequelize, datatypes) => {
 
     const Visit = sequelize.define(alias, cols, config)
 
-    Visit.associate = function(models) {
+     Visit.associate = function(models) {
         Visit.belongsTo(models.User, {
             as : 'user',
             foreignKey : 'user_id'
@@ -49,7 +49,7 @@ module.exports = (sequelize, datatypes) => {
             as : 'product',
             foreignKey : 'product_id'
         })
-    }
+    } 
 
     return Visit
 }
