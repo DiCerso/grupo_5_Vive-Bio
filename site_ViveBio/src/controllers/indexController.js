@@ -10,7 +10,7 @@ module.exports = {
             order : [
                 ['visits', 'ASC']
             ],
-            limit : 4,
+            limit : 4, 
             include : [
                 {association: 'productImages'}
             ]
