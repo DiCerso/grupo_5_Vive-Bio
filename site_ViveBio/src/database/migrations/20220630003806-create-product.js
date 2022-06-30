@@ -16,6 +16,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
+      ingredients: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       category_id: {
         allowNull : false,
         type: Sequelize.INTEGER,
@@ -50,10 +54,6 @@ module.exports = {
       },
       stock: {
         type: Sequelize.INTEGER,
-        allowNull : false
-      },
-      ingredents: {
-        type: Sequelize.STRING,
         allowNull : false
       },
       visits: {
