@@ -1,16 +1,16 @@
 'use strict';
-module.exports = (sequelize, dataTypes) => {
-    const alias = 'Carts'
+module.exports = (sequelize, DataTypes) => {
+    const alias = 'Cart'
 
     const cols = {
         id : {
-            type : dataTypes.INTEGER,
+            type : DataTypes.INTEGER,
             autoIncrement : true,
             allowNull : false,
             primaryKey : true
         },
         user_id : {
-            type : dataTypes.INTEGER.UNSIGNED,
+            type : DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         product_id : {
-            type : dataTypes.INTEGER.UNSIGNED,
+            type : DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         payment_id : {
-            type : dataTypes.INTEGER.UNSIGNED,
+            type : DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -40,7 +40,7 @@ module.exports = (sequelize, dataTypes) => {
             }
         },
         order_id : {
-            type : dataTypes.INTEGER.UNSIGNED,
+            type : DataTypes.INTEGER.UNSIGNED,
             allowNull : false,
             references: {
                 model: {
@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const Cart = sequelize.define(alias, cols, config)
 
-    Cart.assiciate = function(models){
+    Cart.associate = function(models){
         Cart.belongsTo(models.Product,{
            as : 'product',
            foreignKey : 'product_id'

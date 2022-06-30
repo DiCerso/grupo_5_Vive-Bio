@@ -2,6 +2,7 @@ const path = require('path');
 const Category = require('../database/models/Category');
 const Product = require('../database/models/Product');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require('../database/models')
 
 const accent_map = { 'á': 'a', 'é': 'e', 'è': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'a', 'É': 'e', 'è': 'e', 'Í': 'i', 'Ó': 'o', 'Ú': 'u' };
 function accent_fold(s) {
@@ -17,10 +18,39 @@ function accent_fold(s) {
 module.exports = {
 
     All: (req, res) => {
-        const bioCapilar = products.filter(product => +product.category === 1);
-        const bioCorporal = products.filter(product => +product.category === 2);
-        const bioSpa = products.filter(product => +product.category === 3);
-        return res.render('products/productAll', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
+        const category = db.Category.findAll()
+        const bioCapilar = db.Product.findAll({
+            where : {
+                category_id : 1
+            },
+            include : [
+                {association: 'productImages'},
+                {association : 'property'}
+            ]
+        })
+        const bioCorporal = db.Product.findAll({
+            where : {
+                category_id : 2
+            },
+            include : [
+                {association: 'productImages'},
+                {association : 'property'}
+            ]
+        })
+        const bioSpa = db.Product.findAll({
+            where : {
+                category_id : 3
+            },
+            include : [
+                {association: 'productImages'},
+                {association : 'property'}
+            ]
+        })
+        Promise.all([ category, bioCapilar, bioCorporal, bioSpa])
+        .then(([category, bioCapilar, bioCorporal, bioSpa]) => {
+            return res.render('products/productAll', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
+        })
+        .catch(error => console.log(error))
     },
 
     Card: (req, res) => {

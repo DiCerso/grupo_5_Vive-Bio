@@ -1,18 +1,18 @@
 'use strict';
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     
-    const alias = "Rols"
+    const alias = "Rol"
 
 
     const cols = {
         id : {
-            type : dataTypes.INTEGER,
+            type : DataTypes.INTEGER,
             autoIncrement : true,
             allowNull : false,
             primaryKey : true
         },
         name : {
-            type : dataTypes.STRING(45),
+            type : DataTypes.STRING(45),
             allowNull : false,
         }
     }

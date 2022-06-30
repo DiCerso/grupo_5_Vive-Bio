@@ -1,19 +1,19 @@
 'use strict';
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
-    const alias = "Properties";
+    const alias = "Property";
 
     const cols = {
 
         id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
 
         name: {
-            type: dataTypes.STRING(45),
+            type: DataTypes.STRING(45),
             allowNull: false,
         },
 
@@ -25,7 +25,6 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "properties",
         timestamps: false,
         createdAt: false,
-        //updatedAt: 'updateTimestamp'
     };
 
 
@@ -34,7 +33,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Property.associate = function (models) {
 
-        Property.hasMany(models.Products, {
+        Property.hasMany(models.Product, {
             as: 'products',
             foreignKey: 'property_id'
         })
