@@ -40,63 +40,83 @@
                         </ul>
         </div>
     </div>
-
-
-    <div class="header__container">
-        <div class="header__logo">
-            <a href="/"><img src="/images/logo.png" alt="logo"></a>
-        </div>
-        <form class="header__busqueda" action="/products/search" method="GET">
-            <input type="text" name="keyboard" id="keyboard" class="barra" style="padding-left:5px;">
-            <button type="submit" class="barra__lupa"><i class="fas fa-search"></i></button>
-        </form>
-        <div class="header__user">
-
-
-            <% if (locals.userLogin) { %>
-                <a href="/users/profile/<%= userLogin.id %>">
-                    <i class="fa-regular fa-circle-user icon__user"></i>
-                    <p>
-                        <%= userLogin.user %>
-                    </p>
-                </a>
-                <a href="/users/logout" class="logout" title="Salir"><i
-                        class="fa-solid fa-arrow-right-to-bracket"></i></a>
-                <% }else{ %>
-                    <a href="/users/login">
-                        <i class="fa-regular fa-circle-user icon__user"></i>
-                        <p>Logueate</p>
-                    </a>
-                    <% } %>
-
-        </div>
-    </div>
-    <nav class="header__nav">
-        <div class="header__localizacion">
-            <a href="">Estas en "lugar"</a>
-        </div>
-        <div class="header__opciones">
-            <ul>
-                <li><a href="/">Home</a></li>
+    <!-- inicio opciones emergente -->
+    <% if (locals.userLogin) { %>
+        <div class="nav_emergente" id="emergente">
+            <div class="solapa" id="btnNavMob">
+                <span class="solapa1" id="solapa1"></span>
+                <span class="solapa2" id="solapa2"></span>
+            </div>
+            <div class="nav_options-emergente">
                 <% if (locals.userLogin && userLogin.category=="admin" ) { %>
-                    <li><a href="/products/list/0">lista</a></li>
-                    <% }else{ %>
-                        <li><a href="/products/all">Productos</a></li>
-                        <% }%>
-                            <li><a href="">Quienes somos</a></li>
-                            <li><a href="">Contacto</a></li>
-            </ul>
+                    <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
+                    <% } %>
+                        <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
+                        <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+                        <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
+                                title="Carrito de compras"></i></a>
+                        <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+            </div>
         </div>
-        <div class="header__iconos">
-            <% if (locals.userLogin && userLogin.category=="admin" ) { %>
-                <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
-                <% } %>
-                    <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
-                    <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
-                    <a href="/carrito"><i class="fa-solid fa-cart-shopping" title="Carrito de compras"></i></a>
-                    <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-        </div>
-    </nav>
+        <% } %>
+
+            <!-- fin opciones emergente -->
+            <div class="header__container">
+                <div class="header__logo">
+                    <a href="/"><img src="/images/logo.png" alt="logo"></a>
+                </div>
+                <form class="header__busqueda" action="/products/search" method="GET">
+                    <input type="text" name="keyboard" id="keyboard" class="barra" style="padding-left:5px;">
+                    <button type="submit" class="barra__lupa"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="header__user">
+
+
+                    <% if (locals.userLogin) { %>
+                        <a href="/users/profile/<%= userLogin.id %>">
+                            <i class="fa-regular fa-circle-user icon__user"></i>
+                            <p>
+                                <%= userLogin.user %>
+                            </p>
+                        </a>
+                        <a href="/users/logout" class="logout" title="Salir"><i
+                                class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                        <% }else{ %>
+                            <a href="/users/login">
+                                <i class="fa-regular fa-circle-user icon__user"></i>
+                                <p>Logueate</p>
+                            </a>
+                            <% } %>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <div class="header__localizacion">
+                    <a href="">Estas en "lugar"</a>
+                </div>
+                <div class="header__opciones">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <% if (locals.userLogin && userLogin.category=="admin" ) { %>
+                            <li><a href="/products/list/0">lista</a></li>
+                            <% }else{ %>
+                                <li><a href="/products/all">Productos</a></li>
+                                <% }%>
+                                    <li><a href="">Quienes somos</a></li>
+                                    <li><a href="">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="header__iconos">
+                    <% if (locals.userLogin && userLogin.category=="admin" ) { %>
+                        <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
+                        <% } %>
+                            <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
+                            <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+                            <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
+                                    title="Carrito de compras"></i></a>
+                            <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                </div>
+            </nav>
 
 
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', { title : "Carrito" }) %>
+
+    <body class="productCart">
+        <%- include('../partials/header') %>
+            <main>
+                <section class="cart_container">
+                    <div class="cart_pasos">
+                        <span class="cart_paso">Paso 1</span>
+                        <span class="cart_paso">Paso 2</span>
+                        <span class="cart_paso">Paso 3</span>
+                    </div>
+                    <article class="cart_article_box">
+                        <div class="cart_sect_1">
+                            <div class="cart_sect_img">
+                                <img src="/images/Jabon-antiseptico-07.jpg" alt="">
+                            </div>
+                            <div class="cart_sect_description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, consequuntur.</p>
+                            </div>
+                        </div>
+                        <div class="cart_sect_2">
+                            <div class="cart_sect_count">
+                                <div class="cart_box_more-less">
+                                    <span>-</span>
+                                </div>
+                                <div class="cart_box_count">
+                                    <span id="cart_count">01</span>
+                                </div>
+                                <div class="cart_box_more-less">
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <div class="cart_sect_price">
+                                <span>$100</span>
+                            </div>
+                            <div class="cart_box_button">
+                                <form action="">
+                                    <input class="cart_button" type="submit" value="Eliminar">
+                                </form>
+
+                            </div>
+                        </div>
+                    </article>
+                    <div class="cart_sect_playment">
+                        <div class="cart_sect_playment_sub">
+                            <label for="payment">Medio de Pago</label>
+                            <select class="cart_select_payment" name="payment" id="payment">
+                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
+                                <option value="">1</option>
+                            </select>
+                        </div>
+                        <div class="cart_sect_playment_sub">
+                            <label for="discount_code">Código de Descuento</label>
+                            <input class="cart_select_payment" type="text" placeholder="Ingresar aquí código de descuento">
+                        </div>
+                        <div class="cart_sect_playment_sub">
+                            <label for="">Total</label>
+                            <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                        </div>
+                        <div class="cart_sect_playment_sub">
+                            <label for="">Total con Descuento</label>
+                            <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                        </div>
+                    </div>
+                    <div class="cart_buttons">
+                        <button class="cart_button" type="submit">Siguiente Paso</button>
+                        <button class="cart_button" type="reset">Limpiar Carrito</button>
+                    </div>
+                </section>
+            </main>
+            <%- include('../partials/footer') %>
+                <script src="/javascript/menuMobile.js"></script>
+                <script src="/javascript/navEmergent.js"></script>
+    </body>
+
+</html>
