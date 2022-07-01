@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     const cols = {
 
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
@@ -104,7 +104,7 @@ module.exports = (sequelize, DataTypes) => {
         })
 
         Product.belongsToMany(models.User, {
-            as: 'users',
+            as: 'usersfavourite',
             through: 'favourites',
             foreignKey: 'product_id',
             otherKey: 'user_id',
