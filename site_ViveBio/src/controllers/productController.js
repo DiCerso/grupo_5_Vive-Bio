@@ -1,5 +1,4 @@
-const products = require('../data/products');
-const category = require('../data/categories');
+const db = require('../database/models')
 const path = require('path');
 const fs = require('fs');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -24,11 +23,49 @@ module.exports = {
         return res.render('products/productCard', { products, toThousand, relation, product, category });
     },
     All: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
+        const bioCapilar = db.Product.findAll({
+            where: {
+                category_id: 1
+            },
+            include: [
+                { association: 'productimages' },
+                { association: 'properties' },
+                { association: 'categories' }
+            ]
+        })
+        const bioCorporal = db.Product.findAll({
+            where: {
+                category_id: 2
+            },
+            include: [
+                { association: 'productimages' },
+                { association: 'properties' },
+                { association: 'categories' }
+            ]
+        })
+        const bioSpa = db.Product.findAll({
+            where: {
+                category_id: 3
+            },
+            include: [
+                { association: 'productimages' },
+                { association: 'properties' },
+                { association: 'categories' }
+            ]
+        })
+
+        Promise.all([bioCapilar, bioCorporal, bioSpa])
+            .then(([bioCapilar, bioCorporal, bioSpa]) => {
+                /* return res.send(bioCapilar) */
+                return res.render('products/productAll', { toThousand, bioCapilar, bioCorporal, bioSpa });
+            })
+            .catch(error => console.log(error))
+
+        /* const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const bioCapilar = products.filter(product => +product.category === 1);
         const bioCorporal = products.filter(product => +product.category === 2);
         const bioSpa = products.filter(product => +product.category === 3);
-        return res.render('products/productAll', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
+        return res.render('products/productAll', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa }); */
     },
     add: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));

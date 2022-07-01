@@ -21,6 +21,23 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey : 'product_id',
         onDelete: 'cascade'
       })
+      Product.belongsTo(models.Property,{
+        as : 'properties',
+        foreignKey : 'property_id'
+      })
+      /* Product.hasMany(models.Cart,{
+        as : 'carts',
+        foreignKey : 'product_id'
+      })
+      Product.hasMany(models.Favourite,{
+        as : 'favourites',
+        foreignKey : 'product_id'
+      })
+      Product.hasMany(models.Visit,{
+        as : 'visits',
+        foreignKey : 'product_id'
+      }) */
+      /* Product. */
     }
   }
   Product.init({
