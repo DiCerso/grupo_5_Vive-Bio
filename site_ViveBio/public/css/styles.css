@@ -7,7 +7,6 @@
 @import './home.css';
 @import './login.css';
 @import './register.css';
-@import './carrito.css';
 @import './productCard.css';
 @import './productAll.css';
 @import './addProducts.css';
@@ -16,3 +15,4 @@
 @import './list.css';
 @import './error.css';
 @import'./editProfile.css';
+@import'./productCart.css';
