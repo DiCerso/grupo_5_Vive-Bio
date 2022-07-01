@@ -17,6 +17,5 @@ router.put('/update/:id',upload.array('image'),update);
 router.delete("/remove/:id",admincheck, remove);
 router.get("/search", search);
 router.get("/list/:category?", admincheck ,list);
-router.get('/cart',cart);
 
 module.exports = router;
