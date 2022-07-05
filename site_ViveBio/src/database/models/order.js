@@ -1,29 +1,64 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Order extends Model {
+    const alias = 'Order'
 
-/*     static associate(models) {
-      // define association here
-      Order.belongsTo(models.Status,{
-        as : 'statuses',
-        foreignKey : 'status_id'
-      })
-      Order.belongsTo(models.User,{
-        as : 'users',
-        foreignKey : 'user_id'
-      })
-    } */
-  }
-  Order.init({
-    status_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER,
-    total: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Order',
-  });
-  return Order;
-};
+
+    const cols = {
+        id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            autoIncrement : true,
+            allowNull : false,
+            primaryKey : true
+        },
+        status_id : {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'status'
+                },
+                key: 'id',
+            }
+        },
+        user_id : {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'users'
+                },
+                key: 'id',
+            }
+        },
+        total : {
+            type: DataTypes.DECIMAL(6,2).UNSIGNED,
+            allowNull : false
+        }
+    }
+
+    const config = {
+        tableName : 'orders',
+        timestamps : false
+    }
+
+    const Order = sequelize.define(alias, cols, config)
+
+    Order.associate = function(models){
+        Order.belongsTo(models.Status,{
+            as : 'status',
+            foreignKey : 'status_id'
+        })
+
+        Order.belongsTo(models.User,{
+            as : 'user',
+            foreignKey : 'user_id'
+        })
+
+        Order.hasMany(models.Cart, {
+            as : 'cart',
+            foreignKey : 'order_id'
+        })
+    }
+
+    return Order;
+}

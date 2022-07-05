@@ -1,23 +1,34 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Status extends Model {
 
-   /*  static associate(models) {
-      // define association here
-      Status.hasMany(models.Order,{
-        as : 'oders',
-        foreignKey : 'status_id'
-      })
-    } */
-  }
-  Status.init({
-    name: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Status',
-  });
-  return Status;
-};
+module.exports = (sequelize, DataTypes) => {
+    
+    const alias = 'Status'
+
+    const cols = {
+        id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            autoIncrement : true,
+            allowNull : false,
+            primaryKey : true
+        },
+        name : {
+            type : DataTypes.STRING(45)
+        }
+    }
+
+    const config = {
+        tableName : 'status',
+        timestamps : false
+    }
+
+    const Status = sequelize.define(alias,cols,config)
+
+    Status.associate = function(models){
+        Status.hasMany(models.Order,{
+            as : 'Order',
+            foreignKey : 'status_id'
+        })
+    }
+
+    return Status
+}
