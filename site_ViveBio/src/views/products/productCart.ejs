@@ -43,25 +43,123 @@
                             </div>
                         </div>
                     </article>
+                    <article class="cart_article_box">
+                        <div class="cart_sect_1">
+                            <div class="cart_sect_img">
+                                <img src="/images/Jabon-antiseptico-07.jpg" alt="">
+                            </div>
+                            <div class="cart_sect_description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, consequuntur.</p>
+                            </div>
+                        </div>
+                        <div class="cart_sect_2">
+                            <div class="cart_sect_count">
+                                <div class="cart_box_more-less">
+                                    <span>-</span>
+                                </div>
+                                <div class="cart_box_count">
+                                    <span id="cart_count">01</span>
+                                </div>
+                                <div class="cart_box_more-less">
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <div class="cart_sect_price">
+                                <span>$100</span>
+                            </div>
+                            <div class="cart_box_button">
+                                <form action="">
+                                    <input class="cart_button" type="submit" value="Eliminar">
+                                </form>
+
+                            </div>
+                        </div>
+                    </article>
+                    <article class="cart_article_box">
+                        <div class="cart_sect_1">
+                            <div class="cart_sect_img">
+                                <img src="/images/Jabon-antiseptico-07.jpg" alt="">
+                            </div>
+                            <div class="cart_sect_description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, consequuntur.</p>
+                            </div>
+                        </div>
+                        <div class="cart_sect_2">
+                            <div class="cart_sect_count">
+                                <div class="cart_box_more-less">
+                                    <span>-</span>
+                                </div>
+                                <div class="cart_box_count">
+                                    <span id="cart_count">01</span>
+                                </div>
+                                <div class="cart_box_more-less">
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <div class="cart_sect_price">
+                                <span>$100</span>
+                            </div>
+                            <div class="cart_box_button">
+                                <form action="">
+                                    <input class="cart_button" type="submit" value="Eliminar">
+                                </form>
+
+                            </div>
+                        </div>
+                    </article>
+                    <article class="cart_article_box">
+                        <div class="cart_sect_1">
+                            <div class="cart_sect_img">
+                                <img src="/images/Jabon-antiseptico-07.jpg" alt="">
+                            </div>
+                            <div class="cart_sect_description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, consequuntur.</p>
+                            </div>
+                        </div>
+                        <div class="cart_sect_2">
+                            <div class="cart_sect_count">
+                                <div class="cart_box_more-less">
+                                    <span>-</span>
+                                </div>
+                                <div class="cart_box_count">
+                                    <span id="cart_count">01</span>
+                                </div>
+                                <div class="cart_box_more-less">
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <div class="cart_sect_price">
+                                <span>$100</span>
+                            </div>
+                            <div class="cart_box_button">
+                                <form action="">
+                                    <input class="cart_button" type="submit" value="Eliminar">
+                                </form>
+
+                            </div>
+                        </div>
+                    </article>
                     <div class="cart_sect_playment">
                         <div class="cart_sect_playment_sub">
-                            <label for="payment">Medio de Pago</label>
-                            <select class="cart_select_payment" name="payment" id="payment">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
-                                <option value="">1</option>
+                            <label>Medio de Pago</label>
+                            <select class="cart_select_payment" name="payments" id="payments" size="1">
+                                <option value="" hidden selected >Selecciona un medio de Pago...</option>
+                                <% payments.forEach(payment => { %>
+                                    <option value="<%= payment.id %>"><%= payment.name %></option>
+                                <% }) %>
                             </select>
                         </div>
                         <div class="cart_sect_playment_sub">
                             <label for="discount_code">Código de Descuento</label>
-                            <input class="cart_select_payment" type="text" placeholder="Ingresar aquí código de descuento">
+                            <input class="cart_discount_payment" type="text" placeholder="Ingresar aquí código de descuento">
                         </div>
                         <div class="cart_sect_playment_sub">
-                            <label for="">Total</label>
-                            <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                            <label >Total</label>
+                            <input class="cart_input_payment" type="text" value="$100" disabled>
                         </div>
                         <div class="cart_sect_playment_sub">
-                            <label for="">Total con Descuento</label>
-                            <input class="cart_select_payment" type="text" value="$100" disabled style="width: 100px ;">
+                            <label >Total con Descuento</label>
+                            <input class="cart_input_payment" type="text" value="$100" disabled>
                         </div>
                     </div>
                     <div class="cart_buttons">

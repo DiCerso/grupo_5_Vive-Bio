@@ -1,24 +1,25 @@
-const {check} = require('express-validator');
-const users = require('../data/users.json');
+const {check,body} = require('express-validator');
 const bcryptjs = require('bcryptjs');
+const db = require('../database/models');
 
 module.exports = [
     
-    check('user')
-        .notEmpty().withMessage('Por favor, ingresa tu usuario.'),
+    body('username')
+        .notEmpty().withMessage('Por favor, ingresa tu usuario.').bail(),
     
-    check('password')
+    body('password')
         .notEmpty().withMessage('Por favor, ingresa tu contraseña.').bail()
         .custom((value, {req}) => {
-            const usuarios = users.find(usuario => usuario.user === req.body.user);
-            if(!usuarios){
-                return false
-            }else{
-                if(!bcryptjs.compareSync(value,usuarios.password)){
-                    return false
+            return db.User.findOne({
+                where : {
+                    username : req.body.username
                 }
-            }
-            return true
-        }).withMessage('Datos inválidos'),
+            }).then(user => {
+                if(!user || !bcryptjs.compareSync(value,user.password)){
+                    return Promise.reject()
+                }
+            }).catch(() => Promise.reject('Usuario o contraseña incorrectos.'))
+            
+        })
 ]
 

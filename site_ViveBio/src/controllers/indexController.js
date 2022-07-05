@@ -1,15 +1,25 @@
-const fs = require('fs');
-const path  = require('path')
-const category = require('../data/categories');
-const products = require('../data/products')
-
+const db = require('../database/models')
 
 module.exports = {
     index : (req, res) =>{
-
-        return res.render('index', {
-            products,
-            category
+        const products = db.Product.findAll({
+            order : [
+                ['visits','DESC']
+            ],
+            limit : 4,
+            include : [
+                {association : 'productimages'}
+            ]
         })
-    }
+        const categories = db.Category.findAll()
+
+        Promise.all([products,categories])
+            .then (([products,categories]) => {
+                /* return res.send(products) */
+                return res.render('index',{
+                    products,
+                    categories
+                })
+            } )
+        }
 }

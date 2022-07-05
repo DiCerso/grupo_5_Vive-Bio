@@ -28,7 +28,7 @@
                             <a href="/users/profile/edit/<%= userLogin.id %>">Editar Perfil <i
                                     class="fas fa-edit"></i></a>
                             <!--esto de momento lo dejamos sin funcionalidad-->
-                            <a href="/carrito">Carrito de compras</a>
+                            <a href="/products/cart">Carrito de compras</a>
                         </div>
                     </div>
                     <h1>Datos del usuario</h1>
@@ -36,7 +36,7 @@
                         <div class="user__info">
                             <h3> usuario : </h3>
                             <h4>
-                                <%= user.user %>
+                                <%= user.username %>
                             </h4>
 
                         </div>
@@ -49,13 +49,7 @@
                         <div class="user__info">
                             <h3>Rol : </h3>
                             <h4>
-                                <%= user.category %>
-                            </h4>
-                        </div>
-                        <div class="user__info">
-                            <h3>password : </h3>
-                            <h4>
-                                <%= userLogin.contra %>
+                                <%= user.rols.name %>
                             </h4>
                         </div>
                     </div>

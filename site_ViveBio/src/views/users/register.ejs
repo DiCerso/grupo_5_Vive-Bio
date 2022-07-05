@@ -80,19 +80,19 @@
                                 </span>
                             </div>
                             <div class=" register_form-box">
-                                <label for="user">Usuario</label>
+                                <label for="username">Usuario</label>
                                 <div class="register_box-input">
                                     <input
-                                        class="register_form-input <%= locals.errores && errores.user ? 'register_error_input' : null %>"
-                                        type="user" id="user" name="user" placeholder="Ingresa usuario"
-                                        value="<%= locals.old && old.user ? old.user : null %>">
+                                        class="register_form-input <%= locals.errores && errores.username ? 'register_error_input' : null %>"
+                                        type="text" id="username" name="username" placeholder="Ingresa usuario"
+                                        value="<%= locals.old && old.username ? old.username : null %>">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.user ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.username ? 'register_error_icon' : null %>">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
                                 <span class="register_alert">
-                                    <%= locals.errores && errores.user ? errores.user.msg : null %>
+                                    <%= locals.errores && errores.username ? errores.username.msg : null %>
                                 </span>
                             </div>
                         </div>

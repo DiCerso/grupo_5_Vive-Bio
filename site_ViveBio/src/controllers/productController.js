@@ -184,7 +184,14 @@ module.exports = {
 
     },
     cart: (req, res) => {
-        return res.render('products/productCart')
+        const payments = db.Payment.findAll()
+        Promise.all([payments])    
+        .then(([payments]) => {
+            /* return res.send(payments) */
+                return res.render('products/productCart',{
+                    payments
+                })
+            })
     }
 
 }

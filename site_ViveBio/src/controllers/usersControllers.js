@@ -2,7 +2,7 @@ const { validationResult } = require("express-validator");
 const fs = require("fs");
 const bcryptjs = require('bcryptjs');
 const path = require("path");
-const users = require('../data/users.json');
+const db = require('../database/models');
 
 
 module.exports = {
@@ -14,69 +14,63 @@ module.exports = {
         old: req.body
     }),
     processLogin: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
-        let errors = validationResult(req);
-        let { password } = req.body;
-        let contra = ""
-        for (let i = 1; i <= password.length; i++) {
-            contra = contra + "*";
-        }
-
+        const errors = validationResult(req);
         if (errors.isEmpty()) {
-            //levantar sesión
-            const { id, user, category, image } = users.find(user => user.user === req.body.user);
-
-            req.session.userLogin = {
-                id,
-                user,
-                category,
-                contra,
-                image
-            }
-
-            if (req.body.recordar) {
-                res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
-            }
-
-            return res.redirect('/');
+            const { username } = req.body;
+            db.User.findOne({
+                where: {
+                    username
+                },
+                include: [
+                    { association: 'rols' }
+                ]
+            }).then(user => {
+                req.session.userLogin = {
+                    id: +user.id,
+                    firstName: user.firstName.trim(),
+                    lastName: user.lastName.trim(),
+                    image: user.image,
+                    username: user.username.trim(),
+                    rol: user.rols.name.trim()
+                }
+                if (req.body.remember) {
+                    res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+                }
+                return res.redirect('/');
+            })
         } else {
             return res.render('users/login', {
                 errors: errors.mapped(),
                 old: req.body
-            });
+            })
         }
     },
 
     processRegister: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let { firstName, lastName, email, user, password } = req.body;
-            let lastID = users.length !== 0 ? users[users.length - 1].id : 0;
-            let contra = ""
-            for (let i = 1; i <= password.length; i++) {
-                contra = contra + "*";
-            }
-            let newUser = {
-                id: lastID + 1,
-                firstName: firstName.trim(),
-                lastName: lastName.trim(),
+            let { firstName, lastName, email, username, password } = req.body;
+            const newuser = db.User.create({
+                firstName,
+                lastName,
+                username,
                 email,
-                user: user.trim(),
                 password: bcryptjs.hashSync(password, 10),
-                category: "user",
+                rol_id: 2,
                 image: req.file ? req.file.filename : "defaultAvatar.jpg"
-            }
-            users.push(newUser);
-            fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'users.json'), JSON.stringify(users, null, 3), 'utf-8');
-            const category = "user";
-            req.session.userLogin = {
-                id: newUser.id,
-                user: newUser.user,
-                contra,
-                category,
-                image
-            }
-            return res.redirect("/");
+            })
+
+            Promise.all(([newuser]))
+                .then(([newuser]) => {
+                    req.session.userLogin = {
+                        id: newuser.id,
+                        username: newuser.username,
+                        rol: "user",
+                        image: newuser.image
+                    }
+                    return res.redirect("/");
+                })
+                .catch(error => console.log(error))
         } else {
             if (req.file) {
                 fs.unlinkSync(
@@ -87,8 +81,7 @@ module.exports = {
                 errores: errors.mapped(),
                 old: req.body
             })
-        };
-
+        }
     },
     logout: (req, res) => {
         req.session.destroy()
@@ -96,16 +89,27 @@ module.exports = {
         return res.redirect('/')
     },
     profile: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
-        const { id } = req.params;
-        const user = users.find(user => user.id === +id);
-        return res.render('users/userprofile', { user })
+        const user = db.User.findByPk(req.session.userLogin.id, {
+            include: ['rols']
+        })
+        Promise.all(([user]))
+            .then(([user]) => {
+                return res.render('users/userprofile', {
+                    user
+                })
+            })
+
     },
     editProfile: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
-        const { id } = req.params;
-        const user = users.find(user => user.id === +id);
-        return res.render('users/editProfile', { user })
+        const user = db.User.findByPk(req.session.userLogin.id, {
+            include: ['rols']
+        })
+        Promise.all(([user]))
+            .then(([user]) => {
+                return res.render('users/editProfile', {
+                    user
+                })
+            })
     },
     processEditProfile: (req, res) => {
         const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
@@ -132,10 +136,10 @@ module.exports = {
                     }
                     req.session.userLogin.image =
                         userEdited.image;
-                    
-                    if (userEdited.user !== req.session.userLogin.user){
-                        req.session.userLogin.user = 
-                        userEdited.user
+
+                    if (userEdited.user !== req.session.userLogin.user) {
+                        req.session.userLogin.user =
+                            userEdited.user
                     }
 
                     if (req.file) {
