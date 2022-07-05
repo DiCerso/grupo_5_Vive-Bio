@@ -2,11 +2,11 @@ const { check, body } = require('express-validator');
 const db = require('../database/models')
 
 module.exports = [
-    check('firstName')
+    check('firstname')
         .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
         .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
 
-    check('lastName')
+    check('lastname')
         .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
         .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
 

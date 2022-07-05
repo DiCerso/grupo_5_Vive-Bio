@@ -9,7 +9,7 @@
                 <section class="main">
                     <h2 class="titulares" id="BioCapilar">BioCapilar</h2>
                     <section class="row">
-                        <% bioCapilar.forEach(({id,name,price,discount,properties,productimages,categories})=> { %>
+                        <% bioCapilar.forEach(({id,name,price,discount,property,productImages})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
@@ -28,7 +28,7 @@
                                                 </h2>
                                             </a>
                                             <h4>
-                                                <%= categories.name %>
+                                                <%= category.name %>
                                             </h4>
                                             <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
@@ -36,7 +36,7 @@
                                                 $ <% if (discount) { %>
                                                     <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= toThousand(price) %>
+                                                            <%= toThousand(product.price) %>
                                                                 <% } %>
                                             </p>
                                         </div>
@@ -83,7 +83,7 @@
                                                 </h2>
                                             </a>
                                             <h4>
-                                                <%= categories.name %>
+                                                <%= category.name %>
                                             </h4>
                                             <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
@@ -91,7 +91,7 @@
                                                 $ <% if (discount) { %>
                                                     <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= toThousand(price) %>
+                                                            <%= toThousand(product.price) %>
                                                                 <% } %>
                                             </p>
                                         </div>
@@ -138,7 +138,7 @@
                                                 </h2>
                                             </a>
                                             <h4>
-                                                <%= categories.name %>
+                                                <%= category.name %>
                                             </h4>
                                             <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
@@ -146,7 +146,7 @@
                                                 $ <% if (discount) { %>
                                                     <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= toThousand(price) %>
+                                                            <%= toThousand(product.price) %>
                                                                 <% } %>
                                             </p>
                                         </div>
@@ -180,8 +180,6 @@
 
             <%- include('../partials/footer') %>
                 <script src="/javascript/menuMobile.js"></script>
-                <script src="/javascript/navEmergent.js"></script>
-
     </body>
 
 </html>
