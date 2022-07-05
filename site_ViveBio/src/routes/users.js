@@ -16,7 +16,7 @@ const {login, processLogin, register, processRegister, logout, profile,editProfi
 router.get('/login',logCheck, login)
 router.post('/login', loginValidator, processLogin);
 router.get('/register', logCheck, register)
-router.post('/register', upload.single('image'), registerValidator , processRegister)
+router.post('/register', upload.single('image'), registerValidator ,  processRegister)
 router.get('/logout',logout);
 router.get('/profile/:id',userCheck, profile);
 router.get('/profile/edit/:id', editcheck ,editProfile )

@@ -22,16 +22,16 @@ module.exports = {
                     username
                 },
                 include: [
-                    { association: 'rols' }
+                    { association: 'rol' }
                 ]
             }).then(user => {
                 req.session.userLogin = {
                     id: +user.id,
-                    firstName: user.firstName.trim(),
-                    lastName: user.lastName.trim(),
+                    firstname: user.firstname.trim(),
+                    lastname: user.lastname.trim(),
                     image: user.image,
                     username: user.username.trim(),
-                    rol: user.rols.name.trim()
+                    rol: user.rol.name.trim()
                 }
                 if (req.body.remember) {
                     res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
@@ -49,10 +49,11 @@ module.exports = {
     processRegister: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let { firstName, lastName, email, username, password } = req.body;
+            let { firstname, lastname, email, username, password } = req.body;
+
             const newuser = db.User.create({
-                firstName,
-                lastName,
+                firstname,
+                lastname,
                 username,
                 email,
                 password: bcryptjs.hashSync(password, 10),

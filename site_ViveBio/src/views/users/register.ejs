@@ -29,38 +29,38 @@
                     <article class="register_sub-container">
                         <div class="register_sub-container1">
                             <div class="register_form-box">
-                                <label for="firstName">Nombre</label>
+                                <label for="firstname">Nombre</label>
 
                                 <div class="register_box-input">
                                     <input
                                         class="register_form-input <%= locals.errores && errores.firstName ? 'register_error_input' : null %>"
-                                        type="text" id="firstName" name="firstName" placeholder="Ingresa tu nombre"
-                                        value="<%= locals.old && old.firstName ? old.firstName : null %>">
+                                        type="text" id="firstname" name="firstname" placeholder="Ingresa tu nombre"
+                                        value="<%= locals.old && old.firstname ? old.firstname : null %>">
 
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.firstName ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.firstname ? 'register_error_icon' : null %>">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
                                 <span class="register_alert">
-                                    <%= locals.errores && errores.firstName ? errores.firstName.msg : null %>
+                                    <%= locals.errores && errores.firstname ? errores.firstname.msg : null %>
                                 </span>
                             </div>
 
                             <div class=" register_form-box">
-                                <label for="lastName">Apellido</label>
+                                <label for="lastname">Apellido</label>
                                 <div class="register_box-input">
                                     <input
-                                        class="register_form-input <%= locals.errores && errores.lastName ? 'register_error_input' : null %>"
-                                        type="text" id="lastName" name="lastName" placeholder="Ingresa tu apellido"
-                                        value="<%= locals.old && old.lastName ? old.lastName : null %>">
+                                        class="register_form-input <%= locals.errores && errores.lastname ? 'register_error_input' : null %>"
+                                        type="text" id="lastname" name="lastname" placeholder="Ingresa tu apellido"
+                                        value="<%= locals.old && old.lastname ? old.lastname : null %>">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.lastName ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.lastname ? 'register_error_icon' : null %>">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
                                 <span class="register_alert">
-                                    <%= locals.errores && errores.lastName ? errores.lastName.msg : null %>
+                                    <%= locals.errores && errores.lastname ? errores.lastname.msg : null %>
                                 </span>
                             </div>
                             <div class=" register_form-box">

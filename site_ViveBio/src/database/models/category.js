@@ -1,4 +1,3 @@
-
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
@@ -25,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     const config = {
         tableName: "categories",
         timestamps: false,
-        createdAt: false,
+        createdAt: false
         /* updatedAt: 'updateTimestamp' */
     };
 
