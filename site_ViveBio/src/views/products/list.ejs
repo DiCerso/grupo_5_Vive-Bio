@@ -6,58 +6,66 @@
     <body class="home">
         <%- include('../partials/header') %>
 
-        <main class="list">
-            <div class="list__container">
-                <div class="list__top">
-                    <div class="list__cates">
-                        <div class="list__cates1">
-                            <a class="list__cate" href="/products/list/0">todos</a>
-                            <a class="list__cate" href="/products/list/1">BioCapilar</a>
-                        </div>
-                        <div class="list__cates2">
-                            <a class="list__cate" href="/products/list/2">BioCorporal</a>
-                            <a class="list__cate" href="/products/list/3">BioSpa</a>
-                        </div>
-
-                    </div>
-                    <form class="list__busqueda" action="/products/list" method="GET">
-                        <input type="text" name="keyboard" class="list__barra" >
-                        <button  type="submit">buscar</button>
-                    </form>
-                </div>
-                <div class="list__headproducts">
-                    <h3 class="list__id">id</h3>
-                    <h3 class="list__name">nombre</h3>
-                    <h3 class="list__price">precio</h3>
-                    <h3 class="list__options">opciones</h3> 
-                </div>
-                <section class="list__products">
-                    <% products.forEach(product => { %>
-                        <article class="list__product">
-                            <a class="list__id" href="/products/Card/<%= product.id %>"><%= product.id %> </a>
-                            <a class="list__name" href="/products/Card/<%= product.id %>"><%= product.name %> </a>
-                            <h4 class="list__price">$<%= product.price %> </h4>
-                            <div class="list__options">
-                                <form  method="POST" action="/Products/remove/<%= product.id %>?_method=DELETE">
-                                    <button class="list__delete" type="submit" title="Eliminar producto"><i class="fa-solid fa-trash-can"></i></button>
-                                </form>
-                                <a href="/Products/Edit/<%= product.id %>" class="list__edit" title="Editar producto"><i class="fa-solid fa-pen"></i></a> 
+            <main class="list">
+                <div class="list__container">
+                    <div class="list__top">
+                        <div class="list__cates">
+                            <div class="list__cates1">
+                                <a class="list__cate" href="/products/list/0">TODOS</a>
+                                <a class="list__cate" href="/products/list/1">BioCapilar</a>
                             </div>
-                        </article>
-                    <% }) %>
-                </section>
+                            <div class="list__cates2">
+                                <a class="list__cate" href="/products/list/2">BioCorporal</a>
+                                <a class="list__cate" href="/products/list/3">BioSpa</a>
+                            </div>
+
+                        </div>
+                        <form class="list__busqueda" action="/products/list" method="GET">
+                            <input type="text" name="keyboard" class="list__barra">
+                            <button type="submit">buscar</button>
+                        </form>
+                    </div>
+                    <div class="list__headproducts">
+                        <h3 class="list__id">id</h3>
+                        <h3 class="list__name">nombre</h3>
+                        <h3 class="list__price">precio</h3>
+                        <h3 class="list__options">opciones</h3>
+                    </div>
+                    <section class="list__products">
+                        <% products.forEach(product=> { %>
+                            <article class="list__product">
+                                <a class="list__id" href="/products/Card/<%= product.id %>">
+                                    <%= product.id %>
+                                </a>
+                                <a class="list__name" href="/products/Card/<%= product.id %>">
+                                    <%= product.name %>
+                                </a>
+                                <h4 class="list__price">$<%= product.price %>
+                                </h4>
+                                <div class="list__options">
+                                    <form method="POST" action="/Products/remove/<%= product.id %>?_method=DELETE">
+                                        <button class="list__delete" type="submit" title="Eliminar producto"><i
+                                                class="fa-solid fa-trash-can"></i></button>
+                                    </form>
+                                    <a href="/Products/Edit/<%= product.id %>" class="list__edit"
+                                        title="Editar producto"><i class="fa-solid fa-pen"></i></a>
+                                </div>
+                            </article>
+                            <% }) %>
+                    </section>
 
 
-            </div>
-        </main>
+                </div>
+            </main>
 
 
 
 
-            
-            
-        <%- include('../partials/footer') %>
-            <script type="text/javascript" src="/javascript/carrusel.js"></script>
-            <script src="/javascript/menuMobile.js"></script>
+
+
+            <%- include('../partials/footer') %>
+                <script src="/javascript/menuMobile.js"></script>
+                <script src="/javascript/navEmergent.js"></script>
     </body>
+
 </html>

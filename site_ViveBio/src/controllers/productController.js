@@ -120,54 +120,23 @@ module.exports = {
 
         },
 
-
-/*         let { name, category, price, description, discount, volume, property } = req.body;
-        let { id } = req.params;
-        let oldProduct = products.find(product => +product.id === +id);
-        let oldImage = oldProduct.image;
-        let image = req.files.map(image => image.filename);
-        let productact = products.map(product => {
-            if (product.id === +id) {
-                let productact = {
-                    ...product,
-                    name,
-                    volume,
-                    discount,
-                    property,
-                    category: +category,
-                    price: +price,
-                    description,
-                    image: image.length > 0 ? image : oldImage
-                }
-                
-                if (req.files.length > 0) {
-                    product.image.forEach(image => {
-                        if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {
-                            fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', image))
-                        }
-                    });
-                }
-                return productact;
-            }
-            return product;
-        }); */
-
-
-
     remove: (req, res) => {
         Product.destroy({
             where : {
                 id : req.params.id
             }
         })
-            res.redirect('/products/All');   
+
+        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
+
+        return res.redirect('/products/All');
     },
     search: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const keywords = accent_fold(req.query.keyboard.toLowerCase());
         let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords))
         return res.render('products/productSearch', { result })
-        
+
     },
     list : (req, res) => {
 
@@ -178,31 +147,15 @@ module.exports = {
         .catch(error => console.log(error));
         
     },
-    cart : (req,res) =>{
-        return res.render('products/productCart')
+    cart: (req, res) => {
+        const payments = db.Payment.findAll()
+        Promise.all([payments])    
+        .then(([payments]) => {
+            /* return res.send(payments) */
+                return res.render('products/productCart',{
+                    payments
+                })
+            })
     }
 
-    
-/*         const {category} = req.params; */
-/*         let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json'))); */
-/*         let keyboard = req.query.keyboard;
-        if(keyboard){
-            keyboard = accent_fold(keyboard.toLowerCase());
-            products = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keyboard))
-            return res.render('products/list', {products});
-        }
-        if(category == 0){
-            return res.render('products/list', {products});
-        }else if(category == 1){
-            products = products.filter(product => +product.category === 1);
-            return res.render('products/list', {products});
-        }else if(category == 2){
-            products = products.filter(product => +product.category === 2);
-            return res.render('products/list', {products});
-        }else if(category == 3){
-            products = products.filter(product => +product.category === 3);
-            return res.render('products/list', {products});
-        } */
-
- 
 }

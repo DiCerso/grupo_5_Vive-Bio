@@ -1,6 +1,3 @@
-const fs = require('fs');
-const path  = require('path')
-const category = require('../data/categories');
 const db = require('../database/models');
 
 

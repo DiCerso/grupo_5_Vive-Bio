@@ -83,7 +83,7 @@
                     <h1>Categorias</h1>
                 </div>
                 <section class="sect2">
-                    <% category.forEach(cate=> { %>
+                    <% categories.forEach(cate=> { %>
                         <article class="categorias__home">
                             <a href="/Products/All#<%= cate.name %>">
                                 <div class="<%= cate.name %>__home" id="cate"></div>
@@ -100,6 +100,7 @@
             <%- include('./partials/footer') %>
                 <script type="text/javascript" src="/javascript/carrusel.js"></script>
                 <script src="/javascript/menuMobile.js"></script>
+                <script src="/javascript/navEmergent.js"></script>
     </body>
 
 </html>

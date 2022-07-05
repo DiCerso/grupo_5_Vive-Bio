@@ -36,7 +36,7 @@
                         <div class="edit_user__dats">
                             <div class="edit_user__info">
                                 <h3> usuario : </h3>
-                                <input type="text" value="<%= locals.errores && errores.username ? old.username : user.user %>" name="username" id="username">
+                                <input type="text" value="<%= locals.errores && errores.username ? old.username : user.username %>" name="username" id="username">
                                 <span class="register_alert">
                                     <%= locals.errores && errores.username ? errores.username.msg : null %>
                                 </span>
@@ -48,15 +48,8 @@
                             <div class="edit_user__info">
                                 <h3>Rol : </h3>
                                 <h4>
-                                    <%= user.category %>
+                                    <%= user.rols.name %>
                                 </h4>
-                            </div>
-                            <div class="edit_user__info-pass">
-                                <h3>password : </h3>
-                                <h4 class="editProfile_box-pass">
-                                    <%= userLogin.contra %>
-                                </h4>
-                                <label for="editPass"><i class="fas fa-pen"></i></label>
                             </div>
                         </div>
                         <div class="edit_user__historial">
@@ -70,6 +63,7 @@
             </main>
     </body>
     <%- include('../partials/footer') %>
-        <script src="/javascript/menuMobile.js"></script>
+    <script src="/javascript/menuMobile.js"></script>
+    <script src="/javascript/navEmergent.js"></script>
 
 </html>

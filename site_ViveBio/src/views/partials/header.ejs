@@ -18,10 +18,10 @@
                         <a href="/users/profile/<%= userLogin.id %>">
                             <img src="/images/users/<%= userLogin.image %>" alt="">
                             <span style="font-size: 1.3rem;">
-                                <%= userLogin.user %>
+                                <%= userLogin.username %>
                             </span>
                             <span style="text-transform:uppercase;font-size: 0.8rem;">
-                                <%= userLogin.category %>
+                                <%= userLogin.rol %>
                             </span>
                         </a>
                         <a href="/users/logout" style="margin-top: 5px;font-size:0.8rem;color:var(--verdeFuerte)"
@@ -30,7 +30,7 @@
                     <% } %>
                         <ul class="menu">
                             <li><a href="/">Home</a></li>
-                            <% if (locals.userLogin && userLogin.category=="admin" ) { %>
+                            <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
                                 <li><a href="/products/list/0">lista</a></li>
                                 <% }else{ %>
                                     <li><a href="/products/all">Productos</a></li>
@@ -48,7 +48,7 @@
                 <span class="solapa2" id="solapa2"></span>
             </div>
             <div class="nav_options-emergente">
-                <% if (locals.userLogin && userLogin.category=="admin" ) { %>
+                <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
                     <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
                     <% } %>
                         <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
@@ -76,7 +76,7 @@
                         <a href="/users/profile/<%= userLogin.id %>">
                             <i class="fa-regular fa-circle-user icon__user"></i>
                             <p>
-                                <%= userLogin.user %>
+                                <%= userLogin.username %>
                             </p>
                         </a>
                         <a href="/users/logout" class="logout" title="Salir"><i
@@ -97,7 +97,7 @@
                 <div class="header__opciones">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <% if (locals.userLogin && userLogin.category=="admin" ) { %>
+                        <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
                             <li><a href="/products/list/0">lista</a></li>
                             <% }else{ %>
                                 <li><a href="/products/all">Productos</a></li>
@@ -107,7 +107,7 @@
                     </ul>
                 </div>
                 <div class="header__iconos">
-                    <% if (locals.userLogin && userLogin.category=="admin" ) { %>
+                    <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
                         <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
                         <% } %>
                             <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
@@ -117,7 +117,4 @@
                             <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                 </div>
             </nav>
-
-
-
 </header>

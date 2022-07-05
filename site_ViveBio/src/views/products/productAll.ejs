@@ -9,7 +9,7 @@
                 <section class="main">
                     <h2 class="titulares" id="BioCapilar">BioCapilar</h2>
                     <section class="row">
-                        <% bioCapilar.forEach(({id,name,price,discount,property,productImages})=> { %>
+                        <% bioCapilar.forEach(({id,name,price,discount,properties,productimages,categories})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
@@ -28,7 +28,7 @@
                                                 </h2>
                                             </a>
                                             <h4>
-                                                <%= category.name %>
+                                                <%= categories.name %>
                                             </h4>
                                             <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
@@ -36,7 +36,7 @@
                                                 $ <% if (discount) { %>
                                                     <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= toThousand(product.price) %>
+                                                            <%= toThousand(price) %>
                                                                 <% } %>
                                             </p>
                                         </div>
@@ -83,7 +83,7 @@
                                                 </h2>
                                             </a>
                                             <h4>
-                                                <%= category.name %>
+                                                <%= categories.name %>
                                             </h4>
                                             <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
@@ -91,7 +91,7 @@
                                                 $ <% if (discount) { %>
                                                     <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= toThousand(product.price) %>
+                                                            <%= toThousand(price) %>
                                                                 <% } %>
                                             </p>
                                         </div>
@@ -103,8 +103,11 @@
                                                                 class="fa-solid fa-pen"></i></a>
                                                         <% } %>
                                                             <% } %>
-                                                                <a href="/products/Card/<%= id %>"><i class="fa-solid fa-eye" title="Ver producto"></i></a>
-                                                                <a href="/productCarrito.html" class="add-cart">Quiero! 🛒</a>
+                                                                <a href="/products/Card/<%= id %>"><i
+                                                                        class="fa-solid fa-eye"
+                                                                        title="Ver producto"></i></a>
+                                                                <a href="/productCarrito.html" class="add-cart">Quiero!
+                                                                    🛒</a>
                                                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                                                 <a href="#"><i class="fa-solid fa-star"></i></a>
                                             </div>
@@ -135,7 +138,7 @@
                                                 </h2>
                                             </a>
                                             <h4>
-                                                <%= category.name %>
+                                                <%= categories.name %>
                                             </h4>
                                             <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
@@ -143,7 +146,7 @@
                                                 $ <% if (discount) { %>
                                                     <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
-                                                            <%= toThousand(product.price) %>
+                                                            <%= toThousand(price) %>
                                                                 <% } %>
                                             </p>
                                         </div>
@@ -177,6 +180,8 @@
 
             <%- include('../partials/footer') %>
                 <script src="/javascript/menuMobile.js"></script>
+                <script src="/javascript/navEmergent.js"></script>
+
     </body>
 
 </html>
