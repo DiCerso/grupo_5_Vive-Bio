@@ -22,7 +22,7 @@ module.exports = {
                     username
                 },
                 include: [
-                    { association: 'rols' }
+                    { association: 'rol' }
                 ]
             }).then(user => {
                 req.session.userLogin = {
@@ -31,7 +31,7 @@ module.exports = {
                     lastname: user.lastname.trim(),
                     image: user.image,
                     username: user.username.trim(),
-                    rol: user.rols.name.trim()
+                    rol: user.rol.name.trim()
                 }
                 if (req.body.remember) {
                     res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
@@ -47,9 +47,10 @@ module.exports = {
     },
 
     processRegister: (req, res) => {
-/*         let errors = validationResult(req);
- */        /* if (errors.isEmpty()) { */
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
             let { firstname, lastname, email, username, password } = req.body;
+
             const newuser = db.User.create({
                 firstname,
                 lastname,
@@ -62,7 +63,6 @@ module.exports = {
 
             Promise.all(([newuser]))
                 .then(([newuser]) => {
-                    return res.send(newuser)
                     req.session.userLogin = {
                         id: newuser.id,
                         username: newuser.username,
@@ -72,8 +72,8 @@ module.exports = {
                     return res.redirect("/");
                 })
                 .catch(error => console.log(error))
-        /* } else { */
-            /* if (req.file) {
+        } else {
+            if (req.file) {
                 fs.unlinkSync(
                     path.resolve(__dirname, '..', '..', 'public', 'images', 'users', req.file.filename)
                 );
@@ -81,8 +81,8 @@ module.exports = {
             return res.render('users/register', {
                 errores: errors.mapped(),
                 old: req.body
-            }) */
-        /* } */
+            })
+        }
     },
     logout: (req, res) => {
         req.session.destroy()
