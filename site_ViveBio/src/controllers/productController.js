@@ -17,9 +17,11 @@ function accent_fold(s) {
 
 module.exports = {
 
-    All: (req, res) => {
-        const category = db.Category.findAll()
-        const bioCapilar = db.Product.findAll({
+    All: async (req, res) => {
+
+        try {
+        const category = await db.Category.findAll()
+        const bioCapilar = await db.Product.findAll({
             where : {
                 category_id : 1
             },
@@ -28,7 +30,7 @@ module.exports = {
                 {association : 'property'}
             ]
         })
-        const bioCorporal = db.Product.findAll({
+        const bioCorporal = await db.Product.findAll({
             where : {
                 category_id : 2
             },
@@ -37,7 +39,7 @@ module.exports = {
                 {association : 'property'}
             ]
         })
-        const bioSpa = db.Product.findAll({
+        const bioSpa = await db.Product.findAll({
             where : {
                 category_id : 3
             },
@@ -45,12 +47,15 @@ module.exports = {
                 {association: 'productImages'},
                 {association : 'property'}
             ]
+
+            
         })
-        Promise.all([ category, bioCapilar, bioCorporal, bioSpa])
-        .then(([category, bioCapilar, bioCorporal, bioSpa]) => {
-            return res.render('products/productAll', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
-        })
-        .catch(error => console.log(error))
+
+        return res.render('products/productAll', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
+
+        } catch (error) {
+            console.log(error)
+        }
     },
 
     Card: (req, res) => {
