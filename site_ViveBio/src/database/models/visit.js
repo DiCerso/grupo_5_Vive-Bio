@@ -1,28 +1,55 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Visit extends Model {
-  
-    /* static associate(models) {
-      // define association here
-      Visit.hasMany(models.User,{
-        as : 'users',
-        foreignKey : 'user_id'
-      })
-      Visit.hasMany(models.Product,{
-        as : 'products',
-        foreignKey : 'product_id'
-      })
-    } */
-  }
-  Visit.init({
-    user_id: DataTypes.INTEGER,
-    product_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Visit',
-  });
-  return Visit;
-};
+    const alias = 'Visit'
+
+    const cols = {
+        id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            autoIncrement : true,
+            allowNull : false,
+            primaryKey : true
+        },
+        user_id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'users'
+                },
+                key: 'id',
+            }
+        },
+        prduct_id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'products'
+                },
+                key: 'id',
+            }
+        }
+    }
+
+
+    const config = {
+        tableName : 'visits',
+        timestamps : false
+    }
+
+    const Visit = sequelize.define(alias, cols, config)
+
+     Visit.associate = function(models) {
+        Visit.belongsTo(models.User, {
+            as : 'user',
+            foreignKey : 'user_id'
+        })
+
+        Visit.belongsTo(models.Product, {
+            as : 'product',
+            foreignKey : 'product_id'
+        })
+    } 
+
+    return Visit
+}

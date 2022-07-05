@@ -1,29 +1,57 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class Productimage extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-      Productimage.belongsTo(models.Product,{
-        as : 'products',
-        foreignKey : 'product_id'
-      })
+
+    const alias = "ProductImage";
+
+    const cols = {
+
+        id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
+        },
+
+        name: {
+            type: DataTypes.STRING(45),
+            allowNull: false,
+        },
+
+        product_id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+            references: {
+                model: {
+                    tableName : 'products'
+                },
+                key: 'id',
+            }
+        },
+        primary : {
+            type : DataTypes.TINYINT(1)
+        }
+
     }
-  }
-  Productimage.init({
-    product_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    primary: DataTypes.BOOLEAN
-  }, {
-    sequelize,
-    modelName: 'Productimage',
-  });
-  return Productimage;
-};
+
+    const config = {
+        tableName: "productsimages",
+        timestamps: false,
+        createdAt: false,
+        //updatedAt: 'updateTimestamp'
+    };
+
+    const ProductImage = sequelize.define(alias, cols, config);
+
+    ProductImage.associate = function (models) {
+        ProductImage.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: 'product_id'
+        })
+    }
+
+    return ProductImage
+
+}
+
+
