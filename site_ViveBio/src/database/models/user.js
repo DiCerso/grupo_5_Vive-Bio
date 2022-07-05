@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
-        firstname: {
+        fristname: {
             type: DataTypes.STRING(45),
             allowNull: false
         },
