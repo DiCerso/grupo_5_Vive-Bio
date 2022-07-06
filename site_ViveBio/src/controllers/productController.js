@@ -211,13 +211,16 @@ module.exports = {
     cant : async (req, res) => {
         let {id, idproduct}= req.params
         try {
-            await db.Cart.update({
-                cant : +id,
+                await db.Cart.update({
+                cant : id
+            },
+            {
                 where : {
-                    product_id : +idproduct,
+                    product_id : idproduct,
                     user_id : +req.session.userLogin.id
                 }
-            })
+            }
+            )
             return res.redirect('/Products/cart')
         } catch (error) {
             console.log(error)

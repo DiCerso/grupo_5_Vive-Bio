@@ -31,23 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         payment_id : {
             type : DataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
-            references: {
-                model: {
-                    tableName : 'payments'
-                },
-                key: 'id',
-            }
-        },
-        order_id : {
-            type : DataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
-            references: {
-                model: {
-                    tableName : 'orders'
-                },
-                key: 'id',
-            }
+            allowNull : false
         }
     }
 
