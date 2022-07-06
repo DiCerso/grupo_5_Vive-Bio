@@ -24,15 +24,21 @@
                                 </div>
                                 <div class="cart_sect_2">
                                     <div class="cart_sect_count">
-                                        <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant - 1 %>?_method=PUT" method="POST">
-                                            <input class="cart_box_more-less" type="submit" value="-">
-                                        </form>
+                                        <% if (cart.cant > 1) { %>
+                                            <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant - 1 %>?_method=PUT" method="POST">
+                                                <input class="cart_box_more-less" type="submit" value="-" >
+                                            </form>
+                                        <% }else{ %>
+                                            <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant - 1 %>?_method=PUT" method="POST">
+                                                <input class="cart_box_more-less" type="submit" value="-" disabled>
+                                            </form>
+                                        <% } %> 
                                         
                                         <div class="cart_box_count">
                                             <span id="cart_count"><%= cart.cant %> </span>
                                         </div>
-                                        <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant + 1  %>?_methos=PUT"  method="POST">
-                                            <input class="cart_box_more-less" type="submit" value="+">
+                                        <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant + 1  %>?_method=PUT"  method="POST">
+                                            <input class="cart_box_more-less " type="submit" value="+">
                                         </form>
                                     </div>
                                     <div class="cart_sect_price">

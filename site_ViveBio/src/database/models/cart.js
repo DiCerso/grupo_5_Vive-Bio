@@ -31,8 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         cant : {
             type : DataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
-            default : 1
+            allowNull : false
         }
     }
 
