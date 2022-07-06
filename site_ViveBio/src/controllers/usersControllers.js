@@ -91,7 +91,7 @@ module.exports = {
     },
     profile: (req, res) => {
         const user = db.User.findByPk(req.session.userLogin.id, {
-            include: ['rols']
+            include: ['rol']
         })
         Promise.all(([user]))
             .then(([user]) => {

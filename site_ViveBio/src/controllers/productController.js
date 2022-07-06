@@ -3,6 +3,7 @@ const Category = require('../database/models/Category');
 const Product = require('../database/models/Product');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../database/models')
+const {Op} = require('sequelize')
 
 const accent_map = { 'á': 'a', 'é': 'e', 'è': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'a', 'É': 'e', 'è': 'e', 'Í': 'i', 'Ó': 'o', 'Ú': 'u' };
 function accent_fold(s) {
@@ -147,15 +148,80 @@ module.exports = {
         .catch(error => console.log(error));
         
     },
-    cart: (req, res) => {
-        const payments = db.Payment.findAll()
-        Promise.all([payments])    
-        .then(([payments]) => {
-            /* return res.send(payments) */
-                return res.render('products/productCart',{
-                    payments
-                })
+    cart: async (req, res) => {
+
+        try {
+            let total = 0, desc = 0;
+            const payments = await db.Payment.findAll()
+            const cart = await db.Cart.findAll(
+                {
+                    where : {
+                        user_id : +req.session.userLogin.id
+                    },
+                    include : [
+                    {
+                            association: 'product',
+                            include : [
+                            {association: 'productImages'}
+                            ]
+                    }
+                    ]
+                }
+            )
+            cart.forEach(cart => {
+                total += +cart.product.price
             })
+
+            cart.forEach(cart => {
+                desc += +cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)
+            })
+            return res.render('products/productCart',{
+                payments,
+                cart,
+                total,
+                desc
+            })
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    removecart : async (req,res) => {
+        try {
+            if(req.params.id == 0){
+                await db.Cart.destroy({
+                    where : {
+                        user_id : +req.session.userLogin.id
+                    }
+                }) 
+            }else {
+                await db.Cart.destroy({
+                    where : {
+                        product_id : req.params.id,
+                        user_id : +req.session.userLogin.id
+                    }
+                })
+            }
+            
+            return res.redirect('/Products/cart')
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    cant : async (req, res) => {
+        let {id, idproduct}= req.params
+        try {
+            await db.Cart.update({
+                cant : +id,
+                where : {
+                    product_id : +idproduct,
+                    user_id : +req.session.userLogin.id
+                }
+            })
+            return res.redirect('/Products/cart')
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 }

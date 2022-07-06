@@ -18,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
 
     const config = {
         tableName: 'payments',
-        timestamp: false
+        timestamp: false,
+        createdAt: false,
+        updatedAt : false
     }
 
 
@@ -26,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
 
     Payment.assiciate = function (models) {
 
-        Payment.hasMany(models.Cart, {
-            as: 'cart',
+        Payment.hasMany(models.Order, {
+            as: 'order',
             foreignKey: 'payment_id'
         })
     }

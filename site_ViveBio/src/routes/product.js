@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const upload =require('../middlewares/uploadImageProduct');
 const admincheck = require('../middlewares/admincheck');
+const usercheck = require('../middlewares/userCheck')
 
-
-const {add, edit, update, store, Card, All, remove, search, list, cart} = require('../controllers/productController');
+const {add, edit, update, store, Card, All, remove, search, list, cart, removecart, cant} = require('../controllers/productController');
 
 
 /*Products*/
@@ -17,5 +17,8 @@ router.put('/update/:id',upload.array('image'),update);
 router.delete("/remove/:id",admincheck, remove);
 router.get("/search", search);
 router.get("/list/:category?", admincheck ,list);
-router.get('/cart',cart)
+router.get('/cart', usercheck, cart)
+router.delete('/cart/remove/:id', usercheck, removecart )
+router.put('/cart/cant/:idproduct/:id', usercheck, cant)
+
 module.exports = router;
