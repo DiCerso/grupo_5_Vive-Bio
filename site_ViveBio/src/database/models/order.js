@@ -30,6 +30,16 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id',
             }
         },
+        payment_id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'payments'
+                },
+                key: 'id',
+            }
+        },
         total : {
             type: DataTypes.DECIMAL(6,2).UNSIGNED,
             allowNull : false
@@ -54,10 +64,13 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey : 'user_id'
         })
 
-        Order.hasMany(models.Cart, {
-            as : 'cart',
-            foreignKey : 'order_id'
+
+        Order.belongsTo(models.Payment,{
+            as : 'payment',
+            foreignKey : 'payment_id'
         })
+
+        
     }
 
     return Order;

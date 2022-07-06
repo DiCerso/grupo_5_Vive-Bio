@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id',
             }
         },
-        payment_id : {
+        cant : {
             type : DataTypes.INTEGER.UNSIGNED,
             allowNull : false
         }
@@ -52,15 +52,6 @@ module.exports = (sequelize, DataTypes) => {
             as : 'user',
             foreignKey : 'user_id'
         })
-        Cart.belongsTo(models.Payment,{
-            as : 'payment',
-            foreignKey : 'payment_id'
-        })
-        Cart.belongsTo(models.Order,{
-            as : 'order',
-            foreignKey : 'order_id'
-        })
-
     }
 
     return Cart
