@@ -116,6 +116,8 @@
     font-size: 14px;
     text-shadow: 0 0 2px black;
     border: none;
+    cursor:pointer;
+    color: white;
 }
 .edit_user__historial{
     text-align: center;
