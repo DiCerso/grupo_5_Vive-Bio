@@ -3,55 +3,55 @@ module.exports = (sequelize, DataTypes) => {
     const alias = 'Cart'
 
     const cols = {
-        id : {
-            type : DataTypes.INTEGER.UNSIGNED,
-            autoIncrement : true,
-            allowNull : false,
-            primaryKey : true
+        id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
         },
-        user_id : {
-            type : DataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
+        user_id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
             references: {
                 model: {
-                    tableName : 'users'
+                    tableName: 'users'
                 },
                 key: 'id',
             }
         },
-        product_id : {
-            type : DataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
+        product_id: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
             references: {
                 model: {
-                    tableName : 'products'
+                    tableName: 'products'
                 },
                 key: 'id',
             }
         },
-        cant : {
-            type : DataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
-            default : 1
+        cant: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+            default: 1
         }
     }
 
     const config = {
-        tableName : 'carts',
-        timestamps : false
+        tableName: 'carts',
+        timestamps: false
     }
 
 
     const Cart = sequelize.define(alias, cols, config)
 
-    Cart.associate = function(models){
-        Cart.belongsTo(models.Product,{
-           as : 'product',
-           foreignKey : 'product_id'
+    Cart.associate = function (models) {
+        Cart.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: 'product_id'
         })
-        Cart.belongsTo(models.User,{
-            as : 'user',
-            foreignKey : 'user_id'
+        Cart.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: 'user_id'
         })
     }
 
