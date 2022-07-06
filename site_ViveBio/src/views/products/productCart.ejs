@@ -52,36 +52,36 @@
                                     </div>
                                 </div>
                             </article>
-                            <div class="cart_sect_playment">
-                                <div class="cart_sect_playment_sub">
-                                    <label>Medio de Pago</label>
-                                    <select class="cart_select_payment" name="payments" id="payments" size="1">
-                                        <option value="" hidden selected >Selecciona un medio de Pago...</option>
-                                        <% payments.forEach(payment => { %>
-                                            <option value="<%= payment.id %>"><%= payment.name %></option>
-                                        <% }) %>
-                                    </select>
-                                </div>
-                                <div class="cart_sect_playment_sub">
-                                    <label for="discount_code">Código de Descuento</label>
-                                    <input class="cart_discount_payment" type="text" placeholder="Ingresar aquí código de descuento">
-                                </div>
-                                <div class="cart_sect_playment_sub">
-                                    <label >Total</label>
-                                    <input class="cart_input_payment" type="text" value="$<%= total %> " disabled>
-                                </div>
-                                <div class="cart_sect_playment_sub">
-                                    <label >Total con Descuento</label>
-                                    <input class="cart_input_payment" type="text" value="$<%= desc %> " disabled>
-                                </div>
-                            </div>
-                            <div class="cart_buttons">
-                                <form action="/Products/cart/remove/0?_method=DELETE" method="POST">
-                                    <input class="cart_button" type="submit" value="Limpiar Carrito">
-                                </form>
-                                <button class="cart_button" type="reset">Siguiente Paso</button>
-                            </div>
                         <% }) %>
+                        <div class="cart_sect_playment">
+                            <div class="cart_sect_playment_sub">
+                                <label>Medio de Pago</label>
+                                <select class="cart_select_payment" name="payments" id="payments" size="1">
+                                    <option value="" hidden selected >Selecciona un medio de Pago...</option>
+                                    <% payments.forEach(payment => { %>
+                                        <option value="<%= payment.id %>"><%= payment.name %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            <div class="cart_sect_playment_sub">
+                                <label for="discount_code">Código de Descuento</label>
+                                <input class="cart_discount_payment" type="text" placeholder="Ingresar aquí código de descuento">
+                            </div>
+                            <div class="cart_sect_playment_sub">
+                                <label >Total</label>
+                                <input class="cart_input_payment" type="text" value="$<%= total %> " disabled>
+                            </div>
+                            <div class="cart_sect_playment_sub">
+                                <label >Total con Descuento</label>
+                                <input class="cart_input_payment" type="text" value="$<%= desc %> " disabled>
+                            </div>
+                        </div>
+                        <div class="cart_buttons">
+                            <form action="/Products/cart/remove/0?_method=DELETE" method="POST">
+                                <input class="cart_button" type="submit" value="Limpiar Carrito">
+                            </form>
+                            <button class="cart_button" type="reset">Siguiente Paso</button>
+                        </div>
                     <% }else{ %>
                         <h1 class="cart_problem">No se encuentran productos</h1>
                     <% } %> 
