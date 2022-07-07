@@ -3,6 +3,7 @@ const fs = require("fs");
 const bcryptjs = require('bcryptjs');
 const path = require("path");
 const db = require('../database/models');
+const { Op } = require('sequelize')
 
 
 module.exports = {
@@ -119,7 +120,9 @@ module.exports = {
         if (errors.isEmpty()) {
             try {
                 const { firstname, lastname, username } = req.body;
-                const oldUser = await db.User.findByPk(req.params.id)
+                const oldUser = await db.User.findByPk(req.params.id,{
+                    include : ['rol']
+                })
                 const user = await db.User.update({
                     firstname: firstname.trim(),
                     lastname: lastname.trim(),
@@ -127,25 +130,30 @@ module.exports = {
                     image: req.file ? req.file.filename : oldUser.image
                 },{
                     where : {
-                        id : req.session.userLogin.id
+                        id : req.params.id
                     }
                 })
-                req.session.userLogin.image = user.image;
-                if (user.username !== req.session.userLogin.username) {
-                    req.session.userLogin.username = user.username
+                const userEdited = await db.User.findByPk(req.params.id,{
+                    include : ['rol']
+                })
+                req.session.userLogin = {
+                    id: userEdited.id,
+                    username: userEdited.username,
+                    image: userEdited.image,
+                    rol: userEdited.rol.name
                 }
                 if (req.file) {
                     if (
                         fs.existsSync(
-                            path.resolve(__dirname, '..', '..', 'public', 'images', 'users', user.image)
-                        ) && user.image !== "defaultAvatar.jpg"
+                            path.resolve(__dirname, '..', '..', 'public', 'images', 'users', userEdited.image)
+                        ) && userEdited.image !== "defaultAvatar.jpg"
                     ) {
                         fs.unlinkSync(
                             path.resolve(__dirname, '..', '..', 'public', 'images', 'users', oldUser.image)
                         );
                     }
                 }
-                return res.redirect('users/userprofile')
+                return res.redirect((`/users/profile/${req.params.id}`))
             } catch (error) {
                 console.log(error)
             }
@@ -173,75 +181,3 @@ module.exports = {
     }
 }
 
-/* const user = users.find(user => user.id === +id);
-                return res.render('users/editProfile', {
-                    user,
-                    errores: errors.mapped(),
-                    old: req.body
-                }) */
-
-
-/* const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'users.json')));
-let errors = validationResult(req);
-let { firstName, lastName, username } = req.body;
-let { id } = req.params;
-let oldUser = users.find(user => +user.id === +id);
-if (errors.isEmpty()) {
-    
-    let userEdited = users.map(user => {
-        if (+user.id === +id) {
-            let userEdited = {
-                ...user,
-                firstName,
-                lastName,
-                email: oldUser.email,
-                user: username,
-                category: oldUser.category,
-                password: oldUser.password,
-                image: req.file ? req.file.filename : oldUser.image,
-            }
-            req.session.userLogin.image =
-                userEdited.image;
-
-            if (userEdited.user !== req.session.userLogin.user) {
-                req.session.userLogin.user =
-                    userEdited.user
-            }
-
-            if (req.file) {
-                if (
-                    fs.existsSync(
-                        path.resolve(__dirname, '..', '..', 'public', 'images', 'users', user.image)
-                    ) &&
-                    user.image !== "defaultAvatar.jpg"
-                ) {
-                    fs.unlinkSync(
-                        path.resolve(__dirname, '..', '..', 'public', 'images', 'users', oldUser.image)
-                    );
-                }
-            }
-            return userEdited;
-        }
-        return user;
-    });
-    fs.writeFileSync(
-        path.resolve(__dirname, '..', 'data', 'users.json'),
-        JSON.stringify(userEdited, null, 3),
-        "utf-8"
-    );
-    return res.redirect(`/users/profile/${id}`);
-} else {
-    if (req.file) {
-        fs.unlinkSync(
-            path.resolve(__dirname, "..", "public", "images", "users", req.file.filename)
-        );
-    }
-    const { id } = req.params;
-    const user = users.find(user => user.id === +id);
-    return res.render('users/editProfile', {
-        user,
-        errores: errors.mapped(),
-        old: req.body
-    })
-};
-} */
