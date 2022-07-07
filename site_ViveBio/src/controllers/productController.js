@@ -1,6 +1,5 @@
 const path = require('path');
-const Category = require('../database/models/Category');
-const Product = require('../database/models/Product');
+const {Category, Product} = require('../database/models');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../database/models')
 const {Op} = require('sequelize')
@@ -49,10 +48,9 @@ module.exports = {
                 {association : 'property'}
             ]
 
-            
         })
 
-        return res.render('products/productAll', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
+        return res.render('products/all', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
 
         } catch (error) {
             console.log(error)
@@ -76,6 +74,7 @@ module.exports = {
         })
     },
 
+        //view form add product
     add: (req, res) => {
         Category.findAll()
         .then(categories => {
@@ -86,37 +85,33 @@ module.exports = {
         })
     },
 
+        //method to save new product
     store: (req, res) => {
-            const { name, description, ingredients, volume, price, discount, stock, category_id, property_id} = req.body;
             Product.create({
-                name, 
-                description,
-                ingredients,
-                volume, 
-                price,
-                discount, 
-                stock, 
-                category_id,
-                property_id,
+                ...req.body,
+                category_id : +req.body.category,
+                property_id : +req.body.property,
             })
             .then ((product) => {
-                return res.redirect('/products/all')
+                return res.redirect(`/products/card#${product.id}`)
             })
             .catch((error)=>{
                 console.log(error)
             })
+        
     },
 
+        //view form edit product
     edit: (req, res) => {
 
-        Product.findByPk(req.params.id,
+        let product = Product.findByPk(req.params.id,
             {
                 include: ['productImages'] 
-            })
+            });
         let categories = Category.findAll()
 
         Promise.all([product, categories])
-            .then(function([product,categories]){
+            .then(([product,categories]) => {
                 return res.render('products/edit', { product, categories })
             })
             .catch((error)=>{
@@ -124,23 +119,18 @@ module.exports = {
             })
     },
 
+        //method to save edit product
     update: (req, res) => {
-            const { name, description, ingredients, volume, price, discount, stock, category_id, property_id} = req.body;
             Product.update({
-                name,
-                description,
-                ingredients,
-                volume, 
-                price,
-                discount, 
-                stock, 
-                category_id,
-                property_id
+                ...req.body,
+                category_id : +req.body.category,
+                property_id : +req.body.property,
         },{
             where : {
                 id : req.params.id
                 }
             })
+
             .then((product)=>{
                 res.redirect('/products/' + req.params.id)
             })
@@ -166,8 +156,10 @@ module.exports = {
         const resultados = req.query.search.toLowerCase();
         db.Products.findAll({
             where: {
+                [Op.or] : {
              name : {[Op.substring]: resultados},
              description : {[Op.substring]: resultados}
+                }
             },
             include : ['prouctImages'] 
           })
@@ -177,8 +169,8 @@ module.exports = {
         .catch((error)=>{
             console.log(error)
         })
-
     },
+    
     list : (req, res) => {
 
             const products = Product.findAll()
