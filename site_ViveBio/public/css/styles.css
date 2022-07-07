@@ -8,10 +8,10 @@
 @import './login.css';
 @import './register.css';
 @import './carrito.css';
-@import './productCard.css';
-@import './productAll.css';
-@import './addProducts.css';
-@import './editProducts.css';
+@import './Card.css';
+@import './All.css';
+@import './add.css';
+@import './edit.css';
 @import './user.css';
 @import './list.css';
 @import './error.css';

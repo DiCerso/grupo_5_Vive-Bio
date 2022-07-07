@@ -4,12 +4,12 @@ const upload =require('../middlewares/uploadImageProduct');
 const admincheck = require('../middlewares/admincheck');
 
 
-const {add, edit, update, store, Card, All, remove, search, list} = require('../controllers/productController');
+const {add, edit, update, store, card, all, remove, search, list} = require('../controllers/productController');
 
 
 /*Products*/
-router.get('/Card/:id', Card);
-router.get('/All', All);
+router.get('/card/:id', card);
+router.get('/all', all);
 router.get('/add', admincheck, add);
 router.post('/add',upload.array('image'), store);
 router.get('/edit/:id', admincheck, edit);

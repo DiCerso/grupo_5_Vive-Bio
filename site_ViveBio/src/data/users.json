@@ -36,7 +36,7 @@
       "email": "adm@gmail.com",
       "user": "admadm",
       "password": "$2a$10$0C6YQmVu2cYXfnpbXnSkzu/rX6EhozlKb4mQC6k9NZwSLIo1yiQZW",
-      "category": "user",
+      "category": "admin",
       "image": "defaultAvatar.jpg"
    }
 ]

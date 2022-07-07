@@ -16,23 +16,23 @@ function accent_fold(s) {
 
 
 module.exports = {
-    Card: (req, res) => {
+    card: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const { id } = req.params;
         const product = products.find(product => product.id === +id);
         const relation = products.filter(relation => +relation.category === +product.category)
-        return res.render('products/productCard', { products, toThousand, relation, product, category });
+        return res.render('products/card', { products, toThousand, relation, product, category });
     },
-    All: (req, res) => {
+    all: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const bioCapilar = products.filter(product => +product.category === 1);
         const bioCorporal = products.filter(product => +product.category === 2);
         const bioSpa = products.filter(product => +product.category === 3);
-        return res.render('products/productAll', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
+        return res.render('products/all', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
     },
     add: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        return res.render('products/addProducts', { category });
+        return res.render('products/add', { category });
     },
     store: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
@@ -54,13 +54,13 @@ module.exports = {
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
 
-        return res.redirect('/products/All');
+        return res.redirect('/products/all');
     },
     edit: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const { id } = req.params;
         let product = products.find(product => product.id === +id)
-        return res.render('products/editProducts', { product, category })
+        return res.render('products/edit', { product, category })
     },
     update: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
@@ -95,7 +95,7 @@ module.exports = {
             return product;
         });
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productact, null, 3), 'utf-8');
-        return res.redirect('/products/All')
+        return res.redirect('/products/all')
 
     },
     remove: (req, res) => {
@@ -114,13 +114,13 @@ module.exports = {
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
-        return res.redirect('/products/All');   
+        return res.redirect('/products/all');   
     },
     search: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const keywords = accent_fold(req.query.keyboard.toLowerCase());
         let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords))
-        return res.render('products/productSearch', { result })
+        return res.render('products/search', { result })
         
     },
     list : (req, res) => {
