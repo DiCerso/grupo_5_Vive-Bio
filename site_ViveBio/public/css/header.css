@@ -5,8 +5,106 @@
     align-items: center;
     width: 100%;
     overflow: hidden;
-/*     padding-bottom: 10px; */
 }
+
+/*******************************************
+start Emergent mobile
+**********************************************/
+
+.nav_emergente {
+    position: fixed;
+    width: 80px;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    right: 0;
+    top: 25%;
+    margin-right: -50px;
+    z-index: 9;
+    transition: all 1s;
+
+}
+
+.solapa {
+    width: 34px;
+    height: 35px;
+    position: absolute;
+    margin-top:1px;
+    left: 0;
+    background-color: var(--verdeOscuro);
+    border-radius: 25px 0 0 25px; 
+    transition: all 1s;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 30%;
+    top: 25%;
+    font-size: 1rem;
+    color: white;
+    
+}
+
+.nav_options-emergente {
+    width: 33px;
+    height: 100%;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-right: 8px;
+}
+
+.nav_options-emergente a{
+    padding: 10px;
+    background-color: var(--verdeOscuro);
+    border-radius: 50%;
+    
+}
+
+.show_nav_mobile{
+    margin-right: 0;
+    position: fixed;
+}
+
+.solapa1 {
+    width: 15px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    transform: rotate(-45deg);
+    transition: all 1s;
+}
+
+.solapa2 {
+    width: 15px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: rotate(45deg);
+    transition: all 1s;
+}
+
+.active1{
+    transform: rotate(45deg);
+}
+.active2{
+    transform: rotate(-45deg);
+}
+.active3{
+    border-radius: 50%;
+}
+
+/*end Emergent mobile*/
 
 /*******************************************
 Header mobile
@@ -16,6 +114,7 @@ Header mobile
     height: 100vh;
     overflow: hidden;
     position: absolute;
+    
 }
 .usuario_mobile-log a{
     display: flex;
@@ -88,7 +187,7 @@ Header mobile
 
 .mostrar{
     margin-right: 0;
-    position: fixed;
+    
 }
 
 .usuario_mobile{
@@ -298,7 +397,9 @@ Header mobile
 }
 
 @media(min-width: 768px) {
-
+    .nav_emergente{
+        display: none;
+    }
 
     .header__iconos a i {
         font-size: 20px;
@@ -347,26 +448,6 @@ Header mobile
         justify-content: center;
         align-items: center;
     }
-
-
-    /* .header__user {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        height: 60px;
-        justify-content: space-around;
-    }
-
-    .header__user a {
-        font-size: 24px;
-        width: 40px;
-        height: 40px;
-        border-radius: 19px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--verdeAmarillento);
-    } */
 
     .header__user a i{
         font-size: 24px;

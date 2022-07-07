@@ -17,13 +17,13 @@
                                     <input type="file" accept="image/*" id="image" name="image">
                                 </div>
                                 <div class="edit_user__names">
-                                    <input type="text" value="<%= locals.errores && errores.firstName ? old.firstName : user.firstName %>" name="firstName" id="firstName">
+                                    <input type="text" value="<%= locals.errores && errores.firstname ? old.firstname : user.firstname %>" name="firstname" id="firstname">
                                     <span class="register_alert">
-                                        <%= locals.errores && errores.firstName ? errores.firstName.msg : null %>
+                                        <%= locals.errores && errores.firstname ? errores.firstname.msg : null %>
                                     </span>
-                                    <input type="text" value="<%= locals.errores && errores.lastName ? old.lastName : user.lastName %>" name="lastName" id="newLastName">
+                                    <input type="text" value="<%= locals.errores && errores.lastname ? old.lastname : user.lastname %>" name="lastname" id="newlastname">
                                     <span class="register_alert">
-                                        <%= locals.errores && errores.lastName ? errores.lastName.msg : null %>
+                                        <%= locals.errores && errores.lastname ? errores.lastname.msg : null %>
                                     </span>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="edit_user__dats">
                             <div class="edit_user__info">
                                 <h3> usuario : </h3>
-                                <input type="text" value="<%= locals.errores && errores.username ? old.username : user.user %>" name="username" id="username">
+                                <input type="text" value="<%= locals.errores && errores.username ? old.username : user.username %>" name="username" id="username">
                                 <span class="register_alert">
                                     <%= locals.errores && errores.username ? errores.username.msg : null %>
                                 </span>
@@ -48,15 +48,8 @@
                             <div class="edit_user__info">
                                 <h3>Rol : </h3>
                                 <h4>
-                                    <%= user.category %>
+                                    <%= user.rol.name %>
                                 </h4>
-                            </div>
-                            <div class="edit_user__info-pass">
-                                <h3>password : </h3>
-                                <h4 class="editProfile_box-pass">
-                                    <%= userLogin.contra %>
-                                </h4>
-                                <label for="editPass"><i class="fas fa-pen"></i></label>
                             </div>
                         </div>
                         <div class="edit_user__historial">
@@ -70,6 +63,7 @@
             </main>
     </body>
     <%- include('../partials/footer') %>
-        <script src="/javascript/menuMobile.js"></script>
+    <script src="/javascript/menuMobile.js"></script>
+    <script src="/javascript/navEmergent.js"></script>
 
 </html>

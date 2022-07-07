@@ -1,12 +1,12 @@
 const { check, body } = require('express-validator');
-const users = require('../data/users.json');
+const db = require('../database/models')
 
 module.exports = [
-    check('firstName')
+    check('firstname')
         .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
         .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
 
-    check('lastName')
+    check('lastname')
         .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
         .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
 
@@ -14,27 +14,33 @@ module.exports = [
         .notEmpty().withMessage('Este campo no puede estar vacio').bail()
         .isEmail().withMessage('Ingresar un E-mail válido').bail()
         .custom((value) => {
-            const user = users.find(user => user.email === value);
-            if (user) {
-                return false;
-            } else {
-                return true;
-            }
-        }).withMessage('Este E-mail ya fue registrado.'),
+            return db.User.findOne({
+                where : {
+                    email : value
+                }
+            }).then(user => {
+                if(user){
+                    return Promise.reject()
+                }
+            }).catch(() => Promise.reject('Este email ya se encuentra en uso.'))
+        }),
 
-    check('user')
+    check('username')
         .isLength({ min: 4, max: 8 }).withMessage('El usuario debe contener entre 4 y 8 caracteres.').bail()
         .custom((value) => {
-            const user = users.find(user => user.user === value);
-            if (user) {
-                return false;
-            } else {
-                return true;
-            }
-        }).withMessage('Este usuario ya se encuentra registrado.'),
+            return db.User.findOne({
+                where : {
+                    username : value
+                }
+            }).then(user => {
+                if(user){
+                    return Promise.reject()
+                }
+            }).catch(() => Promise.reject('Este usuario ya se encuentra en uso.'))
+        }),
 
     check('password')
-        .isLength({ min: 5, max: 8 }).withMessage('La contraseña debe poseer entre 5 y 8 caracteres').bail()
+        .isLength({ min: 5, max: 12 }).withMessage('La contraseña debe poseer entre 5 y 8 caracteres').bail()
         .isAlphanumeric().withMessage('La contraseña debe tener al menos 1 caracter numérico'),
 
     body('password2')

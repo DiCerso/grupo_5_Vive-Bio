@@ -1,8 +1,9 @@
-const products = require('../data/products');
-const category = require('../data/categories');
 const path = require('path');
-const fs = require('fs');
+const Category = require('../database/models/Category');
+const Product = require('../database/models/Product');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require('../database/models')
+const {Op} = require('sequelize')
 
 const accent_map = { 'á': 'a', 'é': 'e', 'è': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'a', 'É': 'e', 'è': 'e', 'Í': 'i', 'Ó': 'o', 'Ú': 'u' };
 function accent_fold(s) {
@@ -16,134 +17,210 @@ function accent_fold(s) {
 
 
 module.exports = {
-    card: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { id } = req.params;
-        const product = products.find(product => product.id === +id);
-        const relation = products.filter(relation => +relation.category === +product.category)
-        return res.render('products/card', { products, toThousand, relation, product, category });
-    },
-    all: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const bioCapilar = products.filter(product => +product.category === 1);
-        const bioCorporal = products.filter(product => +product.category === 2);
-        const bioSpa = products.filter(product => +product.category === 3);
-        return res.render('products/all', { products, toThousand, category, bioCapilar, bioCorporal, bioSpa });
-    },
-    add: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        return res.render('products/add', { category });
-    },
-    store: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { name, category, price, description, property, volume, discount } = req.body;
-        const lastId = products[products.length - 1].id;
-        const image = req.files.map(image => image.filename);
 
-        products.push({
-            name,
-            category: +category,
-            volume,
-            discount,
-            property,
-            price,
-            description,
-            id: (+lastId + 1),
-            image: image.length > 0 ? image : ["noimage.jpg"]
+    all: async (req, res) => {
+
+        try {
+        const category = await db.Category.findAll()
+        const bioCapilar = await db.Product.findAll({
+            where : {
+                category_id : 1
+            },
+            include : [
+                {association: 'productImages'},
+                {association : 'property'}
+            ]
+        })
+        const bioCorporal = await db.Product.findAll({
+            where : {
+                category_id : 2
+            },
+            include : [
+                {association: 'productImages'},
+                {association : 'property'}
+            ]
+        })
+        const bioSpa = await db.Product.findAll({
+            where : {
+                category_id : 3
+            },
+            include : [
+                {association: 'productImages'},
+                {association : 'property'}
+            ]
+
+            
         })
 
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
+        return res.render('products/productAll', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
 
-        return res.redirect('/products/all');
+        } catch (error) {
+            console.log(error)
+        }
     },
-    edit: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { id } = req.params;
-        let product = products.find(product => product.id === +id)
-        return res.render('products/edit', { product, category })
+
+    card: (req, res) => {
+        Product.findByPk(req.params.id)
+        .then(product => {
+            return res.render('products/productCard', { toThousand, product });
+        })
+        .catch(error => console.log(error));
     },
+
+    add: (req, res) => {
+        Category.findAll()
+        .then(categories => {
+            return res.render('products/addProducts', { categories });
+        })
+    },
+
+    store: (req, res) => {
+        Product.create({
+            name : req.body.name,
+            discount : req.body.discount,
+/*             IMAGES */
+            ingredients : req.body.ingredients,
+            description : req.body.description,
+            stock : req.body.stock,
+            property_id : req.body.property
+        })
+        return res.redirect('/products/All');
+
+    },
+
+        let productId = Product.findByPk(req.params.id)
+        let categoryResult = Category.findAll()
+        Promise.All([productId, categoryResult])
+        .then(function([product,categories]){
+            return res.render('products/editProducts', { product, categories })
+        })
+
+    },
+
     update: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        let { name, category, price, description, discount, volume, property } = req.body;
-        let { id } = req.params;
-        let oldProduct = products.find(product => +product.id === +id);
-        let oldImage = oldProduct.image;
-        let image = req.files.map(image => image.filename);
-        let productact = products.map(product => {
-            if (product.id === +id) {
-                let productact = {
-                    ...product,
-                    name,
-                    volume,
-                    discount,
-                    property,
-                    category: +category,
-                    price: +price,
-                    description,
-                    image: image.length > 0 ? image : oldImage
-                }
-                
-                if (req.files.length > 0) {
-                    product.image.forEach(image => {
-                        if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {
-                            fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', image))
-                        }
-                    });
-                }
-                return productact;
+        Product.update({
+            name : req.body.name,
+            category_id : req.body.category,
+            volume : req.body.volume,
+            price : req.body.price,
+/*             IMAGES */
+            ingredients : req.body.ingredients,
+            description : req.body.description,
+            stock : req.body.stock,
+            property_id : req.body.property
+        },{
+            where : {
+                id : req.params.id
             }
-            return product;
-        });
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productact, null, 3), 'utf-8');
-        return res.redirect('/products/all')
+        })
+            res.redirect('/products/' + req.params.id)
 
-    },
+        },
+
     remove: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const { id } = req.params;
-
-        const productFilter = products.filter(product => product.id !== +id);
-        const productdeleted = products.filter(product => product.id === +id);
-
-
-        productdeleted[0].image.forEach(image => {
-            if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', image)) && image !== "noimage.jpg") {
-                fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', image));
+        Product.destroy({
+            where : {
+                id : req.params.id
             }
         })
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
-        return res.redirect('/products/all');   
+        return res.redirect('/products/All');
     },
     search: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
         const keywords = accent_fold(req.query.keyboard.toLowerCase());
         let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords))
-        return res.render('products/search', { result })
-        
+        return res.render('products/productSearch', { result })
+
     },
     list : (req, res) => {
-        const {category} = req.params;
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','products.json')));
-        let keyboard = req.query.keyboard;
-        if(keyboard){
-            keyboard = accent_fold(keyboard.toLowerCase());
-            products = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keyboard))
+
+        Product.findAll()
+        .then(products => {
             return res.render('products/list', {products});
-        }
-        if(category == 0){
-            return res.render('products/list', {products});
-        }else if(category == 1){
-            products = products.filter(product => +product.category === 1);
-            return res.render('products/list', {products});
-        }else if(category == 2){
-            products = products.filter(product => +product.category === 2);
-            return res.render('products/list', {products});
-        }else if(category == 3){
-            products = products.filter(product => +product.category === 3);
-            return res.render('products/list', {products});
-        }
+        })
+        .catch(error => console.log(error));
         
+    },
+    cart: async (req, res) => {
+
+        try {
+            let total = 0, desc = 0;
+            const payments = await db.Payment.findAll()
+            const cart = await db.Cart.findAll(
+                {
+                    where : {
+                        user_id : +req.session.userLogin.id
+                    },
+                    include : [
+                    {
+                            association: 'product',
+                            include : [
+                            {association: 'productImages'}
+                            ]
+                    }
+                    ]
+                }
+            )
+            cart.forEach(cart => {
+                total += +cart.product.price
+            })
+
+            cart.forEach(cart => {
+                desc += +cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)
+            })
+            return res.render('products/productCart',{
+                payments,
+                cart,
+                total,
+                desc
+            })
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    removecart : async (req,res) => {
+        try {
+            if(req.params.id == 0){
+                await db.Cart.destroy({
+                    where : {
+                        user_id : +req.session.userLogin.id
+                    }
+                }) 
+            }else {
+                await db.Cart.destroy({
+                    where : {
+                        product_id : req.params.id,
+                        user_id : +req.session.userLogin.id
+                    }
+                })
+            }
+            
+            return res.redirect('/Products/cart')
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    cant : async (req, res) => {
+        let {id, idproduct}= req.params
+        try {
+                await db.Cart.update({
+                cant : id
+            },
+            {
+                where : {
+                    product_id : idproduct,
+                    user_id : +req.session.userLogin.id
+                }
+            }
+            )
+            return res.redirect('/Products/cart')
+        } catch (error) {
+            console.log(error)
+        }
     }
+
 }

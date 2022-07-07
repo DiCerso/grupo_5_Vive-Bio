@@ -6,54 +6,64 @@
 
     <body class="user">
         <%- include('../partials/header') %>
-        <main>
-            <section class="user__container">
-                <div class="user__perfil">
-                    <div class="user__head">
-                        <div class="user__img">
-                            <img src="/images/users/<%= user.image %>" alt="">
+            <main>
+                <section class="user__container">
+                    <div class="user__perfil">
+                        <div class="user__head">
+                            <div class="user__img">
+                                <img src="/images/users/<%= user.image %>" alt="">
+                            </div>
+                            <div class="user__names">
+                                <h2>
+                                    <%= user.firstname %>
+                                </h2>
+
+                                <h2>
+                                    <%= user.lastname %>
+                                </h2>
+
+                            </div>
                         </div>
-                        <div class="user__names">
-                            <h2><%= user.firstName %> </h2>
-                            
-                            <h2><%= user.lastName %> </h2>
-                            
+                        <div class="user__options">
+                            <a href="/users/profile/edit/<%= userLogin.id %>">Editar Perfil <i
+                                    class="fas fa-edit"></i></a>
+                            <!--esto de momento lo dejamos sin funcionalidad-->
+                            <a href="/products/cart">Carrito de compras</a>
                         </div>
                     </div>
-                    <div class="user__options">
-                        <a href="/users/profile/edit/<%= userLogin.id %>">Editar Perfil <i class="fas fa-edit"></i></a><!--esto de momento lo dejamos sin funcionalidad-->
-                        <a href="/carrito">Carrito de compras</a>
+                    <h1>Datos del usuario</h1>
+                    <div class="user__dats">
+                        <div class="user__info">
+                            <h3> usuario : </h3>
+                            <h4>
+                                <%= user.username %>
+                            </h4>
+
+                        </div>
+                        <div class="user__info">
+                            <h3>Email: </h3>
+                            <h4>
+                                <%= user.email %>
+                            </h4>
+                        </div>
+                        <div class="user__info">
+                            <h3>Rol : </h3>
+                            <h4>
+                                <%= user.rol.name %>
+                            </h4>
+                        </div>
                     </div>
-                </div>
-                <h1>Datos del usuario</h1>
-                <div class="user__dats">
-                    <div class="user__info">
-                        <h3> usuario : </h3>
-                        <h4><%= user.user %></h4>
-                        
+                    <div class="user__historial">
+                        <h3>Historial de compras:</h3>
+                        <h4>No se encontraron compras realizadas</h4>
+                        <!--cuando tengamos base de datos agregaremos esto-->
                     </div>
-                    <div class="user__info">
-                        <h3>Email:  </h3>
-                        <h4><%= user.email %></h4>
-                    </div>
-                    <div class="user__info">
-                        <h3>Rol : </h3>
-                        <h4> <%= user.category %> </h4>
-                    </div>
-                    <div class="user__info">
-                        <h3>password : </h3>
-                        <h4> <%= userLogin.contra %> </h4>
-                    </div>
-                </div>
-                <div class="user__historial">
-                    <h3>Historial de compras:</h3>
-                    <h4>No se encontraron compras realizadas</h4><!--cuando tengamos base de datos agregaremos esto-->
-                </div>
-                
-            </section>
-        </main>
+
+                </section>
+            </main>
     </body>
     <%- include('../partials/footer') %>
-    <script src="/javascript/menuMobile.js"></script>
+        <script src="/javascript/menuMobile.js"></script>
+        <script src="/javascript/navEmergent.js"></script>
 
 </html>
