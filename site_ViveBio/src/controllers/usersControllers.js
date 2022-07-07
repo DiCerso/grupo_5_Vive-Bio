@@ -14,18 +14,18 @@ module.exports = {
     register: (req, res) => res.render('users/register', {
         old: req.body
     }),
-    processLogin: (req, res) => {
+    processLogin: async (req, res) => {
         const errors = validationResult(req);
         if (errors.isEmpty()) {
-            const { username } = req.body;
-            db.User.findOne({
-                where: {
-                    username
-                },
-                include: [
-                    { association: 'rol' }
-                ]
-            }).then(user => {
+            try {
+                const user = await db.User.findOne({
+                    where: {
+                        username: req.body.username
+                    },
+                    include: [
+                        { association: 'rol' }
+                    ]
+                })
                 req.session.userLogin = {
                     id: +user.id,
                     firstname: user.firstname.trim(),
@@ -38,7 +38,9 @@ module.exports = {
                     res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
                 }
                 return res.redirect('/');
-            })
+            } catch (error) {
+                console.log(error)
+            }
         } else {
             return res.render('users/login', {
                 errors: errors.mapped(),
@@ -47,32 +49,31 @@ module.exports = {
         }
     },
 
-    processRegister: (req, res) => {
+    processRegister: async (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let { firstname, lastname, email, username, password } = req.body;
-
-            const newuser = db.User.create({
-                firstname,
-                lastname,
-                username,
-                email,
-                password: bcryptjs.hashSync(password, 10),
-                rol_id: 2,
-                image: req.file ? req.file.filename : "defaultAvatar.jpg"
-            })
-
-            Promise.all(([newuser]))
-                .then(([newuser]) => {
-                    req.session.userLogin = {
-                        id: newuser.id,
-                        username: newuser.username,
-                        rol: "user",
-                        image: newuser.image
-                    }
-                    return res.redirect("/");
+            try {
+                const { firstname, lastname, email, username, password } = req.body;
+                const newuser = await db.User.create({
+                    firstname,
+                    lastname,
+                    username,
+                    email,
+                    password: bcryptjs.hashSync(password, 10),
+                    rol_id: 2,
+                    image: req.file ? req.file.filename : "defaultAvatar.jpg"
                 })
-                .catch(error => console.log(error))
+                req.session.userLogin = {
+                    id: newuser.id,
+                    username: newuser.username,
+                    rol: "user",
+                    image: newuser.image
+                }
+                res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+                return res.redirect("/");
+            } catch (error) {
+                console.log(error)
+            }
         } else {
             if (req.file) {
                 fs.unlinkSync(
@@ -120,21 +121,21 @@ module.exports = {
         if (errors.isEmpty()) {
             try {
                 const { firstname, lastname, username } = req.body;
-                const oldUser = await db.User.findByPk(req.params.id,{
-                    include : ['rol']
+                const oldUser = await db.User.findByPk(req.params.id, {
+                    include: ['rol']
                 })
                 const user = await db.User.update({
                     firstname: firstname.trim(),
                     lastname: lastname.trim(),
                     username: username.trim(),
                     image: req.file ? req.file.filename : oldUser.image
-                },{
-                    where : {
-                        id : req.params.id
+                }, {
+                    where: {
+                        id: req.params.id
                     }
                 })
-                const userEdited = await db.User.findByPk(req.params.id,{
-                    include : ['rol']
+                const userEdited = await db.User.findByPk(req.params.id, {
+                    include: ['rol']
                 })
                 req.session.userLogin = {
                     id: userEdited.id,
@@ -175,8 +176,6 @@ module.exports = {
             } catch (error) {
                 console.log(error)
             }
-
-
         }
     }
 }
