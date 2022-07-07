@@ -60,92 +60,151 @@ module.exports = {
     },
 
     card: (req, res) => {
-        Product.findByPk(req.params.id)
+        Product.findByPk(req.params.id,
+            {
+                include : [
+                    {association: 'productImages'},
+                    {association : 'property'},
+                    {association : 'category'},
+                ]
+            })
         .then(product => {
-            return res.render('products/productCard', { toThousand, product });
+            return res.render('products/card', { toThousand, product });
         })
-        .catch(error => console.log(error));
+        .catch((error)=>{
+            console.log(error)
+        })
     },
 
     add: (req, res) => {
         Category.findAll()
         .then(categories => {
-            return res.render('products/addProducts', { categories });
+            return res.render('products/add', { categories });
+        })
+        .catch((error)=>{
+            console.log(error)
         })
     },
 
     store: (req, res) => {
-        Product.create({
-            name : req.body.name,
-            category_id : req.body.category,
-            volume : req.body.volume,
-            price : req.body.price,
-            discount : req.body.discount,
-/*             IMAGES */
-            ingredients : req.body.ingredients,
-            description : req.body.description,
-            stock : req.body.stock,
-            property_id : req.body.property
-        })
-        return res.redirect('/products/all');
+            const { name, description, ingredients, volume, price, discount, stock, category_id, property_id} = req.body;
+            Product.create({
+                name, 
+                description,
+                ingredients,
+                volume, 
+                price,
+                discount, 
+                stock, 
+                category_id,
+                property_id,
+            })
+            .then ((product) => {
+                return res.redirect('/products/all')
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
     },
 
     edit: (req, res) => {
-        let productId = Product.findByPk(req.params.id)
-        let categoryResult = Category.findAll()
-        Promise.All([productId, categoryResult])
-        .then(function([product,categories]){
-            return res.render('products/edit', { product, categories })
-        })
 
+        Product.findByPk(req.params.id,
+            {
+                include: ['productImages'] 
+            })
+        let categories = Category.findAll()
+
+        Promise.all([product, categories])
+            .then(function([product,categories]){
+                return res.render('products/edit', { product, categories })
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
     },
 
     update: (req, res) => {
-        Product.update({
-            name : req.body.name,
-            category_id : req.body.category,
-            volume : req.body.volume,
-            price : req.body.price,
-            discount : req.body.discount,
-/*             IMAGES */
-            ingredients : req.body.ingredients,
-            description : req.body.description,
-            stock : req.body.stock,
-            property_id : req.body.property
+            const { name, description, ingredients, volume, price, discount, stock, category_id, property_id} = req.body;
+            Product.update({
+                name,
+                description,
+                ingredients,
+                volume, 
+                price,
+                discount, 
+                stock, 
+                category_id,
+                property_id
         },{
             where : {
                 id : req.params.id
-            }
-        })
-            res.redirect('/products/' + req.params.id)
-
-        },
+                }
+            })
+            .then((product)=>{
+                res.redirect('/products/' + req.params.id)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+    },
 
     remove: (req, res) => {
-        Product.destroy({
-            where : {
-                id : req.params.id
-            }
-        })
-
-        fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
-
-        return res.redirect('/products/all');
+            Product.destroy({
+                where : {
+                    id : req.params.id
+                }
+            })
+            .then(()=>{
+                return res.redirect('products/list')
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
     },
     search: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
-        const keywords = accent_fold(req.query.keyboard.toLowerCase());
-        let result = products.filter(product => accent_fold(product.name.toLowerCase()).includes(keywords))
-        return res.render('products/productSearch', { result })
+        const resultados = req.query.search.toLowerCase();
+        db.Products.findAll({
+            where: {
+             name : {[Op.substring]: resultados},
+             description : {[Op.substring]: resultados}
+            },
+            include : ['prouctImages'] 
+          })
+        .then(resultados => {
+            return res.render('products/search', { toThousand, accent_map, resultados});
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
 
     },
     list : (req, res) => {
 
-        Product.findAll()
-        .then(products => {
-            return res.render('products/list', {products});
-        })
-        .catch(error => console.log(error));
+            const products = Product.findAll()
+
+            const bioCapilar = Product.findAll({
+                where : {
+                    category_id : 1
+                }
+            })
+            const bioCorporal = Product.findAll({
+                where : {
+                    category_id : 2
+                }
+            })
+            const bioSpa = Product.findAll({
+                where : {
+                    category_id : 3
+                }
+            })
+            Promise.all([products, bioCapilar, bioCorporal,bioSpa,])
+            .then(([products, bioCapilar, bioCorporal, bioSpa])=>{
+                return res.render('products/list', { toThousand, products, bioCapilar, bioCorporal, bioSpa })
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
         
     },
     cart: async (req, res) => {
