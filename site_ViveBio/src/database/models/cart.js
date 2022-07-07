@@ -29,9 +29,25 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id',
             }
         },
-        cant : {
+        payment_id : {
             type : DataTypes.INTEGER.UNSIGNED,
-            allowNull : false
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'payments'
+                },
+                key: 'id',
+            }
+        },
+        order_id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'orders'
+                },
+                key: 'id',
+            }
         }
     }
 
@@ -52,6 +68,15 @@ module.exports = (sequelize, DataTypes) => {
             as : 'user',
             foreignKey : 'user_id'
         })
+        Cart.belongsTo(models.Payment,{
+            as : 'payment',
+            foreignKey : 'payment_id'
+        })
+        Cart.belongsTo(models.Order,{
+            as : 'order',
+            foreignKey : 'order_id'
+        })
+
     }
 
     return Cart
