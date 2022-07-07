@@ -77,6 +77,9 @@ module.exports = {
     store: (req, res) => {
         Product.create({
             name : req.body.name,
+            category_id : req.body.category,
+            volume : req.body.volume,
+            price : req.body.price,
             discount : req.body.discount,
 /*             IMAGES */
             ingredients : req.body.ingredients,
@@ -84,15 +87,15 @@ module.exports = {
             stock : req.body.stock,
             property_id : req.body.property
         })
-        return res.redirect('/products/All');
-
+        return res.redirect('/products/all');
     },
 
+    edit: (req, res) => {
         let productId = Product.findByPk(req.params.id)
         let categoryResult = Category.findAll()
         Promise.All([productId, categoryResult])
         .then(function([product,categories]){
-            return res.render('products/editProducts', { product, categories })
+            return res.render('products/edit', { product, categories })
         })
 
     },
@@ -103,6 +106,7 @@ module.exports = {
             category_id : req.body.category,
             volume : req.body.volume,
             price : req.body.price,
+            discount : req.body.discount,
 /*             IMAGES */
             ingredients : req.body.ingredients,
             description : req.body.description,
@@ -126,7 +130,7 @@ module.exports = {
 
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'products.json'), JSON.stringify(productFilter, null, 3), 'utf-8')
 
-        return res.redirect('/products/All');
+        return res.redirect('/products/all');
     },
     search: (req, res) => {
         const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'products.json')));
@@ -171,7 +175,7 @@ module.exports = {
             cart.forEach(cart => {
                 desc += +cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)
             })
-            return res.render('products/productCart',{
+            return res.render('products/cart',{
                 payments,
                 cart,
                 total,
@@ -199,7 +203,7 @@ module.exports = {
                 })
             }
             
-            return res.redirect('/Products/cart')
+            return res.redirect('/products/cart')
         } catch (error) {
             console.log(error)
         }
@@ -217,7 +221,7 @@ module.exports = {
                 }
             }
             )
-            return res.redirect('/Products/cart')
+            return res.redirect('/products/cart')
         } catch (error) {
             console.log(error)
         }
