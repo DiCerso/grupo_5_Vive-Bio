@@ -13,28 +13,19 @@ module.exports = [
     body('username')
         .isLength({ min: 4, max: 8 }).withMessage('El usuario debe contener entre 4 y 8 caracteres.').bail()
         .custom((value, { req }) => {
-            return db.User.findAll({
+            return db.User.findOne({
                 where: {
+                    username: value,
                     id: {
                         [Op.not]: req.params.id
-                    },
-                    username: {
-                        [Op.not]: value
                     }
                 }
-
             })
                 .then(user => {
-                    return Promise.reject(user)
+                    if (user) {
+                        return Promise.reject()
+                    }
                 })
-
                 .catch(() => Promise.reject('Este usuario ya se encuentra en uso.'))
-
         })
-    /* if (user) {
-        return Promise.reject()
-    }
-}).catch(() => Promise.reject('Este usuario ya se encuentra en uso.')) */
-
-
 ]
