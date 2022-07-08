@@ -11,7 +11,7 @@ module.exports = {
                 ],
                 limit : 4, 
                 include : [
-                    {association: 'productImages'}
+                    {association: 'images'}
                 ]
             })
             let category = await db.Category.findAll()

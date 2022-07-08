@@ -22,22 +22,22 @@
                         </div>
                         <form class="list__busqueda" action="/products/list" method="GET">
                             <input type="text" name="keyboard" class="list__barra">
-                            <button type="submit">buscar</button>
+                            <button type="submit">Buscar</button>
                         </form>
                     </div>
                     <div class="list__headproducts">
-                        <h3 class="list__id">id</h3>
-                        <h3 class="list__name">nombre</h3>
-                        <h3 class="list__price">precio</h3>
-                        <h3 class="list__options">opciones</h3>
+                        <h3 class="list__id">Id</h3>
+                        <h3 class="list__name">Nombre</h3>
+                        <h3 class="list__price">Precio</h3>
+                        <h3 class="list__options">Opciones</h3>
                     </div>
                     <section class="list__products">
                         <% products.forEach(product=> { %>
                             <article class="list__product">
-                                <a class="list__id" href="/products/Card/<%= product.id %>">
+                                <a class="list__id" href="/products/card/<%= product.id %>">
                                     <%= product.id %>
                                 </a>
-                                <a class="list__name" href="/products/Card/<%= product.id %>">
+                                <a class="list__name" href="/products/card/<%= product.name %>">
                                     <%= product.name %>
                                 </a>
                                 <h4 class="list__price">$<%= product.price %>
@@ -47,7 +47,7 @@
                                         <button class="list__delete" type="submit" title="Eliminar producto"><i
                                                 class="fa-solid fa-trash-can"></i></button>
                                     </form>
-                                    <a href="/Products/Edit/<%= product.id %>" class="list__edit"
+                                    <a href="/products/edit/<%= product.id %>" class="list__edit"
                                         title="Editar producto"><i class="fa-solid fa-pen"></i></a>
                                 </div>
                             </article>

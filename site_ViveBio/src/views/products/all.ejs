@@ -9,20 +9,22 @@
                 <section class="main">
                     <h2 class="titulares" id="BioCapilar">BioCapilar</h2>
                     <section class="row">
-                        <% bioCapilar.forEach(({id,name,price,discount,property,productImages})=> { %>
+                        <% bioCapilar.forEach(({id,name,price,discount,property,images})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
-                                        <a href="/products/Card/<%= id %>">
-                                            <img src="/images/<%= productImages[0].name %>" alt="producto">
-                                        </a>
-                                        <span class="promo">
-                                            <%= discount %>% off
-                                        </span>
+                                        <% images.forEach(image=> { %>
+                                            <% if (image.primary) { %>
+                                                <img src="/images/products/<%= images.name%>" alt="imagen del producto">
+                                                <% } %>
+                                                    <% }) %>
+                                                        <span class="promo">
+                                                            <%= discount %>% off
+                                                        </span>
                                     </div>
                                     <div class="info-container">
                                         <div class="Card-info-texto">
-                                            <a href="/products/Card/<%= id %>">
+                                            <a href="/products/card/<%= id %>">
                                                 <h2>
                                                     <%= name %>
                                                 </h2>
@@ -30,7 +32,6 @@
                                             <h4>
                                                 <%= category.name %>
                                             </h4>
-                                            <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
                                             <p>
                                                 $ <% if (discount) { %>
@@ -44,14 +45,14 @@
                                             <div class="iconos-white">
                                                 <% if (locals.userLogin) { %>
                                                     <% if (userLogin.category==="admin" ) { %>
-                                                        <a href="/products/Edit/<%= id %> " title="Editar producto"><i
+                                                        <a href="/products/edit/<%= id %> " title="Editar producto"><i
                                                                 class="fa-solid fa-pen"></i></a>
                                                         <% } %>
                                                             <% } %>
-                                                                <a href="/products/Card/<%= id %>"><i
+                                                                <a href="/products/card/<%= id %>"><i
                                                                         class="fa-solid fa-eye"
                                                                         title="Ver producto"></i></a>
-                                                                <a href="/productCarrito.html" class="add-cart">Quiero!
+                                                                <a href="/products/cart" class="add-cart">Quiero!
                                                                     🛒</a>
                                                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                                                 <a href="#"><i class="fa-solid fa-star"></i></a>
@@ -64,20 +65,22 @@
                     </section>
                     <h2 class="titulares" id="BioCorporal">BioCorporal</h2>
                     <section class="row">
-                        <% bioCorporal.forEach(({id,name,price,discount,property,productImages})=> { %>
+                        <% bioCorporal.forEach(({id,name,price,discount,property,images})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
-                                        <a href="/products/Card/<%= id %>">
-                                            <img src="/images/<%= productImages[0].name %>" alt="producto">
-                                        </a>
-                                        <span class="promo">
-                                            <%= discount %>% off
-                                        </span>
+                                        <% images.forEach(image=> { %>
+                                            <% if (image.primary) { %>
+                                                <img src="/images/products/<%= images.name%>" alt="imagen del producto">
+                                                <% } %>
+                                                    <% }) %>
+                                                        <span class="promo">
+                                                            <%= discount %>% off
+                                                        </span>
                                     </div>
                                     <div class="info-container">
                                         <div class="Card-info-texto">
-                                            <a href="/products/Card/<%= id %>">
+                                            <a href="/products/card/<%= id %>">
                                                 <h2>
                                                     <%= name %>
                                                 </h2>
@@ -85,7 +88,6 @@
                                             <h4>
                                                 <%= category.name %>
                                             </h4>
-                                            <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
                                             <p>
                                                 $ <% if (discount) { %>
@@ -99,14 +101,14 @@
                                             <div class="iconos-white">
                                                 <% if (locals.userLogin) { %>
                                                     <% if (userLogin.category==="admin" ) { %>
-                                                        <a href="/products/Edit/<%= id %> " title="Editar producto"><i
+                                                        <a href="/products/edit/<%= id %> " title="Editar producto"><i
                                                                 class="fa-solid fa-pen"></i></a>
                                                         <% } %>
                                                             <% } %>
-                                                                <a href="/products/Card/<%= id %>"><i
+                                                                <a href="/products/card/<%= id %>"><i
                                                                         class="fa-solid fa-eye"
                                                                         title="Ver producto"></i></a>
-                                                                <a href="/productCarrito.html" class="add-cart">Quiero!
+                                                                <a href="/products/cart" class="add-cart">Quiero!
                                                                     🛒</a>
                                                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                                                 <a href="#"><i class="fa-solid fa-star"></i></a>
@@ -119,20 +121,22 @@
                     </section>
                     <h2 class="titulares" id="BioSpa">BioSpa</h2>
                     <section class="row">
-                        <% bioSpa.forEach(({id,name,price,discount,property,productImages})=> { %>
+                        <% bioSpa.forEach(({id,name,price,discount,property,images})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
-                                        <a href="/products/Card/<%= id %>">
-                                            <img src="/images/<%= productImages[0].name %>" alt="producto">
-                                        </a>
-                                        <span class="promo">
-                                            <%= discount %>% off
-                                        </span>
+                                        <% images.forEach(image=> { %>
+                                            <% if (image.primary) { %>
+                                                <img src="/images/products/<%= images.name%>" alt="imagen del producto">
+                                                <% } %>
+                                                    <% }) %>
+                                                        <span class="promo">
+                                                            <%= discount %>% off
+                                                        </span>
                                     </div>
                                     <div class="info-container">
                                         <div class="Card-info-texto">
-                                            <a href="/products/Card/<%= id %>">
+                                            <a href="/products/card/<%= id %>">
                                                 <h2>
                                                     <%= name %>
                                                 </h2>
@@ -140,28 +144,27 @@
                                             <h4>
                                                 <%= category.name %>
                                             </h4>
-                                            <h6 class="rating">⭐⭐⭐⭐</h6>
                                             <span>-<%= property.name %> -</span>
                                             <p>
                                                 $ <% if (discount) { %>
                                                     <%= toThousand(price - (price * discount / 100)) %>
                                                         <% }else{ %>
                                                             <%= toThousand(product.price) %>
-                                                                <% } %>
+                                                        <% } %>
                                             </p>
                                         </div>
                                         <div class="card-c-iconos">
                                             <div class="iconos-white">
                                                 <% if (locals.userLogin) { %>
                                                     <% if (userLogin.category==="admin" ) { %>
-                                                        <a href="/products/Edit/<%= id %> " title="Editar producto"><i
+                                                        <a href="/products/edit/<%= id %> " title="Editar producto"><i
                                                                 class="fa-solid fa-pen"></i></a>
                                                         <% } %>
                                                             <% } %>
-                                                                <a href="/products/Card/<%= id %>"><i
+                                                                <a href="/products/card/<%= id %>"><i
                                                                         class="fa-solid fa-eye"
                                                                         title="Ver producto"></i></a>
-                                                                <a href="/productCarrito.html" class="add-cart">Quiero!
+                                                                <a href="/products/cart" class="add-cart">Quiero!
                                                                     🛒</a>
                                                                 <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
                                                                 <a href="#"><i class="fa-solid fa-star"></i></a>
