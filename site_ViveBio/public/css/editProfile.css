@@ -1,10 +1,10 @@
-.edit_logo__user {
+.edit_user__img input {
     display: none;
 }
 
-
-.edit_user__img input {
-    display: none;
+.edit_user__dats h2{
+    width: 100%;
+    text-align: center;
 }
 
 .edit_user__img label {
@@ -14,6 +14,9 @@
     right: 6px;
     font-size: 25px;
     cursor: pointer;
+}
+.edit_user__img label i {
+    text-shadow: 0 0 5px white;
 }
 
 .edit_user__container {
@@ -25,6 +28,8 @@
     background-color: rgba(255, 255, 255, .15);
     backdrop-filter: blur(5px);
     border: 1px solid var(--verdeFuerte);
+    display:flex;
+    flex-direction: column;
 }
 
 .edit_user__perfil {
@@ -43,20 +48,6 @@
     margin-bottom: 10px;
 }
 
-.editProfile_box-pass {
-    width: 100%;
-    margin: 5px 0 5px;
-    padding: 8px 5px;
-    border-radius: 5px;
-    border: 1px solid var(--verdeFuerte);
-}
-
-.edit_user__info-pass label {
-    position: absolute;
-    top: 37px;
-    right: 10px;
-}
-
 .editProfile h3 {
     color: var(--VioletaOscuro);
 }
@@ -68,13 +59,17 @@
     flex-direction: column;
 }
 
-.edit_user__names input,
-.edit_user__info input {
+.edit_user__info{
     width: 100%;
+}
+
+.edit_user__info-container input {
+    width: 80%;
     margin: 5px 0 5px;
     padding: 10px 5px;
     border-radius: 5px;
     border: 1px solid var(--verdeFuerte);
+    text-align: center;
 }
 
 .edit_user__info-pass {
@@ -82,8 +77,17 @@
     margin: 15px 0 15px;
 }
 
-.edit_user__info {
-    margin: 15px 0 15px;
+.edit_user__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_user__info-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
 }
 
 .edit_user__img {
@@ -94,7 +98,7 @@
 .edit_user__img img {
     width: 100%;
     height: 100%;
-    border-radius: 35px;
+    border-radius: 15px;
     object-fit: contain;
 }
 
@@ -116,15 +120,27 @@
     font-size: 14px;
     text-shadow: 0 0 2px black;
     border: none;
-}
-.edit_user__historial{
-    text-align: center;
+    cursor:pointer;
+    color: white;
 }
 
 .editProfile h2 {
     margin: 10px 0 10px;
     text-shadow: none;
     color: black;
+}
+.edit_user__head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.edit_user__dats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (min-width: 425px) {
@@ -135,15 +151,10 @@
         justify-content: space-evenly;
     }
 
-    .edit_user__info {
+    .edit_user__container {
         display: flex;
         flex-direction: column;
-        width: 96%;
-        margin: 15px 15px;
-    }
-
-    .edit_user__container {
-        width: 90%;
+        width: 400px;
         margin-top: 25px;
     }
 
@@ -153,11 +164,6 @@
 
     .edit_user__img {
         width: 100px;
-    }
-
-
-    .user .header__user__mobile {
-        display: none;
     }
 
     .edit_logo__user {
@@ -171,9 +177,17 @@
         width: 96%;
         margin: 15px 15px;
     }
+    .edit_user__head{
+        justify-content: space-around;
+    }
 }
 
 @media(min-width: 645px) {
+
+    .edit_user__info-container input{
+        width: 260px;
+        text-align: start;
+    }
 
     .edit_user__info-pass {
         width: 43%;
@@ -196,17 +210,40 @@
     }
 
     .edit_user__dats {
+        flex-direction: column;
+        width: 75%;
+        padding: 20px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .edit_user__img{
+        margin: 20px 0;
+    }
+
+    .edit_user__info-container{
+        display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
     }
 
-    .edit_user__info {
-        width: 43%;
-        margin: 15px 15px;
+    .edit_user__container{
+        display: flex;
+        flex-direction: row;
+        width:80%;
+        max-width: 800px;
+        padding: 0;
+        margin: 50px auto;
     }
 
-    .edit_user__container {
-        width: 630px;
-        height: calc(100vh-130px);
+    .edit_user__head{
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 25%;
+        border-right: 1px solid var(--verdeFuerte);
+    }
+
+    .edit_user__info-container label{
+        width: 25%;
+        text-align: start;
     }
 }

@@ -23,6 +23,7 @@ router.get('/profile/edit/:id', editcheck ,editProfile )
 router.put('/profile/edit/update/:id',upload.single('image'),editProfileValidator, processEditProfile)
 
 
+
 module.exports = router;
 
 
