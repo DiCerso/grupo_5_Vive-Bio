@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     const alias = "Product";
 
     const cols = {
-
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
             autoIncrement: true,
