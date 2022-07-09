@@ -10,9 +10,9 @@
 
           <div class="container-card">
               <div class="box-imagen">
-                <% product.images.forEach(image => { %>
+                <% product.productImages.forEach(image => { %>
                   <% if (image.primary) { %>
-                    <img src="/images/products/<%= image.name%>" alt="imagen del producto">
+                    <img src="/images/products/<%= product.productImages[0].name%>" alt="imagen del producto">
                   <% } %>
                 <% }) %>
               </div>
@@ -49,13 +49,13 @@
           
           <h2 class="titulares">Productos Relacionados</h2>
           <section class="row">
-            <% relacionados.forEach(({id,images,name,discount,property,price})=> { %>
+            <% relacionados.forEach(({id,productImages,name,discount,property,price})=> { %>
               <article>
                 <div class="card estilo-c">
                   <div class="img-container">
-                    <% images.forEach(image => { %>
+                    <% product.productImages.forEach(image => { %>
                       <% if (image.primary) { %>
-                        <img src="/images/products/<%= images.name%>" alt="imagen del producto">
+                        <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
                       <% } %>
                     <% }) %>
                     <span class="promo">

@@ -11,7 +11,7 @@
                 </div>
                 <section class="sect1">
                     <% if (result.length > 0) { %>
-                        <% result.forEach(({id, name, price, discount, images})=> { %>
+                        <% result.forEach(({id, name, price, discount, productImages})=> { %>
                             <article class="art__home">
                                 <div class="nombreart__home">
                                     <h1>
@@ -19,9 +19,9 @@
                                     </h1>
                                 </div>
                                 <div class="imgart__home">
-                                    <% images.forEach(image => { %>
+                                    <% productImages.forEach(image => { %>
                                         <% if (image.primary) { %>
-                                          <img src="/images/products/<%= images.name%>" alt="imagen del producto">
+                                          <img src="/images/products/<%= image.name%>" alt="imagen del producto">
                                         <% } %>
                                       <% }) %>
                                 </div>

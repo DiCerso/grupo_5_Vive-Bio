@@ -1,5 +1,6 @@
 const path = require("path");
-const { Category, Product, ProductImage } = require("../database/models");
+const { Category, Property, Product, ProductImage } = require("../database/models");
+const { validationResult } = require('express-validator');
 const toThousand = (n) =>
     n
         .toFixed(0)
@@ -42,19 +43,19 @@ module.exports = {
                 where: {
                     category_id: 1,
                 },
-                include: [{ association: "images" }, { association: "property" }],
+                include: [{ association: "productImages" }, { association: "property" }],
             });
             const bioCorporal = await db.Product.findAll({
                 where: {
                     category_id: 2,
                 },
-                include: [{ association: "images" }, { association: "property" }],
+                include: [{ association: "productImages" }, { association: "property" }],
             });
             const bioSpa = await db.Product.findAll({
                 where: {
                     category_id: 3,
                 },
-                include: [{ association: "images" }, { association: "property" }],
+                include: [{ association: "productImages" }, { association: "property" }],
             });
 
             return res.render("products/all", {
@@ -69,37 +70,35 @@ module.exports = {
         }
     },
 
-    card: (req, res) => {
-        let product = Product.findByPk(req.params.id, {
+    card: async (req, res) => {
+        try {
+        let product = await db.Product.findByPk(req.params.id, {
             include: [
-                { association: "images" },
+                { association: "productImages" },
                 { association: "property" },
                 { association: "category" },
             ],
         });
-        let relacionados = Product.findAll({
-            where: {
-                    order : [
-                        ['category']
-                    ],
+        let relacionados = await db.Product.findAll({
+                where: {
+                    category_id : 1
+                },
                     limit : 3, 
                     include : [
-                        {association: 'images'}
+                        {association: 'productImages'}
                     ]
-        }})
-        Promise.all([product, relacionados])
-        .then(([product, relacionados]) => {
-            return res.render("products/card/" + product.id, { product, relacionados });
         })
-        .catch((error) => {
-            console.log(error);
-        });
-    },
+
+            return res.render('/products/card/'+id,{product,relacionados})
+    }
+    catch (error) {
+        console.log(error)
+    }},
 
     //view form add product
     add: (req, res) => {
-        let categories = Category.findAll({ order: ["name"] });
-        let properties = Property.findAll({ order: ["name "] });
+        let categories = db.Category.findAll({ order: ["name"] });
+        let properties = db.Property.findAll({ order: ["name"] });
         Promise.all([categories, properties])
             .then(([categories, properties]) => {
                 return res.render("products/add", { categories, properties });
@@ -157,15 +156,15 @@ module.exports = {
 
     //view form edit product
     edit: (req, res) => {
-        let product = Product.findByPk(req.params.id, {
-            include: ["images"],
+        let product = db.Product.findByPk(req.params.id, {
+            include: ["productImages"],
         });
-        let categories = Category.findAll({ order: ["name"] });
-        let properties = Property.findAll({ order: ["name"] });
+        let categories = db.Category.findAll({ order: ["name"] });
+        let properties = db.Property.findAll({ order: ["name"] });
 
         Promise.all([product, categories, properties])
             .then(([product, categories, properties]) => {
-                return res.render("products/all", { product, categories, properties });
+                return res.render("products/edit", { product, categories, properties });
             })
             .catch((error) => {
                 console.log(error);
@@ -176,6 +175,7 @@ module.exports = {
     update: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
+            const {name, description, price, category, discount, property} = req.body;
             Product.update(
                 {
                     ...req.body,
@@ -216,7 +216,7 @@ module.exports = {
         } else {
             errors = errors.mapped();
             let product = Product.findByPk(req.params.id, {
-                include: ["images"],
+                include: ["productImages"],
             });
             let categories = Category.findAll({ order: ["name"] });
             let properties = Property.findAll({ order: ["name "] });
@@ -249,23 +249,21 @@ module.exports = {
     },
 
     search: (req, res) => {
-        const keyword = req.query.toLowerCase();
-        db.Products.findAll({
+        db.Product.findAll({
             where: {
                 [Op.or]: [
-                    { name: { [Op.substring]: keyword } },
-                    { description: { [Op.substring]: keyword } },
-                    { property: { [Op.substring]: keyword } },
+                    { name: { [Op.substring]: req.query.keyword } },
+
                 ],
             },
-            include: ["images"],
+            include: ["productImages"],
         })
             .then((result) => {
                 return res.render("products/search", {
                     toThousand,
                     accent_map,
                     result,
-                    keyword,
+                    keyword : req.query.keyword,
                 });
             })
             .catch((error) => {
@@ -306,38 +304,41 @@ module.exports = {
             });
     },
     cart: async (req, res) => {
-        try {
-            let total = 0,
-                desc = 0;
-            const payments = await db.Payment.findAll();
-            const cart = await db.Cart.findAll({
-                where: {
-                    user_id: +req.session.userLogin.id,
-                },
-                include: [
-                    {
-                        association: "product",
-                        include: [{ association: "images" }],
-                    },
-                ],
-            });
-            cart.forEach((cart) => {
-                total += +cart.product.price;
-            });
 
-            cart.forEach((cart) => {
-                desc +=
-                    +cart.product.price -
-                    (+cart.product.price * +cart.product.discount) / 100;
-            });
-            return res.render("products/cart", {
+        try {
+            let total = 0, desc = 0;
+            const payments = await db.Payment.findAll()
+            const cart = await db.Cart.findAll(
+                {
+                    where: {
+                        user_id: +req.session.userLogin.id
+                    },
+                    include: [
+                        {
+                            association: 'product',
+                            include: [
+                                { association: 'productImages' }
+                            ]
+                        }
+                    ]
+                }
+            )
+            cart.forEach(cart => {
+                total += +cart.product.price
+            })
+
+            cart.forEach(cart => {
+                desc += +cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)
+            })
+            return res.render('products/productCart', {
                 payments,
                 cart,
                 total,
-                desc,
-            });
+                desc
+            })
+
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
     },
     removecart: async (req, res) => {
@@ -345,40 +346,39 @@ module.exports = {
             if (req.params.id == 0) {
                 await db.Cart.destroy({
                     where: {
-                        user_id: +req.session.userLogin.id,
-                    },
-                });
+                        user_id: +req.session.userLogin.id
+                    }
+                })
             } else {
                 await db.Cart.destroy({
                     where: {
                         product_id: req.params.id,
-                        user_id: +req.session.userLogin.id,
-                    },
-                });
+                        user_id: +req.session.userLogin.id
+                    }
+                })
             }
-
-            return res.redirect("/products/cart");
+            return res.redirect('/Products/cart')
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
     },
     cant: async (req, res) => {
-        let { id, idproduct } = req.params;
+        let { id, idproduct } = req.params
         try {
-            await db.Cart.update(
-                {
-                    cant: id,
-                },
+            await db.Cart.update({
+                cant: id
+            },
                 {
                     where: {
                         product_id: idproduct,
-                        user_id: +req.session.userLogin.id,
-                    },
+                        user_id: +req.session.userLogin.id
+                    }
                 }
-            );
-            return res.redirect("/products/cart");
+            )
+            return res.redirect('/Products/cart')
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
-    },
-};
+    }
+
+}

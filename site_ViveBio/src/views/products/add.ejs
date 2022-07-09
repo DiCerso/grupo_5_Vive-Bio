@@ -29,7 +29,7 @@
 									<label for="property">Propiedad</label>
 									<select class="add_input" name="property" id="property">
 										<option value="" hidden selected>Selecciona...</option>
-										<% property.forEach(property=> { %>
+										<% properties.forEach(property=> { %>
 											<option value="<%= property.id %>">
 												<%= property.name %>
 											</option>

@@ -9,15 +9,15 @@
                 <section class="main">
                     <h2 class="titulares" id="BioCapilar">BioCapilar</h2>
                     <section class="row">
-                        <% bioCapilar.forEach(({id,name,price,discount,property,images})=> { %>
+                        <% bioCapilar.forEach(({id,name,price,discount,property,productImages})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
-                                        <% images.forEach(image=> { %>
+                                        <% productImages.forEach(image => { %>
                                             <% if (image.primary) { %>
-                                                <img src="/images/products/<%= images.name%>" alt="imagen del producto">
-                                                <% } %>
-                                                    <% }) %>
+                                              <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                                            <% } %>
+                                          <% }) %>
                                                         <span class="promo">
                                                             <%= discount %>% off
                                                         </span>
@@ -65,15 +65,15 @@
                     </section>
                     <h2 class="titulares" id="BioCorporal">BioCorporal</h2>
                     <section class="row">
-                        <% bioCorporal.forEach(({id,name,price,discount,property,images})=> { %>
+                        <% bioCorporal.forEach(({id,name,price,discount,property,productImages})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
-                                        <% images.forEach(image=> { %>
+                                        <% productImages.forEach(image => { %>
                                             <% if (image.primary) { %>
-                                                <img src="/images/products/<%= images.name%>" alt="imagen del producto">
-                                                <% } %>
-                                                    <% }) %>
+                                              <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                                            <% } %>
+                                          <% }) %>
                                                         <span class="promo">
                                                             <%= discount %>% off
                                                         </span>
@@ -121,15 +121,15 @@
                     </section>
                     <h2 class="titulares" id="BioSpa">BioSpa</h2>
                     <section class="row">
-                        <% bioSpa.forEach(({id,name,price,discount,property,images})=> { %>
+                        <% bioSpa.forEach(({id,name,price,discount,property,productImages})=> { %>
                             <article>
                                 <div class="card estilo-c">
                                     <div class="img-container">
-                                        <% images.forEach(image=> { %>
+                                        <% productImages.forEach(image => { %>
                                             <% if (image.primary) { %>
-                                                <img src="/images/products/<%= images.name%>" alt="imagen del producto">
-                                                <% } %>
-                                                    <% }) %>
+                                              <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                                            <% } %>
+                                          <% }) %>
                                                         <span class="promo">
                                                             <%= discount %>% off
                                                         </span>

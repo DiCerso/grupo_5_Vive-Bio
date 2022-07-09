@@ -417,7 +417,7 @@ segunda parte del main
 .home .sect2 .categorias__home .BioCorporal__home {
     /* background-image: url(/images/shampoo-argán.jpg); */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url(/images/producto1.jpeg);
+            rgba(0, 0, 0, 0.5)), url(/images/products/producto1.jpeg);
     background-size: cover;
     transition: all 0.5s;
 }
@@ -428,7 +428,7 @@ segunda parte del main
     /* background-image: url(/images/acondicionador-natural-de-coco-3.jpg); */
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url(/images/producto2.jpeg);
+            rgba(0, 0, 0, 0.5)), url(/images/products/producto2.jpeg);
     background-size: cover;
     transition: all 0.5s;
 }
@@ -437,7 +437,7 @@ segunda parte del main
     /* background-image: url(/images/2en1almendras.jpg); */
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url(/images/producto3.jpeg);
+            rgba(0, 0, 0, 0.5)), url(/images/products/producto3.jpeg);
     background-size: cover;
     transition: all 0.5s;
 
