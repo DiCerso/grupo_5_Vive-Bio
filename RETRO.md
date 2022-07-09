@@ -8,3 +8,4 @@
 | `Tercer Sprint` | -Daylis |  -Realizar más prácticas individuales y grupales. | -Ser individualista. | -Posponer daylis, plazos. | -Adaptarse. -Centrarse más en visualización de código. -Preguntar antes de hacer un cambio significativo. | 
 | `Cuarto Sprint` | -Daylis. Compañero. Consultar dudas. Comunicación efectiva. Valorar trabajo del otro. Empatía. |  -Weekly. Realizar más prácticas individuales y grupales. | -No delegar tareas equitativamente. | -Posponer daylis. | -Preguntar antes de hacer un cambio significativo. -Comunicar | 
 | `Quinto Sprint` | -Weekly. |  -Realizar más prácticas grupales. Comunicar cuando va a realizar su parte | -Asumir errores individualmente  | ***no encontramos problemas en este sprint*** | -Consultar dudas. Comunicación efectiva.| 
+| `Sexto Sprint` | -Weekly. -Consultar dudas. |  -Asumir errores grupalmente.| -Guardarse incomodidades.  | -Comprometer el tiempo de entrega. | Comunicación efectiva. | 
