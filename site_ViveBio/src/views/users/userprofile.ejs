@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', { title : "user" }) %>
+<%- include('../partials/head', { title : "Perfil" }) %>
 
 
     <body class="user">
@@ -27,36 +27,38 @@
                         <div class="user__options">
                             <a href="/users/profile/edit/<%= userLogin.id %>">Editar Perfil <i
                                     class="fas fa-edit"></i></a>
-                            <!--esto de momento lo dejamos sin funcionalidad-->
                             <a href="/products/cart">Carrito de compras</a>
                         </div>
                     </div>
-                    <h1>Datos del usuario</h1>
-                    <div class="user__dats">
-                        <div class="user__info">
-                            <h3> usuario : </h3>
-                            <h4>
-                                <%= user.username %>
-                            </h4>
+                    <div class="user__dats-container">
+                        <div class="user__dats">
+                            <div class="user__info-title">
+                                <h2 style="text-decoration: underline;">Datos del usuario</h2>
+                            </div>
+                            <div class="user__info">
+                                <h3> Usuario: </h3>
+                                <h4>
+                                    <%= user.username %>
+                                </h4>
 
+                            </div>
+                            <div class="user__info">
+                                <h3>Email: </h3>
+                                <h4>
+                                    <%= user.email %>
+                                </h4>
+                            </div>
+                            <div class="user__info">
+                                <h3>Rol : </h3>
+                                <h4>
+                                    <%= user.rol.name %>
+                                </h4>
+                            </div>
                         </div>
-                        <div class="user__info">
-                            <h3>Email: </h3>
-                            <h4>
-                                <%= user.email %>
-                            </h4>
+                        <div class="user__historial">
+                            <h3>Historial de compras:</h3>
+                            <h4>No se encontraron compras realizadas</h4>
                         </div>
-                        <div class="user__info">
-                            <h3>Rol : </h3>
-                            <h4>
-                                <%= user.rol.name %>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="user__historial">
-                        <h3>Historial de compras:</h3>
-                        <h4>No se encontraron compras realizadas</h4>
-                        <!--cuando tengamos base de datos agregaremos esto-->
                     </div>
 
                 </section>

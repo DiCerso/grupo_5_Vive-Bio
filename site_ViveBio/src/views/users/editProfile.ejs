@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', { title : "Edit Profile" }) %>
+<%- include('../partials/head', { title : "Edición de Perfil" }) %>
 
     <body class="editProfile">
         <%- include('../partials/header') %>
@@ -9,61 +9,66 @@
                 <form action="/users/profile/edit/update/<%= user.id %>?_method=PUT" method="POST"
                     enctype="multipart/form-data">
                     <section class="edit_user__container">
-                        <div class="edit_user__perfil">
-                            <div class="edit_user__head">
-                                <div class="edit_user__img">
-                                    <img src="/images/users/<%= user.image %>" alt="">
-                                    <label for="image"><i class="fas fa-pen"></i></label>
-                                    <input type="file" accept="image/*" id="image" name="image">
-                                </div>
-                                <div class="edit_user__names">
-                                    <input type="text" value="<%= locals.errores && errores.firstname ? old.firstname : user.firstname %>" name="firstname" id="firstname">
-                                    <span class="register_alert">
-                                        <%= locals.errores && errores.firstname ? errores.firstname.msg : null %>
-                                    </span>
-                                    <input type="text" value="<%= locals.errores && errores.lastname ? old.lastname : user.lastname %>" name="lastname" id="lastname">
-                                    <span class="register_alert">
-                                        <%= locals.errores && errores.lastname ? errores.lastname.msg : null %>
-                                    </span>
-                                </div>
+                        <div class="edit_user__head">
+                            <div class="edit_user__img">
+                                <img src="/images/users/<%= user.image %>" alt="">
+                                <label for="image"><i class="fas fa-pen"></i></label>
+                                <input type="file" accept="image/*" id="image" name="image">
                             </div>
                             <div class="edit_user__options">
                                 <button type="submit">Guardar Cambios</button>
-                                <button type="reset">Limpiar Cambios</button>
                             </div>
                         </div>
-                        <h2>Datos del usuario</h2>
                         <div class="edit_user__dats">
+                            <h2 style="text-decoration: underline;">Datos del usuario</h2>
                             <div class="edit_user__info">
-                                <h3> usuario : </h3>
-                                <input type="text" value="<%= locals.errores && errores.username ? old.username : user.username %>" name="username" id="username">
-                                <span class="register_alert">
-                                    <%= locals.errores && errores.username ? errores.username.msg : null %>
+                                <div class="edit_user__info-container">
+                                    <label for="">Nombre:</label>
+                                    <input type="text"
+                                        value="<%= locals.errores && errores.firstname ? old.firstname : user.firstname %>"
+                                        name="firstname" id="firstname">
+                                </div>
+                                <span class="register_alert" style="width: auto;margin: auto;">
+                                    <%= locals.errores && errores.firstname ? errores.firstname.msg : null %>
                                 </span>
                             </div>
                             <div class="edit_user__info">
-                                <h3>Email: </h3>
-                                <input type="text" value="<%= user.email %>" disabled name="email" id="email">
+                                <div class="edit_user__info-container">
+                                    <label for="">Apellido:</label>
+                                    <input type="text"
+                                        value="<%= locals.errores && errores.lastname ? old.lastname : user.lastname %>"
+                                        name="lastname" id="lastname">
+                                </div>
+                                <span class="register_alert" style="width: auto;margin: auto;">
+                                    <%= locals.errores && errores.lastname ? errores.lastname.msg : null %>
+                                </span>
                             </div>
                             <div class="edit_user__info">
-                                <h3>Rol : </h3>
-                                <h4>
-                                    <%= user.rol.name %>
-                                </h4>
+                                <div class="edit_user__info-container">
+                                    <label for="">Usuario:</label>
+                                    <input type="text"
+                                        value="<%= locals.errores && errores.username ? old.username : user.username %>"
+                                        name="username" id="username">
+                                </div>
+                                <span class="register_alert" style="width: auto;margin: auto;">
+                                    <%= locals.errores && errores.username ? errores.username.msg : null %>
+                                </span>
+                            </div>
+                            <div class="edit_user__info-container">
+                                <label for="">Email:</label>
+                                <input type="text" value="<%= user.email %>" disabled name="email" id="email">
+                            </div>
+                            <div class="edit_user__info-container">
+                                <label for="">Rol:</label>
+                                <span><%= user.rol.name %></span>
                             </div>
                         </div>
-                        <div class="edit_user__historial">
-                            <h3>Historial de compras:</h3>
-                            <h4>No se encontraron compras realizadas</h4>
-                            <!--cuando tengamos base de datos agregaremos esto-->
-                        </div>
-
                     </section>
                 </form>
             </main>
     </body>
     <%- include('../partials/footer') %>
-    <script src="/javascript/menuMobile.js"></script>
-    <script src="/javascript/navEmergent.js"></script>
+        <script src="/javascript/menuMobile.js"></script>
+        <script src="/javascript/navEmergent.js"></script>
 
 </html>
