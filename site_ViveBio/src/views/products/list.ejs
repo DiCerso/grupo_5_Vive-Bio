@@ -43,7 +43,7 @@
                                 <h4 class="list__price">$<%= product.price %>
                                 </h4>
                                 <div class="list__options">
-                                    <form method="POST" action="/Products/remove/<%= product.id %>?_method=DELETE">
+                                    <form method="POST" action="/products/remove/<%= product.id %>?_method=DELETE">
                                         <button class="list__delete" type="submit" title="Eliminar producto"><i
                                                 class="fa-solid fa-trash-can"></i></button>
                                     </form>

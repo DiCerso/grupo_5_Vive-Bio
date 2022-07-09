@@ -63,11 +63,7 @@
                                     </h1>
                                 </div>
                                 <div class="imgart__home">
-                                    <% product.productImages.forEach(image => { %>
-                                        <% if (image.primary) { %>
                                           <img src="/images/products/<%= product.productImages[0].name%>" alt="imagen del producto">
-                                        <% } %>
-                                      <% }) %>
                                 </div>
                                 <div class="precio">
                                     <h4>

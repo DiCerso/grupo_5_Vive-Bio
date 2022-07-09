@@ -72,10 +72,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull : false
         },
-        visits : {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        }
+
     }
 
 
@@ -125,10 +122,6 @@ module.exports = (sequelize, DataTypes) => {
             timestamps : false
         })
 
-        Product.hasMany(models.Visit,{
-            as : 'visit',
-            foreignKey : 'product_id'
-        }) 
     }
 
     return Product

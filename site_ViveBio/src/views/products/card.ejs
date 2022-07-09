@@ -9,16 +9,15 @@
         <section class="primer_contenedor">
 
           <div class="container-card">
-              <div class="box-imagen">
-                <% product.productImages.forEach(image => { %>
-                  <% if (image.primary) { %>
-                    <img src="/images/products/<%= product.productImages[0].name%>" alt="imagen del producto">
-                  <% } %>
-                <% }) %>
-              </div>
+
+             <div class="box-imagen">
+              <% product.productImages.forEach(image => { %>
+                  <img src="/images/products/<%= image.name%>" alt="imagen de producto">
+              <% }) %>
+            </div>
             <div class="box-texto-iconos">
               <h1> <%= product.name %>  </h1>
-              <span>-<%= product.property %>-</span>
+              <span>-<%= product.property.name%>-</span>
               <p>Precio pago en efectivo: $
                     <% if (product.discount) { %>
                       <%= toThousand(product.price - (product.price * product.discount / 100)) %>
@@ -38,14 +37,15 @@
                         class="fa-solid fa-pen"></i></a>
                       <% } %>
                     <% } %>
-                        <a href="/Products/card" title="Agregar producto al carrito"><i
-                        class="fa-solid fa-cart-shopping"></i></a>
                         <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                         <a href="#" title="Compartir enlace"><i class="fa-solid fa-share-nodes"></i></a>
+                        <a href="/Products/cart/ " title="Agregar producto al carrito"><i
+                          class="fa-solid fa-cart-shopping"></i></a>
                 </div>
               </div>
               <p><%= product.description %></p> 
             </div>
+          
           
           <h2 class="titulares">Productos Relacionados</h2>
           <section class="row">
@@ -53,11 +53,7 @@
               <article>
                 <div class="card estilo-c">
                   <div class="img-container">
-                    <% product.productImages.forEach(image => { %>
-                      <% if (image.primary) { %>
-                        <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
-                      <% } %>
-                    <% }) %>
+                    <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
                     <span class="promo">
                       <%= discount %>% off
                     </span>
@@ -67,7 +63,7 @@
                       <a href="/products/card/<%= id %> ">
                         <h2><%= name %></h2>
                       </a>
-                      <span>-<%= property %> -</span>
+                      <span> <%= property.name %> </span>
                       <p>$
                         <% if (discount) { %>
                           <%= toThousand(price - (price * discount / 100)) %>
@@ -84,9 +80,10 @@
                                 class="fa-solid fa-pen"></i></a>
                             <% } %>
                               <% } %>
-                              <a href="/products/cart/<%= id %> " title="Agregar producto al carrito"><i
-                                class="fa-solid fa-cart-shopping"></i></a>                                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
                                 <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                <a href="/products/cart/" title="Agregar producto al carrito"><i
+                                  class="fa-solid fa-cart-shopping"></i></a>  
                       </div>
                     </div>
                   </div>
@@ -96,21 +93,6 @@
           </section>
           <h2 class="titulares">Nuestra comunidad</h2>
           <section class="comunidad">
-            <div class="box-perfiles">
-              <div class="card__perfil">
-                <div class="card__nombre">
-                  <div class="card__nombre_box-img">
-                    <img src="/images/cara8.jpg" alt="">
-                  </div>
-                  <h2>Ramiro Cunar</h2>
-                </div>
-                <div class="card__descripcion">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                    dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
-                    adipisicing
-                    elit.</p>
-                </div>
-              </div>
               <div class="card__perfil">
                 <div class="card__nombre">
                   <div class="card__nombre_box-img">
@@ -139,17 +121,10 @@
                     elit.</p>
                 </div>
               </div>
-            </div>
             <div class="videos">
-            <video autoplay loop muted width="200" height="200"
-            src="https://v.pinimg.com/videos/mc/expMp4/12/33/c9/1233c90805745925f1cd114692e46589_t4.mp4"></video>
-              
-            </div>
-            <div class="iconos-eco">
-              <img src="/images/icono1.jpg" alt="">
-              <img src="/images/icono2.jpg" alt="">
-              <img src="/images/icono3.jpg" alt="">
-              <img src="/images/icono4.jpg" alt="">
+            <video control autoplay loop muted width="200" height="220" >
+            <source  src="https://v.pinimg.com/videos/mc/expMp4/12/33/c9/1233c90805745925f1cd114692e46589_t4.mp4">
+          </video>
             </div>
           </section>
       

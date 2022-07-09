@@ -73,23 +73,16 @@ module.exports = {
     card: async (req, res) => {
         try {
         let product = await db.Product.findByPk(req.params.id, {
-            include: [
-                { association: "productImages" },
-                { association: "property" },
-                { association: "category" },
-            ],
+            include : [
+                {association: 'productImages'}, { association: "property" }
+            ]
         });
         let relacionados = await db.Product.findAll({
-                where: {
-                    category_id : 1
-                },
-                    limit : 3, 
-                    include : [
-                        {association: 'productImages'}
-                    ]
+            limit : 3,
+            include: [{ association: "productImages" }, { association: "property" }],
         })
 
-            return res.render('/products/card/'+id,{product,relacionados})
+            return res.render('products/card',{toThousand, product, relacionados})
     }
     catch (error) {
         console.log(error)
@@ -109,49 +102,38 @@ module.exports = {
     },
 
     //method to save new product
-    store: (req, res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            Product.create({
-                ...req.body,
-                name: req.body.name.trim(),
-                price: +req.body.price,
-                discount: +req.body.discount,
-                category_id: +req.body.category,
-                property_id: +req.body.property,
+    store:  (req, res) => {
+            Product.create(
+                {   
+                    name: req.body.name,
+                    description: req.body.description,
+                    ingredients : req.body.ingredients,
+                    price: +req.body.price,
+                    stock: +req.body.stock,
+                    volume : req.body.volume,
+                    discount: +req.body.discount,
+                    category_id: +req.body.category,
+                    property_id: +req.body.property,
             })
-                .then((product) => {
-                    if (req.files.length > 0) {
-                        let images = req.files.map(({ filename }, i) => {
+                .then (product => {
+                    if(req.files.length > 0){
+                        let images = req.files.map(({filename},i) => {
                             let image = {
-                                file: filename,
-                                product_id: product.id,
-                                primary: i === 0 ? 1 : 0,
-                            };
-                            return image;
-                        });
-                        ProductImage.bulkCreate(images, { validate: true }).then((result) =>
-                            console.log(result)
-                        );
+                                name : filename,
+                                product_id : product.id,
+                                primary : 1
+                            }
+                            return image
+                        })
+                        db.productImages.bulkCreate(images)
+                            .then( (result) => console.log(result))		
                     }
-                    return res.redirect(`/products/all`);
+                    return res.redirect('products/list', {product } )
                 })
-                .catch((error) => {
-                    console.log(error);
-                });
-        } else {
-            Category.findAll()
-                .then((categories) => {
-                    return res.render("products/add", {
-                        categories,
-                        old: req.body,
-                        errors: errors.mapped(),
-                    });
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
+            
+            .catch (error => console.log(error))
+            
+        
     },
 
     //view form edit product
@@ -175,15 +157,18 @@ module.exports = {
     update: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            const {name, description, price, category, discount, property} = req.body;
-            Product.update(
-                {
-                    ...req.body,
-                    price: +price,
-                    discount: +discount,
+            Product.create(
+                {   
+                    name: req.body.name,
+                    description: req.body.description,
+                    ingredients : req.body.ingredients,
+                    price: +req.body.price,
+                    stock: +req.body.stock,
+                    volume : req.body.volume,
+                    discount: +req.body.discount,
                     category_id: +req.body.category,
                     property_id: +req.body.property,
-                },
+            },
                 {
                     where: {
                         id: req.params.id,
@@ -208,7 +193,7 @@ module.exports = {
                             console.log(error);
                         }
                     }
-                    return res.redirect("/products/all");
+                    return res.redirect("/products/list");
                 })
                 .catch((error) => {
                     console.log(error);
@@ -239,9 +224,10 @@ module.exports = {
             where: {
                 id: req.params.id,
             },
+            force: true
         })
             .then(() => {
-                return res.redirect("products/list");
+                return res.redirect("/products/list");
             })
             .catch((error) => {
                 console.log(error);
