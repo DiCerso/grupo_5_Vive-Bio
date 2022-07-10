@@ -83,11 +83,13 @@
 .productCard .box-imagen {
     width: 200px;
     margin: auto;
+    height: 200px;
 }
 .productCard .box-imagen img {
     width: 100%;
     border-radius: 20%;
     object-fit: cover;
+    height: 200px; 
 }
 
 /* ÍCONOS */
@@ -432,12 +434,13 @@
       .productCard .box-imagen {
         width: 400px;
         margin: auto;
+        height: 300px;
       }
 
     .productCard .box-imagen img{
     overflow: hidden;
     width: 100%;
-
+    height: 300px;
   }
 
     .productCard .producto__cart {
