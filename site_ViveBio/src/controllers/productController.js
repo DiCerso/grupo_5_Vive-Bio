@@ -78,6 +78,11 @@ module.exports = {
             ]
         });
         let relacionados = await db.Product.findAll({
+            where: {
+                category_id: {
+                  [Op.like]: product.category_id,
+                },
+              },
             limit : 3,
             include: [{ association: "productImages" }, { association: "property" }],
         })
