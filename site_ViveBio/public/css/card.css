@@ -240,8 +240,8 @@
 /* NUESTRA COMUNIDAD OPINA */
 .productCard .titulares {
     text-align: center;
-    color: var(--azulSuave);
-    background-color: #7FA794B8;
+    color: white;
+    background-color: #7FA794C4;
     margin: 30px 0;
     height: 80px;
     display: flex;

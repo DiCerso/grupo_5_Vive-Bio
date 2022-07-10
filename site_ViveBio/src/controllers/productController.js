@@ -155,9 +155,7 @@ module.exports = {
 
     //method to save edit product
     update: (req, res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            Product.create(
+            Product.update(
                 {   
                     name: req.body.name,
                     description: req.body.description,
@@ -198,27 +196,7 @@ module.exports = {
                 .catch((error) => {
                     console.log(error);
                 });
-        } else {
-            errors = errors.mapped();
-            let product = Product.findByPk(req.params.id, {
-                include: ["productImages"],
-            });
-            let categories = Category.findAll({ order: ["name"] });
-            let properties = Property.findAll({ order: ["name "] });
-            Promise.all([product, categories])
-                .then(([product, categories]) => {
-                    return res.render("products/edit", {
-                        product,
-                        categories,
-                        properties,
-                    });
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
-    },
-
+        } ,
     remove: (req, res) => {
         Product.destroy({
             where: {
