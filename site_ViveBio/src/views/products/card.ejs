@@ -24,8 +24,8 @@
                         <% }else{ %>
                           <%= toThousand(product.price) %>
                     <% } %> .
-                     Promoción: <%= product.discount %> % off (* Hasta agotar stock).
-                     Peso: <%= product.volume %> grs.
+                    <p> Promoción: <%= product.discount %> % off (* Hasta agotar stock).</p> 
+                    <p> Peso: <%= product.volume %> grs. </p>
               </p>
                 <div class="producto-iconos">
                     <% if (locals.userLogin) { %>
