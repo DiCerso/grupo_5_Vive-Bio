@@ -57,8 +57,14 @@
                                 </div>
                                 <div class="add_form-box">
                                     <label for="property">Propiedades</label>
-                                    <input class="add_input" type="text" id="property" name="property"
-                                        style="padding:5px;">
+                                    <select class="add_input" name="property" id="property">
+                                        <option value="" hidden selected>Selecciona la propiedad...</option>
+                                        <% property.forEach(propiedad=> { %>
+                                            <option value="<%= propiedad.id %>">
+                                                <%= propiedad.name %>
+                                            </option>
+                                            <% }) %>
+                                    </select>
                                 </div>
                                 <div class="add_form-box-description">
                                     <label for="desciption">Descripción</label>

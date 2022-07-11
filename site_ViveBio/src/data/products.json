@@ -8,8 +8,7 @@
       "stock" : 1,
       "price": 300,
       "volume": 90,
-      "discount": 30,
-      "visits": 3
+      "discount": 30
    },
    {
       "name": "Jabón Rosas",
@@ -20,8 +19,7 @@
       "stock" : 1,
       "price": 300,
       "volume": 90,
-      "discount": 20,
-      "visits": 3
+      "discount": 20
    },
    {
       "name": "Jabón Lavanda",
@@ -32,8 +30,7 @@
       "property_id": 3,
       "stock" : 1,
       "volume": 90,
-      "discount": 20,
-      "visits": 3
+      "discount": 20
    },
    {
       "name": "Jabón Menta y Tea Tree",
@@ -44,8 +41,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 90,
-      "discount": 40,
-      "visits": 3
+      "discount": 40
    },
    {
       "name": "Jabón Menta, y Eucalipto",
@@ -56,8 +52,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 90,
-      "discount": 40,
-      "visits": 0
+      "discount": 40
    },
    {
       "name": "Shampoo Argán",
@@ -68,8 +63,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 90,
-      "discount": 10,
-      "visits": 0
+      "discount": 10
    },
    {
       "name": "Shampoo Coco",
@@ -80,8 +74,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 90,
-      "discount": 10,
-      "visits": 0
+      "discount": 10
    },
    {
       "name": "Acondicionador Argán",
@@ -92,8 +85,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 90,
-      "discount": 10,
-      "visits": 0
+      "discount": 10
    },
    {
       "name": "Acondicionador Coco",
@@ -104,8 +96,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 90,
-      "discount": 10,
-      "visits": 0
+      "discount": 10
    },
    {
       "name": "Shamp/Acond Karité",
@@ -116,8 +107,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 120,
-      "discount": 20,
-      "visits": 0
+      "discount": 20
    },
    {
       "name": "Shamp/Acond Salvia",
@@ -128,8 +118,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 120,
-      "discount": 20,
-      "visits": 0
+      "discount": 20
    },
    {
       "name": "Kit Cítrico",
@@ -140,8 +129,7 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 140,
-      "discount": 25,
-      "visits": 0
+      "discount": 25
    },
    {
       "name": "Kit Alcanfor",
@@ -152,7 +140,6 @@
       "property_id": 1,
       "stock" : 1,
       "volume": 140,
-      "discount": 25,
-      "visits": 0
+      "discount": 25
    }
 ]

@@ -7,10 +7,10 @@
 @import './home.css';
 @import './login.css';
 @import './register.css';
-@import './productCart.css';
-@import './productCard.css';
-@import './productAll.css';
-@import './addProducts.css';
+@import './cart.css';
+@import './card.css';
+@import './all.css';
+@import './add.css';
 @import './editProducts.css';
 @import './user.css';
 @import './list.css';

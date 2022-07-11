@@ -1,12 +1,16 @@
-const path = require('path');
-const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const db = require('../database/models')
-const { Op } = require('sequelize')
+const path = require("path");
+const { Category, Property, Product, ProductImage } = require("../database/models");
+const { validationResult } = require('express-validator');
+const toThousand = (n) =>
+    n
+        .toFixed(0)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require("../database/models");
+const { Op } = require("sequelize");
 
 module.exports = {
-
-    All: async (req, res) => {
-
+    all: async (req, res) => {
         try {
             const category = await db.Category.findAll()
             const bioCapilar = await db.Product.findAll({
@@ -41,166 +45,218 @@ module.exports = {
 
             return res.render('products/productAll', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
 
+            return res.render("products/all", {
+                toThousand,
+                category,
+                bioCapilar,
+                bioCorporal,
+                bioSpa,
+            });
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     },
 
-    Card: async (req, res) => {
+    card: async (req, res) => {
         try {
-            const product = await db.Product.findByPk(req.params.id, {
-                include: [
-                    { association: 'productImages' },
-                    { association: 'property' },
-                    { association: 'category' }
-                ]
-            })
-            const relations = await db.Product.findAll({
-                where: {
-                    category_id: product.category_id
+        let product = await db.Product.findByPk(req.params.id, {
+            include : [
+                {association: 'productImages'}, { association: "property" }
+            ]
+        });
+        let relacionados = await db.Product.findAll({
+            where: {
+                category_id: {
+                  [Op.like]: product.category_id,
                 },
-                include: [
-                    { association: 'productImages' },
-                    { association: 'property' },
-                    { association: 'category' }
-                ]
-
-            })
-            return res.render('products/productCard', {
-                product,
-                relations,
-                toThousand
-            })
-        } catch (error) {
-            console.log(error)
-        }
-    },
-
-    add: (req, res) => {
-        Category.findAll()
-            .then(categories => {
-                return res.render('products/addProducts', { categories });
-            })
-    },
-
-    store: (req, res) => {
-        Product.create({
-            name: req.body.name,
-            category_id: req.body.category,
-            volume: req.body.volume,
-            price: req.body.price,
-            discount: req.body.discount,
-            /*             IMAGES */
-            ingredients: req.body.ingredients,
-            description: req.body.description,
-            stock: req.body.stock,
-            property_id: req.body.property
+              },
+            limit : 3,
+            include: [{ association: "productImages" }, { association: "property" }],
         })
-        return res.redirect('/products/All');
+
+            return res.render('products/card',{toThousand, product, relacionados})
+    }
+    catch (error) {
+        console.log(error)
+    }},
+
+    //view form add product
+    add: (req, res) => {
+        let categories = db.Category.findAll({ order: ["name"] });
+        let properties = db.Property.findAll({ order: ["name"] });
+        Promise.all([categories, properties])
+            .then(([categories, properties]) => {
+                return res.render("products/add", { categories, properties });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
 
-    edit: async (req, res) => {
-        try {
-            const product = await db.Product.findByPk(req.params.id)
-            const image = await db.ProductImage.findAll({
-                where: {
-                    product_id: req.params.id
-                }
+    //method to save new product
+    store:  (req, res) => {
+            Product.create(
+                {   
+                    name: req.body.name,
+                    description: req.body.description,
+                    ingredients : req.body.ingredients,
+                    price: +req.body.price,
+                    stock: +req.body.stock,
+                    volume : req.body.volume,
+                    discount: +req.body.discount,
+                    category_id: +req.body.category,
+                    property_id: +req.body.property,
             })
-            const property = await db.Property.findAll()
-            const category = await db.Category.findAll()
-            return res.render('products/editProducts', {
-                product,
-                image,
-                property,
-                category
-            })
-        } catch (error) {
-            console.log(error)
-        }
-    },
-
-    update: async (req, res) => {
-        try {
-            const olds = await db.ProductImage.findAll({
-                where: {
-                    product_id: req.params.id
-                }
-            })
-            const OldImages = olds.map(old => old.name);
-            const image = req.files.map(image => image.filename);
-            const update = await db.Product.update({
-                name: req.body.name,
-                category_id: req.body.category,
-                volume: +req.body.volume,
-                price: +req.body.price,
-                discount: +req.body.discount,
-                ingredients: req.body.ingredients.trim(),
-                description: req.body.description.trim(),
-                stock: +req.body.stock,
-                property_id: req.body.property
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            if (req.files.length > 0) {
-                let images = req.files.map(({ filename }, i) => {
-                    let image = {
-                        name: filename,
-                        product_id: req.params.id,
-                        primary: i === 0 ? 1 : 0
+                .then (product => {
+                    if(req.files.length > 0){
+                        let images = req.files.map(({filename},i) => {
+                            let image = {
+                                name : filename,
+                                product_id : product.id,
+                                primary : 1
+                            }
+                            return image
+                        })
+                        db.productImages.bulkCreate(images)
+                            .then( (result) => console.log(result))		
                     }
-                    return image
+                    return res.redirect('products/list', {product } )
                 })
-                db.ProductImage.destroy({
-                    where : {
-                        product_id : req.params.id
+            
+            .catch (error => console.log(error))
+            
+        
+    },
+
+    //view form edit product
+    edit: (req, res) => {
+        let product = db.Product.findByPk(req.params.id, {
+            include: ["productImages"],
+        });
+        let categories = db.Category.findAll({ order: ["name"] });
+        let properties = db.Property.findAll({ order: ["name"] });
+
+        Promise.all([product, categories, properties])
+            .then(([product, categories, properties]) => {
+                return res.render("products/edit", { product, categories, properties });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    //method to save edit product
+    update: (req, res) => {
+            Product.update(
+                {   
+                    name: req.body.name,
+                    description: req.body.description,
+                    ingredients : req.body.ingredients,
+                    price: +req.body.price,
+                    stock: +req.body.stock,
+                    volume : req.body.volume,
+                    discount: +req.body.discount,
+                    category_id: +req.body.category,
+                    property_id: +req.body.property,
+            },
+                {
+                    where: {
+                        id: req.params.id,
+                    },
+                }
+            )
+                .then(async () => {
+                    if (req.file) {
+                        try {
+                            await ProductImage.update(
+                                {
+                                    file: req.file.filename,
+                                },
+                                {
+                                    where: {
+                                        product_id: req.params.id,
+                                        primary: 1,
+                                    },
+                                }
+                            );
+                        } catch (error) {
+                            console.log(error);
+                        }
                     }
+                    return res.redirect("/products/list");
                 })
-                db.ProductImage.bulkCreate(images, { validate: true })
-                
-                    .then((result) => console.log(result))
-            }
-            return res.redirect((`/products/Card/${req.params.id}`))
-        } catch (error) {
-            console.log(error)
-        }
+                .catch((error) => {
+                    console.log(error);
+                });
+        } ,
+    remove: (req, res) => {
+        Product.destroy({
+            where: {
+                id: req.params.id,
+            },
+            force: true
+        })
+            .then(() => {
+                return res.redirect("/products/list");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
 
-    remove: async (req, res) => {
+    search: (req, res) => {
+        db.Product.findAll({
+            where: {
+                [Op.or]: [
+                    { name: { [Op.substring]: req.query.keyword } },
 
-    },
-    search: async (req, res) => {
-        try {
-            const result = await db.Product.findAll({
-                where: {
-                    name: {
-                        [Op.substring]: req.query.keyboard
-                    }
-                },
-                include: [
-                    { association: 'productImages' },
-                    { association: 'property' },
-                    { association: 'category' }
-                ]
+                ],
+            },
+            include: ["productImages"],
+        })
+            .then((result) => {
+                return res.render("products/search", {
+                    toThousand,
+                    result,
+                    keyword : req.query.keyword,
+                });
             })
-            return res.render('products/productSearch', {
-                result,
-                keyboard: req.query.keyboard
-            })
-        } catch (error) {
-            console.log(error)
-        }
+            .catch((error) => {
+                console.log(error);
+            });
     },
+
     list: (req, res) => {
+        const products = Product.findAll();
 
-        Product.findAll()
-            .then(products => {
-                return res.render('products/list', { products });
+        const bioCapilar = Product.findAll({
+            where: {
+                category_id: 1,
+            },
+        });
+        const bioCorporal = Product.findAll({
+            where: {
+                category_id: 2,
+            },
+        });
+        const bioSpa = Product.findAll({
+            where: {
+                category_id: 3,
+            },
+        });
+        Promise.all([products, bioCapilar, bioCorporal, bioSpa])
+            .then(([products, bioCapilar, bioCorporal, bioSpa]) => {
+                return res.render("products/list", {
+                    toThousand,
+                    products,
+                    bioCapilar,
+                    bioCorporal,
+                    bioSpa,
+                });
             })
-            .catch(error => console.log(error));
-
+            .catch((error) => {
+                console.log(error);
+            });
     },
     cart: async (req, res) => {
 
@@ -229,7 +285,7 @@ module.exports = {
             cart.forEach(cart => {
                 desc += +cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)
             })
-            return res.render('products/productCart', {
+            return res.render('products/Cart', {
                 payments,
                 cart,
                 total,
@@ -279,6 +335,5 @@ module.exports = {
             console.log(error)
         }
     }
-
 
 }

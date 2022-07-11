@@ -40,7 +40,8 @@ module.exports = (sequelize, DataTypes) => {
         tableName : 'carts',
         timestamps : false, 
         createdAt: false,
-        updatedAt : false    }
+        updatedAt : false    
+    }
 
 
     const Cart = sequelize.define(alias, cols, config)

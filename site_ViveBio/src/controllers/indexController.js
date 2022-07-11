@@ -6,15 +6,14 @@ module.exports = {
 
         try {
             let products = await db.Product.findAll({
-                order : [
-                    ['visits', 'ASC']
-                ],
                 limit : 4, 
                 include : [
                     {association: 'productImages'}
                 ]
             })
-            let category = await db.Category.findAll()
+            let category = await db.Category.findAll({
+                limit : 3
+            })
             
                 return res.render('index', {
                     products,
