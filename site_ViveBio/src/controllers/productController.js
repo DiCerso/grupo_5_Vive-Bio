@@ -56,26 +56,26 @@ module.exports = {
 
     card: async (req, res) => {
         try {
-        let product = await db.Product.findByPk(req.params.id, {
-            include : [
-                {association: 'productImages'}, { association: "property" }
-            ]
-        });
-        let relacionados = await db.Product.findAll({
-            where: {
-                category_id: {
-                  [Op.like]: product.category_id,
+            let product = await db.Product.findByPk(req.params.id, {
+                include: [
+                    { association: 'productImages' }, { association: "property" }
+                ]
+            });
+            let relacionados = await db.Product.findAll({
+                where: {
+                    category_id: {
+                        [Op.like]: product.category_id,
+                    },
                 },
-              },
-            limit : 3,
-            include: [{ association: "productImages" }, { association: "property" }],
-        })
-
-            return res.render('products/card',{toThousand, product, relacionados})
-    }
-    catch (error) {
-        console.log(error)
-    }},
+                limit: 3,
+                include: [{ association: "productImages" }, { association: "property" }],
+            })
+            return res.render('products/card', { toThousand, product, relacionados })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    },
 
     //view form add product
     add: (req, res) => {
@@ -91,38 +91,85 @@ module.exports = {
     },
 
     //method to save new product
-    store:  (req, res) => {
-            Product.create(
-                {   
-                    name: req.body.name,
-                    description: req.body.description,
-                    ingredients : req.body.ingredients,
-                    price: +req.body.price,
-                    stock: +req.body.stock,
-                    volume : req.body.volume,
-                    discount: +req.body.discount,
-                    category_id: +req.body.category,
-                    property_id: +req.body.property,
+    store: async (req, res) => {
+        try {
+            let cont = 0
+            let image = req.files.map(image => image.filename);
+            if (image.length < 1) {
+                image = ["noimage.jpg"]
+            }
+            let product = await db.Product.findAll()
+
+            let products = await db.Product.create({
+                name: req.body.name,
+                category_id: req.body.category,
+                volume: req.body.volume,
+                price: req.body.price,
+                discount: req.body.discount,
+                ingredients: req.body.ingredients,
+                description: req.body.description,
+                stock: req.body.stock,
+                property_id: req.body.property,
+                productImages: {
+                    name: image[0],
+                    primary: 1
+                }
+            },
+                {
+                    include: [
+                        { association: 'productImages' }
+                    ]
+                }
+            )
+
+            /* let idmax = 0;
+            product.forEach(product => {
+                idmax = product.id
+            }) */
+
+            let idmax = await db.Product.findOne({
+                where: {
+                    name: req.body.name
+                }
             })
-                .then (product => {
-                    if(req.files.length > 0){
-                        let images = req.files.map(({filename},i) => {
-                            let image = {
-                                name : filename,
-                                product_id : product.id,
-                                primary : 1
-                            }
-                            return image
-                        })
-                        db.productImages.bulkCreate(images)
-                            .then( (result) => console.log(result))		
+
+
+            let imagen
+            if (image.length > 1) {
+                imagen = image.filter(image => {
+                    if (cont != 0) {
+                        cont++
+                        return image
                     }
-                    return res.redirect('products/list', {product } )
+                    cont++
                 })
-            
-            .catch (error => console.log(error))
-            
-        
+            }
+
+            let productimage = imagen.map(image => {
+                return {
+                    name: image,
+                    product_id: idmax.id,
+                    primary: 0
+                }
+            })
+
+            productimage.forEach(async (image) => {
+                console.log(image)
+                let imageProduct = await db.ProductImage.create({
+                    name: image.name,
+                    product_id: image.product_id,
+                    primary: 0
+                }
+                )
+            })
+
+
+            return res.redirect('/Products/All')
+        } catch (error) {
+            console.log(error)
+        }
+
+
     },
 
     //view form edit product
@@ -140,53 +187,117 @@ module.exports = {
             .catch((error) => {
                 console.log(error);
             });
+            /*try {
+            const product = await db.Product.findByPk(req.params.id)
+            const image = await db.ProductImage.findAll({
+                where: {
+                    product_id: req.params.id
+                }
+            })
+            const property = await db.Property.findAll()
+            const category = await db.Category.findAll()
+            return res.render('products/editProducts', {
+                product,
+                image,
+                property,
+                category
+            })
+        } catch (error) {
+            console.log(error)
+        }*/
     },
 
     //method to save edit product
     update: (req, res) => {
-            Product.update(
-                {   
-                    name: req.body.name,
-                    description: req.body.description,
-                    ingredients : req.body.ingredients,
-                    price: +req.body.price,
-                    stock: +req.body.stock,
-                    volume : req.body.volume,
-                    discount: +req.body.discount,
-                    category_id: +req.body.category,
-                    property_id: +req.body.property,
+        Product.update(
+            {
+                name: req.body.name,
+                description: req.body.description,
+                ingredients: req.body.ingredients,
+                price: +req.body.price,
+                stock: +req.body.stock,
+                volume: req.body.volume,
+                discount: +req.body.discount,
+                category_id: +req.body.category,
+                property_id: +req.body.property,
             },
-                {
-                    where: {
-                        id: req.params.id,
-                    },
-                }
-            )
-                .then(async () => {
-                    if (req.file) {
-                        try {
-                            await ProductImage.update(
-                                {
-                                    file: req.file.filename,
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        )
+            .then(async () => {
+                if (req.file) {
+                    try {
+                        await ProductImage.update(
+                            {
+                                file: req.file.filename,
+                            },
+                            {
+                                where: {
+                                    product_id: req.params.id,
+                                    primary: 1,
                                 },
-                                {
-                                    where: {
-                                        product_id: req.params.id,
-                                        primary: 1,
-                                    },
-                                }
-                            );
-                        } catch (error) {
-                            console.log(error);
-                        }
+                            }
+                        );
+                    } catch (error) {
+                        console.log(error);
                     }
-                    return res.redirect("/products/list");
+                }
+                return res.redirect("/products/list");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            /*try {
+            const olds = await db.ProductImage.findAll({
+                where: {
+                    product_id: req.params.id
+                }
+            })
+            const OldImages = olds.map(old => old.name);
+            const image = req.files.map(image => image.filename);
+            const update = await db.Product.update({
+                name: req.body.name,
+                category_id: req.body.category,
+                volume: +req.body.volume,
+                price: +req.body.price,
+                discount: +req.body.discount,
+                ingredients: req.body.ingredients.trim(),
+                description: req.body.description.trim(),
+                stock: +req.body.stock,
+                property_id: req.body.property
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            if (req.files.length > 0) {
+                let images = req.files.map(({ filename }, i) => {
+                    let image = {
+                        name: filename,
+                        product_id: req.params.id,
+                        primary: i === 0 ? 1 : 0
+                    }
+                    return image
                 })
-                .catch((error) => {
-                    console.log(error);
-                });
-        } ,
+                db.ProductImage.destroy({
+                    where : {
+                        product_id : req.params.id
+                    }
+                })
+                db.ProductImage.bulkCreate(images, { validate: true })
+                
+                    .then((result) => console.log(result))
+            }
+            return res.redirect((`/products/Card/${req.params.id}`))
+        } catch (error) {
+            console.log(error)
+        } */
+    },
     remove: (req, res) => {
+
         Product.destroy({
             where: {
                 id: req.params.id,
@@ -206,7 +317,6 @@ module.exports = {
             where: {
                 [Op.or]: [
                     { name: { [Op.substring]: req.query.keyword } },
-
                 ],
             },
             include: ["productImages"],
@@ -215,7 +325,7 @@ module.exports = {
                 return res.render("products/search", {
                     toThousand,
                     result,
-                    keyword : req.query.keyword,
+                    keyboard: req.query.keyword,
                 });
             })
             .catch((error) => {
