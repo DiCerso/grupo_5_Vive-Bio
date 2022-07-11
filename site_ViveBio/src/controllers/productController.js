@@ -42,9 +42,6 @@ module.exports = {
 
 
             })
-
-            return res.render('products/productAll', { toThousand, category, bioCapilar, bioCorporal, bioSpa });
-
             return res.render("products/all", {
                 toThousand,
                 category,
