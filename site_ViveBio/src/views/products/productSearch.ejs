@@ -7,7 +7,7 @@
         <%- include('../partials/header') %>
             <main>
                 <div class="subtitulo__home">
-                    <h1>Resultados para tu búsqueda</h1>
+                    <h1 style="font-size: 20px;">Resultados de : " <%= keyboard %> "</h1> 
                 </div>
                 <section class="sect1">
                     <% if (result.length> 0) { %>
@@ -19,7 +19,7 @@
                                     </h1>
                                 </div>
                                 <div class="imgart__home">
-                                    <img src="/images/<%= product.image %>" alt="">
+                                    <img src="/images/<%= product.productImages[0].name %>" alt="">
                                 </div>
                                 <div class="precio">
                                     <h4>

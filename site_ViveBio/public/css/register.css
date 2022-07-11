@@ -1,3 +1,10 @@
+.register{
+    background-image: url('/images/background-register.jpg');
+    background-size: cover;
+    background-position: center center ;
+    background-attachment: fixed;
+}
+
 .header_register {
     display: none;
 }
@@ -116,6 +123,7 @@
 .register label {
     font-size: 13px;
     margin-left: 10px;
+    font-weight: bold;
 }
 
 
@@ -124,6 +132,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 
 }
 
@@ -233,6 +242,6 @@
 
     .register_form-input:hover,
     .register_form-input:focus {
-        box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+        box-shadow: 0 0 5px var(--verdeFuerte), 0 0 10px var(--verdeFuerte), 0 0 15px var(--verdeFuerte);
     }
 }

@@ -22,7 +22,7 @@
                                         <label for="category">Categoría</label>
                                         <select class="add_input" name="category" id="category">
                                             <% category.forEach(categori=> { %>
-                                                <option value="<%= categori.id %>" <%=categori.id===product.category
+                                                <option value="<%= categori.id %>" <%=categori.id===product.category_id
                                                     ? 'selected' : null %>><%= categori.name %>
                                                 </option>
                                                 <% }) %>
@@ -57,8 +57,13 @@
                                     </div>
                                     <div class="add_form-box">
                                         <label for="property">Propiedades</label>
-                                        <input value="<%= product.property %>" class="add_input" type="text"
-                                            id="property" name="property" style="padding:5px;">
+                                        <select class="add_input" name="property" id="property">
+                                            <% property.forEach(properti=> { %>
+                                                <option value="<%= properti.id %>" <%=properti.id===product.property_id
+                                                    ? 'selected' : null %>><%= properti.name %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
                                     </div>
                                     <div class="add_form-box-description">
                                         <label for="description">Descripción</label>
