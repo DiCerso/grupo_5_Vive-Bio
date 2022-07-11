@@ -9,32 +9,6 @@ const toThousand = (n) =>
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
-const accent_map = {
-    á: "a",
-    é: "e",
-    è: "e",
-    í: "i",
-    ó: "o",
-    ú: "u",
-    Á: "a",
-    É: "e",
-    è: "e",
-    Í: "i",
-    Ó: "o",
-    Ú: "u",
-};
-
-function accent_fold(s) {
-    if (!s) {
-        return "";
-    }
-    var ret = "";
-    for (var i = 0; i < s.length; i++) {
-        ret += accent_map[s.charAt(i)] || s.charAt(i);
-    }
-    return ret;
-}
-
 module.exports = {
     all: async (req, res) => {
         try {
@@ -230,7 +204,6 @@ module.exports = {
             .then((result) => {
                 return res.render("products/search", {
                     toThousand,
-                    accent_map,
                     result,
                     keyword : req.query.keyword,
                 });
@@ -299,7 +272,7 @@ module.exports = {
             cart.forEach(cart => {
                 desc += +cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)
             })
-            return res.render('products/productCart', {
+            return res.render('products/Cart', {
                 payments,
                 cart,
                 total,

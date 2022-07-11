@@ -18,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
 
     const config = {
         tableName: 'payments',
-        timestamp: false
+        timestamp: false,
+        createdAt: false,
+        updatedAt: false
     }
 
 
