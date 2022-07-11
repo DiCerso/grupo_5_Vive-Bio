@@ -71,10 +71,6 @@ module.exports = (sequelize, DataTypes) => {
             as: 'order',
             foreignKey: 'user_id'
         })
-        User.hasMany(models.Visit, {
-            as: 'visit',
-            foreignKey: 'user_id'
-        })
         User.belongsToMany(models.Product,{
             as : 'productfavourite',
             through : 'favourites',

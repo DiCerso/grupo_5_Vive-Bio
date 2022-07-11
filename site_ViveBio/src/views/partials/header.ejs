@@ -66,7 +66,7 @@
                     <a href="/"><img src="/images/logo.png" alt="logo"></a>
                 </div>
                 <form class="header__busqueda" action="/products/search" method="GET">
-                    <input type="text" name="keyboard" id="keyboard" class="barra" style="padding-left:5px;">
+                    <input type="text" name="keyword" id="keyword" class="barra" style="padding-left:5px;">
                     <button type="submit" class="barra__lupa"><i class="fas fa-search"></i></button>
                 </form>
                 <div class="header__user">
@@ -98,11 +98,11 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
-                            <li><a href="/products/list/0">lista</a></li>
+                            <li><a href="/products/list/0">Lista</a></li>
                             <% }else{ %>
                                 <li><a href="/products/all">Productos</a></li>
                                 <% }%>
-                                    <li><a href="">Quienes somos</a></li>
+                                    <li><a href="">Quiénes somos</a></li>
                                     <li><a href="">Contacto</a></li>
                     </ul>
                 </div>

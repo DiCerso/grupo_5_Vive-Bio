@@ -1,24 +1,31 @@
-const { check } = require('express-validator');
-const users = require('../data/users.json');
-
+const { check, body } = require('express-validator');
+const db = require('../database/models')
+const { Op } = require('sequelize')
 module.exports = [
-    check('firstName')
+    check('firstname')
         .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
         .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
 
-    check('lastName')
+    check('lastname')
         .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
         .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
 
-    check('username')
+    body('username')
         .isLength({ min: 4, max: 8 }).withMessage('El usuario debe contener entre 4 y 8 caracteres.').bail()
-        .custom((value) => {
-            const usersOut = users.map(user => user.user !== value);
-            const user = usersOut.find(user => user.user === value);
-            if (user) {
-                return false;
-            } else {
-                return true;
-            }
-        }).withMessage('Este usuario ya se encuentra registrado.')
+        .custom((value, { req }) => {
+            return db.User.findOne({
+                where: {
+                    username: value,
+                    id: {
+                        [Op.not]: req.params.id
+                    }
+                }
+            })
+                .then(user => {
+                    if (user) {
+                        return Promise.reject()
+                    }
+                })
+                .catch(() => Promise.reject('Este usuario ya se encuentra en uso.'))
+        })
 ]

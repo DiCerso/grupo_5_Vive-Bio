@@ -63,7 +63,7 @@
                                     </h1>
                                 </div>
                                 <div class="imgart__home">
-                                    <img src="/images/<%= product.productImages[0].name %>" alt="">
+                                          <img src="/images/products/<%= product.productImages[0].name%>" alt="imagen del producto">
                                 </div>
                                 <div class="precio">
                                     <h4>
@@ -74,7 +74,7 @@
                                     </p>
                                 </div>
                                 <div class="verart__home">
-                                    <a href="/products/Card/<%= product.id %>">Ver mas</a>
+                                    <a href="/products/card/<%= product.id %>">Ver más</a>
                                 </div>
                             </article>
                                 <% }) %>
@@ -85,7 +85,7 @@
                 <section class="sect2">
                     <% category.forEach(cate=> { %>
                         <article class="categorias__home">
-                            <a href="/Products/All#<%= cate.name %>">
+                            <a href="/products/all#<%= cate.name %>">
                                 <div class="<%= cate.name %>__home" id="cate"></div>
                                 <div class="barra__cate__home">
                                     <p>
@@ -100,6 +100,7 @@
             <%- include('./partials/footer') %>
                 <script type="text/javascript" src="/javascript/carrusel.js"></script>
                 <script src="/javascript/menuMobile.js"></script>
+                <script src="/javascript/navEmergent.js"></script>
     </body>
 
 </html>

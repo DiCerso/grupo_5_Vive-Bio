@@ -21,10 +21,20 @@
                                     <div class="add_form-box">
                                         <label for="category">Categoría</label>
                                         <select class="add_input" name="category" id="category">
-                                            <% category.forEach(categori=> { %>
-                                                <option value="<%= categori.id %>" <%=categori.id===product.category
-                                                    ? 'selected' : null %>><%= categori.name %>
+                                            <% categories.forEach(category=> { %>
+                                                <option value="<%= category.id %>" <%=product.category_id === category.id
+                                                    ? 'selected' : null %>><%= category.name %>
                                                 </option>
+                                                <% }) %>
+                                        </select>
+                                    </div>
+                                    <div class="add_form-box">
+                                        <label for="property">Propiedad</label>
+                                        <select class="add_input" name="property" id="property
+                                            <% properties.forEach(property=> { %>
+                                                <option value=" <%=property.id %>" <%=product.property_id === property.id
+                                                ? 'selected' : null %>><%= property.name %>
+                                                    </option>
                                                 <% }) %>
                                         </select>
                                     </div>
@@ -44,9 +54,8 @@
                                             id="discount" name="discount" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box">
-                                        <label for="image">Imagen</label>
-                                        <input class="add_input" type="file" id="image" name="image" accept="image/*"
-                                            multiple>
+                                        <label for="image">Imagen principal</label>
+                                        <input class="add_input" type="file" id="image" name="image" accept="image/*" />
                                     </div>
                                 </div>
                                 <div>
@@ -54,11 +63,6 @@
                                         <label for="ingredients">Ingredientes</label>
                                         <input value="<%= product.ingredients %>" class="add_input" type="text"
                                             id="ingredients" name="ingredients" style="padding:5px;">
-                                    </div>
-                                    <div class="add_form-box">
-                                        <label for="property">Propiedades</label>
-                                        <input value="<%= product.property %>" class="add_input" type="text"
-                                            id="property" name="property" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box-description">
                                         <label for="description">Descripción</label>
@@ -71,7 +75,6 @@
                             </div>
                             </div>
                             <div class="register_center">
-
                                 <div class="add_button">
                                     <button type="submit">Actualizar</button>
                                     <button type="reset">Limpiar</button>

@@ -1,13 +1,21 @@
 /*MOBILE*/
-.productCard .producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 10px;
-    margin-bottom: 20px;
-    margin-top: 70px;
+.productCard .primer_contenedor {
+    padding: 30px;
+    border: 1px solid var(--verdeFuerte);
+    margin: 20px 30px 20px 30px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 5px var(--aquamarine);
 }
 
+.productCard .container-card{
+    padding: 20px;
+    background-color: rgba(30, 91, 85, 0.74);
+    color: var(--VioletaOscuro);
+    /* margin: 20px; */
+    border-radius: 20px;
+    text-align: center;
+    font-size: large;
+}
 
 /*NOMBRE PRODUCTO*/
 .productCard .producto__texto h1 {
@@ -72,43 +80,37 @@
     justify-content: flex-end;
 }
 
+.productCard .box-imagen {
+    width: 200px;
+    margin: auto;
+    height: 200px;
+}
 .productCard .box-imagen img {
     width: 100%;
-    border-radius: 50%;
+    border-radius: 20%;
     object-fit: cover;
+    height: 200px; 
 }
 
 /* ÍCONOS */
-.productCard .producto__cart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding-top: 10px;
-}
 
-.productCard .producto-iconos {
+.productCard .producto-iconos a {
     display: inline-flex;
     gap: 15px;
-}
-
-.productCard .producto__cart a,
-.productCard button {
-    font-size: 30px;
-    background-color: var(--azulSuave);
-    color: white;
-    border-radius: 50%;
-    padding: 10px;
-    align-content: center;
-    display: inline-flex;
+    background-color: var(--verdeClaro-Opaco);
+    margin-right: 10px;
+    height: 40px;
+    width: 45px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px white;
 }
 
-.productCard .producto__cart a:hover {
-    color: var(--azulSuave);
+.productCard .producto-iconos a:hover {
+    color: var(--verdeFuerte);
     background-color: white;
-    border: 1px solid var(--azul);
+    border: 1px solid var(--verdeFuerte);
 }
 
 
@@ -120,6 +122,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3px;
 }
 
 .productCard .productosRelacionados {
@@ -135,7 +138,7 @@
 }
 
 .productCard .card.estilo-c {
-    width: 300px;
+    width: 250px;
     margin-bottom: 40px;
 }
 
@@ -176,12 +179,13 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: var(--green-background-cards);
-    height: 170px;
-    padding-top: 5px;
+    /* height: 170px; */
+    padding: 10px;
     text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+    /* justify-content: space-evenly; */
+    color: var(--azulSuave);
 }
 
 .productCard .card {
@@ -206,6 +210,7 @@
     margin: 5px 0px;
     background-color: var(--aquamarineSuave);
     padding: 2px;
+    color: var(--azulSuave);
 }
 
 /*CATEGORÍA PRODUCTO*/
@@ -230,69 +235,48 @@
     border-radius: 25px;
 }
 
-.productCard .card-c-iconos,
-.buttons {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* align-items: flex-end; */
-}
 
-.productCard .iconos-white a {
-    background-color: var(--azulSuave);
-    color: white;
-    border-radius: 50%;
-    font-size: 10px;
-    padding: 4px;
-    display: inline-flex;
-    justify-content: center;
-    align-content: flex-end;
-}
-
-.productCard .card-c-iconos .buttons {
-    display: flex;
-    flex-direction: column;
-}
-
-.productCard .buttons button {
-    background-color: var(--azulSuave);
-    color: white;
-    border-radius: 30%;
-}
 
 /* NUESTRA COMUNIDAD OPINA */
 .productCard .titulares {
     text-align: center;
     color: white;
-    background-color: var(--verdeOscuro);
+    background-color: #7FA794C4;
     margin: 30px 0;
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    border-radius: 20px;
+  
+}
+
+.productCard .box-perfiles {
+    display: flex;
+    gap: 20px;
 }
 
 .productCard .comunidad {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     flex-wrap: nowrap;
     padding-bottom: 50px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-content: center;
+    flex-wrap: wrap;
 }
 
 .productCard .card__perfil {
-    border: 2px solid antiquewhite;
-    width: 100%;
-    padding: 10px;
+    width: 200px;
+    /* padding: 10px; */
     border-radius: 20px;
     color: var(--VioletaOscuro);
     text-align: center;
-    overflow: scroll;
-    height: 150px;
+    overflow: hidden;
+    height: 220px;
 }
 
 .productCard .card__perfil p {
@@ -301,11 +285,12 @@
     font-size: 10px;
     background-color: rgba(127, 255, 212, 0.9);
     border-radius: 8px;
+    padding: 5px;
 }
 
 .productCard .card__nombre_box-img {
-    width: 100%;
-    padding-top: 10px;
+    width: 200px;
+    /* padding-top: 10px; */
 }
 
 .productCard .card__nombre_box-img img {
@@ -327,6 +312,7 @@
     align-items: end;
     justify-content: space-around;
     margin-bottom: -48px;
+    display: none;
 }
 
 .productCard .iconos-eco img {
@@ -365,7 +351,7 @@
     /*NUESTRA COMUNIDAD OPINA*/
     .productCard .box-perfiles {
         display: flex;
-        flex-wrap: nowrap;
+        /* flex-wrap: nowrap; */
     }
 
     .productCard .card-perfil {
@@ -373,7 +359,7 @@
     }
 
     .productCard .card__nombre img {
-        width: 30%;
+        width: 100%;
     }
 
     /* PRODUCTOS RELACIONADOS */
@@ -446,13 +432,15 @@
 
       }
       .productCard .box-imagen {
-        height: 400px;
+        width: 400px;
+        margin: auto;
+        height: 300px;
       }
 
     .productCard .box-imagen img{
     overflow: hidden;
     width: 100%;
-    height: 400px;
+    height: 300px;
   }
 
     .productCard .producto__cart {
@@ -490,7 +478,8 @@
     /*NUESTRA COMUNIDAD OPINA*/
     .productCard .box-perfiles {
         display: flex;
-        flex-wrap: nowrap;
+        gap: 20px;
+        /* flex-wrap: nowrap; */
     }
 
     /*PRODUCTOS RELACIONADOS*/
