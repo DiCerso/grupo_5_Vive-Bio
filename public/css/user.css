@@ -1,0 +1,239 @@
+.logo__user {
+    display: none;
+}
+
+.logo__user img {
+    width: 150px;
+}
+
+.user__info {
+    padding: 20px 0;
+}
+
+.user__dats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.user_dats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.user__container {
+    width: 300px;
+    padding: 20px;
+    margin: 85px auto 85px auto;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+}
+
+.user__perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.user__perfil .user__head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.user h3 {
+    color: var(--VioletaOscuro);
+}
+
+.user__names {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.user__img {
+    width: 100px;
+    height: 100px;
+    display: flex;
+}
+
+.user__img img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.user__options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    width: 100%;
+
+}
+
+.user__options a {
+    padding: 5px;
+}
+
+.user__options a {
+    background-color: #7FA794;
+    text-align: center;
+    width: 110px;
+    height: 45px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 19px;
+}
+
+
+.user h1 {
+    text-shadow: none;
+    color: black;
+}
+
+.user__historial {
+    text-align: center;
+}
+
+@media (min-width: 425px) {
+    .user .user__historial {
+        margin-top: 20px;
+    }
+
+    .user .user__head {
+        justify-content: space-around;
+    }
+
+    .user .user__dats {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 0 20px;
+
+    }
+
+    .user .user__info {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        text-align: start;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .user .user__info h3 {
+        width: 30%;
+        text-align: start;
+    }
+
+    .user .user__info-title {
+        padding: 20px;
+    }
+
+    .user .user__info h4 {
+        width: 70%;
+        text-align: start;
+    }
+
+    .user .user__container {
+        width: 70%;
+        min-width: 400px;
+        margin-top: 25px;
+    }
+
+    .user .logo__user img {
+        width: 150px;
+    }
+
+    .user .user__img {
+        width: 100px;
+    }
+
+
+    .user .header__user__mobile {
+        display: none;
+    }
+
+    .user .logo__user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20%;
+    }
+}
+
+@media(min-width: 645px) {
+
+    .user .user__names {
+        width: auto;
+        text-align: center;
+        padding: .5rem;
+    }
+
+    .user .user__perfil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        width: 25%;
+        border-right: 1px solid var(--verdeFuerte);
+    }
+
+    .user .user__dats-container {
+        flex-direction: column;
+        width: 75%;
+    }
+
+    .user .user__head {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .user .user__options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user .user__options a {
+        margin: 10px 0;
+        padding: auto;
+    }
+
+    .user .user__dats {
+        flex-direction: column;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .user .user__info {
+        width: 100%;
+    }
+
+    .user .user__container {
+        display: flex;
+        flex-direction: row;
+        min-width: 600px;
+        max-width: 800px;
+        padding: 0;
+    }
+
+    .user .user__historial {
+        width: 100%;
+
+    }
+}

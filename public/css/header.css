@@ -5,8 +5,106 @@
     align-items: center;
     width: 100%;
     overflow: hidden;
-/*     padding-bottom: 10px; */
 }
+
+/*******************************************
+start Emergent mobile
+**********************************************/
+
+.nav_emergente {
+    position: fixed;
+    width: 80px;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    right: 0;
+    top: 25%;
+    margin-right: -50px;
+    z-index: 9;
+    transition: all 1s;
+
+}
+
+.solapa {
+    width: 34px;
+    height: 35px;
+    position: absolute;
+    margin-top:1px;
+    left: 0;
+    background-color: var(--verdeOscuro);
+    border-radius: 25px 0 0 25px; 
+    transition: all 1s;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 30%;
+    top: 25%;
+    font-size: 1rem;
+    color: white;
+    
+}
+
+.nav_options-emergente {
+    width: 33px;
+    height: 100%;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-right: 8px;
+}
+
+.nav_options-emergente a{
+    padding: 10px;
+    background-color: var(--verdeOscuro);
+    border-radius: 50%;
+    
+}
+
+.show_nav_mobile{
+    margin-right: 0;
+    position: fixed;
+}
+
+.solapa1 {
+    width: 15px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    transform: rotate(-45deg);
+    transition: all 1s;
+}
+
+.solapa2 {
+    width: 15px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: rotate(45deg);
+    transition: all 1s;
+}
+
+.active1{
+    transform: rotate(45deg);
+}
+.active2{
+    transform: rotate(-45deg);
+}
+.active3{
+    border-radius: 50%;
+}
+
+/*end Emergent mobile*/
 
 /*******************************************
 Header mobile
@@ -16,8 +114,19 @@ Header mobile
     height: 100vh;
     overflow: hidden;
     position: absolute;
+    
 }
-
+.usuario_mobile-log a{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.usuario_mobile-log img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
 
 .mobile_header {
     width: 100vw;
@@ -53,13 +162,14 @@ Header mobile
     display: flex;
     flex-direction: column;
     position: fixed;
-    width: 60vw;
+    padding-top: 10vh;
+    width: 100vw;
     height: 100vh;
     z-index: 2;
     right: 0;
     background-color: var(--verdeOscuro);
     text-align: center;
-    margin-right: -60vw;
+    margin-right: -100vw;
     transition: 1s;
 }
 
@@ -75,30 +185,9 @@ Header mobile
     margin-top: 50px;
 }
 
-.shadow_mobile{
-    width: 40vw;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
-    left: 0;
-    z-index: 2;
-    margin-left: -40vw;
-    transition: 1s;
-}
-
 .mostrar{
     margin-right: 0;
-    position: fixed;
-}
-
-.mostrar2{
-    margin-left: 0;
-    position: fixed;
-}
-
-.fix_nav{
-    position: fixed;
-    z-index: 5;
+    
 }
 
 .usuario_mobile{
@@ -140,6 +229,33 @@ Header mobile
 }
 
 @media(min-width: 426px) {
+
+    .header__iconos a i {
+        width: 75%;
+        color: var(--verdeClaro);
+        font-size: 20px;
+    }
+
+    .header__iconos a {
+        background-color: var(--verdeClaro-Opaco);
+        margin-left: 5px;
+        height: 40px;
+        width: 28px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: 1px solid var(--verdeOscuro);
+    }
+
+
+    .header .logout{
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
     .options_mobile{
         display: none;
     }
@@ -155,6 +271,7 @@ Header mobile
 
     .header__container {
         width: 100%;
+        height: 10%;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -164,12 +281,16 @@ Header mobile
     .header__logo {
         width: 20%;
         display: flex;
-        align-self: flex-start;
+        justify-content: center;
+    }
+
+    .header__logo a {
+        display: flex;
         justify-content: center;
     }
 
     .header__logo img {
-        width: 80%;
+        width: 60%;
     }
 
     .header .logo {
@@ -214,11 +335,19 @@ Header mobile
     .header__user {
         display: flex;
         align-items: center;
-        font-size: 13px;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
     .header__user a {
-        height: 36px;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        border-radius: 19px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--verdeAmarillento);
     }
 
     .header__user p {
@@ -268,6 +397,24 @@ Header mobile
 }
 
 @media(min-width: 768px) {
+    .nav_emergente{
+        display: none;
+    }
+
+    .header__iconos a i {
+        font-size: 20px;
+    }
+
+    .header__iconos a {
+        background-color: var(--verdeClaro-Opaco);
+        margin-right: 10px;
+        height: 40px;
+        width: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+    }
 
     .header__nav {
         justify-content: space-between;
@@ -292,19 +439,7 @@ Header mobile
     }
 
 
-    .header__iconos a img {
-        width: 75%;
-    }
-
-    .header__iconos a {
-        background-color: var(--verdeClaro-Opaco);
-        margin-right: 2px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-    }
+    
 
 
     .header__iconos {
@@ -314,6 +449,14 @@ Header mobile
         align-items: center;
 
     }
+
+    .header__user a i{
+        font-size: 24px;
+    }
+    .header__user a p{
+        font-size: 15px;
+    }
+    
 
     .header__user a {
         display: flex;
@@ -327,8 +470,7 @@ Header mobile
     }
 
     .header__user a .icon__user {
-        width: 40px;
-        height: 38px;
+        font-size: 36px;
     }
 
     .header__user a p {

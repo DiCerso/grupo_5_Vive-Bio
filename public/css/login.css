@@ -1,3 +1,15 @@
+.login main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    background-image: url('/images/background-register.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
 .login_general_container {
     display: flex;
     align-items: center;
@@ -93,7 +105,8 @@
 }
 
 .login label {
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .login_form-box input {
@@ -131,25 +144,33 @@
     text-align: center;
 }
 
-.login_remember-box{
+/* .login_remember-box{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 
 @media (min-width: 425px) {
+    .login_general_container {
+        margin-top: 0;
+    }
+    .login main{
+        height: 80vh;
+    }
     .login_form-container {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 0;
     }
 
     .header_login {
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 20vh;
     }
 
     .login .header_login_mobile {
@@ -221,7 +242,7 @@
 
     .login_form-input:hover,
     .login_form-input:focus {
-        box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+        box-shadow: 0 0 5px var(--verdeFuerte), 0 0 10px var(--verdeFuerte), 0 0 15px var(--verdeFuerte);
     }
 }
 

@@ -1,0 +1,252 @@
+.edit_user__img input {
+    display: none;
+}
+
+.edit_user__dats h2{
+    width: 100%;
+    text-align: center;
+}
+
+.edit_user__img label {
+    color: var(--violetaOscuro);
+    position: absolute;
+    bottom: 10px;
+    right: 6px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.edit_user__img label i {
+    text-shadow: 0 0 5px white;
+}
+
+.edit_user__container {
+    width: 300px;
+    padding: 20px;
+    margin: 85px auto 85px auto;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+    display:flex;
+    flex-direction: column;
+}
+
+.edit_user__perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.edit_user__perfil .edit_user__head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.editProfile h3 {
+    color: var(--VioletaOscuro);
+}
+
+.edit_user__names {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.edit_user__info{
+    width: 100%;
+}
+
+.edit_user__info-container input {
+    width: 80%;
+    margin: 5px 0 5px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid var(--verdeFuerte);
+    text-align: center;
+}
+
+.edit_user__info-pass {
+    position: relative;
+    margin: 15px 0 15px;
+}
+
+.edit_user__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_user__info-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+}
+
+.edit_user__img {
+    width: 40%;
+    position: relative;
+    height: 100px;
+}
+
+.edit_user__img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.edit_user__options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.edit_user__options button {
+    padding: 5px;
+    background-color: #7FA794;
+    text-align: center;
+    width: 110px;
+    height: 45px;
+    margin-bottom: 5px;
+    border-radius: 19px;
+    font-size: 14px;
+    text-shadow: 0 0 2px black;
+    border: none;
+    cursor:pointer;
+    color: white;
+}
+
+.editProfile h2 {
+    margin: 10px 0 10px;
+    text-shadow: none;
+    color: black;
+}
+.edit_user__head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.edit_user__dats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 425px) {
+
+    .edit_user__dats {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .edit_user__container {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        margin-top: 25px;
+    }
+
+    .edit_logo__user img {
+        width: 150px;
+    }
+
+    .edit_user__img {
+        width: 100px;
+    }
+
+    .edit_logo__user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20%;
+    }
+    .edit_user__info-pass{
+        position: relative;
+        width: 96%;
+        margin: 15px 15px;
+    }
+    .edit_user__head{
+        justify-content: space-around;
+    }
+}
+
+@media(min-width: 645px) {
+
+    .edit_user__info-container input{
+        width: 260px;
+        text-align: start;
+    }
+
+    .edit_user__info-pass {
+        width: 43%;
+    }
+
+    .edit_user__names {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .edit_user__perfil {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .edit_user__options {
+        flex-direction: column;
+    }
+
+    .edit_user__dats {
+        flex-direction: column;
+        width: 75%;
+        padding: 20px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .edit_user__img{
+        align-items: center;
+        margin: 20px 0;
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .edit_user__info-container{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .edit_user__container{
+        display: flex;
+        flex-direction: row;
+        width:80%;
+        max-width: 800px;
+        padding: 0;
+        margin: 50px auto;
+    }
+
+    .edit_user__head{
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 25%;
+        border-right: 1px solid var(--verdeFuerte);
+    }
+
+    .edit_user__info-container label{
+        width: 25%;
+        text-align: start;
+    }
+}

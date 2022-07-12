@@ -1,15 +1,27 @@
-const fs = require('fs');
-const path  = require('path')
-const category = require('../data/categories');
-const products = require('../data/products')
+const db = require('../database/models');
 
 
 module.exports = {
-    index : (req, res) =>{
+    index : async (req, res) =>{
 
-        return res.render('index', {
-            products,
-            category
-        })
+        try {
+            let products = await db.Product.findAll({
+                limit : 4, 
+                include : [
+                    {association: 'productImages'}
+                ]
+            })
+            let category = await db.Category.findAll({
+                limit : 3
+            })
+            
+                return res.render('index', {
+                    products,
+                    category
+                })
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }

@@ -1,0 +1,135 @@
+.addProducts main {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.add_container {
+    padding: 20px 0 20px;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+    margin: 50px auto;
+
+}
+
+.add_input:hover,
+.add_input:focus{
+    box-shadow: 0 0 5px var(--verdeOscuro), 0 0 10px var(--verdeOscuro), 0 0 15px var(--verdeOscuro);
+    outline: none;
+}
+
+
+.add_container h3 {
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    margin: 10px;
+}
+
+.add_form-box {
+    text-align: center;
+    padding: 8px;
+    margin: 10px;
+    transition: 0.5s;
+}
+
+.add_form-box input {
+    border: 1px solid var(--verdeFuerte);
+    padding: 3px;
+    font-size: 11px;
+    transition: 0.5s;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.add_form-box-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.add_form-box-description textarea{
+    border: 1px solid var(--verdeFuerte);
+    transition: 0.5s;
+    border-radius: 5px;
+    width: 100%;
+}
+.add_form-box select{
+    border: 1px solid var(--verdeFuerte);
+    transition: 0.5s;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+}
+
+.add_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.add_button button {
+    background-color: var(--verdeOscuro);
+    color: black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 0 10px 0;
+    transition: all 0.8s;
+}
+
+.add_container label {
+    margin: 5px 0 5px;
+}
+
+@media (min-width: 425px) {
+    .add_container {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .add_button button:hover{
+        background-color: var(--verdeFuerte);
+    }
+
+    .add_container {
+        width: 630px;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .camps_container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .add_form-box-description {
+        display: flex;
+        flex-direction: column;
+        padding-top: 13px;
+        margin: 10px;
+    }
+
+    .add_form-box-description textarea {
+        height: 320px;
+    }
+
+    .add_form-box {
+        display: flex;
+        flex-direction: column;
+        margin: 5px 0 5px;
+    }
+
+
+}

@@ -1,0 +1,29 @@
+.edit_product main{
+    /* display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.edit_find{
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    border: 1px solid green;
+    margin: 10px 0 10px;
+    border-radius: 10px;
+}
+.edit_find input{
+    border-radius: 5px;
+    border: 1px solid green;
+}
+
+@media (min-width: 768px){
+    .edit_find{
+        width: 600px;
+    }
+    .edit_find input{
+        width: 300px;
+    }
+}

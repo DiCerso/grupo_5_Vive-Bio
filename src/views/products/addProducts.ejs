@@ -18,41 +18,58 @@
                                     <label for="category">Categoría</label>
                                     <select class="add_input" name="category" id="category">
                                         <option value="" hidden selected>Selecciona la categoría...</option>
-                                        <% category.forEach(categori => { %>
-                                            <option value="<%= categori.id %>" ><%= categori.name %> </option>
-                                        <% }) %>
+                                        <% category.forEach(categori=> { %>
+                                            <option value="<%= categori.id %>">
+                                                <%= categori.name %>
+                                            </option>
+                                            <% }) %>
                                     </select>
                                 </div>
                                 <div class="add_form-box">
                                     <label for="volume">Peso (g)</label>
-                                    <input class="add_input" type="number" id="volume" name="volume" style="padding:5px;">
+                                    <input class="add_input" type="number" id="volume" name="volume"
+                                        style="padding:5px;">
                                 </div>
                                 <div class="add_form-box">
                                     <label for="price">Precio</label>
-                                    <input class="add_input"  type="number" id="price" name="price" style="padding:5px;">
+                                    <input class="add_input" type="number" id="price" name="price" style="padding:5px;">
                                 </div>
                                 <div class="add_form-box">
                                     <label for="discount">Descuento</label>
-                                    <input class="add_input" type="number" id="discount" name="discount" style="padding:5px;">
+                                    <input class="add_input" type="number" id="discount" name="discount"
+                                        style="padding:5px;">
+                                </div>
+                                <div class="add_form-box">
+                                    <label for="stock">Stock</label>
+                                    <input class="add_input" type="number" id="stock" name="stock" style="padding:5px;">
                                 </div>
                                 <div class="add_form-box">
                                     <label for="image">Imagen</label>
-                                    <input class="add_input" type="file" id="image"  name="image" accept="image/*" multiple>
+                                    <input class="add_input" type="file" id="image" name="image" accept="image/*"
+                                        multiple>
                                 </div>
                             </div>
                             <div>
                                 <div class="add_form-box">
                                     <label for="ingredients">Ingredientes</label>
-                                    <input class="add_input" type="text" id="ingredients" name="ingredients" style="padding:5px;">
+                                    <input class="add_input" type="text" id="ingredients" name="ingredients"
+                                        style="padding:5px;">
                                 </div>
                                 <div class="add_form-box">
                                     <label for="property">Propiedades</label>
-                                    <input class="add_input" type="text" id="property" name="property" style="padding:5px;">
+                                    <select class="add_input" name="property" id="property">
+                                        <option value="" hidden selected>Selecciona la propiedad...</option>
+                                        <% property.forEach(propiedad=> { %>
+                                            <option value="<%= propiedad.id %>">
+                                                <%= propiedad.name %>
+                                            </option>
+                                            <% }) %>
+                                    </select>
                                 </div>
                                 <div class="add_form-box-description">
                                     <label for="desciption">Descripción</label>
-                                    <textarea class="add_input" type="text" id="desciption" name="description" rows="3" cols="35"
-                                        style="resize: none; padding:5px;"></textarea>
+                                    <textarea class="add_input" type="text" id="desciption" name="description" rows="3"
+                                        cols="35" style="resize: none; padding:5px;"></textarea>
                                 </div>
                             </div>
                         </article>
@@ -69,6 +86,8 @@
                 </section>
             </main>
             <%- include('../partials/footer') %>
+                <script src="/javascript/menuMobile.js"></script>
+                <script src="/javascript/navEmergent.js"></script>
     </body>
 
 </html>
