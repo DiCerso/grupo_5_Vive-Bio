@@ -21,20 +21,10 @@
                                     <div class="add_form-box">
                                         <label for="category">Categoría</label>
                                         <select class="add_input" name="category" id="category">
-                                            <% categories.forEach(category=> { %>
-                                                <option value="<%= category.id %>" <%=product.category_id === category.id
-                                                    ? 'selected' : null %>><%= category.name %>
+                                            <% categories.forEach(categori=> { %>
+                                                <option value="<%= categori.id %>" <%=categori.id===product.category
+                                                    ? 'selected' : null %>><%= categori.name %>
                                                 </option>
-                                                <% }) %>
-                                        </select>
-                                    </div>
-                                    <div class="add_form-box">
-                                        <label for="property">Propiedad</label>
-                                        <select class="add_input" name="property" id="property
-                                            <% properties.forEach(property=> { %>
-                                                <option value=" <%=property.id %>" <%=product.property_id === property.id
-                                                ? 'selected' : null %>><%= property.name %>
-                                                    </option>
                                                 <% }) %>
                                         </select>
                                     </div>
@@ -54,8 +44,14 @@
                                             id="discount" name="discount" style="padding:5px;">
                                     </div>
                                     <div class="add_form-box">
-                                        <label for="image">Imagen principal</label>
-                                        <input class="add_input" type="file" id="image" name="image" accept="image/*" />
+                                        <label for="discount">Stock</label>
+                                        <input value="<%= product.stock %>" class="add_input" type="number"
+                                            id="stock" name="stock" style="padding:5px;">
+                                    </div>
+                                    <div class="add_form-box">
+                                        <label for="image">Imagen</label>
+                                        <input class="add_input" type="file" id="image" name="image" accept="image/*"
+                                            multiple>
                                     </div>
                                 </div>
                                 <div>
@@ -64,19 +60,16 @@
                                         <input value="<%= product.ingredients %>" class="add_input" type="text"
                                             id="ingredients" name="ingredients" style="padding:5px;">
                                     </div>
-<<<<<<< HEAD:site_ViveBio/src/views/products/editProducts.ejs
                                     <div class="add_form-box">
                                         <label for="property">Propiedades</label>
                                         <select class="add_input" name="property" id="property">
-                                            <% property.forEach(properti=> { %>
+                                            <% properties.forEach(properti=> { %>
                                                 <option value="<%= properti.id %>" <%=properti.id===product.property_id
                                                     ? 'selected' : null %>><%= properti.name %>
                                                 </option>
                                                 <% }) %>
                                         </select>
                                     </div>
-=======
->>>>>>> branch-MayData:site_ViveBio/src/views/products/edit.ejs
                                     <div class="add_form-box-description">
                                         <label for="description">Descripción</label>
                                         <textarea class="add_input" type="text" id="description" name="description"
@@ -88,6 +81,7 @@
                             </div>
                             </div>
                             <div class="register_center">
+
                                 <div class="add_button">
                                     <button type="submit">Actualizar</button>
                                     <button type="reset">Limpiar</button>

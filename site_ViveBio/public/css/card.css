@@ -96,6 +96,13 @@
 
 /* ÍCONOS */
 
+.productCard .producto-iconos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .productCard .producto-iconos a {
     display: inline-flex;
     gap: 15px;
@@ -107,6 +114,20 @@
     justify-content: center;
     border-radius: 8px;
     border: solid 1px white;
+}
+
+.productCard .producto-iconos form button{
+    display: inline-flex;
+    gap: 15px;
+    background-color: var(--verdeClaro-Opaco);
+    margin-right: 10px;
+    height: 40px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px white;
+    color: white;
 }
 
 .productCard .producto-iconos a:hover {
@@ -125,6 +146,11 @@
     justify-content: center;
     align-items: center;
     gap: 3px;
+}
+
+.productAll .row article{
+    display: flex;
+    justify-content: center;
 }
 
 .productCard .productosRelacionados {

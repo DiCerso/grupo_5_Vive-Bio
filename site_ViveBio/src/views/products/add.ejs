@@ -12,7 +12,11 @@
 							<div class="sub_container">
 								<div class="add_form-box">
 									<label for="name">Nombre</label>
-									<input class="add_input" type="text" id="name" name="name" style="padding:5px;">
+									<input
+										class="add_input <%= locals.errores && errores.name ? 'register_error_input' : null %>"
+										id="name" name="name" style="padding:5px;"
+										placeholder="Ingresar el nombre del Producto"
+										value="<%= locals.old && old.name ? old.name : null %>">
 								</div>
 								<div class="add_form-box">
 									<label for="category">Categoría</label>
@@ -38,21 +42,35 @@
 								</div>
 								<div class="add_form-box">
 									<label for="volume">Peso (g)</label>
-									<input class="add_input" type="number" id="volume" name="volume"
-										style="padding:5px;">
+									<input
+										class="add_input <%= locals.errores && errores.volume ? 'register_error_input' : null %>"
+										type="number" id="volume" name="volume"
+										placeholder="Ingresar el peso(g) Producto" style="padding:5px;"
+										value="<%= locals.old && old.volume ? old.volume : null %>">
 								</div>
 								<div class="add_form-box">
 									<label for="price">Precio</label>
-									<input class="add_input" type="number" id="price" name="price" style="padding:5px;">
+									<input
+										class="add_input <%= locals.errores && errores.price ? 'register_error_input' : null %>"
+										type="number" id="price" name="price" style="padding:5px;"
+										placeholder="Ingresar el precio del Producto"
+										value="<%= locals.old && old.price ? old.price : null %>">
 								</div>
 								<div class="add_form-box">
 									<label for="discount">Descuento</label>
-									<input class="add_input" type="number" id="discount" name="discount"
-										style="padding:5px;">
+									<input
+										class="add_input <%= locals.errores && errores.discount ? 'register_error_input' : null %>"
+										type="number" id="discount" name="discount"
+										placeholder="Ingresar el Descuento del Producto" style="padding:5px;"
+										value="<%= locals.old && old.discount ? old.discount : null %>">
 								</div>
 								<div class="add_form-box">
 									<label for="stock">Stock</label>
-									<input class="add_input" type="number" id="stock" name="stock" style="padding:5px;">
+									<input
+										class="add_input <%= locals.errores && errores.stock ? 'register_error_input' : null %>"
+										type="number" id="stock" name="stock" style="padding:5px;"
+										placeholder="Ingresar el Stock del Producto"
+										value="<%= locals.old && old.stock ? old.stock : null %>">
 								</div>
 								<div class="add_form-box">
 									<label for="images">Agregar imágenes</label>
@@ -63,13 +81,20 @@
 							<div>
 								<div class="add_form-box">
 									<label for="ingredients">Ingredientes</label>
-									<input class="add_input" type="text" id="ingredients" name="ingredients"
+									<input
+										class="add_input <%= locals.errores && errores.ingredients ? 'register_error_input' : null %>"
+										type="text" id="ingredients" name="ingredients"
+										placeholder="Ingresar los Ingredientes del Producto"
+										value="<%= locals.old && old.ingredients ? old.ingredients : null %>"
 										style="padding:5px;">
 								</div>
 								<div class="add_form-box-description">
 									<label for="desciption">Descripción</label>
-									<textarea class="add_input" type="text" id="desciption" name="description" rows="3"
-										cols="35" style="resize: none; padding:5px;"></textarea>
+									<textarea
+										class="add_input <%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
+										type="text" id="desciption" name="description" rows="3" cols="35"
+										style="resize: none; padding:5px;"
+										placeholder="Ingresar la Descripción del Producto"><%= locals.old && old.desciption ? old.desciption : null %></textarea>
 								</div>
 							</div>
 						</article>

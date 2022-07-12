@@ -1,5 +1,5 @@
 const path = require("path");
-const { Category, Property, Product, ProductImage } = require("../database/models");
+const fs = require('fs')
 const { validationResult } = require('express-validator');
 const toThousand = (n) =>
     n
@@ -78,238 +78,243 @@ module.exports = {
     },
 
     //view form add product
-    add: (req, res) => {
-        let categories = db.Category.findAll({ order: ["name"] });
-        let properties = db.Property.findAll({ order: ["name"] });
-        Promise.all([categories, properties])
-            .then(([categories, properties]) => {
-                return res.render("products/add", { categories, properties });
+    add: async (req, res) => {
+        try {
+            const categories = await db.Category.findAll()
+            const properties = await db.Property.findAll()
+            return res.render('products/add', {
+                categories,
+                properties
             })
-            .catch((error) => {
-                console.log(error);
-            });
+        } catch (error) {
+            console.log(error)
+        }
     },
 
     //method to save new product
     store: async (req, res) => {
-        try {
-            let cont = 0
-            let image = req.files.map(image => image.filename);
-            if (image.length < 1) {
-                image = ["noimage.jpg"]
-            }
-            let product = await db.Product.findAll()
-
-            let products = await db.Product.create({
-                name: req.body.name,
-                category_id: req.body.category,
-                volume: req.body.volume,
-                price: req.body.price,
-                discount: req.body.discount,
-                ingredients: req.body.ingredients,
-                description: req.body.description,
-                stock: req.body.stock,
-                property_id: req.body.property,
-                productImages: {
-                    name: image[0],
-                    primary: 1
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            try {
+                let cont = 0
+                let image = req.files.map(image => image.filename);
+                if (image.length < 1) {
+                    image = ["noimage.jpg"]
                 }
-            },
-                {
-                    include: [
-                        { association: 'productImages' }
-                    ]
-                }
-            )
+                let product = await db.Product.findAll()
 
-            /* let idmax = 0;
-            product.forEach(product => {
-                idmax = product.id
-            }) */
-
-            let idmax = await db.Product.findOne({
-                where: {
-                    name: req.body.name
-                }
-            })
-
-
-            let imagen
-            if (image.length > 1) {
-                imagen = image.filter(image => {
-                    if (cont != 0) {
-                        cont++
-                        return image
+                let products = await db.Product.create({
+                    name: req.body.name,
+                    category_id: req.body.category,
+                    volume: req.body.volume,
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    ingredients: req.body.ingredients,
+                    description: req.body.description,
+                    stock: req.body.stock,
+                    property_id: req.body.property,
+                    productImages: {
+                        name: image[0],
+                        primary: 1
                     }
-                    cont++
-                })
-            }
-
-            let productimage = imagen.map(image => {
-                return {
-                    name: image,
-                    product_id: idmax.id,
-                    primary: 0
-                }
-            })
-
-            productimage.forEach(async (image) => {
-                console.log(image)
-                let imageProduct = await db.ProductImage.create({
-                    name: image.name,
-                    product_id: image.product_id,
-                    primary: 0
-                }
+                },
+                    {
+                        include: [
+                            { association: 'productImages' }
+                        ]
+                    }
                 )
+
+                let idmax = await db.Product.findOne({
+                    where: {
+                        name: req.body.name
+                    }
+                })
+
+                let imagen
+                if (image.length > 1) {
+                    imagen = image.filter(image => {
+                        if (cont != 0) {
+                            cont++
+                            return image
+                        }
+                        cont++
+                    })
+                }
+
+                let productimage = imagen.map(image => {
+                    return {
+                        name: image,
+                        product_id: idmax.id,
+                        primary: 0
+                    }
+                })
+
+                productimage.forEach(async (image) => {
+                    console.log(image)
+                    let imageProduct = await db.ProductImage.create({
+                        name: image.name,
+                        product_id: image.product_id,
+                        primary: 0
+                    }
+                    )
+                })
+                return res.redirect('/Products/All')
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            let images = req.files.map(image => image.filename);
+            images.forEach(image => {
+                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image)) && image !== "noimage.jpg") {
+                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image))
+                }
+            });
+            try {
+                const categories = await db.Category.findAll()
+                const properties = await db.Property.findAll()
+                return res.render('products/add', {
+                    errores: errors.mapped(),
+                    old: req.body,
+                    properties,
+                    categories
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    },
+
+    edit: async (req, res) => {
+        try {
+            const product = await db.Product.findByPk(req.params.id, {
+                include: [
+                    { association: 'productImages' }
+                ]
             })
-
-
-            return res.redirect('/Products/All')
+            const properties = await db.Property.findAll()
+            const categories = await db.Category.findAll()
+            return res.render('products/edit', {
+                product,
+                properties,
+                categories
+            })
         } catch (error) {
             console.log(error)
         }
-
-
     },
 
-    //view form edit product
-    edit: (req, res) => {
-        let product = db.Product.findByPk(req.params.id, {
-            include: ["productImages"],
-        });
-        let categories = db.Category.findAll({ order: ["name"] });
-        let properties = db.Property.findAll({ order: ["name"] });
-
-        Promise.all([product, categories, properties])
-            .then(([product, categories, properties]) => {
-                return res.render("products/edit", { product, categories, properties });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-            /*try {
-            const product = await db.Product.findByPk(req.params.id)
-            const image = await db.ProductImage.findAll({
-                where: {
-                    product_id: req.params.id
-                }
-            })
-            const property = await db.Property.findAll()
-            const category = await db.Category.findAll()
-            return res.render('products/editProducts', {
-                product,
-                image,
-                property,
-                category
-            })
-        } catch (error) {
-            console.log(error)
-        }*/
-    },
-
-    //method to save edit product
-    update: (req, res) => {
-        Product.update(
-            {
-                name: req.body.name,
-                description: req.body.description,
-                ingredients: req.body.ingredients,
-                price: +req.body.price,
-                stock: +req.body.stock,
-                volume: req.body.volume,
-                discount: +req.body.discount,
-                category_id: +req.body.category,
-                property_id: +req.body.property,
-            },
-            {
-                where: {
-                    id: req.params.id,
-                },
-            }
-        )
-            .then(async () => {
-                if (req.file) {
-                    try {
-                        await ProductImage.update(
-                            {
-                                file: req.file.filename,
-                            },
-                            {
-                                where: {
-                                    product_id: req.params.id,
-                                    primary: 1,
-                                },
-                            }
-                        );
-                    } catch (error) {
-                        console.log(error);
+    update: async (req, res) => {
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            try {
+                const olds = await db.ProductImage.findAll({
+                    where: {
+                        product_id: req.params.id
                     }
+                })
+                const OldImages = olds.map(old => old.name);
+                const update = await db.Product.update({
+                    name: req.body.name,
+                    category_id: req.body.category,
+                    volume: +req.body.volume,
+                    price: +req.body.price,
+                    discount: +req.body.discount,
+                    ingredients: req.body.ingredients.trim(),
+                    description: req.body.description.trim(),
+                    stock: +req.body.stock,
+                    property_id: req.body.property
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                if (req.files.length > 0) {
+                    let newimages = req.files.map(({ filename }, i) => {
+                        let image = {
+                            name: filename,
+                            product_id: req.params.id,
+                            primary: i === 0 ? 1 : 0
+                        }
+                        return image
+                    })
+                    db.ProductImage.destroy({
+                        where: {
+                            product_id: req.params.id
+                        }
+                    })
+                    OldImages.forEach(image => {
+                        if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image)) && image !== "noimage.jpg") {
+                            fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image))
+                        }
+                    });
+                    db.ProductImage.bulkCreate(newimages, { validate: true })
+
+                        .then((result) => console.log(result))
                 }
-                return res.redirect("/products/list");
-            })
-            .catch((error) => {
-                console.log(error);
+                return res.redirect((`/products/Card/${req.params.id}`))
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            let images = req.files.map(image => image.filename);
+            images.forEach(image => {
+                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image)) && image !== "noimage.jpg") {
+                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image))
+                }
             });
-            /*try {
-            const olds = await db.ProductImage.findAll({
+            try {
+                const categories = await db.Category.findAll()
+                const properties = await db.Property.findAll()
+                const product = await db.Product.findByPk(req.params.id,{
+                    include : [
+                        {association : 'property'},
+                        {association : 'category'}
+                    ]
+                })
+                return res.render('products/edit', {
+                    errores: errors.mapped(),
+                    old: req.body,
+                    properties,
+                    categories,
+                    product
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+    },
+    remove: async (req, res) => {
+        try {
+            const images = await db.ProductImage.findAll({
                 where: {
                     product_id: req.params.id
                 }
             })
-            const OldImages = olds.map(old => old.name);
-            const image = req.files.map(image => image.filename);
-            const update = await db.Product.update({
-                name: req.body.name,
-                category_id: req.body.category,
-                volume: +req.body.volume,
-                price: +req.body.price,
-                discount: +req.body.discount,
-                ingredients: req.body.ingredients.trim(),
-                description: req.body.description.trim(),
-                stock: +req.body.stock,
-                property_id: req.body.property
-            }, {
+            const imagesDelete = images.map(image => image.name)
+            imagesDelete.forEach(image => {
+                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image)) && image !== "noimage.jpg") {
+                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image))
+                }
+            });
+            const destroyImages = await db.ProductImage.destroy({
+                where: {
+                    product_id: req.params.id
+                },
+                force: true
+            })
+            const destroyProduct = await db.Product.destroy({
                 where: {
                     id: req.params.id
-                }
+                },
+                force: true
             })
-            if (req.files.length > 0) {
-                let images = req.files.map(({ filename }, i) => {
-                    let image = {
-                        name: filename,
-                        product_id: req.params.id,
-                        primary: i === 0 ? 1 : 0
-                    }
-                    return image
-                })
-                db.ProductImage.destroy({
-                    where : {
-                        product_id : req.params.id
-                    }
-                })
-                db.ProductImage.bulkCreate(images, { validate: true })
-                
-                    .then((result) => console.log(result))
-            }
-            return res.redirect((`/products/Card/${req.params.id}`))
+            return res.redirect("/products/list");
+
         } catch (error) {
             console.log(error)
-        } */
-    },
-    remove: (req, res) => {
-
-        Product.destroy({
-            where: {
-                id: req.params.id,
-            },
-            force: true
-        })
-            .then(() => {
-                return res.redirect("/products/list");
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        }
     },
 
     search: (req, res) => {
@@ -334,19 +339,19 @@ module.exports = {
     },
 
     list: (req, res) => {
-        const products = Product.findAll();
+        const products = db.Product.findAll();
 
-        const bioCapilar = Product.findAll({
+        const bioCapilar = db.Product.findAll({
             where: {
                 category_id: 1,
             },
         });
-        const bioCorporal = Product.findAll({
+        const bioCorporal = db.Product.findAll({
             where: {
                 category_id: 2,
             },
         });
-        const bioSpa = Product.findAll({
+        const bioSpa = db.Product.findAll({
             where: {
                 category_id: 3,
             },

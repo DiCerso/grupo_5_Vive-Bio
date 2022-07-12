@@ -1,3 +1,8 @@
+.login main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .login{
     background-image: url('/images/background-register.jpg');
     background-size: cover;
@@ -147,17 +152,25 @@
 
 
 @media (min-width: 425px) {
+    .login_general_container {
+        margin-top: 0;
+    }
+    .login main{
+        height: 80vh;
+    }
     .login_form-container {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 0;
     }
 
     .header_login {
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 20vh;
     }
 
     .login .header_login_mobile {
