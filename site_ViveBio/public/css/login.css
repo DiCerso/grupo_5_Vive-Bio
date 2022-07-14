@@ -171,6 +171,10 @@
         align-items: center;
         justify-content: center;
         height: 20vh;
+        filter: drop-shadow(0 0 15px var(--verdeOscuro))
+    }
+    .header_login a img {
+        filter: drop-shadow(15px 0 15px #2E4A2F)
     }
 
     .login .header_login_mobile {

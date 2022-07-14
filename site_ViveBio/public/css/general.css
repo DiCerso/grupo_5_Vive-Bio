@@ -14,6 +14,7 @@ a {
 
 input{
     outline: none;
+    font-family:inherit;
 }
 
 li {
