@@ -108,14 +108,16 @@
                     </ul>
                 </div>
                 <div class="header__iconos">
-                    <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
-                        <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
-                        <% } %>
-                            <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
-                            <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
-                            <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
-                                    title="Carrito de compras"></i></a>
-                            <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                    <% if (locals.userLogin) { %>
+                        <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
+                            <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
+                            <% } %>
+                                <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
+                                <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+                                <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
+                                        title="Carrito de compras"></i></a>
+                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                <% } %>
                 </div>
             </nav>
 </header>
