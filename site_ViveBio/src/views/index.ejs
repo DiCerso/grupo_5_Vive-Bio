@@ -15,19 +15,23 @@
                     <input type="radio" name="radio-btn" id="radio4">
                     <!-- imagenes de carrusel -->
                     <div class="slide first">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt numquam veritatis repellendus.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt
+                            numquam veritatis repellendus.</p>
                         <div class="img_1"></div>
                     </div>
                     <div class="slide">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt numquam veritatis repellendus.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt
+                            numquam veritatis repellendus.</p>
                         <div class="img_2"></div>
                     </div>
                     <div class="slide">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt numquam veritatis repellendus.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt
+                            numquam veritatis repellendus.</p>
                         <div class="img_3"></div>
                     </div>
                     <div class="slide">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt numquam veritatis repellendus.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, quia accusamus deserunt
+                            numquam veritatis repellendus.</p>
                         <div class="img_4"></div>
                     </div>
                     <!-- fin de imagenes de carrusel -->
@@ -56,28 +60,29 @@
                 </div>
                 <section class="sect1">
                     <% products.forEach(product=> { %>
-                            <article class="art__home">
-                                <div class="nombreart__home">
-                                    <h1>
-                                        <%= product.name %>
-                                    </h1>
-                                </div>
-                                <div class="imgart__home">
-                                          <img src="/images/products/<%= product.productImages[0].name%>" alt="imagen del producto">
-                                </div>
-                                <div class="precio">
-                                    <h4>
-                                        <%= product.price %> $
-                                    </h4>
-                                    <p>
-                                        <%= product.price - (product.price * product.discount / 100) %> $
-                                    </p>
-                                </div>
-                                <div class="verart__home">
-                                    <a href="/products/card/<%= product.id %>">Ver más</a>
-                                </div>
-                            </article>
-                                <% }) %>
+                        <article class="art__home">
+                            <div class="nombreart__home">
+                                <h1>
+                                    <%= product.name %>
+                                </h1>
+                            </div>
+                            <div class="imgart__home">
+                                <img src="/images/products/<%= product.productImages[0].name%>"
+                                    alt="imagen del producto">
+                            </div>
+                            <div class="precio">
+                                <h4>
+                                    <%= product.price %> $
+                                </h4>
+                                <p>
+                                    <%= product.price - (product.price * product.discount / 100) %> $
+                                </p>
+                            </div>
+                            <div class="verart__home">
+                                <a href="/products/card/<%= product.id %>">Ver más</a>
+                            </div>
+                        </article>
+                        <% }) %>
                 </section>
                 <div class='nombre-categorias__home'>
                     <h1>Categorias</h1>
@@ -99,8 +104,6 @@
             </main>
             <%- include('./partials/footer') %>
                 <script type="text/javascript" src="/javascript/carrusel.js"></script>
-                <script src="/javascript/menuMobile.js"></script>
-                <script src="/javascript/navEmergent.js"></script>
     </body>
 
 </html>

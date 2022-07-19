@@ -51,8 +51,8 @@
             <div class="nav_options-emergente">
                 <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
                     <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
+                    <a href="/products/list/0"><i class="fas fa-user-cog"title="Configuraciones de Administrador"></i></a>
                     <% } %>
-                        <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
                         <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
                         <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
                                 title="Carrito de compras"></i></a>
@@ -98,21 +98,19 @@
                 <div class="header__opciones">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
-                            <li><a href="/products/list/0">Lista</a></li>
-                            <% }else{ %>
-                                <li><a href="/products/all">Productos</a></li>
-                                <% }%>
-                                    <li><a href="">Quiénes somos</a></li>
-                                    <li><a href="">Contacto</a></li>
+                        <li><a href="/products/all">Productos</a></li>
+                        <li><a href="">Quiénes somos</a></li>
+                        <li><a href="">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="header__iconos">
                     <% if (locals.userLogin) { %>
                         <% if (locals.userLogin && userLogin.rol=="admin" ) { %>
                             <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
+                            <a href="/products/list/0"><i class="fas fa-user-cog"
+                                    title="Configuraciones de Administrador"></i></a>
                             <% } %>
-                                <a href="#"><i class="fa-solid fa-gear" title="Configuración"></i></a>
+
                                 <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
                                 <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
                                         title="Carrito de compras"></i></a>

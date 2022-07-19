@@ -13,9 +13,9 @@
 .login_general_container {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
-    margin-top: 80px;
+    height: 100vh;
 }
 
 .login_box_1 {
@@ -154,6 +154,7 @@
 @media (min-width: 425px) {
     .login_general_container {
         margin-top: 0;
+        height: 80vh;
     }
     .login main{
         height: 80vh;
