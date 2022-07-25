@@ -16,7 +16,7 @@
                             <article class="cart_article_box">
                                 <div class="cart_sect_1">
                                     <div class="cart_sect_img">
-                                        <img src="/images/<%= cart.product.productImages[0].name %>" alt="">
+                                        <img src="/images/products/<%= cart.product.productImages[0].name %>" alt="">
                                     </div>
                                     <div class="cart_sect_description">
                                         <p><%= cart.product.description %> </p>
@@ -48,7 +48,7 @@
                                         <form action="/Products/cart/remove/<%= cart.product.id %>?_method=DELETE" method="POST">
                                             <input class="cart_button" type="submit" value="Eliminar">
                                         </form>
-                                        <a href="/Product/Card/<%= cart.product.id %>" class="cart_button">ver</a>
+                                        <a href="/Products/Card/<%= cart.product.id %>" class="cart_button">ver</a>
                                     </div>
                                 </div>
                             </article>

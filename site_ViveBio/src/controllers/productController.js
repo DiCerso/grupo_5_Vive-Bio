@@ -131,8 +131,8 @@ module.exports = {
                     }
                 })
 
-                let imagen
-                if (image.length > 1) {
+                let imagen = []
+                if (image.length >= 2) {
                     imagen = image.filter(image => {
                         if (cont != 0) {
                             cont++
@@ -151,7 +151,6 @@ module.exports = {
                 })
 
                 productimage.forEach(async (image) => {
-                    console.log(image)
                     let imageProduct = await db.ProductImage.create({
                         name: image.name,
                         product_id: image.product_id,
@@ -170,6 +169,7 @@ module.exports = {
                     fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', image))
                 }
             });
+        
             try {
                 const categories = await db.Category.findAll()
                 const properties = await db.Property.findAll()
@@ -249,7 +249,6 @@ module.exports = {
                         }
                     });
                     db.ProductImage.bulkCreate(newimages, { validate: true })
-
                         .then((result) => console.log(result))
                 }
                 return res.redirect((`/products/Card/${req.params.id}`))
