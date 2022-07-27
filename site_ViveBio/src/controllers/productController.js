@@ -337,37 +337,49 @@ module.exports = {
             });
     },
 
-    list: (req, res) => {
-        const products = db.Product.findAll();
+    list: async (req, res) => {
 
-        const bioCapilar = db.Product.findAll({
-            where: {
-                category_id: 1,
-            },
-        });
-        const bioCorporal = db.Product.findAll({
-            where: {
-                category_id: 2,
-            },
-        });
-        const bioSpa = db.Product.findAll({
-            where: {
-                category_id: 3,
-            },
-        });
-        Promise.all([products, bioCapilar, bioCorporal, bioSpa])
-            .then(([products, bioCapilar, bioCorporal, bioSpa]) => {
-                return res.render("products/list", {
-                    toThousand,
-                    products,
-                    bioCapilar,
-                    bioCorporal,
-                    bioSpa,
+        try {
+            let keyboard = req.query.keyboard;
+            const {category} = req.params;
+            if(keyboard){
+                let products = await db.Product.findAll({
+                    where: {
+                        name : { [Op.substring] : keyboard}
+                    },
                 });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+                return res.render('products/list', {products});
+
+            }
+            if(category == 0){
+                let products = await db.Product.findAll();
+                return res.render('products/list', {products});
+
+            }else if(category == 1){
+                let products = await db.Product.findAll({
+                    where: {
+                        category_id: 1,
+                    },
+                });
+                return res.render('products/list', {products});
+            }else if(category == 2){
+                let products = await db.Product.findAll({
+                    where: {
+                        category_id: 2,
+                    },
+                });
+                return res.render('products/list', {products});
+            }else if(category == 3){
+                let products = await db.Product.findAll({
+                    where: {
+                        category_id: 3,
+                    },
+                });
+                return res.render('products/list', {products});
+            }
+        } catch (error) {
+            console.log(error);
+        }
     },
     cart: async (req, res) => {
 
