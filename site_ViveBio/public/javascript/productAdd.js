@@ -47,7 +47,7 @@ window.addEventListener("load", function(){
         errorVolume.innerHTML = null;
         } 
         else {
-        errorVolume.innerHTML = "Ingrese entre 2 y 5 cifras numéricas";
+        errorVolume.innerHTML = "Ingrese entre 2 y 5 números";
         this.style.borderColor = 'red'
         }
     });
@@ -59,7 +59,7 @@ window.addEventListener("load", function(){
         this.style.borderColor = 'green'
         errorPrice.innerHTML = null;
     } else {
-        errorPrice.innerHTML = "Ingrese entre 2 y 5 cifras numéricas";
+        errorPrice.innerHTML = "Ingrese entre 2 y 5 números";
         this.style.borderColor = 'red'
         }
     });
@@ -71,7 +71,7 @@ window.addEventListener("load", function(){
         this.style.borderColor = 'green'
         errorDiscount.innerHTML = null;
         } else {
-        errorDiscount.innerHTML = "Ingrese hasta 3 cifras numéricas";
+        errorDiscount.innerHTML = "Ingrese hasta 3 números";
         this.style.borderColor = 'red'
         }
     });
@@ -83,7 +83,7 @@ window.addEventListener("load", function(){
         this.style.borderColor = 'green'
         errorStock.innerHTML = null;
         } else {
-        errorStock.innerHTML = "Ingresa entre 1 y 10 cifras numéricas";
+        errorStock.innerHTML = "Ingresa entre 1 y 10 números";
         this.style.borderColor = 'red'
         }
     });
