@@ -1,10 +1,10 @@
-console.log('script succes')
+console.log('script success')
 
 /* const buttonDelete = document.getElementById('buttonDelete'); */
 const formDelete = document.getElementById('delete-product-form');
 
 function confirmDelete(){
-    let response = confirm('¿Estas seguro que deseas eliminar este producto?');
+    let response = confirm('¿Estás seguro que deseas eliminar este producto?');
 
     if(response == true){
         return true

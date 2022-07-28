@@ -7,7 +7,8 @@
 			<main>
 				<section class="add_container">
 					<h3>Agregar Producto</h3>
-					<form action="" method="post" enctype="multipart/form-data">
+					<form action="" class="productAdd" method="post" enctype="multipart/form-data">
+
 						<article class="camps_container">
 							<div class="sub_container">
 								<div class="add_form-box">
@@ -15,9 +16,10 @@
 									<input
 										class="add_input <%= locals.errores && errores.name ? 'register_error_input' : null %>"
 										id="name" name="name" style="padding:5px;"
-										placeholder="Ingresar el nombre del Producto"
+										placeholder="Ingresa el nombre del producto"
 										value="<%= locals.old && old.name ? old.name : null %>">
-								</div>
+										<p id="add_error-blur" class="errorName"></p>
+									</div>
 								<div class="add_form-box">
 									<label for="category">Categoría</label>
 									<select class="add_input" name="category" id="category">
@@ -28,7 +30,62 @@
 											</option>
 											<% }) %>
 									</select>
+									<p id="add_error-blur" class="errorCategory"></p>
 								</div>
+								<div class="add_form-box">
+									<label for="volume">Peso (g)</label>
+									<input
+										class="add_input <%= locals.errores && errores.volume ? 'register_error_input' : null %>"
+										type="number" id="volume" name="volume"
+										placeholder="Ingresa el peso en gramos" style="padding:5px;"
+										value="<%= locals.old && old.volume ? old.volume : null %>">
+										<p id="add_error-blur" class="errorVolume"></p>
+									</div>
+								<div class="add_form-box">
+									<label for="price">Precio</label>
+									<input
+										class="add_input <%= locals.errores && errores.price ? 'register_error_input' : null %>"
+										type="number" id="price" name="price" style="padding:5px;"
+										placeholder="Ingresa el precio del producto"
+										value="<%= locals.old && old.price ? old.price : null %>">
+										<p id="add_error-blur" class="errorPrice"></p>
+									</div>
+								<div class="add_form-box">
+									<label for="discount">Descuento</label>
+									<input
+										class="add_input <%= locals.errores && errores.discount ? 'register_error_input' : null %>"
+										type="number" id="discount" name="discount"
+										placeholder="Ingresa el descuento del producto" style="padding:5px;"
+										value="<%= locals.old && old.discount ? old.discount : null %>">
+										<p id="add_error-blur" class="errorDiscount"></p>
+									</div>
+								<div class="add_form-box">
+									<label for="stock">Stock</label>
+									<input
+										class="add_input <%= locals.errores && errores.stock ? 'register_error_input' : null %>"
+										type="number" id="stock" name="stock" style="padding:5px;"
+										placeholder="Ingresa el stock del producto"
+										value="<%= locals.old && old.stock ? old.stock : null %>">
+										<p id="add_error-blur" class="errorStock"></p>
+									</div>
+								<div class="add_form-box">
+									<label for="images">Agregar imágenes</label>
+									<input class="add_input" type="file" id="images" name="images" accept="image/*"
+										multiple>
+										<p id="add_error-blur" class="errorImages"></p>
+									</div>
+							</div>
+							<div>
+								<div class="add_form-box">
+									<label for="ingredients">Ingredientes</label>
+									<input
+										class="add_input <%= locals.errores && errores.ingredients ? 'register_error_input' : null %>"
+										type="text" id="ingredients" name="ingredients"
+										placeholder="Ingresa los ingredientes del producto"
+										value="<%= locals.old && old.ingredients ? old.ingredients : null %>"
+										style="padding:5px;">
+										<p id="add_error-blur" class="errorIngredients"></p>
+									</div>
 								<div class="add_form-box">
 									<label for="property">Propiedad</label>
 									<select class="add_input" name="property" id="property">
@@ -39,66 +96,27 @@
 											</option>
 											<% }) %>
 									</select>
-								</div>
-								<div class="add_form-box">
-									<label for="volume">Peso (g)</label>
-									<input
-										class="add_input <%= locals.errores && errores.volume ? 'register_error_input' : null %>"
-										type="number" id="volume" name="volume"
-										placeholder="Ingresar el peso(g) Producto" style="padding:5px;"
-										value="<%= locals.old && old.volume ? old.volume : null %>">
-								</div>
-								<div class="add_form-box">
-									<label for="price">Precio</label>
-									<input
-										class="add_input <%= locals.errores && errores.price ? 'register_error_input' : null %>"
-										type="number" id="price" name="price" style="padding:5px;"
-										placeholder="Ingresar el precio del Producto"
-										value="<%= locals.old && old.price ? old.price : null %>">
-								</div>
-								<div class="add_form-box">
-									<label for="discount">Descuento</label>
-									<input
-										class="add_input <%= locals.errores && errores.discount ? 'register_error_input' : null %>"
-										type="number" id="discount" name="discount"
-										placeholder="Ingresar el Descuento del Producto" style="padding:5px;"
-										value="<%= locals.old && old.discount ? old.discount : null %>">
-								</div>
-								<div class="add_form-box">
-									<label for="stock">Stock</label>
-									<input
-										class="add_input <%= locals.errores && errores.stock ? 'register_error_input' : null %>"
-										type="number" id="stock" name="stock" style="padding:5px;"
-										placeholder="Ingresar el Stock del Producto"
-										value="<%= locals.old && old.stock ? old.stock : null %>">
-								</div>
-								<div class="add_form-box">
-									<label for="images">Agregar imágenes</label>
-									<input class="add_input" type="file" id="images" name="images" accept="image/*"
-										multiple>
-								</div>
-							</div>
-							<div>
-								<div class="add_form-box">
-									<label for="ingredients">Ingredientes</label>
-									<input
-										class="add_input <%= locals.errores && errores.ingredients ? 'register_error_input' : null %>"
-										type="text" id="ingredients" name="ingredients"
-										placeholder="Ingresar los Ingredientes del Producto"
-										value="<%= locals.old && old.ingredients ? old.ingredients : null %>"
-										style="padding:5px;">
+									<p id="add_error-blur" class="errorProperty"></p>
 								</div>
 								<div class="add_form-box-description">
 									<label for="desciption">Descripción</label>
 									<textarea
 										class="add_input <%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
-										type="text" id="desciption" name="description" rows="3" cols="35"
+										type="text" id="description" name="description" rows="3" cols="35"
 										style="resize: none; padding:5px;"
-										placeholder="Ingresar la Descripción del Producto"><%= locals.old && old.desciption ? old.desciption : null %></textarea>
-								</div>
+										placeholder="Ingresa la descripción del producto"><%= locals.old && old.desciption ? old.desciption : null %></textarea>
+										<p id="add_error-blur" class="errorDescription"></p>
+									</div>
+								
 							</div>
+							
 						</article>
 						</div>
+						</div>
+						<div id="add_error-submit" class="errors">
+							<ul>
+
+							</ul>
 						</div>
 						<div class="register_center">
 
@@ -111,6 +129,7 @@
 				</section>
 			</main>
 			<%- include('../partials/footer') %>
+			<script src="/javascript/productAdd.js"></script>
 	</body>
 
 </html>

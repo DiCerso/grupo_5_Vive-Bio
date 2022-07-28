@@ -92,6 +92,19 @@
     margin: 5px 0 5px;
 }
 
+#add_error-blur {
+    background-color: #881111de;
+    border-radius: 5px;
+}
+
+#add_error-submit ul{
+    text-align: center;
+    line-height: 1.5;
+    background-color: #e88585db;
+    margin: 20px;
+    border-radius: 5px;
+}
+
 @media (min-width: 425px) {
     .add_container {
         width: 400px;
