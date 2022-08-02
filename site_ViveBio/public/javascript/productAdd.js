@@ -24,7 +24,7 @@ const expresiones = {
     price: /^\d{2,5}$/, // 2 a 5 números.
     discount: /^\d{1,3}$/,// 1 a 3 números.
     ingredients: /^[a-zA-ZÀ-ÿ\s]{10,40}$/, // Letras y espacios, pueden llevar acentos. Entre 10 y 40.
-    description: /^[a-zA-ZÀ-ÿ\s]{50,100}$/, // Letras y espacios, pueden llevar acentos. Entre 50 y 100.
+    description: /^[a-zA-ZÀ-ÿ\s]{50,300}$/, // Letras y espacios, pueden llevar acentos. Entre 50 y 100.
 }
 let apiName = async (nombre) => {
     try {
@@ -60,7 +60,7 @@ window.addEventListener("load", function () {
 
     name.addEventListener('blur', async (e) => {
 
-        Validator(e, name, errorName);
+        ValidatorName(e, name, errorName);
         apiName(e.target.value);
         
     });
@@ -157,7 +157,7 @@ window.addEventListener("load", function () {
         if (expresiones.description.test(e.target.value)) {
             errorDescription.innerHTML = null;
         } else {
-            errorDescription.innerHTML = "Ingresa entre 50 y 100 caracteres";
+            errorDescription.innerHTML = "Ingresa entre 50 y 300 caracteres";
             this.style.borderColor = 'red'
         }
     });
@@ -215,7 +215,7 @@ window.addEventListener("load", function () {
         if (description.value == '') {
             errors.push('Descripción: ' + msjCampoVacio)
         } else if (description.value.length < 10) {
-            errors.push('La descripción debe contener como mínimo diez letras')
+            errors.push('La descripción debe contener como mínimo 50 letras')
         }
 
         if (errors.length > 0) {
