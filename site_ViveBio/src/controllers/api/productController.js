@@ -474,9 +474,7 @@ module.exports = {
                         status: 200
                     },
                     url: getUrl(req),
-                    data: [
-                        { "product": products }
-                    ]
+                    data: { "product": products }
                 }
                 return res.status(200).json(response);
             } else {
@@ -502,6 +500,51 @@ module.exports = {
             }
             return res.status(500).json(response);
         }
+    },
+    findone : async (req, res) => {
+
+        try {
+            let products = await db.Product.findOne({
+                where: {
+                    name : req.query.keyword
+                },
+                include: ["productImages"],
+            })
+
+            if (products) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    data: products
+                }
+                return res.status(200).json(response);
+            } else {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "no existe este producto"
+                }
+                return res.status(400).json(response);
+            }
+
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+
     },
     cart: async (req, res) => {
 

@@ -8,11 +8,14 @@ const discount = document.querySelector('#discount')
 const stock = document.querySelector('#stock')
 const ingredients = document.querySelector('#ingredients')
 const description = document.querySelector('#description')
+const property = document.querySelector('#property')
 const errorName = document.querySelector('p.errorName')
+const errorCategory = document.querySelector('.errorCategory')
 const errorVolume = document.querySelector('p.errorVolume')
 const errorPrice = document.querySelector('p.errorPrice')
 const errorDiscount = document.querySelector('p.errorDiscount')
 const errorStock = document.querySelector('p.errorStock')
+const errorproperty = document.querySelector('.errorBlur')
 const errorIngredients = document.querySelector('p.errorIngredients')
 const errorDescription = document.querySelector('p.errorDescription')
 const msjCampoVacio = "El campo no puede quedar vacío."
@@ -27,15 +30,31 @@ const expresiones = {
 window.addEventListener("load", function(){
 
     
-    name.addEventListener('blur', function(e){
+    name.addEventListener('blur', async (e) => {
 
         if (expresiones.name.test(e.target.value)){
-            this.style.borderColor = 'green'
+            name.style.borderColor = 'green'
             errorName.innerHTML = null;
         }
         else {
             errorName.innerHTML = "Ingresa entre 5 y 20 caracteres";
-            this.style.borderColor = 'red'
+            name.style.borderColor = 'red'
+        }
+
+        try {
+            let vali = await fetch(`/api/products/findone?keyword=${e.target.value}`,{
+                headers : {
+                    'Content-Type': 'application/json' 
+                }
+            })
+            let result = await vali.json();
+            if(result.data.name){
+                console.log("entro")
+                name.style.borderColor = 'red'
+                errorName.innerHTML = "este producto ya esta creado"
+            }
+        } catch (error) {
+            console.log(error)
         }
     });
     
@@ -50,6 +69,31 @@ window.addEventListener("load", function(){
         errorVolume.innerHTML = "Ingrese entre 2 y 5 números";
         this.style.borderColor = 'red'
         }
+        
+    });
+
+    category.addEventListener('blur', function(e){
+
+        if (e.target.value == ''){
+        errorCategory.innerHTML = "Ingrese una categoria";
+        category.style.borderColor = 'red'
+        }
+        category.addEventListener('change', function(e){
+            category.style.borderColor = 'green'
+            errorCategory.innerHTML = null;
+        }) 
+    });
+
+    property.addEventListener('blur', function(e){
+
+        if (e.target.value == ''){
+        errorproperty.innerHTML = "Ingrese una propiedad";
+        property.style.borderColor = 'red'
+        }
+        property.addEventListener('change', function(e){
+            property.style.borderColor = 'green'
+            errorproperty.innerHTML = null;
+        }) 
     });
 
 
