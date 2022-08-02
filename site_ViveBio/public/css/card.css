@@ -11,10 +11,10 @@
     padding: 20px;
     background-color: rgba(30, 91, 85, 0.74);
     color: var(--VioletaOscuro);
-    /* margin: 20px; */
     border-radius: 20px;
     text-align: center;
     font-size: large;
+    backdrop-filter: blur (1px);
     background: linear-gradient(0deg, rgb(65, 123, 96) 0%, rgba(16, 247, 207, 0.11) 88%)
 }
 
@@ -199,8 +199,7 @@
     overflow: hidden;
     height: 300px;
     position: relative;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
 }
 
 .productCard .estilo-c .img-container img {
