@@ -65,8 +65,7 @@ window.addEventListener("load", function(){
     });
     
 
-    discount.addEventListener('blur', function(e){
-
+    discount.addEventListener('blur', function(e){ 
         if (expresiones.discount.test(e.target.value)){
         this.style.borderColor = 'green'
         errorDiscount.innerHTML = null;
