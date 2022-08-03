@@ -17,6 +17,10 @@ input{
     font-family:inherit;
 }
 
+input::-ms-reveal{
+    display: none;
+}
+
 li {
     list-style: none;
 }

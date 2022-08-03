@@ -65,9 +65,31 @@ const verifyCamp = (exp, input, error, errorCross) => {
             error.innerHTML = null;
             errorCross.classList.remove("register_error_icon");
         } else {
-            error.innerHTML =
-                "Este campo solo puede tener letras y números.";
-            errorCross.classList.add("register_error_icon");
+            switch (input.name) {
+                case "firstname":
+                    error.innerHTML =
+                        "Este campo solo puede tener letras y mínimo 2 caracteres.";
+                    errorCross.classList.add("register_error_icon");
+                    break;
+                case "lastname":
+                    error.innerHTML =
+                        "Este campo solo puede tener letras y mínimo 2 caracteres.";
+                    errorCross.classList.add("register_error_icon");
+                    break;
+                case "password":
+                    error.innerHTML =
+                        "Este campo tiene que tener entre 5 y 12 caracteres.";
+                    errorCross.classList.add("register_error_icon");
+                    break;
+                case "username":
+                    error.innerHTML = "Este usuario debe tener entre 4 y 8 caracteres de letras o números.";
+                    errorCross.classList.add("register_error_icon");
+                    break;
+                case "email":
+                    error.innerHTML = "Formato de Email invalido.";
+                    errorCross.classList.add("register_error_icon");
+                    break;
+            }
         }
     }
 }

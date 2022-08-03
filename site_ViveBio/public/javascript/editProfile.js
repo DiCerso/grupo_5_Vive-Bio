@@ -1,24 +1,64 @@
+
 console.log('edit profile success')
 
 const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
 const regExPass = /^[a-zA-Z0-9\_\-]{5,12}$/;
-const inputs = document.querySelectorAll("#register-form input");
+const inputs = document.querySelectorAll("#edit-form input");
+const popInputs = document.querySelectorAll('#form-popup');
 const errorUsername = document.querySelector("#errorUsername"),
-    errorUsernameCross = document.querySelector("#errorUsernameCross"),
-    errorEmail = document.querySelector("#errorEmail"),
-    errorEmailCross = document.querySelector("#errorEmailCross"),
     errorFirstname = document.querySelector('#errorFirstname'),
-    errorFirstnameCross = document.querySelector('#errorFirstnameCross'),
     errorLastname = document.querySelector('#errorLastname'),
-    errorLastnameCross = document.querySelector('#errorLastnameCross'),
-    errorPassword = document.querySelector('#errorPassword'),
-    errorPasswordCross = document.querySelector('#errorPasswordCross'),
-    password = document.querySelector('#password'),
-    password2 = document.querySelector('#password2'),
-    errorPassword2 = document.querySelector('#errorPassword2'),
-    errorPassword2Cross = document.querySelector('#errorPassword2Cross');
+    eye1 = document.querySelector('#eye1'),
+    eye2 = document.querySelector('#eye2'),
+    eye3 = document.querySelector('#eye3'),
+    OldPassword = document.querySelector('#OldPassword'),
+    Newpassword = document.querySelector('#Newpassword'),
+    Newpassword2 = document.querySelector('#Newpassword2'),
+    btnclose = document.querySelector('#btn-close-popup'),
+    popup = document.querySelector('#popup'),
+    btnopen = document.querySelector('#btn-change-pass');
 
+eye1.addEventListener('click', () => {
+    if (OldPassword.type === "password") {
+        OldPassword.setAttribute("type", "text")
+        eye1.setAttribute("class", "fas fa-eye-slash")
+    } else {
+        OldPassword.setAttribute("type", "password")
+        eye1.setAttribute("class", "fas fa-eye")
+    }
+})
+eye2.addEventListener('click', () => {
+    if (Newpassword.type === "password") {
+        Newpassword.setAttribute("type", "text")
+        eye2.setAttribute("class", "fas fa-eye-slash")
+    } else {
+        Newpassword.setAttribute("type", "password")
+        eye2.setAttribute("class", "fas fa-eye")
+    }
+})
+eye3.addEventListener('click', () => {
+    if (Newpassword2.type === "password") {
+        Newpassword2.setAttribute("type", "text")
+        eye3.setAttribute("class", "fas fa-eye-slash")
+    } else {
+        Newpassword2.setAttribute("type", "password")
+        eye3.setAttribute("class", "fas fa-eye")
+    }
+})
+
+btnclose.addEventListener('click', () => {
+    popup.classList.remove('show-popup')
+})
+
+btnopen.addEventListener('click', () => {
+    popup.classList.add('show-popup')
+})
+
+const verifyPass = async () => {
+
+}
+console.log(req.session.userLogin)
 const verifyUsername = async (username) => {
     try {
         let response = await fetch("/api/users/check-username", {
@@ -36,60 +76,47 @@ const verifyUsername = async (username) => {
         console.error;
     }
 };
-const verifyCamp = (exp, input, error, errorCross) => {
+const verifyCamp = (exp, input, error) => {
     if (input.value == "") {
-        error.innerHTML = null;
-        errorCross.classList.remove("register_error_icon");
+        error.innerHTML = "Este campo no puede estar vacio.";
     } else {
         if (exp.test(input.value)) {
             error.innerHTML = null;
-            errorCross.classList.remove("register_error_icon");
         } else {
-            error.innerHTML =
-                "Este campo solo puede tener letras y números.";
-            errorCross.classList.add("register_error_icon");
+            switch (input.name) {
+                case "firstname":
+                    error.innerHTML =
+                        "Este campo solo puede tener letras y mínimo 2 caracteres.";
+                    break;
+                case "lastname":
+                    error.innerHTML =
+                        "Este campo solo puede tener letras y mínimo 2 caracteres.";
+                    break;
+                case "username":
+                    error.innerHTML = "Este usuario debe tener entre 4 y 8 caracteres de letras o números.";
+                    break;
+            }
         }
     }
 }
+
 
 const validarFormulario = async (e) => {
 
     switch (e.target.name) {
         case "firstname":
-            verifyCamp(regExName, e.target, errorFirstname, errorFirstnameCross)
+            verifyCamp(regExName, e.target, errorFirstname)
             break;
         case "lastname":
-            verifyCamp(regExName, e.target, errorLastname, errorLastnameCross)
-            break;
-        case "password":
-            if (password2.value !== password.value) {
-                password2.value = "";
-            }
-            verifyCamp(regExPass, e.target, errorPassword, errorPasswordCross);
-            break;
-        case "password2":
-            if (e.target.value == "") {
-                errorPassword2.innerHTML = null;
-                errorPassword2Cross.classList.remove("register_error_icon");
-            } else {
-                if (password.value === e.target.value) {
-                    errorPassword2.innerHTML = null;
-                    errorPassword2Cross.classList.remove("register_error_icon");
-                } else {
-                    errorPassword2.innerHTML =
-                        "Las contraseñas no coinciden.";
-                    errorPassword2Cross.classList.add("register_error_icon");
-                }
-            }
+            verifyCamp(regExName, e.target, errorLastname)
             break;
         case "username":
             let resultUser = await verifyUsername(e.target.value);
 
             if (resultUser) {
                 errorUsername.innerHTML = "Este usuario ya se encuentra en uso.";
-                errorUsernameCross.classList.add("register_error_icon");
             } else {
-                verifyCamp(regExLetter, e.target, errorUsername, errorUsernameCross);
+                verifyCamp(regExLetter, e.target, errorUsername);
             }
             break;
         default:
@@ -98,6 +125,11 @@ const validarFormulario = async (e) => {
 };
 
 inputs.forEach((input) => {
+    input.addEventListener("keyup", validarFormulario);
+    input.addEventListener("blur", validarFormulario);
+});
+
+popInputs.forEach((input) => {
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
 });
