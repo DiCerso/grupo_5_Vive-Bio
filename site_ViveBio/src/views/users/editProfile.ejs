@@ -58,6 +58,9 @@
                                 <label for="">Email:</label>
                                 <input type="text" value="<%= user.email %>" disabled name="email" id="email">
                             </div>
+                            <div class="edit_user__options">
+                                
+                            </div>
                             <div class="edit_user__info-container">
                                 <label for="">Rol:</label>
                                 <span><%= user.rol.name %></span>
@@ -66,6 +69,8 @@
                     </section>
                 </form>
             </main>
+            <%- include('../partials/footer') %>
+            <script src="/javascript/editProfile.js"></script>
     </body>
-    <%- include('../partials/footer') %>
+    
 </html>

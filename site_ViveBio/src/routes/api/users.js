@@ -12,5 +12,6 @@ const {checkEmail, checkUsername} = require('../../controllers/api/usersControll
 
 
 router.post('/check-username',checkUsername);
+router.post('/check-email',checkEmail);
 
 module.exports = router;

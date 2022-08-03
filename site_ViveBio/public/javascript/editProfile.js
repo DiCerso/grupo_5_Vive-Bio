@@ -1,8 +1,7 @@
-console.log("register success");
+console.log('edit profile success')
 
 const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
-const regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 const regExPass = /^[a-zA-Z0-9\_\-]{5,12}$/;
 const inputs = document.querySelectorAll("#register-form input");
 const errorUsername = document.querySelector("#errorUsername"),
@@ -37,25 +36,6 @@ const verifyUsername = async (username) => {
         console.error;
     }
 };
-
-const verifyEmail = async (email) => {
-    try {
-        let response = await fetch("/api/users/check-email", {
-            method: "POST",
-            body: JSON.stringify({
-                email: email,
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        let result = await response.json();
-        return result.data;
-    } catch (error) {
-        console.error;
-    }
-};
-
 const verifyCamp = (exp, input, error, errorCross) => {
     if (input.value == "") {
         error.innerHTML = null;
@@ -112,16 +92,6 @@ const validarFormulario = async (e) => {
                 verifyCamp(regExLetter, e.target, errorUsername, errorUsernameCross);
             }
             break;
-        case "email":
-            let resultEmail = await verifyEmail(e.target.value);
-            if (resultEmail) {
-                errorEmail.innerHTML = "Este Email ya se encuentra en uso.";
-                errorEmailCross.classList.add("register_error_icon");
-            } else {
-                verifyCamp(regExEmail, e.target, errorEmail, errorEmailCross)
-            }
-            break;
-
         default:
             break;
     }
