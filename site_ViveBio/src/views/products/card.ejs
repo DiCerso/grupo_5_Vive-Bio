@@ -37,8 +37,21 @@
                     <% } %>
                         <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                         <a href="#" title="Compartir enlace"><i class="fa-solid fa-share-nodes"></i></a>
-                        <a href="/Products/cart/ " title="Agregar producto al carrito"><i
-                          class="fa-solid fa-cart-shopping"></i></a>
+                        <% if (locals.userLogin) { %>
+                          <button title="Agregar producto al carrito" class="add_product_cart" value="<%= product.id %> ">
+                            <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                              <i class="fa-solid fa-slash card_barra">
+                              </i>
+                            </i>
+                          </button>
+                        <% }else{ %>
+                          <a title="Agregar producto al carrito" value="<%= product.id %>" href="/users/login" >
+                            <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                            </i>
+                          </a>
+                        <% } %>
+
+                        
                 </div>
               </div>
               <p><%= product.description %></p> 
@@ -129,6 +142,7 @@
         </section>
       </main>
       <%- include('../partials/footer') %>
+      <script src="/javascript/card.js"></script>
   </body>
 
 </html>

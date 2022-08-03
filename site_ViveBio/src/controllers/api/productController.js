@@ -568,11 +568,11 @@ module.exports = {
             )
 
             cart.forEach(cart => {
-                total += +cart.product.price
+                total += (+cart.product.price)* cart.cant
             })
 
             cart.forEach(cart => {
-                desc += +cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)
+                desc += (+cart.product.price - ((+cart.product.price * +cart.product.discount) / 100)) * cart.cant
             })
             if (cart) {
                 let response = {
@@ -615,7 +615,8 @@ module.exports = {
     },
     removecart: async (req, res) => {
         try {
-            if (req.params.id == 0) {
+            let {id} = req.body
+            if (id == 0) {
                 let products = await db.Cart.destroy({
                     where: {
                         user_id: +req.session.userLogin.id
@@ -635,7 +636,7 @@ module.exports = {
             } else {
                 let product = await db.Cart.destroy({
                     where: {
-                        product_id: req.params.id,
+                        product_id: id,
                         user_id: +req.session.userLogin.id
                     }
                 })
@@ -654,6 +655,94 @@ module.exports = {
 
 
             return res.redirect('/Products/cart')
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    addcart: async (req, res) => {
+        try {
+            let {id} = req.body;
+            if(id){
+                let newproduct = await db.Cart.create({
+                    user_id : +req.session.userLogin.id,
+                    product_id : id,
+                    cant : 1
+                })
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    data: newproduct
+                }
+                return res.status(200).json(response);
+            }else{
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    msg: "no se ingreso un producto para agregar al carrito"
+                }
+                return res.status(400).json(response);
+            }
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    cant: async (req, res) => {
+        try {
+            let {id, idproduct} = req.body
+            if(id && idproduct){
+                let cart = await db.Cart.update({
+                    cant: id
+                },
+                    {
+                        where: {
+                            product_id: idproduct,
+                            user_id: +req.session.userLogin.id
+                        }
+                    }
+                )
+                if(cart){
+                    let cart_act = await db.Cart.findAll({
+                            where: {
+                                product_id: idproduct,
+                                user_id: +req.session.userLogin.id
+                            }
+                        })
+                    let response = {
+                        ok: true,
+                        meta: {
+                            status: 200
+                        },
+                        url: getUrl(req),
+                        msg: `la cantidad del producto ${idproduct} correctamente`,
+                        data : cart_act
+                    }
+                    return res.status(200).json(response)
+                }
+                
+            }
+            
         } catch (error) {
             let response = {
                 ok: false,
