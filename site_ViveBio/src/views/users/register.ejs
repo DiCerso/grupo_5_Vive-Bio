@@ -87,11 +87,11 @@
                                         type="text" id="username" name="username" placeholder="Ingresa usuario"
                                         value="<%= locals.old && old.username ? old.username : null %>">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.username ? 'register_error_icon' : null %>">
-                                        <span class="register_error_stamp"></span>
+                                        class="register_error_box-stamp <%= locals.errores && errores.username ? 'register_error_icon' : null %>" id="errorUsernameCross">
+                                        <span class="register_error_stamp" ></span>
                                     </div>
                                 </div>
-                                <span class="register_alert">
+                                <span class="register_alert" id="errorUsername">
                                     <%= locals.errores && errores.username ? errores.username.msg : null %>
                                 </span>
                             </div>
@@ -153,5 +153,6 @@
                 </form>
             </section>
         </main>
+        <script src="/javascript/register.js"></script>
     </body>
 </html>
