@@ -11,3 +11,4 @@
 | `Sexto Sprint` | -Weekly. -Consultar dudas. |  -Asumir errores grupalmente.| -Guardarse incomodidades.  | -Comprometer el tiempo de entrega. | Comunicación efectiva. | 
 
 |`Septimo Sprint`| **hola** | 
+| :-------------- | :--------------: |
