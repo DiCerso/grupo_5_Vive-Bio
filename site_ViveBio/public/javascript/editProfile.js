@@ -59,6 +59,15 @@ btnclose.addEventListener('click', () => {
 
 btnopen.addEventListener('click', () => {
     popup.classList.add('show-popup')
+    OldPassword.value = "";
+    Newpassword.value = "";
+    Newpassword2.value = "";
+    OldPassword.classList.remove("active-error");
+    Newpassword.classList.remove("active-error");
+    Newpassword2.classList.remove("active-error");
+    errorOldPassword.innerHTML = null;
+    errorNewpassword.innerHTML = null;
+    errorNewpassword2.innerHTML = null;
 })
 
 const checkPassword = async (password) => {
@@ -99,7 +108,7 @@ const verifyUsername = async (username) => {
 };
 const verifyCamp = (exp, input, error) => {
     if (input.value == "") {
-        /* error.innerHTML = "Este campo no puede estar vacio."; */
+        error.innerHTML = "Este campo no puede estar vacio.";
     } else {
         if (exp.test(input.value)) {
             error.innerHTML = null;
@@ -108,7 +117,7 @@ const verifyCamp = (exp, input, error) => {
                 case "firstname":
                     error.innerHTML =
                         "Este campo solo puede tener letras y mínimo 2 caracteres.";
-                    
+
                     break;
                 case "lastname":
                     error.innerHTML =
@@ -116,10 +125,6 @@ const verifyCamp = (exp, input, error) => {
                     break;
                 case "username":
                     error.innerHTML = "Este usuario debe tener entre 4 y 8 caracteres de letras o números.";
-                    break;
-                case "Newpassword":
-                    error.innerHTML = "La contraseña debe tener entre 5 y 12 caracteres de números o letras."
-                    Newpassword.classList.add("active-error");
                     break;
             }
         }
@@ -145,11 +150,20 @@ const validarPass = async (e) => {
             }
             break;
         case "Newpassword":
+            if (e.target.value != Newpassword2.value) {
+                Newpassword2.value = "";
+            }
             if (e.target.value == "") {
                 errorNewpassword.innerHTML = "Este campo no puede estar vacío.";
                 Newpassword.classList.add("active-error")
             } else {
-                verifyCamp(regExPass, e.target, errorNewpassword)
+                if (regExPass.test(e.target.value)) {
+                    errorNewpassword.innerHTML = null;
+                    Newpassword.classList.remove("active-error");
+                } else {
+                    errorNewpassword.innerHTML = "La contraseña debe tener entre 5 y 12 caracteres de números o letras.";
+                    Newpassword.classList.add("active-error");
+                }
             }
             break;
         case "Newpassword2":
@@ -159,7 +173,7 @@ const validarPass = async (e) => {
             } else {
                 errorNewpassword2.innerHTML =
                     "Las contraseñas no coinciden.";
-                    Newpassword2.classList.add("active-error")
+                Newpassword2.classList.add("active-error")
             }
             break;
     }
@@ -186,21 +200,25 @@ const validarFormulario = async (e) => {
     }
 };
 
+Newpassword.addEventListener('keyup', (e) => {
+    if (e.target.value != Newpassword2.value) {
+        Newpassword2.value = "";
+    }
+})
+
 formpop.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(errorOldPassword)
-    /* if(errorOldPassword.length = 0){
-        alert('value limpio!')
-    }else{
-        alert('value con basura!')
-    } */
-    /*  if(errorOldPassword.textContent == "" && errorNewpassword.textContent == "" && errorNewpassword2.textContent == ""){
-         errorSubmit.innerHTML = null;
-         e.submit()
-     }else{
-         errorSubmit.innerHTML = "Campos incorrectos";
-     }
-  */
+    if (OldPassword.value == "" || Newpassword.value == "" || Newpassword2.value == "") {
+        errorSubmit.innerHTML = "Los campos no pueden estar vacíos."
+    } else {
+        errorSubmit.innerHTML = null;
+        if (OldPassword.classList.contains('active-error') || Newpassword.classList.contains('active-error') || Newpassword2.classList.contains('active-error')) {
+            errorSubmit.innerHTML = "Verificar que los campos esten completos correctamente.";
+        } else {
+            errorSubmit.innerHTML = null;
+            e.submit();
+        }
+    }
 
 })
 
@@ -210,6 +228,5 @@ inputs.forEach((input) => {
 });
 
 popInputs.forEach((input) => {
-    input.addEventListener("blur", validarPass)
-    input.addEventListener("keyup", validarPass);
+    input.addEventListener("blur", validarPass);
 });
