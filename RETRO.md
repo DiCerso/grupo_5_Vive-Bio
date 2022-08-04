@@ -11,5 +11,5 @@
 | `Sexto Sprint` | -Weekly. -Consultar dudas. |  -Asumir errores grupalmente.| -Guardarse incomodidades.  | -Comprometer el tiempo de entrega. | Comunicación efectiva. | 
 
 
-|'Septimo Sprint'| -Al concluir el ultimo sprint la retrospectiva es a nivel general : | -Fue una experiencia gratificante que nos acerco al ambito laboral del IT y el conocimiento acerca de la programacion web y el trabajo en equipo. | 
+|Septimo Sprint| -Al concluir el ultimo sprint la retrospectiva es a nivel general : | -Fue una experiencia gratificante que nos acerco al ambito laboral del IT y el conocimiento acerca de la programacion web y el trabajo en equipo. | 
 | :-------------- | :--------------: | :--------------: |
