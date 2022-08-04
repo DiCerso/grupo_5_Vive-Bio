@@ -29,7 +29,7 @@
 .add_container h3 {
     font-size: 25px;
     text-align: center;
-    color: black;
+    color: var(--VioletaOscuro);
     margin: 10px;
 }
 
@@ -92,17 +92,50 @@
     margin: 5px 0 5px;
 }
 
-#add_error-blur {
-    background-color: #881111de;
+.add_error-blur {
+    background-color: #8811113d;
     border-radius: 5px;
+    color: #881111de;
+    text-shadow: none;
+    font-size: 14px;
 }
 
-#add_error-submit ul{
+.add_error-submit ul{
     text-align: center;
     line-height: 1.5;
     background-color: #e88585db;
     margin: 20px;
     border-radius: 5px;
+}
+
+#imagePreview{
+    height: 200px;
+    margin: 10px 0px;
+    border: solid 1px var(--verdeFuerte);
+    border-radius: 5px;
+}
+
+
+#imagePreview img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.add_form-box .errorActive{
+    border: solid 1px red;
+}
+.add_form-box .errorInactive{
+    border: solid 1px green;
+}
+
+.add_form-box-description .errorActive{
+    border: solid 1px red;
+}
+
+.add_form-box-description .errorInactive{
+    border: solid 1px green;
 }
 
 @media (min-width: 425px) {

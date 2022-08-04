@@ -417,7 +417,7 @@
 
     .productCard .row {
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-evenly;
     }
 
     /*NOMBRE PRODUCTO*/
