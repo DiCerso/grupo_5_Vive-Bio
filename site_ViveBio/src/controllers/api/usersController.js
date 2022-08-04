@@ -62,4 +62,7 @@ module.exports = {
       });
     }
   },
+  checkEditUsername: async (req, res) => {
+
+  }
 };
