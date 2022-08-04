@@ -1,6 +1,4 @@
-
-
-console.log('edit profile success')
+console.log('edit profile success');
 
 const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
