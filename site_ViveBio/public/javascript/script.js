@@ -1,6 +1,4 @@
 console.log('script success')
-
-/* const buttonDelete = document.getElementById('buttonDelete'); */
 const formDelete = document.getElementById('delete-product-form');
 
 function confirmDelete(){
@@ -12,9 +10,3 @@ function confirmDelete(){
         return false
     }
 }
-
-/* formDelete.addEventListener('submit',(e)=>{
-    if(!isValid){
-        e.preventDefault();
-    }
-}) */

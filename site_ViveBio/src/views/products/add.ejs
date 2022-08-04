@@ -18,7 +18,7 @@
 										id="name" name="name" style="padding:5px;"
 										placeholder="Ingresa el nombre del producto"
 										value="<%= locals.old && old.name ? old.name : null %>">
-										<p id="add_error-blur" class="errorName"></p>
+										<p class="add_error-blur" id="errorName"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="category">Categoría</label>
@@ -30,7 +30,6 @@
 											</option>
 											<% }) %>
 									</select>
-									<p id="add_error-blur" class="errorCategory"></p>
 								</div>
 								<div class="add_form-box">
 									<label for="volume">Peso (g)</label>
@@ -39,7 +38,7 @@
 										type="number" id="volume" name="volume"
 										placeholder="Ingresa el peso en gramos" style="padding:5px;"
 										value="<%= locals.old && old.volume ? old.volume : null %>">
-										<p id="add_error-blur" class="errorVolume"></p>
+										<p class="add_error-blur" id="errorVolume"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="price">Precio</label>
@@ -48,7 +47,7 @@
 										type="number" id="price" name="price" style="padding:5px;"
 										placeholder="Ingresa el precio del producto"
 										value="<%= locals.old && old.price ? old.price : null %>">
-										<p id="add_error-blur" class="errorPrice"></p>
+										<p class="add_error-blur" id="errorPrice"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="discount">Descuento</label>
@@ -57,7 +56,7 @@
 										type="number" id="discount" name="discount"
 										placeholder="Ingresa el descuento del producto" style="padding:5px;"
 										value="<%= locals.old && old.discount ? old.discount : null %>">
-										<p id="add_error-blur" class="errorDiscount"></p>
+										<p class="add_error-blur" id="errorDiscount"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="stock">Stock</label>
@@ -66,13 +65,16 @@
 										type="number" id="stock" name="stock" style="padding:5px;"
 										placeholder="Ingresa el stock del producto"
 										value="<%= locals.old && old.stock ? old.stock : null %>">
-										<p id="add_error-blur" class="errorStock"></p>
+										<p class="add_error-blur" id="errorStock"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="images">Agregar imágenes</label>
 									<input class="add_input" type="file" id="images" name="images" accept="image/*"
 										multiple>
-										<p id="add_error-blur" class="errorImages"></p>
+										<p class="add_error-blur" id="errorImages"></p>
+										<div id="imagePreview" class="imagePreview" >
+											<h6>Vista previa</h6>
+										</div>
 									</div>
 							</div>
 							<div>
@@ -84,7 +86,7 @@
 										placeholder="Ingresa los ingredientes del producto"
 										value="<%= locals.old && old.ingredients ? old.ingredients : null %>"
 										style="padding:5px;">
-										<p id="add_error-blur" class="errorIngredients"></p>
+										<p class="add_error-blur" id="errorIngredients"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="property">Propiedad</label>
@@ -96,7 +98,6 @@
 											</option>
 											<% }) %>
 									</select>
-									<p id="add_error-blur" class="errorBlur"></p>
 								</div>
 								<div class="add_form-box-description">
 									<label for="desciption">Descripción</label>
@@ -104,8 +105,8 @@
 										class="add_input <%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
 										type="text" id="description" name="description" rows="3" cols="35"
 										style="resize: none; padding:5px;"
-										placeholder="Ingresa la descripción del producto"><%= locals.old && old.desciption ? old.desciption : null %></textarea>
-										<p id="add_error-blur" class="errorDescription"></p>
+										placeholder="Ingresa la descripción del producto"></textarea>
+										<p class="add_error-blur" id="errorDescription"></p>
 									</div>
 								
 							</div>
@@ -113,13 +114,12 @@
 						</article>
 						</div>
 						</div>
-						<div id="add_error-submit" class="errors">
-							<ul>
-
+						<div id="add_error-submit">
+							<ul class="errors">
+								
 							</ul>
 						</div>
 						<div class="register_center">
-
 							<div class="add_button">
 								<button type="submit">Enviar</button>
 								<button type="reset">Limpiar</button>

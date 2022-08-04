@@ -16,7 +16,7 @@
 .register_alert {
     font-size: 12px;
     background-color: rgb(224, 129, 129);
-    width: 100%;
+    width: auto;
     color: white;
 }
 

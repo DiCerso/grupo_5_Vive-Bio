@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <h1>Registro</h1>
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data" id="register-form">
                     <article class="register_sub-container">
                         <div class="register_sub-container1">
                             <div class="register_form-box">
@@ -38,11 +38,11 @@
                                         value="<%= locals.old && old.firstname ? old.firstname : null %>">
 
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.firstname ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.firstname ? 'register_error_icon' : null %>" id="errorFirstnameCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
-                                <span class="register_alert">
+                                <span class="register_alert" id="errorFirstname">
                                     <%= locals.errores && errores.firstname ? errores.firstname.msg : null %>
                                 </span>
                             </div>
@@ -55,11 +55,11 @@
                                         type="text" id="lastname" name="lastname" placeholder="Ingresa tu apellido"
                                         value="<%= locals.old && old.lastname ? old.lastname : null %>">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.lastname ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.lastname ? 'register_error_icon' : null %>" id="errorLastnameCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
-                                <span class="register_alert">
+                                <span class="register_alert" id="errorLastname">
                                     <%= locals.errores && errores.lastname ? errores.lastname.msg : null %>
                                 </span>
                             </div>
@@ -71,11 +71,11 @@
                                         type="email" id="email" name="email" placeholder="Ingresa tu email"
                                         value="<%= locals.old && old.email ? old.email : null %>">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.email ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.email ? 'register_error_icon' : null %>" id="errorEmailCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
-                                <span class="register_alert">
+                                <span class="register_alert" id="errorEmail">
                                     <%= locals.errores && errores.email ? errores.email.msg : null %>
                                 </span>
                             </div>
@@ -87,11 +87,11 @@
                                         type="text" id="username" name="username" placeholder="Ingresa usuario"
                                         value="<%= locals.old && old.username ? old.username : null %>">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.username ? 'register_error_icon' : null %>">
-                                        <span class="register_error_stamp"></span>
+                                        class="register_error_box-stamp <%= locals.errores && errores.username ? 'register_error_icon' : null %>" id="errorUsernameCross">
+                                        <span class="register_error_stamp" ></span>
                                     </div>
                                 </div>
-                                <span class="register_alert">
+                                <span class="register_alert" id="errorUsername">
                                     <%= locals.errores && errores.username ? errores.username.msg : null %>
                                 </span>
                             </div>
@@ -105,11 +105,11 @@
                                         type="password" id="password" name="password"
                                         placeholder="Ingresa tu contraseña">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.password ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.password ? 'register_error_icon' : null %>" id="errorPasswordCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
-                                <span class="register_alert">
+                                <span class="register_alert" id="errorPassword">
                                     <%= locals.errores && errores.password ? errores.password.msg : null %>
                                 </span>
                             </div>
@@ -121,11 +121,11 @@
                                         type="password" id="password2" name="password2"
                                         placeholder="Vuelve a ingresa tu contraseña">
                                     <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.password2 ? 'register_error_icon' : null %>">
+                                        class="register_error_box-stamp <%= locals.errores && errores.password2 ? 'register_error_icon' : null %>" id="errorPassword2Cross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
-                                <span class="register_alert">
+                                <span class="register_alert" id="errorPassword2">
                                     <%= locals.errores && errores.password2 ? errores.password2.msg : null %>
                                 </span>
                             </div>
@@ -153,5 +153,6 @@
                 </form>
             </section>
         </main>
+        <script src="/javascript/register.js"></script>
     </body>
 </html>
