@@ -10,4 +10,4 @@
 | `Quinto Sprint` | -Weekly. |  -Realizar más prácticas grupales. Comunicar cuando va a realizar su parte | -Asumir errores individualmente  | ***no encontramos problemas en este sprint*** | -Consultar dudas. Comunicación efectiva.| 
 | `Sexto Sprint` | -Weekly. -Consultar dudas. |  -Asumir errores grupalmente.| -Guardarse incomodidades.  | -Comprometer el tiempo de entrega. | Comunicación efectiva. | 
 
-|`Septimo Sprint`| -hola | 
+|`Septimo Sprint`| **hola** | 
