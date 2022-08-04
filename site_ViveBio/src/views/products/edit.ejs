@@ -8,7 +8,7 @@
                 <main>
                     <section class="add_container">
                         <h3>Editar Producto</h3>
-                        <form class="productEdit" action="/products/update/<%= product.id %>?_method=PUT" method="POST"
+                        <form action="/products/update/<%= product.id %>?_method=PUT" class="productEdit" method="POST"
                             enctype="multipart/form-data">
                             <article class="camps_container">
                                 <div class="sub_container">
@@ -16,7 +16,7 @@
                                         <label for="name">Nombre</label>
                                         <input value="<%= product.name %>" class="add_input" type="text" id="name"
                                             name="name" style="padding:5px;">
-                                        <p id="add_error-blur" class="errorName"></p>
+                                            <p class="add_error-blur" id="errorName"></p>
                                     </div>
 
                                     <div class="add_form-box">
@@ -28,45 +28,49 @@
                                                 </option>
                                                 <% }) %>
                                         </select>
-                                        <p id="add_error-blur" class="errorCategory"></p>
+                                        <p class="add_error-blur" id="errorCategory"></p>
                                     </div>
                                     <div class="add_form-box">
                                         <label for="volume">Peso (g)</label>
                                         <input value="<%= product.volume %>" class="add_input" type="number" id="volume"
                                             name="volume" style="padding:5px;">
-                                        <p id="add_error-blur" class="errorVolume"></p>
-                                    </div>
+                                            <p class="add_error-blur" id="errorVolume"></p>
+                                        </div>
                                     <div class="add_form-box">
                                         <label for="price">Precio</label>
                                         <input value="<%= product.price %>" class="add_input" type="number" id="price"
                                             name="price" style="padding:5px;">
-                                        <p id="add_error-blur" class="errorPrice"></p>
-                                    </div>
+                                            <p class="add_error-blur" id="errorPrice"></p>
+                                        </div>
                                     <div class="add_form-box">
                                         <label for="discount">Descuento</label>
                                         <input value="<%= product.discount %>" class="add_input" type="number"
                                             id="discount" name="discount" style="padding:5px;">
-                                        <p id="add_error-blur" class="errorDiscount"></p>
-                                    </div>
+                                            <p class="add_error-blur" id="errorDiscount"></p>
+                                        </div>
                                     <div class="add_form-box">
                                         <label for="discount">Stock</label>
-                                        <input value="<%= product.stock %>" class="add_input" type="number" id="stock"
-                                            name="stock" style="padding:5px;">
-                                        <p id="add_error-blur" class="errorStock"></p>
-                                    </div>
+                                        <input value="<%= product.stock %>" class="add_input" type="number"
+                                            id="stock" name="stock" style="padding:5px;">
+                                            <p class="add_error-blur" id="errorStock"></p>
+                                        </div>
                                     <div class="add_form-box">
                                         <label for="image">Imagen</label>
                                         <input class="add_input" type="file" id="image" name="image" accept="image/*"
                                             multiple>
-                                    </div>
+                                            <p class="add_error-blur" id="errorImages"></p>
+                                            <div id="imagePreview" class="imagePreview" >
+                                                <h6>Vista previa</h6>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div>
                                     <div class="add_form-box">
                                         <label for="ingredients">Ingredientes</label>
                                         <input value="<%= product.ingredients %>" class="add_input" type="text"
                                             id="ingredients" name="ingredients" style="padding:5px;">
-                                        <p id="add_error-blur" class="errorIngredients"></p>
-                                    </div>
+                                            <p class="add_error-blur" id="errorIngredients"></p>
+                                        </div>
                                     <div class="add_form-box">
                                         <label for="property">Propiedades</label>
                                         <select class="add_input" name="property" id="property">
@@ -83,14 +87,18 @@
                                         <textarea class="add_input" type="text" id="description" name="description"
                                             rows="3" cols="35"
                                             style="resize: none; padding:5px;"><%= product.description.trim() %></textarea>
-                                            <p id="add_error-blur" class="errorDescription"></p>
-                                    </div>
+                                            <p class="add_error-blur" id="errorDescription"></p>
+                                        </div>
                                 </div>
                             </article>
                             </div>
                             </div>
+                            <div id="add_error-submit">
+                                <ul class="errors">
+                                    
+                                </ul>
+                            </div>
                             <div class="register_center">
-
                                 <div class="add_button">
                                     <button type="submit">Actualizar</button>
                                     <button type="reset">Limpiar</button>
@@ -101,7 +109,7 @@
                 </main>
             </main>
             <%- include('../partials/footer') %>
-                <script src="/javascript/productEdit.js"></script>
+            <script src="/javascript/productEdit.js"></script>
     </body>
 
 </html>
