@@ -6,7 +6,8 @@ const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
 const regExPass = /^[a-zA-Z0-9\_\-]{5,12}$/;
 const inputs = document.querySelectorAll("#edit-form input");
-const popInputs = document.querySelectorAll('#form-popup');
+const popInputs = document.querySelectorAll('#form-popup input');
+const formpop = document.querySelector('#form-popup');
 const errorUsername = document.querySelector("#errorUsername"),
     errorFirstname = document.querySelector('#errorFirstname'),
     errorLastname = document.querySelector('#errorLastname'),
@@ -18,7 +19,11 @@ const errorUsername = document.querySelector("#errorUsername"),
     Newpassword2 = document.querySelector('#Newpassword2'),
     btnclose = document.querySelector('#btn-close-popup'),
     popup = document.querySelector('#popup'),
-    btnopen = document.querySelector('#btn-change-pass');
+    btnopen = document.querySelector('#btn-change-pass'),
+    errorOldPassword = document.querySelector('#errorOldPassword'),
+    errorNewpassword = document.querySelector('#errorNewpassword'),
+    errorNewpassword2 = document.querySelector('#errorNewpassword2'),
+    errorSubmit = document.querySelector('#errorSubmit');
 
 eye1.addEventListener('click', () => {
     if (OldPassword.type === "password") {
@@ -56,15 +61,15 @@ btnopen.addEventListener('click', () => {
     popup.classList.add('show-popup')
 })
 
-const findUser = async (password) => {
+const checkPassword = async (password) => {
     try {
-        let response = await fetch("/api/users/finduser", {
-            method: "GET",
+        let response = await fetch("/api/users/check-password", {
+            method: "POST",
             body: JSON.stringify({
                 password: password
             }),
             headers: {
-                "Content-Type": "aplication/json",
+                "Content-Type": "application/json"
             },
         });
         let result = await response.json()
@@ -75,16 +80,6 @@ const findUser = async (password) => {
     }
 }
 
-
-OldPassword.addEventListener('blur', async () => {
-    let result = await findUser(OldPassword.value)
-    if (result) {
-        alert('Contraseña correcta')
-    } else {
-        alert('contraseña incorrecta')
-    }
-})
-
 const verifyUsername = async (username) => {
     try {
         let response = await fetch("/api/users/check-username", {
@@ -93,7 +88,7 @@ const verifyUsername = async (username) => {
                 username: username,
             }),
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
         });
         let result = await response.json();
@@ -104,7 +99,7 @@ const verifyUsername = async (username) => {
 };
 const verifyCamp = (exp, input, error) => {
     if (input.value == "") {
-        error.innerHTML = "Este campo no puede estar vacio.";
+        /* error.innerHTML = "Este campo no puede estar vacio."; */
     } else {
         if (exp.test(input.value)) {
             error.innerHTML = null;
@@ -113,6 +108,7 @@ const verifyCamp = (exp, input, error) => {
                 case "firstname":
                     error.innerHTML =
                         "Este campo solo puede tener letras y mínimo 2 caracteres.";
+                    
                     break;
                 case "lastname":
                     error.innerHTML =
@@ -121,11 +117,53 @@ const verifyCamp = (exp, input, error) => {
                 case "username":
                     error.innerHTML = "Este usuario debe tener entre 4 y 8 caracteres de letras o números.";
                     break;
+                case "Newpassword":
+                    error.innerHTML = "La contraseña debe tener entre 5 y 12 caracteres de números o letras."
+                    Newpassword.classList.add("active-error");
+                    break;
             }
         }
     }
 }
 
+const validarPass = async (e) => {
+    switch (e.target.name) {
+        case "OldPassword":
+            let resulPassword = await checkPassword(e.target.value);
+            if (e.target.value == "") {
+                errorOldPassword.innerHTML = "Este campo no puede estar vacío.";
+                OldPassword.classList.add("active-error")
+            } else {
+                if (resulPassword) {
+                    errorOldPassword.innerHTML = null;
+                    OldPassword.classList.remove("active-error")
+
+                } else {
+                    errorOldPassword.innerHTML = "La contraseña invalida.";
+                    OldPassword.classList.add("active-error")
+                }
+            }
+            break;
+        case "Newpassword":
+            if (e.target.value == "") {
+                errorNewpassword.innerHTML = "Este campo no puede estar vacío.";
+                Newpassword.classList.add("active-error")
+            } else {
+                verifyCamp(regExPass, e.target, errorNewpassword)
+            }
+            break;
+        case "Newpassword2":
+            if (Newpassword.value === e.target.value) {
+                errorNewpassword2.innerHTML = null;
+                Newpassword2.classList.remove("active-error")
+            } else {
+                errorNewpassword2.innerHTML =
+                    "Las contraseñas no coinciden.";
+                    Newpassword2.classList.add("active-error")
+            }
+            break;
+    }
+}
 
 const validarFormulario = async (e) => {
 
@@ -148,12 +186,30 @@ const validarFormulario = async (e) => {
     }
 };
 
+formpop.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(errorOldPassword)
+    /* if(errorOldPassword.length = 0){
+        alert('value limpio!')
+    }else{
+        alert('value con basura!')
+    } */
+    /*  if(errorOldPassword.textContent == "" && errorNewpassword.textContent == "" && errorNewpassword2.textContent == ""){
+         errorSubmit.innerHTML = null;
+         e.submit()
+     }else{
+         errorSubmit.innerHTML = "Campos incorrectos";
+     }
+  */
+
+})
+
 inputs.forEach((input) => {
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
 });
 
-/* popInputs.forEach((input) => {
-    input.addEventListener("blur", validarFormulario);
+popInputs.forEach((input) => {
+    input.addEventListener("blur", validarPass)
+    input.addEventListener("keyup", validarPass);
 });
- */

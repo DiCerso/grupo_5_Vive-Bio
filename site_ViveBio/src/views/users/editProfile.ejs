@@ -9,27 +9,30 @@
                 <div class="popup" id="popup">
 
                     <form action="" class="popup-container" id="form-popup">
-                        <i class="fas fa-times" id="btn-close-popup"></i>
+                        <div class="contain-pop-top">
+                            <i class="fas fa-times" id="btn-close-popup"></i>
+                        </div>
                         <div class="popup-dats">
                             <div class="popup-box">
                                 <label for="">Antigua contraseña</label>
-                                <input type="password" id="OldPassword" name="OldPassword">
+                                <input class="input-pop" type="password" id="OldPassword" name="OldPassword">
                                 <i class="fas fa-eye" id="eye1"></i>
                             </div>
-                            <span id="errorOldPassword"></span>
+                            <span id="errorOldPassword" class="register_alert" style="text-align:center;"></span>
                             <div class="popup-box">
                                 <label for="">Nueva contraseña</label>
-                                <input type="password" id="Newpassword" name="Newpassword">
+                                <input class="input-pop" type="password" id="Newpassword" name="Newpassword">
                                 <i class="fas fa-eye" id="eye2"></i>
                             </div>
-                            <span id="errorNewpassword"></span>
+                            <span id="errorNewpassword" class="register_alert"></span>
                             <div class="popup-box">
                                 <label for="">Repetir nueva contraseña</label>
-                                <input type="password" id="Newpassword2" name="Newpassword2">
+                                <input class="input-pop" type="password" id="Newpassword2" name="Newpassword2">
                                 <i class="fas fa-eye" id="eye3"></i>
                             </div>
-                            <span id="errorNewpassword2"></span>
+                            <span id="errorNewpassword2" class="register_alert"></span>
                             <div class="popup-box">
+                                <span class="register_alert" id="errorSubmit"></span>
                                 <button type="submit" class="change-pass">Guardar Cambios</button>
                             </div>
                         </div>

@@ -43,20 +43,11 @@ module.exports = {
       });
     }
   },
-  findUser: async (req, res) => {
+  checkPassword: async (req, res) => {
     try {
 
-      let user = await db.User.findOne({
-        where: {
-          id: +req.session.userLogin.id,
-        },
-      })
-
-      console.log(user)
-      let { password } = req.body;
-
-      let result = compareSync(password, user.password);
-
+      let user = await db.User.findByPk(req.session.userLogin.id);
+      let result = compareSync(req.body.password, user.dataValues.password);
       let response = {
         ok: true,
         data: result,
