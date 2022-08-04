@@ -160,7 +160,6 @@ window.addEventListener("load", function () {
             e.preventDefault()
             for (form of forms) {
                 if (form.classList.contains('errorActive')) {
-
                     errors = true;
                 }
             } alert('Por favor, revisa los campos editados, no pueden quedar vacíos.')
@@ -169,5 +168,4 @@ window.addEventListener("load", function () {
             formulario.submit();
         }
     })
-
 })

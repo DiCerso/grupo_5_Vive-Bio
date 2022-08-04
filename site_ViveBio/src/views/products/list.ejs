@@ -44,8 +44,8 @@
                                 </h4>
                                 <div class="list__options">
                                     <form method="POST" action="/products/remove/<%= product.id %>?_method=DELETE" id="delete-product-form">
-                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="return confirmDelete()"><i
-                                                class="fa-solid fa-trash-can"></i></button>
+                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="return confirmDelete()">
+                                        <i class="fa-solid fa-trash-can"></i></button>
                                     </form>
                                     <a href="/products/edit/<%= product.id %>" class="list__edit"
                                         title="Editar producto"><i class="fa-solid fa-pen"></i></a>

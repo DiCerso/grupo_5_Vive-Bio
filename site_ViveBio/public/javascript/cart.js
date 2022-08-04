@@ -170,6 +170,4 @@ window.addEventListener('load', async function () {
     console.log("cart success!!!")
     let carrito = await cart();
     await carga(carrito);
-
-
 })
