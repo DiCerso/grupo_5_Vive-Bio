@@ -13,6 +13,6 @@ const { checkEmail, checkUsername, findUser } = require('../../controllers/api/u
 
 router.post('/check-username', checkUsername);
 router.post('/check-email', checkEmail);
-router.post('/find-User', findUser)
+router.get('/finduser', findUser)
 
 module.exports = router;

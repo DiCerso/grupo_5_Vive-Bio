@@ -1,5 +1,6 @@
 const db = require("../../database/models");
-const bcryptjs = require('bcryptjs');
+const { compareSync } = require("bcryptjs");
+
 
 module.exports = {
   checkEmail: async (req, res) => {
@@ -47,14 +48,20 @@ module.exports = {
 
       let user = await db.User.findOne({
         where: {
-          id: req.body.id,
+          id: +req.session.userLogin.id,
         },
       })
-      
+
+      console.log(user)
+      let { password } = req.body;
+
+      let result = compareSync(password, user.password);
+
       let response = {
         ok: true,
-        data: user ? user : false,
+        data: result,
       };
+
       return res.status(200).json(response);
     } catch (error) {
       console.log(error);

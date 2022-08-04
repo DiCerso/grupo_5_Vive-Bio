@@ -126,6 +126,7 @@ const validarFormulario = async (e) => {
             break;
         case "username":
             let resultUser = await verifyUsername(e.target.value);
+            console.log(resultUser)
 
             if (resultUser) {
                 errorUsername.innerHTML = "Este usuario ya se encuentra en uso.";

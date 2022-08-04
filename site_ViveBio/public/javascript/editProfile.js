@@ -1,4 +1,5 @@
 
+
 console.log('edit profile success')
 
 const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
@@ -55,10 +56,35 @@ btnopen.addEventListener('click', () => {
     popup.classList.add('show-popup')
 })
 
-const verifyPass = async () => {
+const findUser = async (password) => {
+    try {
+        let response = await fetch("/api/users/finduser", {
+            method: "GET",
+            body: JSON.stringify({
+                password: password
+            }),
+            headers: {
+                "Content-Type": "aplication/json",
+            },
+        });
+        let result = await response.json()
+        return result.data
 
+    } catch (error) {
+        console.log(error);
+    }
 }
-console.log(req.session.userLogin)
+
+
+OldPassword.addEventListener('blur', async () => {
+    let result = await findUser(OldPassword.value)
+    if (result) {
+        alert('Contraseña correcta')
+    } else {
+        alert('contraseña incorrecta')
+    }
+})
+
 const verifyUsername = async (username) => {
     try {
         let response = await fetch("/api/users/check-username", {
@@ -119,8 +145,6 @@ const validarFormulario = async (e) => {
                 verifyCamp(regExLetter, e.target, errorUsername);
             }
             break;
-        default:
-            break;
     }
 };
 
@@ -129,7 +153,7 @@ inputs.forEach((input) => {
     input.addEventListener("blur", validarFormulario);
 });
 
-popInputs.forEach((input) => {
-    input.addEventListener("keyup", validarFormulario);
+/* popInputs.forEach((input) => {
     input.addEventListener("blur", validarFormulario);
 });
+ */
