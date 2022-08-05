@@ -33,7 +33,7 @@
 
                                 <div class="register_box-input">
                                     <input
-                                        class="register_form-input <%= locals.errores && errores.firstName ? 'register_error_input' : null %>"
+                                        class="register_form-input <%= locals.errores && errores.firstname ? 'register_error_input' : null %>"
                                         type="text" id="firstname" name="firstname" placeholder="Ingresa tu nombre"
                                         value="<%= locals.old && old.firstname ? old.firstname : null %>">
 
@@ -143,11 +143,15 @@
                         <label for="terminos" style="font-size: 12px;">Acepto términos y condiciones</label>
                     </div>
                     <div class="register_errors-box">
-                        <span class="register_alert">
+                        <span class="register_alert" id="errorTerminos">
                             <%= locals.errores && errores.terminos ? errores.terminos.msg : null %>
                         </span>
                     </div>
+                    <div class="box_error_submit_login">
+                        <span id="errorSubmitLogin" class="register_alert"></span>
+                    </div>
                     <div class=" register_button">
+                        
                         <button type="submit">Enviar</button>
                     </div>
                 </form>

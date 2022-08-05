@@ -5,6 +5,11 @@
     background-attachment: fixed;
 }
 
+.box_error_submit_login{
+    width: 100%;
+    text-align: center;
+}
+
 .header_register {
     display: none;
 }
