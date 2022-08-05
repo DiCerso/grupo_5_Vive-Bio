@@ -197,7 +197,14 @@ registerForm.addEventListener('submit', (e) => {
         errorSubmitLogin.innerHTML = "Verificar los campos con errores o vacíos.";
     } else {
         errorSubmitLogin.innerHTML = null;
-        e.target.submit();
+        Swal.fire({
+            title: "Registro exitoso!",
+            icon: "success",
+            position: 'center'
+        })
+        setTimeout(() => {
+            e.target.submit();
+        }, 1200);
     }
 })
 

@@ -188,7 +188,7 @@ module.exports = {
                     id: req.params.id
                 }
             })
-            return res.redirect((`/users/profile/${req.params.id}`))
+            return res.redirect((`/users/profile/edit/${req.params.id}`))
         } catch (error) {
             console.log(error);
         }

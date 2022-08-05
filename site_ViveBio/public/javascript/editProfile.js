@@ -253,15 +253,24 @@ const elementosPop = formpop.elements;
 formpop.addEventListener('submit', (e) => {
     e.preventDefault();
     error = false;
-    for (let i = 0; i < elementosPop.length -1; i++) {
-        if(elementosPop[i].classList.contains('active-error') || elementosPop[i].value =="" ){
+    for (let i = 0; i < elementosPop.length - 1; i++) {
+        if (elementosPop[i].classList.contains('active-error') || elementosPop[i].value == "") {
             error = true;
         }
     }
-    if (error){
+    if (error) {
         errorSubmit.innerHTML = "Campos invalidos o vacíos.";
-    }else{
-        e.target.submit();
+    } else {
+        Swal.fire({
+            title: "Cambio de contraseña exitoso!",
+            icon: "success",
+            position: 'center'
+        })
+
+        setTimeout(() => {
+            e.target.submit();
+        }, 1200);
+
     }
 })
 
@@ -269,7 +278,7 @@ formEdit.addEventListener('submit', (e) => {
     e.preventDefault();
     if (InpFirstname.classList.contains('active-error') || InpLastname.classList.contains('active-error') || InpUser.classList.contains('active-error')) {
         errorSubmitDats.innerHTML = "Verificar los campos.";
-    }else{
+    } else {
         e.target.submit();
     }
 })
