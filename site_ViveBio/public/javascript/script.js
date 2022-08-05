@@ -2,7 +2,22 @@ console.log('script success')
 const formDelete = document.getElementById('delete-product-form');
 
 function confirmDelete(){
-    let response = confirm('¿Estás seguro que deseas eliminar este producto?');
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "No podrás revertir tu decisión.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Eliminado!',
+            'El producto ha sido eliminado, con éxito.',
+          )
+        }
+      })
 
     if(response == true){
         return true

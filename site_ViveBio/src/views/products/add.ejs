@@ -30,6 +30,7 @@
 											</option>
 											<% }) %>
 									</select>
+									<p class="add_error-blur" id="errorCategory"></p>
 								</div>
 								<div class="add_form-box">
 									<label for="volume">Peso (g)</label>
@@ -98,18 +99,17 @@
 											</option>
 											<% }) %>
 									</select>
+									<p class="add_error-blur" id="errorProperty"></p>
 								</div>
 								<div class="add_form-box-description">
 									<label for="desciption">Descripción</label>
 									<textarea
-										class="add_input <%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
+										class="add_input value="<%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
 										type="text" id="description" name="description" rows="3" cols="35"
 										style="resize: none; padding:5px;"
 										placeholder="Ingresa la descripción del producto"></textarea>
 										<p class="add_error-blur" id="errorDescription"></p>
 									</div>
-								
-							</div>
 							
 						</article>
 						</div>

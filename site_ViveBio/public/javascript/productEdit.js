@@ -1,4 +1,4 @@
-console.log('productEdit.js success!');
+console.log('productAdd.js success!');
 
 const formulario = document.querySelector('form.productEdit')
 const forms = document.querySelectorAll('form.productEdit')
@@ -127,7 +127,6 @@ window.addEventListener("load", function () {
     });
 
 
-
     /*Image validation*/
     image.addEventListener('change',
         function fileValidation() {
@@ -136,8 +135,9 @@ window.addEventListener("load", function () {
             if (!expresiones.images.exec(filePath)) {
                 errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
                 fileInput.value = '';
-                return false;
                 errors = true
+                return false;
+                
             } else {
                 /*Image preview*/
                 if (fileInput.files && fileInput.files[0]) {
@@ -147,7 +147,9 @@ window.addEventListener("load", function () {
                     };
                     reader.readAsDataURL(fileInput.files[0]);
                     errors = false
+                    errorImages.innerHTML = null ;
                 }
+
             }
         })
 
@@ -156,18 +158,26 @@ window.addEventListener("load", function () {
     /* Validation submit */
     formulario.addEventListener('submit', function (e) {
 
-        if (errors == true) {
+    forms.forEach((form) => {
+        if (form.classList.contains('errorActive') || errors == true ){
             e.preventDefault()
-            for (form of forms) {
-                if (form.classList.contains('errorActive')) {
-
                     errors = true;
-                }
-            } alert('Por favor, revisa los campos editados, no pueden quedar vacíos.')
-        } else {
-            alert("Producto editado con éxito!");
-            formulario.submit();
-        }
-    })
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Por favor, revisa los campos editados, no pueden quedar vacíos',
+                      })
 
+        }else {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Producto editado con éxito',
+                showConfirmButton: false,
+                timer: 1500
+              })
+                formulario.submit();
+            }
+        })
+    })
 })
