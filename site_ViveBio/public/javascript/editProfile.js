@@ -279,7 +279,15 @@ formEdit.addEventListener('submit', (e) => {
     if (InpFirstname.classList.contains('active-error') || InpLastname.classList.contains('active-error') || InpUser.classList.contains('active-error')) {
         errorSubmitDats.innerHTML = "Verificar los campos.";
     } else {
-        e.target.submit();
+        Swal.fire({
+            title: "Cambio exitoso!",
+            icon: "success",
+            position: 'center'
+        })
+
+        setTimeout(() => {
+            e.target.submit();
+        }, 1200);
     }
 })
 
