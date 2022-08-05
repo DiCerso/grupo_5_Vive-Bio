@@ -26,6 +26,8 @@ const errorUsername = document.querySelector("#errorUsername"),
 
 const elementos = registerForm.elements;
 
+/*  Start API checks camps */
+
 const verifyUsername = async (username) => {
     try {
         let response = await fetch("/api/users/check-username", {
@@ -44,15 +46,7 @@ const verifyUsername = async (username) => {
     }
 };
 
-InpTerminos.addEventListener('click', () => {
-    if (InpTerminos.checked) {
-        errorTerminos.innerHTML = null;
-        InpTerminos.classList.remove('register_error_input_terminos');
-    } else {
-        errorTerminos.innerHTML = "Debes aceptar los terminos y condiciones.";
-        InpTerminos.classList.add('register_error_input_terminos');
-    }
-})
+
 
 const verifyEmail = async (email) => {
     try {
@@ -71,6 +65,10 @@ const verifyEmail = async (email) => {
         console.error;
     }
 };
+
+/*  End API checks camps */
+
+/* Start FUNCTIONS verify camps */
 
 const verifyCamp = (exp, input, error, errorCross) => {
     if (input.value == "") {
@@ -173,6 +171,20 @@ const validarFormulario = async (e) => {
     }
 };
 
+/* End FUNCTIONS verify camps */
+
+/* Start Events */
+
+InpTerminos.addEventListener('click', () => {
+    if (InpTerminos.checked) {
+        errorTerminos.innerHTML = null;
+        InpTerminos.classList.remove('register_error_input_terminos');
+    } else {
+        errorTerminos.innerHTML = "Debes aceptar los terminos y condiciones.";
+        InpTerminos.classList.add('register_error_input_terminos');
+    }
+})
+
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     error = false;
@@ -194,3 +206,5 @@ inputs.forEach((input) => {
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
 });
+
+/* End Events */

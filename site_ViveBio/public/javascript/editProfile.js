@@ -248,10 +248,18 @@ Newpassword.addEventListener('keyup', (e) => {
     }
 })
 
+const elementosPop = formpop.elements;
+
 formpop.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (OldPassword.classList.contains('active-error') || Newpassword.classList.contains('active-error') || Newpassword2.classList.contains('active-error')) {
-        errorSubmit.innerHTML = "Verificar que los campos esten completos correctamente.";
+    error = false;
+    for (let i = 0; i < elementosPop.length -1; i++) {
+        if(elementosPop[i].classList.contains('active-error') || elementosPop[i].value =="" ){
+            error = true;
+        }
+    }
+    if (error){
+        errorSubmit.innerHTML = "Campos invalidos o vacíos.";
     }else{
         e.target.submit();
     }
