@@ -177,6 +177,22 @@ module.exports = {
                 console.log(error)
             }
         }
+    },
+    updatePass: async (req, res) => {
+        try {
+            let { Newpassword } = req.body;
+            const user = await db.User.update({
+                password: bcryptjs.hashSync(Newpassword, 10)
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            return res.redirect((`/users/profile/${req.params.id}`))
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 
