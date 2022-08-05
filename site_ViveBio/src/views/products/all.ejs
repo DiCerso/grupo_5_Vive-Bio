@@ -3,202 +3,206 @@
 
 <%- include('../partials/head', { title : "Productos" }) %>
 
-    <body class="productAll">
-        <%- include('../partials/header') %>
-            <main>
-                   <section class="primer_contenedor">
-                     <div class="container">
-                      <h2 class="titulares" id="BioCapilar">BioCapilar</h2>
-                      <div class="overlay" id="capilar">
-                    <img style="width:100%" src="/images/products/banner-capilar.jpg" alt="">    
-                      </div>
-                      <div class="box">
-                       <div class="content">
-                        <p>
-                         La naturaleza nos regala su frescura, fuerza, y vitalidad. Nuestro pelo se expresa, y refleja nuestro amor propio. BioCapilar es libertad, belleza, y salud para nuestro cabello.
+  <body class="productAll">
+    <%- include('../partials/header') %>
+      <main>
+        <section class="primer_contenedor">
+          <div class="container">
+            <h2 class="titulares" id="bioCapilar">BioCapilar</h2>
+            <div class="overlay">
+              <img style="width:100%" src="/images/products/banner-capilar.jpg" alt="">
+            </div>
+            <div class="box">
+              <div class="content">
+                <p id="capilar">
+                  La naturaleza nos regala su frescura, fuerza, y vitalidad. BioCapilar es libertad, belleza, y salud para nuestro cabello.
+                </p>
+              </div>
+              <div class="image">
+                <img src="/images/products/banner-capilar.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <section class="row">
+            <% bioCapilar.forEach(({id,productImages,name,discount,property,price})=> { %>
+              <article>
+                <div class="card estilo-c">
+                  <div class="img-container">
+                    <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                    <span class="promo">
+                      <%= discount %>% off
+                    </span>
+                  </div>
+                  <div class="info-container">
+                    <div class="Card-info-texto">
+                      <a href="/products/card/<%= id %> ">
+                        <h2 class="name">
+                          <%= name %>
+                        </h2>
+                        <span>
+                          <%= property.name %>
+                        </span>
+                        <p>$
+                          <% if (discount) { %>
+                            <%= toThousand(price - (price * discount / 100)) %>
+                              <% }else{ %>
+                                <%= toThousand(price) %>
+                                  <% } %>
                         </p>
-                       </div>
-                       <div class="image">
-                        <img src="/images/products/banner-capilar.jpg" alt="">
+                      </a>
+                    </div>
+                    <div class="card-c-iconos">
+                      <div class="producto-iconos">
+                        <% if (locals.userLogin) { %>
+                          <% if (userLogin.category==="admin" ) { %>
+                            <a href="/products/edit/<%= id %> " title="Editar producto"><i
+                                class="fa-solid fa-pen"></i></a>
+                            <% } %>
+                              <% } %>
+                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                <a href="/products/cart/" title="Agregar producto al carrito"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
                       </div>
-                      </div>
-                     </div>
+                    </div>
+              </article>
+              <% }) %>
+          </section>
 
-                    <section class="row">
-                        <% bioCapilar.forEach(({id,productImages,name,discount,property,price})=> { %>
-                          <article>
-                            <div class="card estilo-c">
-                              <div class="img-container">
-                                <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
-                            <span class="promo">
-                                  <%= discount %>% off
-                                </span>
-                              </div>
-                              <div class="info-container">
-                                <div class="Card-info-texto">
-                                  <a href="/products/card/<%= id %> ">
-                                    <h2 class="name"><%= name %></h2>
-                                  <span> <%= property.name %> </span>
-                                  <p>$
-                                    <% if (discount) { %>
-                                      <%= toThousand(price - (price * discount / 100)) %>
-                                        <% }else{ %>
-                                          <%= toThousand(price) %>
-                                      <% } %>
-                                  </p>
-                                 </a>
-                                </div>
-                                <div class="card-c-iconos">
-                                  <div class="producto-iconos">
-                                    <% if (locals.userLogin) { %>
-                                      <% if (userLogin.category==="admin" ) { %>
-                                        <a href="/products/edit/<%= id %> " title="Editar producto"><i
-                                            class="fa-solid fa-pen"></i></a>
-                                        <% } %>
-                                          <% } %>
-                                          <a href="/products/cart/<%= id %> " title="Agregar producto al carrito"><i
-                                            class="fa-solid fa-cart-shopping"></i></a>                                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </article>
-                          <% }) %>
-                        </section>
-            
-   
-                    <div class="container">
-                      <h2 class="titulares" id="BioCorporal">BioCorporal</h2>
-                      <div class="overlay" id="corporal">
-                        <img style="width:100%" src="/images/products/banner-corporal.jpg" alt="">  
+          <div class="container">
+            <h2 class="titulares" id="BioCorporal">BioCorporal</h2>
+            <div class="overlay">
+              <img style="width:100%" src="/images/products/banner-corporal.jpg" alt="">
+            </div>
+            <div class="box">
+              <div class="content">
+                <p id="corporal">
+                  Te invitamos a descubrir en cada opción, una experiencia, una aventura. BioCorporal es compartir energía, cuidado, amor; con nuestro cuerpo y el mundo que nos rodea.
+                </p>
+              </div>
+              <div class="image">
+                <img src="/images/products/banner-corporal.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <section class="row">
+            <% bioCorporal.forEach(({id,productImages,name,discount,property,price})=> { %>
+              <article>
+                <div class="card estilo-c">
+                  <div class="img-container">
+                    <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                    <span class="promo">
+                      <%= discount %>% off
+                    </span>
+                  </div>
+                  <div class="info-container">
+                    <div class="Card-info-texto">
+                      <a href="/products/card/<%= id %> ">
+                        <h2 class="name">
+                          <%= name %>
+                        </h2>
+                      </a>
+                      <span>
+                        <%= property.name %>
+                      </span>
+                      <p>$
+                        <% if (discount) { %>
+                          <%= toThousand(price - (price * discount / 100)) %>
+                            <% }else{ %>
+                              <%= toThousand(price) %>
+                                <% } %>
+                      </p>
+                    </div>
+                    <div class="card-c-iconos">
+                      <div class="producto-iconos">
+                        <% if (locals.userLogin) { %>
+                          <% if (userLogin.category==="admin" ) { %>
+                            <a href="/products/edit/<%= id %> " title="Editar producto"><i
+                                class="fa-solid fa-pen"></i></a>
+                            <% } %>
+                              <% } %>
+                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                <a href="/products/cart/" title="Agregar producto al carrito"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
                       </div>
-                      <div class="box">
-                       <div class="content">
-                        <h3>My Story</h3>
-                        <p>
-                         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
-                        </p>
-                       </div>
-                       <div class="image">
-                        <img src="/images/products/banner-corporal.jpg" alt="">
-                      </div>
-                      </div>
-                     </div>
+                    </div>
+              </article>
+              <% }) %>
+          </section>
 
-                    
-                    <section class="row">
-
-                        <% bioCorporal.forEach(({id,productImages,name,discount,property,price})=> { %>
-                          <article>
-                            <div class="card estilo-c">
-                              <div class="img-container">
-                                <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
-                            <span class="promo">
-                                  <%= discount %>% off
-                                </span>
-                              </div>
-                              <div class="info-container">
-                                <div class="Card-info-texto">
-                                  <a href="/products/card/<%= id %> ">
-                                    <h2 class="name"><%= name %></h2>
-                                  </a>
-                                  <span> <%= property.name %> </span>
-                                  <p>$
-                                    <% if (discount) { %>
-                                      <%= toThousand(price - (price * discount / 100)) %>
-                                        <% }else{ %>
-                                          <%= toThousand(price) %>
-                                      <% } %>
-                                  </p>
-                                </div>
-                                <div class="card-c-iconos">
-                                  <div class="producto-iconos">
-                                    <% if (locals.userLogin) { %>
-                                      <% if (userLogin.category==="admin" ) { %>
-                                        <a href="/products/edit/<%= id %> " title="Editar producto"><i
-                                            class="fa-solid fa-pen"></i></a>
-                                        <% } %>
-                                          <% } %>
-                                          <a href="/products/cart/<%= id %> " title="Agregar producto al carrito"><i
-                                            class="fa-solid fa-cart-shopping"></i></a>                                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </article>
-                          <% }) %>
-                        </section>
-                 
-
-                    <div class="container">
-                      <h2 class="titulares" id="BioSpa">BioSpa</h2>
-                      <div class="overlay" id="spa">
-                        <img style="width:100%" src="/images/products/banner-spa.jpg" alt="">  
+          <div class="container">
+            <h2 class="titulares" id="BioSpa">BioSpa</h2>
+            <div class="overlay">
+              <img style="width:100%" src="/images/products/banner-spa.jpg" alt="">
+            </div>
+            <div class="box">
+              <div class="content">
+                <p id="spa">
+                  Nuestro tiempo de relax, significa conectar con nuestra esencia. Un momento para vivir y celebrar
+                  nuestra mejor versión. BioSpa es pureza, bienestar, equilibrio.
+                </p>
+              </div>
+              <div class="image">
+                <img src="/images/products/banner-spa.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <section class="row">
+            <% bioSpa.forEach(({id,productImages,name,discount,property,price})=> { %>
+              <article>
+                <div class="card estilo-c">
+                  <div class="img-container">
+                    <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                    <span class="promo">
+                      <%= discount %>% off
+                    </span>
+                  </div>
+                  <div class="info-container">
+                    <div class="Card-info-texto">
+                      <a href="/products/card/<%= id %> ">
+                        <h2 class="name">
+                          <%= name %>
+                        </h2>
+                      </a>
+                      <span>
+                        <%= property.name %>
+                      </span>
+                      <p>$
+                        <% if (discount) { %>
+                          <%= toThousand(price - (price * discount / 100)) %>
+                            <% }else{ %>
+                              <%= toThousand(price) %>
+                                <% } %>
+                      </p>
+                    </div>
+                    <div class="card-c-iconos">
+                      <div class="producto-iconos">
+                        <% if (locals.userLogin) { %>
+                          <% if (userLogin.category==="admin" ) { %>
+                            <a href="/products/edit/<%= id %> " title="Editar producto"><i
+                                class="fa-solid fa-pen"></i></a>
+                            <% } %>
+                              <% } %>
+                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                <a href="/products/cart/" title="Agregar producto al carrito"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
                       </div>
-                      <div class="box">
-                       <div class="content">
-                        <h3>My Story</h3>
-                        <p>
-                         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
-                        </p>
-                       </div>
-                       <div class="image">
-                        <img src="/images/products/banner-spa.jpg" alt="">
-                      </div>
-                      </div>
-                     </div>
-
-                    <section class="row">
-                        <% bioSpa.forEach(({id,productImages,name,discount,property,price})=> { %>
-                          <article>
-                            <div class="card estilo-c">
-                              <div class="img-container">
-                                <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
-                            <span class="promo">
-                                  <%= discount %>% off
-                                </span>
-                              </div>
-                              <div class="info-container">
-                                <div class="Card-info-texto">
-                                  <a href="/products/card/<%= id %> ">
-                                    <h2 class="name"><%= name %></h2>
-                                  </a>
-                                  <span> <%= property.name %> </span>
-                                  <p>$
-                                    <% if (discount) { %>
-                                      <%= toThousand(price - (price * discount / 100)) %>
-                                        <% }else{ %>
-                                          <%= toThousand(price) %>
-                                      <% } %>
-                                  </p>
-                                </div>
-                                <div class="card-c-iconos">
-                                  <div class="producto-iconos">
-                                    <% if (locals.userLogin) { %>
-                                      <% if (userLogin.category==="admin" ) { %>
-                                        <a href="/products/edit/<%= id %> " title="Editar producto"><i
-                                            class="fa-solid fa-pen"></i></a>
-                                        <% } %>
-                                          <% } %>
-                                          <a href="/products/cart/<%= id %> " title="Agregar producto al carrito"><i
-                                            class="fa-solid fa-cart-shopping"></i></a>                                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </article>
-                          <% }) %>
-                    </section>
-                <div class="banner">
-                    <img src="/images/Banner03.png" alt="">
+                    </div>
+                  </div>
                 </div>
-                </section>
-            </main>
+              </article>
+              <% }) %>
+          </section>
+          <div class="banner">
+            <img src="/images/Banner03.png" alt="">
+          </div>
+        </section>
+      </main>
 
-            <%- include('../partials/footer') %>
-    </body>
+      <%- include('../partials/footer') %>
+      <script src="/javascript/card.js"></script>
+  </body>
 
 </html>

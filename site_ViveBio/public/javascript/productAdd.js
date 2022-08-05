@@ -1,7 +1,7 @@
 console.log('productAdd.js success!');
 
-const formulario = document.querySelector('form.productEdit')
-const forms = document.querySelectorAll('form.productEdit')
+const formulario = document.querySelector('form.productAdd')
+const forms = document.querySelectorAll('form.productAdd')
 const productName = document.querySelector('#name')
 const volume = document.querySelector('#volume')
 const price = document.querySelector('#price')
@@ -128,9 +128,9 @@ window.addEventListener("load", function () {
 
 
     /*Image validation*/
-    image.addEventListener('change',
+    images.addEventListener('change',
         function fileValidation() {
-            var fileInput = document.getElementById('image');
+            var fileInput = document.getElementById('images');
             var filePath = fileInput.value;
             if (!expresiones.images.exec(filePath)) {
                 errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
@@ -158,26 +158,28 @@ window.addEventListener("load", function () {
     /* Validation submit */
     formulario.addEventListener('submit', function (e) {
 
-        forms.forEach((form) => {
-            if (form.classList.contains('errorActive') || errors == true ){
-                e.preventDefault()
-                        errors = true;
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Por favor, revisa los campos editados, no pueden quedar vacíos',
-                          })
-    
-            }else {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Producto editado con éxito',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                    formulario.submit();
+    forms.forEach((form) => {
+        if (form.classList.contains('errorActive') || errors == true ){
+            e.preventDefault()
+                    errors = true;
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Por favor, revisa los campos editados, no pueden quedar vacíos',
+                      })
+
+        }else {
+            Swal.fire({
+                title: 'Producto agregado exitosamente!',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
                 }
-            })
+              })
+                formulario.submit();
+            }
         })
     })
+})

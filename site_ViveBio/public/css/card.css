@@ -165,7 +165,7 @@
     border: 1px solid var(--verdeFuerte);
 }
 
-.productCard .card_barra {
+.card_barra {
     display: none;
     position: absolute;
     font-size: 24px;
