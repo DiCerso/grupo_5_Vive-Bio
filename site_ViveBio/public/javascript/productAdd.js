@@ -20,8 +20,22 @@ const expresiones = {
     description: /^[a-zA-ZÀ-ÿ\s]{20,200}$/, // Letras y espacios, pueden llevar acentos. Entre 20 y 200.
 }
 
-window.addEventListener("load", function () {
+/* let apiName = async (nombre) => {
+    try { console.log(error)
+    }
+}
+let ValidatorName = function(event, vari, errorvari) {
+if (expresiones.name.test(event.target.value)) {
+    vari.style.borderColor = 'green' } } */
 
+window.addEventListener("load", function () {
+/* 
+    name.addEventListener('blur', async (e) => {
+
+        Validator(e, name, errorName);
+        apiName(e.target.value);
+
+    }); */
 
     const validarFormulario = (e) => {
         switch (e.target.name) {
