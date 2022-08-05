@@ -18,6 +18,10 @@
     height: 100vh;
 }
 
+.login_form-input.active-error{
+    border: 2px solid rgb(235, 78, 78);
+}
+
 .login_box_1 {
     font-size: 12px;
 }

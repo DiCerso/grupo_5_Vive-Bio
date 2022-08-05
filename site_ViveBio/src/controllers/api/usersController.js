@@ -1,5 +1,6 @@
 const db = require("../../database/models");
 const { compareSync } = require("bcryptjs");
+const { Op } = require("sequelize");
 
 
 module.exports = {
@@ -62,4 +63,25 @@ module.exports = {
       });
     }
   },
+  checkEditUsername: async (req, res) => {
+    try {
+      let user = await db.User.findOne({
+        where: {
+          [Op.not]: [{ id: req.session.userLogin.id }],
+          username: req.body.username
+        },
+      });
+      let response = {
+        ok: true,
+        data: user ? true : false,
+      };
+      return res.status(200).json(response);
+    } catch (error) {
+      console.log(error);
+      return res.status(error.status || 500).json({
+        ok: false,
+        msg: error.message || "Comuníquese con el administrador del sitio",
+      });
+    }
+  }
 };
