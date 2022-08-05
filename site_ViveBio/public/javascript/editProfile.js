@@ -249,16 +249,20 @@ Newpassword.addEventListener('keyup', (e) => {
 })
 
 formpop.addEventListener('submit', (e) => {
+    e.preventDefault();
     if (OldPassword.classList.contains('active-error') || Newpassword.classList.contains('active-error') || Newpassword2.classList.contains('active-error')) {
-        e.preventDefault()
         errorSubmit.innerHTML = "Verificar que los campos esten completos correctamente.";
+    }else{
+        e.target.submit();
     }
 })
 
 formEdit.addEventListener('submit', (e) => {
+    e.preventDefault();
     if (InpFirstname.classList.contains('active-error') || InpLastname.classList.contains('active-error') || InpUser.classList.contains('active-error')) {
-        e.preventDefault();
         errorSubmitDats.innerHTML = "Verificar los campos.";
+    }else{
+        e.target.submit();
     }
 })
 
