@@ -1,4 +1,92 @@
 /*MOBILE*/
+.productCard .primer_contenedor {
+    padding: 30px;
+    border: 1px solid var(--verdeFuerte);
+    margin: 20px 30px 20px 30px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 5px var(--aquamarine);
+}
+
+.productCard .container-card {
+    padding: 20px;
+    background-color: rgba(30, 91, 85, 0.74);
+    color: var(--VioletaOscuro);
+    border-radius: 20px;
+    text-align: center;
+    font-size: large;
+    backdrop-filter: blur(4px);
+    background: linear-gradient(0deg, rgb(65, 123, 96) 0%, rgba(16, 247, 207, 0.11) 88%)
+}
+
+/*NOMBRE PRODUCTO*/
+.productCard .producto__texto h1 {
+    font-size: 16px;
+    color: var(--azulSuave);
+    text-align: center;
+    text-shadow: none;
+}
+
+
+/*BOX TEXTO*/
+.productCard .producto__texto {
+    line-height: 25px;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    padding: 20px 10px;
+    border: 1px solid green;
+    margin-top: 75px;
+    margin-bottom: 40px;
+}
+
+/*TEXTO*/
+.productCard .producto__texto p {
+    color: var(--VioletaOscuro);
+    padding: 12px;
+    background-color: var(--aquamarineSuave);
+    border-radius: 5px;
+    text-shadow: none;
+    line-height: 25px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.productCard .info-card{
+    padding: 5px;
+    font-size: 20px;
+    color: var(--VioletaOscuro);
+    text-align: center;
+}
+
+.productCard .promocion{
+    font-size: 15px;
+}
+
+/*BOX IMAGEN*/
+.productCard .producto__imagen {
+    background-color: var(--verdeClaro);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    padding: 11px;
+    border: 1px solid green;
+    margin: auto;
+    width: 100%;
+}
+
+.productCard .box-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--azulSuave);
+    align-items: flex-end;
+}
+
+.productCard .box-info-precio {
+    display: flex;
+    flex-direction: column;
+}
 
 .productCard .producto__imagen h2 {
     padding: 10px;
