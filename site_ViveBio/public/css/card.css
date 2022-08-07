@@ -376,22 +376,6 @@
     font-size: 15px;
 }
 
-.productCard .iconos-eco {
-    margin: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: end;
-    justify-content: space-around;
-    margin-bottom: -48px;
-    display: none;
-}
-
-.productCard .iconos-eco img {
-    width: 24%;
-    border-radius: 50%;
-}
 
 .productCard .estilo-c .add-cart:hover {
     color: var(--azulSuave);
@@ -473,7 +457,7 @@
     }
 
     .productCard .estilo-c:hover {
-        box-shadow: 0 0 8px aquamarine;
+        box-shadow: 0 0 20px aquamarine;
     }
 }
 
