@@ -37,8 +37,8 @@
                                         type="text" id="firstname" name="firstname" placeholder="Ingresa tu nombre"
                                         value="<%= locals.old && old.firstname ? old.firstname : null %>">
 
-                                    <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.firstname ? 'register_error_icon' : null %>" id="errorFirstnameCross">
+                                    <div class="register_error_box-stamp <%= locals.errores && errores.firstname ? 'register_error_icon' : null %>"
+                                        id="errorFirstnameCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
@@ -54,8 +54,8 @@
                                         class="register_form-input <%= locals.errores && errores.lastname ? 'register_error_input' : null %>"
                                         type="text" id="lastname" name="lastname" placeholder="Ingresa tu apellido"
                                         value="<%= locals.old && old.lastname ? old.lastname : null %>">
-                                    <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.lastname ? 'register_error_icon' : null %>" id="errorLastnameCross">
+                                    <div class="register_error_box-stamp <%= locals.errores && errores.lastname ? 'register_error_icon' : null %>"
+                                        id="errorLastnameCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
@@ -67,11 +67,11 @@
                                 <label for="email">E-mail</label>
                                 <div class="register_box-input">
                                     <input
-                                        class="register_form-input <%= locals.errores && errores.email ? 'register_error_input' : null %>"
+                                        class="register_form-input email_register <%= locals.errores && errores.email ? 'register_error_input' : null %>"
                                         type="email" id="email" name="email" placeholder="Ingresa tu email"
                                         value="<%= locals.old && old.email ? old.email : null %>">
-                                    <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.email ? 'register_error_icon' : null %>" id="errorEmailCross">
+                                    <div class="register_error_box-stamp <%= locals.errores && errores.email ? 'register_error_icon' : null %>"
+                                        id="errorEmailCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
@@ -86,9 +86,9 @@
                                         class="register_form-input <%= locals.errores && errores.username ? 'register_error_input' : null %>"
                                         type="text" id="username" name="username" placeholder="Ingresa usuario"
                                         value="<%= locals.old && old.username ? old.username : null %>">
-                                    <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.username ? 'register_error_icon' : null %>" id="errorUsernameCross">
-                                        <span class="register_error_stamp" ></span>
+                                    <div class="register_error_box-stamp <%= locals.errores && errores.username ? 'register_error_icon' : null %>"
+                                        id="errorUsernameCross">
+                                        <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
                                 <span class="register_alert" id="errorUsername">
@@ -104,8 +104,8 @@
                                         class="register_form-input <%= locals.errores && errores.password ? 'register_error_input' : null %>"
                                         type="password" id="password" name="password"
                                         placeholder="Ingresa tu contraseña">
-                                    <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.password ? 'register_error_icon' : null %>" id="errorPasswordCross">
+                                    <div class="register_error_box-stamp <%= locals.errores && errores.password ? 'register_error_icon' : null %>"
+                                        id="errorPasswordCross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
@@ -120,8 +120,8 @@
                                         class="register_form-input <%= locals.errores && errores.password2 ? 'register_error_input' : null %>"
                                         type="password" id="password2" name="password2"
                                         placeholder="Vuelve a ingresa tu contraseña">
-                                    <div
-                                        class="register_error_box-stamp <%= locals.errores && errores.password2 ? 'register_error_icon' : null %>" id="errorPassword2Cross">
+                                    <div class="register_error_box-stamp <%= locals.errores && errores.password2 ? 'register_error_icon' : null %>"
+                                        id="errorPassword2Cross">
                                         <span class="register_error_stamp"></span>
                                     </div>
                                 </div>
@@ -151,12 +151,24 @@
                         <span id="errorSubmitLogin" class="register_alert"></span>
                     </div>
                     <div class=" register_button">
-                        
                         <button type="submit">Enviar</button>
                     </div>
                 </form>
+                <div class="verify_email" style="display: none;">
+                    <h4 style="margin-left:15%;">le enviamos un codigo al correo: </h4>
+                    <div style="display: flex; flex-direction:column; align-items: center;">
+                        <input style="width:50%; " class="register_form-input validation_input" type="Number" id="code_register" name="code" placeholder="Ingrese el codigo">
+                        <span class="register_alert" style="width: 140px;" id="code_invalid">
+                        </span>
+                    </div>
+                    
+                    <div class="register_button">
+                        <button class="verify_button">Verificar</button>
+                    </div>
+                </div>
             </section>
         </main>
         <script src="/javascript/register.js"></script>
     </body>
+
 </html>

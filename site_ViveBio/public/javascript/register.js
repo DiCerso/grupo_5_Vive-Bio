@@ -22,9 +22,16 @@ const errorUsername = document.querySelector("#errorUsername"),
     errorTerminos = document.querySelector('#errorTerminos'),
     InpTerminos = document.querySelector('#terminos'),
     registerForm = document.querySelector('#register-form'),
-    errorSubmitLogin = document.querySelector('#errorSubmitLogin');
+    errorSubmitLogin = document.querySelector('#errorSubmitLogin'),
+    verify_email = document.querySelector('.verify_email'),
+    email_register = document.querySelector('.email_register')
 
 const elementos = registerForm.elements;
+
+let numberRandom = () => {
+    let num = parseInt((Math.random()*1000000)-1);
+    return num;
+}
 
 /*  Start API checks camps */
 
@@ -45,6 +52,24 @@ const verifyUsername = async (username) => {
         console.error;
     }
 };
+
+const email = async (email, num) => {
+   // create reusable transporter object using the default SMTP transport
+  try {
+    let response = await fetch("/api/users/send-mail", {
+        method: "POST",
+        body: JSON.stringify({
+            email: email,
+            num : num
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 
 
@@ -197,14 +222,32 @@ registerForm.addEventListener('submit', (e) => {
         errorSubmitLogin.innerHTML = "Verificar los campos con errores o vacíos.";
     } else {
         errorSubmitLogin.innerHTML = null;
-        Swal.fire({
-            title: "Registro exitoso!",
-            icon: "success",
-            position: 'center'
+        let random = numberRandom();
+        email(email_register.value, random);
+
+        registerForm.style.display = "none";
+        verify_email.style.display = "block";
+
+        let verifybutton = document.querySelector(".verify_button");
+        let validationinput = document.querySelector(".validation_input");
+        document.querySelector(".verify_email h4").textContent += email_register.value;
+
+        verifybutton.addEventListener('click', () => {
+            if(+validationinput.value == +random){
+                Swal.fire({
+                    title: "Registro exitoso!",
+                    icon: "success",
+                    position: 'center'
+                })
+                setTimeout(() => {
+                    e.target.submit();
+                }, 1200);
+            }else{
+                document.querySelector(".verify_email input").style.border = "2px solid rgb(224, 129, 129)"
+                document.querySelector("#code_invalid").textContent = "el codigo es invalido"
+            }
         })
-        setTimeout(() => {
-            e.target.submit();
-        }, 1200);
+        
     }
 })
 
