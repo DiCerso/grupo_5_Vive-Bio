@@ -14,7 +14,7 @@
     border-radius: 20px;
     text-align: center;
     font-size: large;
-    backdrop-filter: blur (1px);
+    backdrop-filter: blur(4px);
     background: linear-gradient(0deg, rgb(65, 123, 96) 0%, rgba(16, 247, 207, 0.11) 88%)
 }
 
@@ -54,10 +54,10 @@
     font-size: 15px;
 }
 
-.productCard ul {
+.productCard .info-card{
     padding: 5px;
     font-size: 20px;
-    color: white;
+    color: var(--VioletaOscuro);
     text-align: center;
 }
 
