@@ -14,7 +14,7 @@ function confirmDelete(){
         if (result.isConfirmed) {
           Swal.fire(
             'Eliminado!',
-            'El producto ha sido eliminado, con éxito.',
+            'Producto eliminado con éxito.',
           )
         }
       })

@@ -12,6 +12,7 @@
 
 
 /* PRODUCTOS RELACIONADOS */
+/*Nombres categorías*/
 .productAll .titulares {
     text-align: center;
     color: white;
@@ -24,12 +25,8 @@
     border-radius: 20px;
     margin-bottom: 20px;
     padding: 10px;
-}
-
-.productAll .content p{
-    text-align: center;
-    text-justify: distribute;
-    padding-top: 10px;
+    align-items: center;
+    margin: inherit;
 }
 
 .productAll #capilar{
@@ -45,14 +42,12 @@
 }
 
 .productAll .container {
-	display: flex;
-	justify-content: center;
-	height: 100vh;
-	align-items: center;
-	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     object-fit: cover;
     flex-direction: column;
-    height: 400px;
     margin: 50px 0px;
 }
 
@@ -60,46 +55,19 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 400px;
-	background-size: cover;
-	-webkit-filter: blur(25px);
-	z-index: -1;
-    overflow:hidden;
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
-.productAll .box {
-	width: 90%;
-	display: flex;
-	height: 200px;
-	transform:translatex(60px)
+.productAll .overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.productAll .content {
-	width: calc(50% - 90px);
-	background-color: white;
-	line-height: 1.4;
-	padding: 10px;
-    border-top-left-radius: 5%;
-    border-bottom-left-radius: 5%;
-}
-.productAll .content h3 {
-	margin-bottom: 5px;
-}
-.productAll .image {
-	width: 50%;
-	border-bottom: 200px solid transparent;
-	border-left: 60px solid white;
-}
-.productAll .image img {
-	width: 100%;
-	height: 200px;
-	position: relative;
-	z-index: -1;
-	transform: translateX(-60px);
-    border-top-right-radius: 5%;
-    border-bottom-right-radius: 5%;
-}
-
 
 /* PRODUCTOS RELACIONADOS */
 .productAll .row {
@@ -110,6 +78,7 @@
     justify-content: center;
     align-items: center;
     gap: 3px;
+    margin-top: 75px;
 }
 
 .productAll .productosRelacionados {
@@ -311,9 +280,113 @@
         font-size: 15px;
     }
 
-    .productAll .iconos-eco {
-        width: 97%;
+    .productAll .titulares {
+        text-align: center;
+        color: white;
+        background-color: #7FA794C4;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
     }
+    
+    .productAll .content p{
+        text-align: center;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+    
+    .productAll #capilar{
+        color:  #306C25;
+    }
+    
+    .productAll #corporal{
+        color: var(--azulSuave);
+    }
+    
+    .productAll #spa{
+        color: var(--lila)
+    }
+    
+    .productAll .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        object-fit: cover;
+        flex-direction: column;
+        height: 400px;
+        margin: 50px 0px;
+    }
+    
+    .productAll .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background-size: cover;
+        -webkit-filter: blur(25px);
+        backdrop-filter: blur(25px);
+        z-index: -1;
+        overflow:hidden;
+    }
+    
+    .productAll .box {
+        width: 90%;
+        display: flex;
+        height: 200px;
+        transform:translatex(60px)
+    }
+    
+    .productAll .content {
+        width: calc(50% - 90px);
+        background-color: white;
+        line-height: 1.4;
+        padding: 10px;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+    
+    .productAll .content h3 {
+        margin-bottom: 5px;
+    }
+    
+    .productAll .image {
+        width: 50%;
+        border-bottom: 200px solid transparent;
+        border-left: 60px solid white;
+    }
+    
+    .productAll .image img {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        z-index: -1;
+        transform: translateX(-60px);
+        border-top-right-radius: 5%;
+        border-bottom-right-radius: 5%;
+        object-fit: cover;
+    }
+    
+
+@media (min-width: 960px) {
+
+    .productAll .content p{
+        padding-top: 20px;
+        font-size: 18px;
+    }
+
+    .productAll .image img {
+        object-position: top;
+        }
+
+    }
+
 }
 
 
