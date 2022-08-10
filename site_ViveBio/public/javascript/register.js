@@ -29,7 +29,7 @@ const errorUsername = document.querySelector("#errorUsername"),
 const elementos = registerForm.elements;
 
 let numberRandom = () => {
-    let num = parseInt((Math.random()*1000000)-1);
+    let num = parseInt((Math.random() * 1000000) - 1);
     return num;
 }
 
@@ -54,21 +54,21 @@ const verifyUsername = async (username) => {
 };
 
 const email = async (email, num) => {
-   // create reusable transporter object using the default SMTP transport
-  try {
-    let response = await fetch("/api/users/send-mail", {
-        method: "POST",
-        body: JSON.stringify({
-            email: email,
-            num : num
-        }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
-  } catch (error) {
-    console.log(error)
-  }
+    // create reusable transporter object using the default SMTP transport
+    try {
+        let response = await fetch("/api/users/send-mail", {
+            method: "POST",
+            body: JSON.stringify({
+                email: email,
+                num: num
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 
@@ -152,17 +152,22 @@ const validarFormulario = async (e) => {
         case "password":
             if (password2.value !== password.value) {
                 password2.value = "";
+                password2.classList.add('register_error_input');
+                errorPassword2.innerHTML = "Este campo no puede estar vacio."
             }
             verifyCamp(regExPass, e.target, errorPassword, errorPasswordCross);
             break;
         case "password2":
             if (e.target.value == "") {
                 errorPassword2.innerHTML = null;
-                errorPassword2Cross.classList.remove("register_error_icon");
+                errorPassword2Cross.classList.add("register_error_icon");
+                password2.classList.add('register_error_input');
+                errorPassword2.innerHTML = "Este campo no puede estar vacio."
             } else {
                 if (password.value === e.target.value) {
                     errorPassword2.innerHTML = null;
                     errorPassword2Cross.classList.remove("register_error_icon");
+                    password2.classList.remove('register_error_input');
                 } else {
                     errorPassword2.innerHTML =
                         "Las contraseñas no coinciden.";
@@ -214,6 +219,56 @@ registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     error = false;
     for (let i = 0; i < elementos.length - 3; i++) {
+        if (elementos[i].value == "") {
+            elementos[i].classList.add('register_error_input');
+
+            switch (elementos[i].name) {
+                case "firstname":
+                    errorFirstname.innerHTML = "Este campo no puede estar vacio."
+                    errorFirstnameCross.classList.add('register_error_icon');
+                    error = true;
+                    break;
+                case "lastname":
+                    errorLastname.innerHTML = "Este campo no puede estar vacio."
+                    errorLastnameCross.classList.add('register_error_icon');
+                    error = true;
+                    break;
+                case "email":
+                    errorEmail.innerHTML = "Este campo no puede estar vacio."
+                    errorEmailCross.classList.add('register_error_icon');
+                    error = true;
+                    break;
+                case "username":
+                    errorUsername.innerHTML = "Este campo no puede estar vacio."
+                    errorUsernameCross.classList.add('register_error_icon');
+                    error = true;
+                    break;
+                case "password":
+                    errorPassword.innerHTML = "Este campo no puede estar vacio."
+                    errorPasswordCross.classList.add('register_error_icon');
+                    error = true;
+                    break;
+                case "password2":
+                    errorPassword2.innerHTML = "Este campo no puede estar vacio."
+                    errorPassword2Cross.classList.add('register_error_icon');
+                    error = true;
+                    break;
+                default:
+                    error = false;
+                    break;
+            }
+        }
+    }
+
+    if (InpTerminos.checked) {
+        errorTerminos.innerHTML = null;
+        InpTerminos.classList.remove('register_error_input_terminos');
+    } else {
+        errorTerminos.innerHTML = "Debes aceptar los terminos y condiciones.";
+        InpTerminos.classList.add('register_error_input_terminos');
+    }
+
+    for (let i = 0; i < elementos.length - 3; i++) {
         if (elementos[i].classList.contains('register_error_input') || elementos[i].value == "" || InpTerminos.classList.contains('register_error_input_terminos')) {
             error = true;
         }
@@ -233,7 +288,7 @@ registerForm.addEventListener('submit', (e) => {
         document.querySelector(".verify_email h4").textContent += email_register.value;
 
         verifybutton.addEventListener('click', () => {
-            if(+validationinput.value == +random){
+            if (+validationinput.value == +random) {
                 Swal.fire({
                     title: "Registro exitoso!",
                     icon: "success",
@@ -242,12 +297,12 @@ registerForm.addEventListener('submit', (e) => {
                 setTimeout(() => {
                     e.target.submit();
                 }, 1200);
-            }else{
+            } else {
                 document.querySelector(".verify_email input").style.border = "2px solid rgb(224, 129, 129)"
                 document.querySelector("#code_invalid").textContent = "el codigo es invalido"
             }
         })
-        
+
     }
 })
 

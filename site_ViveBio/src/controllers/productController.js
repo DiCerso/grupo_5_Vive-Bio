@@ -398,7 +398,7 @@ module.exports = {
                 },
                 force: true,
             });
-            return res.redirect("/products/all");
+            return res.redirect("/products/list/0");
         } catch (error) {
             console.log(error);
         }

@@ -43,7 +43,7 @@
                                 <h4 class="list__price">$<%= product.price %>
                                 </h4>
                                 <div class="list__options">
-                                    <form method="POST" action="/products/remove/<%= product.id %>?_method=DELETE" id="delete-product-form">
+                                    <form method="POST" action="/products/remove/<%= product.id %>?_method=DELETE" id="eliminar-producto">
                                         <button class="list__delete" type="submit" title="Eliminar producto" onclick="return confirmDelete()">
                                         <i class="fa-solid fa-trash-can"></i></button>
                                     </form>
@@ -58,6 +58,7 @@
                 </div>
             </main>
             <%- include('../partials/footer') %>
+            <script src="/javascript/deteleProduct.js"></script>
     </body>
 
 </html>
