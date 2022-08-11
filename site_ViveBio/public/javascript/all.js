@@ -1,6 +1,4 @@
 
-let boton = document.querySelector('.add_product_cart')
-let line = document.querySelector('.card_barra');
 
 let cart = async function () {
     try {
@@ -11,8 +9,8 @@ let cart = async function () {
             }
         })
         let result = await vali.json();
-        console.log(result)
         return result
+        
 
     } catch (error) {
         console.log(error)
@@ -47,41 +45,43 @@ let Addproduct = async function(product) {
             })
         })
         let response = await vali.json()
-        console.log(response);
 } catch (error) {
     console.log(error)
 }
+
+}
+let cart_action = async function(value){
+    try {
+    let carrito = await cart();
+    let product = carrito.data[0].filter(producto => producto.product_id === +value);
+    if(product.length != 0){
+        await EliminateProduct(value)
+        document.querySelector(`.cart_barra_${value}`).style.display = "none";
+        document.querySelector(`.cart_button_${value}`).style.backgroundColor = "rgba(208, 237, 202, 0.5)";
+    }else{
+        await Addproduct(value);
+        document.querySelector(`.cart_barra_${value}`).style.display = "block";
+        document.querySelector(`.cart_button_${value}`).style.backgroundColor = "#D9E66B";
+    }
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 
 
 window.addEventListener('load', async function () {
-    console.log("card success!!!")
+    console.log("all success!!!")
     try {
         let carrito = await cart();
         console.log(carrito)
-        let product = carrito.data[0].filter(producto => producto.product_id === +boton.value);
-        if(product.length != 0){
-            line.style.display = "block";
-            boton.style.backgroundColor = "#D9E66B"
-        }
 
-        
-
-        boton.addEventListener('click',async function(e){
-            let carrito = await cart();
-            let product = carrito.data[0].filter(producto => producto.product_id === +boton.value);
-            console.log(product)
-            if(product.length != 0){
-                await EliminateProduct(boton.value)
-                line.style.display = "none";
-                boton.style.backgroundColor = "rgba(208, 237, 202, 0.5)"
-            }else{
-                await Addproduct(boton.value);
-                line.style.display = "block";
-                boton.style.backgroundColor = "#D9E66B"
-            }
-        })
+        carrito.data[0].forEach(producto => {
+            console.log(`.cart_button_${producto.product_id}`)
+            document.querySelector(`.cart_button_${producto.product_id}`).style.backgroundColor = "#D9E66B";
+            document.querySelector(`.cart_barra_${producto.product_id}`).style.display = "block";
+        });
 
 
 
