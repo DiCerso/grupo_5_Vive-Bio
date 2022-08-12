@@ -1,15 +1,15 @@
-const { check, body } = require("express-validator");
+const { body } = require("express-validator");
 const db = require('../database/models');
 module.exports = [
     body('name')
-        .notEmpty().withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail(),
+        .notEmpty().withMessage('Minimo 3 caracteres.').bail(),
 
     body('volume')
-        .notEmpty().withMessage('La cantidad mínima de caracteres para es te campo es 1.').bail(),
+        .notEmpty().withMessage('Mínimo 2 números').bail(),
 
     body('stock')
-        .notEmpty().withMessage('La cantidad mínima de caracteres para es te campo es 1.').bail(),
+        .notEmpty().withMessage('Minimo 1 número.').bail(),
 
     body('description')
-        .notEmpty().withMessage('La cantidad mínima de caracteres para es te campo es 1.').bail(),
+        .notEmpty().withMessage('Mínimo 10 caracteres.').bail(),
 ]

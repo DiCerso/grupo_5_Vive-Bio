@@ -134,6 +134,7 @@ Header mobile
     align-items: center;
     display: flex;
     position: fixed;
+    justify-content: space-between;
     z-index: 5;
 }
 
@@ -146,16 +147,43 @@ Header mobile
 
 .mobile_logo img {
     width: 90%;
+    filter: drop-shadow(0 0 5px #2E4A2F)
+}
+
+.navBurger{
+    position: absolute;
+    font-size: 30px;
+    color: var(--verdeOscuro);
+    transition: all .5s ease-in-out;
+    text-shadow: 1px 1px black;
+}
+
+.navClose{
+    position: absolute;
+    color: var(--verdeOscuro);
+    font-size: 30px;
+    transform: scale(0);
+    transition: all .5s ease-in-out;
+}
+
+.active.navBurger{
+    transform: scale(0);
+}
+
+.active.navClose{
+    transform: scale(1);
+    color: black;
 }
 
 .nav_mobile_menu {
-    width: 75%;
+    width: 40px;
+    height: 40px;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     margin-right: 10px;
-    font-size: 35px;
-    color: var(--verdeOscuro);
-    text-shadow: 1px 1px 2px black;
+    position: relative;
+    
 }
 
 .options_mobile{
@@ -254,6 +282,7 @@ Header mobile
         width: 45px;
         height: 45px;
         font-size: 20px;
+        
     }
 
     .options_mobile{
@@ -282,6 +311,7 @@ Header mobile
         width: 20%;
         display: flex;
         justify-content: center;
+        filter: drop-shadow(0 0 15px var(--verdeOscuro))
     }
 
     .header__logo a {

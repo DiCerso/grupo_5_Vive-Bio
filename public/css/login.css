@@ -13,9 +13,13 @@
 .login_general_container {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
-    margin-top: 80px;
+    height: 100vh;
+}
+
+.login_form-input.active-error{
+    border: 2px solid rgb(235, 78, 78);
 }
 
 .login_box_1 {
@@ -154,6 +158,7 @@
 @media (min-width: 425px) {
     .login_general_container {
         margin-top: 0;
+        height: 80vh;
     }
     .login main{
         height: 80vh;
@@ -171,6 +176,10 @@
         align-items: center;
         justify-content: center;
         height: 20vh;
+        filter: drop-shadow(0 0 15px var(--verdeOscuro))
+    }
+    .header_login a img {
+        filter: drop-shadow(15px 0 15px #2E4A2F)
     }
 
     .login .header_login_mobile {

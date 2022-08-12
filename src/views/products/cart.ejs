@@ -11,86 +11,45 @@
                         <span class="cart_paso">Paso 2</span>
                         <span class="cart_paso">Paso 3</span>
                     </div>
-                    <% if (cart.length > 0) { %>
-                        <% cart.forEach(cart => { %>
-                            <article class="cart_article_box">
-                                <div class="cart_sect_1">
-                                    <div class="cart_sect_img">
-                                        <img src="/images/<%= cart.product.productImages[0].name %>" alt="">
-                                    </div>
-                                    <div class="cart_sect_description">
-                                        <p><%= cart.product.description %> </p>
-                                    </div>
-                                </div>
-                                <div class="cart_sect_2">
-                                    <div class="cart_sect_count">
-                                        <% if (cart.cant > 1) { %>
-                                            <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant - 1 %>?_method=PUT" method="POST">
-                                                <input class="cart_box_more-less" type="submit" value="-" >
-                                            </form>
-                                        <% }else{ %>
-                                            <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant - 1 %>?_method=PUT" method="POST">
-                                                <input class="cart_box_more-less" type="submit" value="-" disabled>
-                                            </form>
-                                        <% } %> 
-                                        
-                                        <div class="cart_box_count">
-                                            <span id="cart_count"><%= cart.cant %> </span>
-                                        </div>
-                                        <form action="/products/cart/cant/<%= cart.product.id %>/<%= +cart.cant + 1  %>?_method=PUT"  method="POST">
-                                            <input class="cart_box_more-less " type="submit" value="+">
-                                        </form>
-                                    </div>
-                                    <div class="cart_sect_price">
-                                        <span>$<%= cart.product.price %> </span>
-                                    </div>
-                                    <div class="cart_box_button">
-                                        <form action="/Products/cart/remove/<%= cart.product.id %>?_method=DELETE" method="POST">
-                                            <input class="cart_button" type="submit" value="Eliminar">
-                                        </form>
-                                        <a href="/Product/Card/<%= cart.product.id %>" class="cart_button">ver</a>
-                                    </div>
-                                </div>
-                            </article>
-                        <% }) %>
-                        <div class="cart_sect_playment">
-                            <div class="cart_sect_playment_sub">
-                                <label>Medio de Pago</label>
-                                <select class="cart_select_payment" name="payments" id="payments" size="1">
-                                    <option value="" hidden selected >Selecciona un medio de Pago...</option>
-                                    <% payments.forEach(payment => { %>
-                                        <option value="<%= payment.id %>"><%= payment.name %></option>
+                    <div class="cart_articles">
+
+                    </div>
+                    <div class="cart_sect_playment">
+                        <div class="cart_sect_playment_sub">
+                            <label>Medio de Pago</label>
+                            <select class="cart_select_payment" name="payments" id="payments" size="1">
+                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
+                                <% payments.forEach(payment=> { %>
+                                    <option value="<%= payment.id %>">
+                                        <%= payment.name %>
+                                    </option>
                                     <% }) %>
-                                </select>
-                            </div>
-                            <div class="cart_sect_playment_sub">
-                                <label for="discount_code">Código de Descuento</label>
-                                <input class="cart_discount_payment" type="text" placeholder="Ingresar aquí código de descuento">
-                            </div>
-                            <div class="cart_sect_playment_sub">
-                                <label >Total</label>
-                                <input class="cart_input_payment" type="text" value="$<%= total %> " disabled>
-                            </div>
-                            <div class="cart_sect_playment_sub">
-                                <label >Total con Descuento</label>
-                                <input class="cart_input_payment" type="text" value="$<%= desc %> " disabled>
-                            </div>
+                            </select>
                         </div>
-                        <div class="cart_buttons">
-                            <form action="/Products/cart/remove/0?_method=DELETE" method="POST">
-                                <input class="cart_button" type="submit" value="Limpiar Carrito">
-                            </form>
-                            <button class="cart_button" type="reset">Siguiente Paso</button>
+                        <div class="cart_sect_playment_sub">
+                            <label for="discount_code">Código de Descuento</label>
+                            <input class="cart_discount_payment" type="text"
+                                placeholder="Ingresar aquí código de descuento">
                         </div>
-                    <% }else{ %>
-                        <h1 class="cart_problem">No se encuentran productos</h1>
-                    <% } %> 
-                    
+                        <div class="cart_sect_playment_sub">
+                            <label>Total</label>
+                            <input class="cart_input_payment total" type="text" value="$" disabled>
+                        </div>
+                        <div class="cart_sect_playment_sub">
+                            <label>Total con Descuento</label>
+                            <input class="cart_input_payment total_desc" type="text" value="$" disabled>
+                        </div>
+                    </div>
+                    <div class="cart_buttons">
+                        <button class="cart_button clear_cart" onclick="EliminateProduct(0)">Limpiar Carrito</button>
+                        <button class="cart_button" type="reset">Siguiente Paso</button>
+                    </div>
+
+
                 </section>
             </main>
             <%- include('../partials/footer') %>
-                <script src="/javascript/menuMobile.js"></script>
-                <script src="/javascript/navEmergent.js"></script>
+                <script src="/javascript/cart.js"></script>
     </body>
 
 </html>

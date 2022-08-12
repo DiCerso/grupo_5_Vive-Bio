@@ -10,14 +10,10 @@
     background-position: center;
 }
 
-.no_scroll {
-    overflow: hidden;
-}
-
 /************************************************
 ANIMACIÓN DE INTRO
 *************************************************/
-
+/* 
 .intro {
     position: fixed;
     z-index: 1;
@@ -75,7 +71,7 @@ ANIMACIÓN DE INTRO
     opacity: 1;
     transition: 0.5s;
 }
-
+ */
 
 
 /**********************************************
@@ -102,10 +98,11 @@ Carrusel
 .slides p {
     position: absolute;
     top: 35%;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     text-align: center;
-    padding: 100px 0 100px;
+    padding: 50px 5px 50px;
+    font-size: .9rem;
 }
 
 
@@ -113,6 +110,7 @@ Carrusel
     width: 100%;
     height: 100%;
     background-image: url(/images/carousel_img_1.jpg);
+    /* background: linear-gradient(to right, rgba(0,0,0,0.7)15%,rgba(0,0,0,0.1)),url(/images/carousel_img_1.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -239,8 +237,8 @@ primera parte del main
     flex-direction: column;
 }
 
-.home .izquierda, 
-.home .derecha{
+.home .izquierda,
+.home .derecha {
     display: none;
 }
 
@@ -265,7 +263,8 @@ primera parte del main
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 }
-.home .part_2{
+
+.home .part_2 {
     display: none;
 }
 
@@ -464,15 +463,52 @@ segunda parte del main
 
 
 @media(min-width:426px) {
+
     /* START CARROUSEL TABLET*/
-    .slider {
-        margin: 50px 0 50px;
-        height: 300px;
+    .img_1 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9)20%, rgba(0, 0, 0, 0.1)), url(/images/carousel_img_1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 
+    .img_2 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9)20%, rgba(0, 0, 0, 0.1)), url(/images/carousel_img_2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .img_3 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9)20%, rgba(0, 0, 0, 0.1)), url(/images/carousel_img_3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .img_4 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9)20%, rgba(0, 0, 0, 0.1)), url(/images/carousel_img_4.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+
+    .slider {
+        margin: 50px 0 50px;
+        height: 400px;
+    }
     .slides p {
-        top: 23%;
-        padding: 70px;
+        background-color: unset;
+        font-size: .9rem;
+        top: 35%;
+        text-align: start;
+        padding: 10px 10px;
+        letter-spacing: 2px;
+        width: 60%;
+    }
+    .slides {
+        height: 400px;
     }
 
     /*END CAROUSEL TABLET*/
@@ -545,40 +581,44 @@ segunda parte del main
 
 @media(min-width: 768px) {
 
-    
+    .slides p{
+        width: 40%;
+        font-size: 1.2rem;
+    }
 
-    .home .products{
+    .home .products {
         position: relative;
     }
 
-    .home .izquierda, 
-    .home .derecha{
-    display: block;
-    position: absolute;
-    font-size: 75px;
-    color: var(--verdeClaro);
+    .home .izquierda,
+    .home .derecha {
+        display: block;
+        position: absolute;
+        font-size: 75px;
+        color: var(--verdeClaro);
     }
 
-    .home .izquierda{
+    .home .izquierda {
         left: 1%;
         top: 30%;
     }
-    .home .derecha{
+
+    .home .derecha {
         right: 51%;
         top: 30%;
     }
 
-    .home .products{
+    .home .products {
         width: 200%;
         display: flex;
         row-gap: row;
     }
 
-    .home  main .sect1{
+    .home main .sect1 {
         width: 100%;
     }
 
-    .home .part_2{
+    .home .part_2 {
         display: block;
     }
 

@@ -10,41 +10,61 @@
 
           <div class="container-card">
 
-             <div class="box-imagen">
+            <div class="box-imagen">
               <img src="/images/products/<%= product.productImages[0].name%>" alt="imagen de producto">
             </div>
             <div class="box-texto-iconos">
-              <h1> <%= product.name %>  </h1>
+              <h1>
+                <%= product.name %>
+              </h1>
               <span>-<%= product.property.name%>-</span>
-              <p>Precio pago en efectivo: $
-                    <% if (product.discount) { %>
-                      <%= toThousand(product.price - (product.price * product.discount / 100)) %>
-                        <% }else{ %>
-                          <%= toThousand(product.price) %>
-                    <% } %> .
-                    <p> Promoción: <%= product.discount %> % off (* Hasta agotar stock).</p> 
-                    <p> Peso: <%= product.volume %> grs. </p>
-              </p>
-                <div class="producto-iconos">
-                    <% if (locals.userLogin) { %>
-                      <% if (userLogin.rol==="admin" ) { %>
-                        <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
-                        <button type="submit" title="Eliminar producto"><i class="fa-solid fa-trash-can"></i></button>
-                        </form>
-                        <a href="/Products/edit/<%= product.id %>" title="Editar producto"><i
+              <ul class="info-card">
+                <li>Precio pago en efectivo: $
+                  <% if (product.discount) { %>
+                    <%= toThousand(product.price - (product.price * product.discount / 100)) %>
+                      <% }else{ %>
+                        <%= toThousand(product.price) %>
+                          <% } %>.-
+                </li>
+                <li class="promocion"> Promoción: <%= product.discount %>% off (*hasta agotar stock).</li>
+                <li> Peso: <%= product.volume %> grs. </li>
+              </ul>
+              <div class="producto-iconos">
+                <% if (locals.userLogin) { %>
+                  <% if (userLogin.rol==="admin" ) { %>
+                    <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
+                      <button type="submit" title="Eliminar producto" class="icons__hover"><i class="fa-solid fa-trash-can"></i></button>
+                    </form>
+                    <a href="/Products/edit/<%= product.id %>" class="icons__hover" title="Editar producto"><i
                         class="fa-solid fa-pen"></i></a>
-                      <% } %>
                     <% } %>
-                        <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                        <a href="#" title="Compartir enlace"><i class="fa-solid fa-share-nodes"></i></a>
-                        <a href="/Products/cart/ " title="Agregar producto al carrito"><i
-                          class="fa-solid fa-cart-shopping"></i></a>
-                </div>
+                      <% } %>
+                        <a href="#" class="icons__hover"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                        <a href="#" title="Compartir enlace" class="icons__hover" ><i class="fa-solid fa-share-nodes"></i></a>
+                        <% if (locals.userLogin) { %>
+                          <button title="Agregar producto al carrito" class="add_product_cart icons__hover"
+                            value="<%= product.id %> ">
+                            <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                              <i class="fa-solid fa-slash card_barra">
+                              </i>
+                            </i>
+                          </button>
+                          <% }else{ %>
+                            <a title="Agregar producto al carrito" class="icons__hover" value="<%= product.id %>" href="/users/login">
+                              <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                              </i>
+                            </a>
+                            <% } %>
+
+
               </div>
-              <p><%= product.description %></p> 
             </div>
-          
-          
+            <p>
+              <%= product.description %>
+            </p>
+          </div>
+
+
           <h2 class="titulares">Productos Relacionados</h2>
           <section class="row">
             <% relacionados.forEach(({id,productImages,name,discount,property,price})=> { %>
@@ -55,82 +75,86 @@
                     <span class="promo">
                       <%= discount %>% off
                     </span>
-                  </div>
-                  <div class="info-container">
-                    <div class="Card-info-texto">
-                      <a href="/products/card/<%= id %> ">
-                        <h2><%= name %></h2>
-                      </a>
-                      <span> <%= property.name %> </span>
-                      <p>$
-                        <% if (discount) { %>
-                          <%= toThousand(price - (price * discount / 100)) %>
-                            <% }else{ %>
-                              <%= toThousand(price) %>
-                          <% } %>
-                      </p>
-                    </div>
-                    <div class="card-c-iconos">
-                      <div class="producto-iconos">
-                        <% if (locals.userLogin) { %>
-                          <% if (userLogin.category==="admin" ) { %>
-                            <a href="/products/edit/<%= id %> " title="Editar producto"><i
-                                class="fa-solid fa-pen"></i></a>
-                            <% } %>
+                    <div class="info-container">
+                      <div class="Card-info-texto">
+                        <a href="/products/card/<%= id %> ">
+                          <h2>
+                            <%= name %>
+                          </h2>
+                        </a>
+                        <span>
+                          <%= property.name %>
+                        </span>
+                        <p>$
+                          <% if (discount) { %>
+                            <%= toThousand(price - (price * discount / 100)) %>
+                              <% }else{ %>
+                                <%= toThousand(price) %>
+                                  <% } %>
+                        </p>
+                      </div>
+                      <div class="card-c-iconos">
+                        <div class="producto-iconos">
+                          <% if (locals.userLogin) { %>
+                            <% if (userLogin.category==="admin" ) { %>
+                              <a href="/products/edit/<%= id %> " title="Editar producto"><i
+                                  class="fa-solid fa-pen"></i></a>
                               <% } %>
-                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
-                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                <a href="/products/cart/" title="Agregar producto al carrito"><i
-                                  class="fa-solid fa-cart-shopping"></i></a>  
+                                <% } %>
+                                  <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                  <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                  <a href="/products/cart/" title="Agregar producto al carrito"><i
+                                      class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
               </article>
               <% }) %>
           </section>
           <h2 class="titulares">Nuestra comunidad</h2>
           <section class="comunidad">
-              <div class="card__perfil">
-                <div class="card__nombre">
-                  <div class="card__nombre_box-img">
-                    <img src="/images/cara5.jpg" alt="">
-                  </div>
-                  <h2>Mariana Blas</h2>
+            <div class="card__perfil">
+              <div class="card__nombre">
+                <div class="card__nombre_box-img">
+                  <img src="/images/cara5.jpg" alt="">
                 </div>
-                <div class="card__descripcion">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                    dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
-                    adipisicing
-                    elit.</p>
-                </div>
+                <h2>Mariana Blas</h2>
               </div>
-              <div class="card__perfil">
-                <div class="card__nombre">
-                  <div class="card__nombre_box-img">
-                    <img src="/images/cara4.jpg" alt="">
-                  </div>
-                  <h2>Samira Luna</h2>
-                </div>
-                <div class="card__descripcion">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
-                    dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
-                    adipisicing
-                    elit.</p>
-                </div>
+              <div class="card__descripcion">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+                  dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
+                  adipisicing
+                  elit.</p>
               </div>
+            </div>
+            <div class="card__perfil">
+              <div class="card__nombre">
+                <div class="card__nombre_box-img">
+                  <img src="/images/cara4.jpg" alt="">
+                </div>
+                <h2>Samira Luna</h2>
+              </div>
+              <div class="card__descripcion">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ex ducimus doloremque porro? Nulla
+                  dolorum maiores laboriosam mollitia dolorem magni. Lorem ipsum dolor, sit amet consectetur
+                  adipisicing
+                  elit.</p>
+              </div>
+            </div>
             <div class="videos">
-            <video control autoplay loop muted width="200" height="220" >
-            <source  src="https://v.pinimg.com/videos/mc/expMp4/12/33/c9/1233c90805745925f1cd114692e46589_t4.mp4">
-          </video>
+              <video control autoplay loop muted width="200" height="220">
+                <source src="https://v.pinimg.com/videos/mc/expMp4/12/33/c9/1233c90805745925f1cd114692e46589_t4.mp4">
+              </video>
             </div>
           </section>
-      
+
         </section>
       </main>
       <%- include('../partials/footer') %>
-        <script src="/javascript/menuMobile.js"></script>
-        <script src="/javascript/navEmergent.js"></script>
+        <script src="/javascript/card.js"></script>
   </body>
 
 </html>

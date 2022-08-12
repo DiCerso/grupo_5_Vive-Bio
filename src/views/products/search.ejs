@@ -12,7 +12,7 @@
                 <section class="sect1">
                     <% if (result.length > 0) { %>
                         <% result.forEach(({id, name, price, discount, productImages})=> { %>
-                            <article class="art__home">
+                            <article class="art__home" style="margin: 0 10px 15px 10px;">
                                 <div class="nombreart__home">
                                     <h1>
                                         <%= name %>
@@ -51,8 +51,6 @@
                                     <% } %>
             </main>
             <%- include('../partials/footer') %>
-                <script src="/javascript/menuMobile.js"></script>
-                <script src="/javascript/navEmergent.js"></script>
     </body>
 
 </html>

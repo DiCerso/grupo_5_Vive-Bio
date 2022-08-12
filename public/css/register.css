@@ -5,6 +5,11 @@
     background-attachment: fixed;
 }
 
+.box_error_submit_login{
+    width: 100%;
+    text-align: center;
+}
+
 .header_register {
     display: none;
 }
@@ -16,7 +21,7 @@
 .register_alert {
     font-size: 12px;
     background-color: rgb(224, 129, 129);
-    width: 100%;
+    width: auto;
     color: white;
 }
 
