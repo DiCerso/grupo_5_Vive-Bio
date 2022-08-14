@@ -5,14 +5,18 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
 var app = express();
+
+//session
 const localsCheck = require('./middlewares/localsCheck');
 const cookieCheck = require('./middlewares/cookieCheck');
-
 const session = require('express-session');
 
+//routes
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/product');
 const usersRouter = require('./routes/users');
+const categoryRouter = require('./routes/category');
+// routes api
 const indexRouterApi = require('./routes/api/index');
 const productsRouterApi = require('./routes/api/product'); 
 const usersRouterApi = require('./routes/api/users');
@@ -42,9 +46,11 @@ app.use(localsCheck);
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/category', categoryRouter);
+
 app.use('/api', indexRouterApi);
 app.use('/api/products', productsRouterApi);
-app.use('/api/users', usersRouterApi)
+app.use('/api/category', usersRouterApi);
 
 
 
