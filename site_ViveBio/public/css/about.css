@@ -1,0 +1,27 @@
+.about {
+    padding: 20px;
+    margin: auto;
+    background-color: white;
+}
+
+.about p{
+    color: var(--violetaOscuro);
+}
+
+
+.about article{
+    height: 600px;
+    display: flex;
+}
+
+.about .icons{
+    height: 400px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.about .icons img{
+    width: 40%;
+}
