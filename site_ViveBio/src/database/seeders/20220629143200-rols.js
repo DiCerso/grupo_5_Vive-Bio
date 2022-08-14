@@ -7,6 +7,9 @@ const rols = [
   },
   {
     name : 'user'
+  },
+  {
+    name : 'moderator'
   }
 ]
 

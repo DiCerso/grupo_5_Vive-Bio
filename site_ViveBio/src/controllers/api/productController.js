@@ -754,6 +754,81 @@ module.exports = {
             }
             return res.status(500).json(response);
         }
+    },
+    categories: async (req, res) => {
+        try {
+            let category = await db.Category.findAll({
+                include: [
+                    { association: 'products' }
+                ]
+            });
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200,
+                    total: category.length,
+                },
+                url: getUrl(req),
+                data: category
+            }
+            return res.status(200).json(response);
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    categorySearch: async (req, res) => {
+        try {
+            let category = await db.Category.findAll({
+                where: {
+                    [Op.or]: [
+                        { name: { [Op.substring]: req.query.keyword } },
+                    ],
+                },
+                include: ["products"],
+            })
+    
+            if (category.length != 0) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    data: { "categories": category }
+                }
+                return res.status(200).json(response);
+            } else {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "no se encuentra un usuario con esos caracteres"
+                }
+                return res.status(400).json(response);
+            }
+    
+        } catch (error) {
+            console.log(error)
+            /* let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+            }
+            return res.status(500).json(response); */
+        }
     }
 
 }

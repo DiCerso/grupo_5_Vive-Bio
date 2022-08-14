@@ -33,16 +33,16 @@
                 <% if (locals.userLogin) { %>
                   <% if (userLogin.rol==="admin" ) { %>
                     <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
-                      <button type="submit" title="Eliminar producto"><i class="fa-solid fa-trash-can"></i></button>
+                      <button type="submit" title="Eliminar producto" class="icons__hover"><i class="fa-solid fa-trash-can"></i></button>
                     </form>
-                    <a href="/Products/edit/<%= product.id %>" title="Editar producto"><i
+                    <a href="/Products/edit/<%= product.id %>" class="icons__hover" title="Editar producto"><i
                         class="fa-solid fa-pen"></i></a>
                     <% } %>
                       <% } %>
-                        <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                        <a href="#" title="Compartir enlace"><i class="fa-solid fa-share-nodes"></i></a>
+                        <a href="#" class="icons__hover"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                        <a href="#" title="Compartir enlace" class="icons__hover" ><i class="fa-solid fa-share-nodes"></i></a>
                         <% if (locals.userLogin) { %>
-                          <button title="Agregar producto al carrito" class="add_product_cart"
+                          <button title="Agregar producto al carrito" class="add_product_cart icons__hover"
                             value="<%= product.id %> ">
                             <i class="fa-solid fa-cart-shopping" style="position: relative;">
                               <i class="fa-solid fa-slash card_barra">
@@ -50,7 +50,7 @@
                             </i>
                           </button>
                           <% }else{ %>
-                            <a title="Agregar producto al carrito" value="<%= product.id %>" href="/users/login">
+                            <a title="Agregar producto al carrito" class="icons__hover" value="<%= product.id %>" href="/users/login">
                               <i class="fa-solid fa-cart-shopping" style="position: relative;">
                               </i>
                             </a>

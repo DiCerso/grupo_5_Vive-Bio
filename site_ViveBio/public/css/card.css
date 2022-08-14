@@ -159,7 +159,7 @@
 
 }
 
-.productCard .producto-iconos a:hover {
+.productCard .producto-iconos .icons__hover:hover {
     color: var(--verdeFuerte);
     background-color: white;
     border: 1px solid var(--verdeFuerte);

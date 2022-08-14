@@ -1,5 +1,4 @@
 window.addEventListener('load', () => {
-  console.log("Estoy vinculado");
   let forms = document.querySelectorAll('#eliminar-producto');
   for (let i = 0; i < forms.length; i++) {
       forms[i].addEventListener('submit', event => {
