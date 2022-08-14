@@ -1,13 +1,67 @@
 .list .list__container{
     width: 90%;
     padding: 20px;
-    margin: 85px auto 85px auto ;
+    margin: 0px auto 85px auto ;
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, .15);
     backdrop-filter: blur(5px);
     border: 1px solid var(--verdeFuerte);
 }
+.list .select__list select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.list .select__list{
+	max-width: 250px;
+	position: relative;
+    margin: 55px 5% 5px auto;    
+}
+ 
+.list .select__list select{
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 1em;
+	color: #999;
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+ 
+.list .select__list select:hover{
+	background: #B1E8CD;
+}
+.list .select__list i{
+	position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #2AC176;
+	border-bottom:4px solid #2AC176;
+	transform: rotate(-45deg);
+	transition: all 0.25s ease;
+}
+ 
+.list .select__list:hover i{
+	margin-top: 3px;
+}
+
+
+
 
 .list .list__top{
     display: flex;
@@ -23,7 +77,7 @@
     flex-direction: column;
     width: 100%;
     justify-content: space-around;
-    height: 50px;
+    height: 90px;
     border: 1px solid var(--verdeFuerte);
     border-radius: 5px;
     background-color: var(--verdeClaro-Opaco);
@@ -33,15 +87,17 @@
 
 .list .list__cates a{
     color: var(--verdeOscuro);
-    width: 50%;
+    width: 100%;
     text-align: center;
+    
 }
 
 .list .list__cates .list__cates1,
 .list .list__cates .list__cates2{
+    align-items: center;
     display: flex;
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
@@ -187,6 +243,7 @@
         order: 0;
     }
 
+
     .list .list__top{
         flex-direction: row;
     }
@@ -223,11 +280,13 @@
     .list .list__cates .list__cates1,
     .list .list__cates .list__cates2{
         width: 45%;
+        flex-direction: row;
     }
 
     .list .list__cates{
         flex-direction: row;
         width: 60%;
+        height: 50px;
     }
 
     .list__busqueda{

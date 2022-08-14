@@ -5,18 +5,29 @@
 
     <body class="home">
         <%- include('../partials/header') %>
-
             <main class="list">
-                <div class="list__container">
+                <% if (userLogin.rol == "moderator") { %>
+                    <div class="select__list">
+                        <select onchange="cambio()">
+                            <option class="products__list" value="1" default>Productos</option>
+                            <option class="users__list" value="2">Usuarios</option>
+                            <option class="categories__list" value="3">categorias</option>
+                        </select>
+                        <i></i>
+                    </div>
+                <% } %>
+                <div class="list__container" <% if (userLogin.rol == "admin") { %>
+                    style="margin-top:85px;"
+                <% } %>>
                     <div class="list__top">
                         <div class="list__cates">
                             <div class="list__cates1">
-                                <a class="list__cate" href="/products/list/0">TODOS</a>
-                                <a class="list__cate" href="/products/list/1">BioCapilar</a>
+                                <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(0)">TODOS</a>
+                                <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(1)">BioCapilar</a>
                             </div>
                             <div class="list__cates2">
-                                <a class="list__cate" href="/products/list/2">BioCorporal</a>
-                                <a class="list__cate" href="/products/list/3">BioSpa</a>
+                                <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(2)">BioCorporal</a>
+                                <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(3)">BioSpa</a>
                             </div>
 
                         </div>
@@ -31,34 +42,12 @@
                         <h3 class="list__price">Precio</h3>
                         <h3 class="list__options">Opciones</h3>
                     </div>
-                    <section class="list__products">
-                        <% products.forEach((product)=> { %>
-                            <article class="list__product">
-                                <a class="list__id" href="/products/card/<%= product.id %>">
-                                    <%= product.id %>
-                                </a>
-                                <a class="list__name" href="/products/card/<%= product.id %>">
-                                    <%= product.name %>
-                                </a>
-                                <h4 class="list__price">$<%= product.price %>
-                                </h4>
-                                <div class="list__options">
-                                    <form method="POST" action="/products/remove/<%= product.id %>?_method=DELETE" id="eliminar-producto">
-                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="return confirmDelete()">
-                                        <i class="fa-solid fa-trash-can"></i></button>
-                                    </form>
-                                    <a href="/products/edit/<%= product.id %>" class="list__edit"
-                                        title="Editar producto"><i class="fa-solid fa-pen"></i></a>
-                                </div>
-                            </article>
-                            <% }) %>
-                    </section>
-
-
+                    <section class="list__products"></section>
                 </div>
             </main>
             <%- include('../partials/footer') %>
-            <script src="/javascript/deteleProduct.js"></script>
+                <script src="/javascript/deteleProduct.js"></script>
+                <script src="/javascript/list.js"></script>
     </body>
 
 </html>

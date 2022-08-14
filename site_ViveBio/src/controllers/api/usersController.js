@@ -3,7 +3,7 @@ const { compareSync } = require("bcryptjs");
 const { Op } = require("sequelize");
 const nodemailer = require("nodemailer");
 const { transporter } = require("../../helpers/transporter");
-const { getUrl } = require("../../helpers");
+const { getUrl, isNumber } = require("../../helpers");
 
 
 module.exports = {
@@ -119,24 +119,198 @@ module.exports = {
        </table>`, // html body
       });
       let response = {
-        ok:true,
-        meta : {
-          status : 500,
+        ok: true,
+        meta: {
+          status: 500,
         },
-        url : getUrl(req),
-        msg : `el mail se envio correctamente a ${email}`
+        url: getUrl(req),
+        msg: `el mail se envio correctamente a ${email}`
       }
       return res.status(200).json(response);
     } catch (error) {
       let response = {
         ok: false,
         meta: {
-            status: 500,
+          status: 500,
         },
         url: getUrl(req),
         msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+      }
+      return res.status(500).json(response);
     }
-    return res.status(500).json(response);    }
-  }
+  },
+  all: async (req, res) => {
+    try {
+      let users = await db.User.findAll({
+        include: [
+          { association: 'rol' }
+        ]
+      });
+      let response = {
+        ok: true,
+        meta: {
+          status: 200,
+          total: users.length,
+        },
+        url: getUrl(req),
+        data: users
+      }
+      return res.status(200).json(response);
+
+
+    } catch (error) {
+      let response = {
+        ok: false,
+        meta: {
+          status: 500,
+        },
+        url: getUrl(req),
+        msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+      }
+      return res.status(500).json(response);
+    }
+  },
+  remove: async (req, res) => {
+    try {
+
+      if (isNumber(req.params.id, req, "id")) {
+        return res.status(400).json(isNumber(req.params.id, req, "id"))
+      }
+
+      const user = await db.Product.findByPk(req.params.id)
+
+      if (!user) {
+        let response = {
+          ok: false,
+          meta: {
+            status: 400,
+          },
+          url: getUrl(req),
+          msg: "no se encuentra un usuario con el id ingresado"
+        }
+        return res.status(400).json(response);
+      }
+
+      const destroyuser = await db.User.destroy({
+        where: {
+          id: req.params.id
+        },
+        force: true
+      })
+      if (destroyuser) {
+        let response = {
+          ok: true,
+          meta: {
+            status: 200
+          },
+          url: getUrl(req),
+          msg: "el usuario se a eliminado exitosamente"
+        }
+        return res.status(200).json(response)
+      }
+
+
+    } catch (error) {
+      let response = {
+        ok: false,
+        meta: {
+          status: 500,
+        },
+        url: getUrl(req),
+        msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+      }
+      return res.status(500).json(response);
+    }
+  },
+  changerol: async (req, res) => {
+    try {
+      let { rol, id} = req.body;
+      if (rol == 1) {
+        let user = await db.User.update({
+          rol_id : 2
+        }, {
+          where: {
+            id: id
+          }
+        })
+
+        let response = {
+          ok: true,
+          meta: {
+            status: 200
+          },
+          url: getUrl(req),
+          msg: "el usuario se a actualizado exitosamente"
+        }
+        return res.status(200).json(response)
+      }else if(rol == 2){
+        let user = await db.User.update({
+          rol_id : 1
+        }, {
+          where: {
+            id: id
+          }
+        })
+
+        let response = {
+          ok: true,
+          meta: {
+            status: 200
+          },
+          url: getUrl(req),
+          msg: "el usuario se a actualizado exitosamente"
+        }
+        return res.status(200).json(response)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  search: async (req, res) => {
+
+    try {
+        let users = await db.User.findAll({
+            where: {
+                [Op.or]: [
+                    { username: { [Op.substring]: req.query.keyword } },
+                ],
+            },
+            include: ["rol"],
+        })
+
+        if (users.length != 0) {
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                url: getUrl(req),
+                data: { "user": users }
+            }
+            return res.status(200).json(response);
+        } else {
+            let response = {
+                ok: true,
+                meta: {
+                    status: 400
+                },
+                url: getUrl(req),
+                msg: "no se encuentra un usuario con esos caracteres"
+            }
+            return res.status(400).json(response);
+        }
+
+    } catch (error) {
+        let response = {
+            ok: false,
+            meta: {
+                status: 500,
+            },
+            url: getUrl(req),
+            msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+        }
+        return res.status(500).json(response);
+    }
+}
 
 };
