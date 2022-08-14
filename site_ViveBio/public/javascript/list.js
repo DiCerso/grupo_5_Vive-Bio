@@ -262,7 +262,6 @@ let changecategory = async function (value) {
     try {
         let result = await fetch("/api/products/categories")
         let categories = await result.json()
-        console.log(categories)
         if (value == 0) {
             container.innerHTML = null
             categories.data.forEach(category => {
@@ -342,7 +341,6 @@ let categorySearch = async function (value) {
     try {
         let result = await fetch(`/api/products/categories/search?keyword=${value}`)
         let categories = await result.json()
-        console.log(categories)
         container.innerHTML = null
         categories.data.categories.forEach(category => {
             container.innerHTML += `
@@ -370,7 +368,6 @@ let categorySearch = async function (value) {
 let userSearch = async function (value) {
     let result = await fetch(`/api/users/search?keyword=${value}`)
     let users = await result.json()
-    console.log(users)
     container.innerHTML = null
     users.data.user.forEach(user => {
         if (user.rol.id != 3) {
@@ -409,7 +406,6 @@ let productSearch = async function (value) {
     try {
         let result = await fetch(`/api/products/search?keyword=${value}`)
         let products = await result.json()
-        console.log(products)
         container.innerHTML = null
         products.data.product.forEach(product => {
             container.innerHTML += `
