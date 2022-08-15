@@ -1,4 +1,4 @@
-console.log('productAdd.js success!');
+console.log('productEdit.js success!');
 
 const formulario = document.querySelector('form.productEdit')
 const forms = document.querySelectorAll('form.productEdit')
@@ -33,7 +33,7 @@ window.addEventListener("load", function () {
                     errors = false
                 }
                 else {
-                    errorName.innerHTML = "Ingrese letras y espacios, pueden llevar acentos. Entre 5 y 20.";
+                    errorName.innerHTML = " Entre 5 y 20 letras, espacios y acentos.";
                     productName.classList.remove("errorInactive")
                     productName.classList.add("errorActive")
                     errors = true
@@ -47,7 +47,7 @@ window.addEventListener("load", function () {
                     errors = false
                 }
                 else {
-                    errorVolume.innerHTML = "Ingrese entre 2 y 5 números";
+                    errorVolume.innerHTML = "Entre 2 y 5 números";
                     volume.classList.remove("errorInactive")
                     volume.classList.add("errorActive")
                     errors = true
@@ -60,7 +60,7 @@ window.addEventListener("load", function () {
                     errorPrice.innerHTML = null;
                     errors = false
                 } else {
-                    errorPrice.innerHTML = "Ingrese entre 2 y 5 números";
+                    errorPrice.innerHTML = "Entre 2 y 5 números";
                     price.classList.remove("errorInactive")
                     price.classList.add("errorActive")
                     errors = true
@@ -73,7 +73,7 @@ window.addEventListener("load", function () {
                     errorDiscount.innerHTML = null;
                     errors = false
                 } else {
-                    errorDiscount.innerHTML = "Ingrese hasta 3 números";
+                    errorDiscount.innerHTML = "Hasta 3 números";
                     discount.classList.remove("errorInactive")
                     discount.classList.add("errorActive")
                     errors = true
@@ -86,7 +86,7 @@ window.addEventListener("load", function () {
                     errorStock.innerHTML = null;
                     errors = false
                 } else {
-                    errorStock.innerHTML = "Ingrese entre 1 y 5 números";
+                    errorStock.innerHTML = "Entre 1 y 5 números";
                     stock.classList.remove("errorInactive")
                     stock.classList.add("errorActive")
                     errors = true
@@ -99,7 +99,7 @@ window.addEventListener("load", function () {
                     errorIngredients.innerHTML = null;
                     errors = false
                 } else {
-                    errorIngredients.innerHTML = "Ingrese letras y espacios, pueden llevar acentos. Entre 10 y 40.";
+                    errorIngredients.innerHTML = "Entre 10 y 40 letras, espacios y acentos.";
                     ingredients.classList.remove("errorInactive")
                     ingredients.classList.add("errorActive")
                     errors = true
@@ -112,7 +112,7 @@ window.addEventListener("load", function () {
                     errorDescription.innerHTML = null;
                     errors = false
                 } else {
-                    errorDescription.innerHTML = "Ingrese letras y espacios, pueden llevar acentos. Entre 20 y 200.";
+                    errorDescription.innerHTML = "IEntre 20 y 200 letras, espacios y acentos.";
                     description.classList.remove("errorInactive")
                     description.classList.add("errorActive")
                     errors = true
@@ -154,30 +154,29 @@ window.addEventListener("load", function () {
         })
 
 
+ /* Validation submit */
+ formulario.addEventListener('submit', function (e) {
 
-    /* Validation submit */
-    formulario.addEventListener('submit', function (e) {
+    forms.forEach((form) => {
+        if (form.classList.contains('errorActive') || errors == true ){
+            e.preventDefault()
+                    errors = true;
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Por favor, revisa los campos editados, no pueden quedar vacíos',
+                      })
 
-        forms.forEach((form) => {
-            if (form.classList.contains('errorActive') || errors == true ){
-                e.preventDefault()
-                        errors = true;
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Por favor, revisa los campos editados, no pueden quedar vacíos',
-                          })
-    
-            }else {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Producto editado con éxito',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                    formulario.submit();
-                }
-            })
+        }else {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Producto editado con éxito',
+                showConfirmButton: false,
+                timer: 2200
+              })
+                formulario.submit();
+            }
         })
     })
+})

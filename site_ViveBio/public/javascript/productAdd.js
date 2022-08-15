@@ -20,22 +20,8 @@ const expresiones = {
     description: /^[a-zA-ZÀ-ÿ\s]{20,200}$/, // Letras y espacios, pueden llevar acentos. Entre 20 y 200.
 }
 
-/* let apiName = async (nombre) => {
-    try { console.log(error)
-    }
-}
-let ValidatorName = function(event, vari, errorvari) {
-if (expresiones.name.test(event.target.value)) {
-    vari.style.borderColor = 'green' } } */
-
 window.addEventListener("load", function () {
-/* 
-    name.addEventListener('blur', async (e) => {
 
-        Validator(e, name, errorName);
-        apiName(e.target.value);
-
-    }); */
 
     const validarFormulario = (e) => {
         switch (e.target.name) {
@@ -47,7 +33,7 @@ window.addEventListener("load", function () {
                     errors = false
                 }
                 else {
-                    errorName.innerHTML = "Ingrese letras y espacios, pueden llevar acentos. Entre 5 y 20.";
+                    errorName.innerHTML = " Entre 5 y 20 letras, espacios y acentos.";
                     productName.classList.remove("errorInactive")
                     productName.classList.add("errorActive")
                     errors = true
@@ -61,7 +47,7 @@ window.addEventListener("load", function () {
                     errors = false
                 }
                 else {
-                    errorVolume.innerHTML = "Ingrese entre 2 y 5 números";
+                    errorVolume.innerHTML = "Entre 2 y 5 números";
                     volume.classList.remove("errorInactive")
                     volume.classList.add("errorActive")
                     errors = true
@@ -74,7 +60,7 @@ window.addEventListener("load", function () {
                     errorPrice.innerHTML = null;
                     errors = false
                 } else {
-                    errorPrice.innerHTML = "Ingrese entre 2 y 5 números";
+                    errorPrice.innerHTML = "Entre 2 y 5 números";
                     price.classList.remove("errorInactive")
                     price.classList.add("errorActive")
                     errors = true
@@ -87,7 +73,7 @@ window.addEventListener("load", function () {
                     errorDiscount.innerHTML = null;
                     errors = false
                 } else {
-                    errorDiscount.innerHTML = "Ingrese hasta 3 números";
+                    errorDiscount.innerHTML = "Hasta 3 números";
                     discount.classList.remove("errorInactive")
                     discount.classList.add("errorActive")
                     errors = true
@@ -100,7 +86,7 @@ window.addEventListener("load", function () {
                     errorStock.innerHTML = null;
                     errors = false
                 } else {
-                    errorStock.innerHTML = "Ingrese entre 1 y 5 números";
+                    errorStock.innerHTML = "Entre 1 y 5 números";
                     stock.classList.remove("errorInactive")
                     stock.classList.add("errorActive")
                     errors = true
@@ -113,7 +99,7 @@ window.addEventListener("load", function () {
                     errorIngredients.innerHTML = null;
                     errors = false
                 } else {
-                    errorIngredients.innerHTML = "Ingrese letras y espacios, pueden llevar acentos. Entre 10 y 40.";
+                    errorIngredients.innerHTML = "Entre 10 y 40 letras, espacios y acentos.";
                     ingredients.classList.remove("errorInactive")
                     ingredients.classList.add("errorActive")
                     errors = true
@@ -126,7 +112,7 @@ window.addEventListener("load", function () {
                     errorDescription.innerHTML = null;
                     errors = false
                 } else {
-                    errorDescription.innerHTML = "Ingrese letras y espacios, pueden llevar acentos. Entre 20 y 200.";
+                    errorDescription.innerHTML = "IEntre 20 y 200 letras, espacios y acentos.";
                     description.classList.remove("errorInactive")
                     description.classList.add("errorActive")
                     errors = true
@@ -137,14 +123,14 @@ window.addEventListener("load", function () {
 
     forms.forEach((form) => {
         form.addEventListener('keyup', validarFormulario);
-        form.addEventListener('blur', validarFormulario);
+        form.addEventListener('mouseout', validarFormulario);
     });
 
 
     /*Image validation*/
-    images.addEventListener('change',
+    image.addEventListener('change',
         function fileValidation() {
-            var fileInput = document.getElementById('images');
+            var fileInput = document.getElementById('image');
             var filePath = fileInput.value;
             if (!expresiones.images.exec(filePath)) {
                 errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
@@ -168,9 +154,8 @@ window.addEventListener("load", function () {
         })
 
 
-
-    /* Validation submit */
-    formulario.addEventListener('submit', function (e) {
+ /* Validation submit */
+ formulario.addEventListener('submit', function (e) {
 
     forms.forEach((form) => {
         if (form.classList.contains('errorActive') || errors == true ){
@@ -184,13 +169,11 @@ window.addEventListener("load", function () {
 
         }else {
             Swal.fire({
-                title: 'Producto agregado exitosamente!',
-                showClass: {
-                  popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                  popup: 'animate__animated animate__fadeOutUp'
-                }
+                position: 'center',
+                icon: 'success',
+                title: 'Producto editado con éxito',
+                showConfirmButton: false,
+                timer: 2200
               })
                 formulario.submit();
             }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', { title : "Agregar Categoría" }) %>
+
+	<body class="addProducts">
+		<%- include('../partials/header') %>
+			<main>
+				<section class="add_container">
+					<h3>Agregar Categoría </h3>
+					<form action="" class="productAdd" method="post" enctype="multipart/form-data">
+
+						<article class="camps_container">
+							<div class="sub_container">
+								<div class="add_form-box">
+									<label for="name">Nombre</label>
+									<input
+										class="add_input <%= locals.errores && errores.name ? 'register_error_input' : null %>"
+										id="name" name="name" style="padding:5px;"
+										placeholder="Ingresa el nombre de la categoría"
+										value="<%= locals.old && old.name ? old.name : null %>">
+										<p class="add_error-blur" id="errorName"></p>
+									</div>
+								<div class="add_form-box">
+									<label for="images">Agregar imágen</label>
+									<input class="add_input" type="file" id="images" name="images" accept="image/*"
+										multiple>
+										<p class="add_error-blur" id="errorImages"></p>
+										<div id="imagePreview" class="imagePreview" >
+											<h6>Vista previa</h6>
+										</div>
+									</div>
+							</div>
+							<div>
+								<div class="add_form-box-description">
+									<label for="desciption">Descripción</label>
+									<textarea
+										class="add_input value="<%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
+										type="text" id="description" name="description" rows="3" cols="35"
+										style="resize: none; padding:5px;"
+										placeholder="Ingresa la descripción de la categoría"></textarea>
+										<p class="add_error-blur" id="errorDescription"></p>
+									</div>
+							</div>
+						</article>
+						</div>
+						</div>
+						<div id="add_error-submit">
+							<ul class="errors">
+								
+							</ul>
+						</div>
+						<div class="register_center">
+							<div class="add_button">
+								<button type="submit">Enviar</button>
+								<button type="reset">Limpiar</button>
+							</div>
+						</div>
+					</form>
+				</section>
+			</main>
+			<%- include('../partials/footer') %>
+			<script src="/javascript/productAdd.js"></script>
+	</body>
+
+</html>

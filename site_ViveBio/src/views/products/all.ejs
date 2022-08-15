@@ -61,8 +61,20 @@
                               <% } %>
                                 <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
                                 <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                <a href="/products/cart/" title="Agregar producto al carrito"><i
-                                    class="fa-solid fa-cart-shopping"></i></a>
+                                <% if (locals.userLogin) { %>
+                                  <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
+                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)">
+                                    <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      <i class="fa-solid fa-slash cart_barra_<%= id %> cart_barra" >
+                                      </i>
+                                    </i>
+                                  </button>
+                                  <% }else{ %>
+                                    <a title="Agregar producto al carrito" class="icons__hover" value="<%= id %>" href="/users/login">
+                                      <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      </i>
+                                    </a>
+                                    <% } %>
                       </div>
                     </div>
               </article>
@@ -123,8 +135,20 @@
                               <% } %>
                                 <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
                                 <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                <a href="/products/cart/" title="Agregar producto al carrito"><i
-                                    class="fa-solid fa-cart-shopping"></i></a>
+                                <% if (locals.userLogin) { %>
+                                  <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
+                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)">
+                                    <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      <i class="fa-solid fa-slash cart_barra_<%= id %> cart_barra" >
+                                      </i>
+                                    </i>
+                                  </button>
+                                  <% }else{ %>
+                                    <a title="Agregar producto al carrito" class="icons__hover" value="<%= id %>" href="/users/login">
+                                      <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      </i>
+                                    </a>
+                                    <% } %>
                       </div>
                     </div>
               </article>
@@ -139,8 +163,7 @@
             <div class="box">
               <div class="content">
                 <p id="spa">
-                  Nuestro tiempo de relax, significa conectar con nuestra esencia. Un momento para vivir y celebrar
-                  nuestra mejor versión. BioSpa es pureza, bienestar, equilibrio.
+                  Nuestro tiempo de relax, significa conectar con nuestra esencia. Un momento para vivir y celebrar nuestra mejor versión. BioSpa es pureza, bienestar, equilibrio.
                 </p>
               </div>
               <div class="image">
@@ -186,8 +209,20 @@
                               <% } %>
                                 <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
                                 <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                <a href="/products/cart/" title="Agregar producto al carrito"><i
-                                    class="fa-solid fa-cart-shopping"></i></a>
+                                <% if (locals.userLogin) { %>
+                                  <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
+                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)">
+                                    <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      <i class="fa-solid fa-slash cart_barra_<%= id %> cart_barra" >
+                                      </i>
+                                    </i>
+                                  </button>
+                                  <% }else{ %>
+                                    <a title="Agregar producto al carrito" class="icons__hover" value="<%= id %>" href="/users/login">
+                                      <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      </i>
+                                    </a>
+                                    <% } %>
                       </div>
                     </div>
                   </div>
@@ -202,7 +237,7 @@
       </main>
 
       <%- include('../partials/footer') %>
-      <script src="/javascript/card.js"></script>
+      <script src="/javascript/all.js"></script>
   </body>
 
 </html>

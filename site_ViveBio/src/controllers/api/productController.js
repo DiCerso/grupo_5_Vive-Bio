@@ -33,7 +33,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -69,7 +69,7 @@ module.exports = {
                         status: 400,
                     },
                     url: getUrl(req),
-                    msg: "no se encuentra un producto con el id ingresado"
+                    msg: "No se encuentra un producto con el id ingresado"
                 }
                 return res.status(400).json(response);
             }
@@ -81,7 +81,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -120,7 +120,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -226,7 +226,7 @@ module.exports = {
                         status: 500,
                     },
                     url: getUrl(req),
-                    msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                    msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
                 }
                 return res.status(500).json(response);
             }
@@ -246,7 +246,7 @@ module.exports = {
                         status: 500,
                     },
                     url: getUrl(req),
-                    msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                    msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
                 }
                 return res.status(500).json(response);
             }
@@ -285,7 +285,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -302,7 +302,7 @@ module.exports = {
                         status: 400,
                     },
                     url: getUrl(req),
-                    msg: "no se encuentra un producto con el id ingresado"
+                    msg: "No se encuentra un producto con el id ingresado"
                 }
                 return res.status(400).json(response);
             }
@@ -378,7 +378,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -400,7 +400,7 @@ module.exports = {
                         status: 400,
                     },
                     url: getUrl(req),
-                    msg: "no se encuentra un producto con el id ingresado"
+                    msg: "No se encuentra un producto con el id ingresado"
                 }
                 return res.status(400).json(response);
             }
@@ -436,7 +436,7 @@ module.exports = {
                         status: 200
                     },
                     url: getUrl(req),
-                    msg: "el producto se a eliminado exitosamente"
+                    msg: "El producto se ha eliminado exitosamente"
                 }
                 return res.status(200).json(response)
             }
@@ -449,7 +449,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -484,7 +484,7 @@ module.exports = {
                         status: 400
                     },
                     url: getUrl(req),
-                    msg: "no se encuentra un producto con esos caracteres"
+                    msg: "No se encuentra un producto con esos caracteres"
                 }
                 return res.status(400).json(response);
             }
@@ -496,7 +496,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -528,7 +528,7 @@ module.exports = {
                         status: 400
                     },
                     url: getUrl(req),
-                    msg: "no existe este producto"
+                    msg: "No existe este producto"
                 }
                 return res.status(400).json(response);
             }
@@ -540,7 +540,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -596,7 +596,7 @@ module.exports = {
                         status: 400
                     },
                     url: getUrl(req),
-                    data: "no se encontro un carrito"
+                    data: "No se encontró un carrito"
                 }
                 return res.status(400).json(response);
             }
@@ -608,7 +608,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -629,7 +629,7 @@ module.exports = {
                             status: 200
                         },
                         url: getUrl(req),
-                        msg: "se eliminaron los productos del carrito exitosamente"
+                        msg: "Se eliminaron los productos del carrito exitosamente"
                     }
                     return res.status(200).json(response)
                 }
@@ -647,7 +647,7 @@ module.exports = {
                             status: 200
                         },
                         url: getUrl(req),
-                        msg: "se elimino el producto del carrito exitosamente"
+                        msg: "Se eliminó el producto del carrito exitosamente"
                     }
                     return res.status(200).json(response)
                 }
@@ -662,7 +662,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -692,7 +692,7 @@ module.exports = {
                         status: 200
                     },
                     url: getUrl(req),
-                    msg: "no se ingreso un producto para agregar al carrito"
+                    msg: "No se ingresó un producto para agregar al carrito"
                 }
                 return res.status(400).json(response);
             }
@@ -703,7 +703,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -735,7 +735,7 @@ module.exports = {
                             status: 200
                         },
                         url: getUrl(req),
-                        msg: `la cantidad del producto ${idproduct} correctamente`,
+                        msg: `La cantidad del producto ${idproduct} correctamente`,
                         data : cart_act
                     }
                     return res.status(200).json(response)
@@ -750,9 +750,84 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    categories: async (req, res) => {
+        try {
+            let category = await db.Category.findAll({
+                include: [
+                    { association: 'products' }
+                ]
+            });
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200,
+                    total: category.length,
+                },
+                url: getUrl(req),
+                data: category
+            }
+            return res.status(200).json(response);
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
                 msg: error.messaje ? error.messaje : "comuniquese con el administrador"
             }
             return res.status(500).json(response);
+        }
+    },
+    categorySearch: async (req, res) => {
+        try {
+            let category = await db.Category.findAll({
+                where: {
+                    [Op.or]: [
+                        { name: { [Op.substring]: req.query.keyword } },
+                    ],
+                },
+                include: ["products"],
+            })
+    
+            if (category.length != 0) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    data: { "categories": category }
+                }
+                return res.status(200).json(response);
+            } else {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "no se encuentra un usuario con esos caracteres"
+                }
+                return res.status(400).json(response);
+            }
+    
+        } catch (error) {
+            console.log(error)
+            /* let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+            }
+            return res.status(500).json(response); */
         }
     }
 
