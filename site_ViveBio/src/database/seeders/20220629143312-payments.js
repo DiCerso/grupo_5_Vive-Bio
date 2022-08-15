@@ -3,7 +3,7 @@
 
 let payments = [
   {
-    name : 'targeta'
+    name : 'tarjeta'
   },
   {
     name : 'efectivo'

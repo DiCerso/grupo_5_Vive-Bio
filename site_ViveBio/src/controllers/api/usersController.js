@@ -119,24 +119,28 @@ module.exports = {
        </table>`, // html body
       });
       let response = {
-        ok:true,
-        meta : {
-          status : 500,
+        ok: true,
+        meta: {
+          status: 500,
         },
-        url : getUrl(req),
-        msg : `el mail se envio correctamente a ${email}`
+        url: getUrl(req),
+        msg: `el mail se envio correctamente a ${email}`
       }
       return res.status(200).json(response);
     } catch (error) {
       let response = {
         ok: false,
         meta: {
-            status: 500,
+          status: 500,
         },
         url: getUrl(req),
         msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+      }
+      return res.status(500).json(response);
     }
-    return res.status(500).json(response);    }
+  },
+  loginApi: async (req, res) => {
+    
   }
 
 };

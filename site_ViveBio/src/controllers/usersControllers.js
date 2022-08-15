@@ -193,6 +193,9 @@ module.exports = {
             console.log(error);
         }
 
+    },
+    testlogin: (req, res) => {
+        return res.render('users/testLogin')
     }
 }
 
