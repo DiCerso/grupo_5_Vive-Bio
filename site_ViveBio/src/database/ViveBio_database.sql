@@ -1,5 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
---
+CREATE DATABASE  IF NOT EXISTS `vivebio_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `vivebio_db`;
 -- Host: 127.0.0.1    Database: vivebio_db
 -- ------------------------------------------------------
 -- Server version	8.0.29
@@ -32,7 +33,7 @@ CREATE TABLE `carts` (
   KEY `FK_products_users_idx` (`product_id`),
   CONSTRAINT `FK_carts_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   CONSTRAINT `FK_carts_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +59,7 @@ CREATE TABLE `categories` (
   `description` text NOT NULL,
   `image` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +143,7 @@ CREATE TABLE `payments` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +179,7 @@ CREATE TABLE `products` (
   KEY `FK_products_properties_idx` (`property_id`),
   CONSTRAINT `FK_products_categories` FOREIGN KEY (`category_Id`) REFERENCES `categories` (`id`),
   CONSTRAINT `FK_products_properties` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +207,7 @@ CREATE TABLE `productsimages` (
   PRIMARY KEY (`id`),
   KEY `FK_products_prodects_images_idx` (`product_id`),
   CONSTRAINT `FK_products_prodects_images` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,7 +231,7 @@ CREATE TABLE `properties` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,7 +240,7 @@ CREATE TABLE `properties` (
 
 LOCK TABLES `properties` WRITE;
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
-INSERT INTO `properties` VALUES (1,'exfoliante'),(2,'humectante'),(3,'antiséptico'),(13,'exfoliante'),(14,'humectante'),(15,'antiséptico');
+INSERT INTO `properties` VALUES (1,'exfoliante'),(2,'humectante'),(3,'antiséptico');
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +255,7 @@ CREATE TABLE `rols` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +264,7 @@ CREATE TABLE `rols` (
 
 LOCK TABLES `rols` WRITE;
 /*!40000 ALTER TABLE `rols` DISABLE KEYS */;
-INSERT INTO `rols` VALUES (1,'admin'),(2,'user'),(3,'admin'),(4,'user'),(5,'moderator'),(6,'admin'),(7,'user'),(8,'moderator'),(9,'admin'),(10,'user'),(11,'moderator'),(12,'admin'),(13,'user'),(14,'moderator');
+INSERT INTO `rols` VALUES (1,'admin'),(2,'user'),(3,'moderator');
 /*!40000 ALTER TABLE `rols` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,7 +279,7 @@ CREATE TABLE `status` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +288,7 @@ CREATE TABLE `status` (
 
 LOCK TABLES `status` WRITE;
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
-INSERT INTO `status` VALUES (1,'en proceso'),(2,'finalizado'),(3,'en proceso'),(4,'finalizado'),(5,'en proceso'),(6,'finalizado'),(7,'en proceso'),(8,'finalizado'),(9,'en proceso'),(10,'finalizado');
+INSERT INTO `status` VALUES (1,'en proceso'),(2,'finalizado');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,7 +311,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   KEY `FK_users_rols_idx` (`rol_id`),
   CONSTRAINT `FK_users_rols` FOREIGN KEY (`rol_id`) REFERENCES `rols` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -319,7 +320,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'lautaro','Cersocimo','lautaro_cer@hotmail.com','Dicerso','$2a$10$CX4eXDLHNmGNz7sZ5Pp3G.McqWNQNgn8WsAhuuOitvJnh9.SG5XL2',1,'defaultAvatar.jpg'),(2,'fernando','zigarra','fer_0007_6@hotmail.com','cacao','$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2',1,'image-Avatar-1654737986404.png'),(3,'May','Cort','mayrautopia@gmail.com','Mayra','$2a$10$I4W.oC98cWCdvoATgz4n5.uaINwRAr5fBi85JdfoRNa03LfwlFXiC',1,'defaultAvatar.jpg'),(4,'adm','adm','adm@gmail.com','admadm','$2a$10$0C6YQmVu2cYXfnpbXnSkzu/rX6EhozlKb4mQC6k9NZwSLIo1yiQZW',2,'defaultAvatar.jpg');
+INSERT INTO `users` VALUES (1,'lautaro','Cersocimo','lautaro_cer@hotmail.com','Dicerso','$2a$10$CX4eXDLHNmGNz7sZ5Pp3G.McqWNQNgn8WsAhuuOitvJnh9.SG5XL2',3,'defaultAvatar.jpg'),(2,'fernando','zigarra','fer_0007_6@hotmail.com','cacao','$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2',1,'image-Avatar-1654737986404.png'),(3,'May','Cort','mayrautopia@gmail.com','Mayra','$2a$10$I4W.oC98cWCdvoATgz4n5.uaINwRAr5fBi85JdfoRNa03LfwlFXiC',1,'defaultAvatar.jpg'),(4,'adm','adm','adm@gmail.com','admadm','$2a$10$0C6YQmVu2cYXfnpbXnSkzu/rX6EhozlKb4mQC6k9NZwSLIo1yiQZW',2,'defaultAvatar.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
