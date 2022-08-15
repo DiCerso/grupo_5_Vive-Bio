@@ -56,7 +56,7 @@ CREATE TABLE `categories` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `description` text NOT NULL,
-  `images` varchar(45) NOT NULL,
+  `image` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -230,7 +230,7 @@ CREATE TABLE `properties` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,7 +239,7 @@ CREATE TABLE `properties` (
 
 LOCK TABLES `properties` WRITE;
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
-INSERT INTO `properties` VALUES (1,'exfoliante'),(2,'humectante'),(3,'antiséptico');
+INSERT INTO `properties` VALUES (1,'exfoliante'),(2,'humectante'),(3,'antiséptico'),(13,'exfoliante'),(14,'humectante'),(15,'antiséptico');
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +254,7 @@ CREATE TABLE `rols` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +263,7 @@ CREATE TABLE `rols` (
 
 LOCK TABLES `rols` WRITE;
 /*!40000 ALTER TABLE `rols` DISABLE KEYS */;
-INSERT INTO `rols` VALUES (1,'admin'),(2,'user'),(3,'admin'),(4,'user'),(5,'moderator'),(6,'admin'),(7,'user'),(8,'moderator'),(9,'admin'),(10,'user'),(11,'moderator');
+INSERT INTO `rols` VALUES (1,'admin'),(2,'user'),(3,'admin'),(4,'user'),(5,'moderator'),(6,'admin'),(7,'user'),(8,'moderator'),(9,'admin'),(10,'user'),(11,'moderator'),(12,'admin'),(13,'user'),(14,'moderator');
 /*!40000 ALTER TABLE `rols` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,7 +278,7 @@ CREATE TABLE `status` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +287,7 @@ CREATE TABLE `status` (
 
 LOCK TABLES `status` WRITE;
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
-INSERT INTO `status` VALUES (1,'en proceso'),(2,'finalizado'),(3,'en proceso'),(4,'finalizado'),(5,'en proceso'),(6,'finalizado'),(7,'en proceso'),(8,'finalizado');
+INSERT INTO `status` VALUES (1,'en proceso'),(2,'finalizado'),(3,'en proceso'),(4,'finalizado'),(5,'en proceso'),(6,'finalizado'),(7,'en proceso'),(8,'finalizado'),(9,'en proceso'),(10,'finalizado');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-15 11:50:01
+-- Dump completed on 2022-08-15 12:11:36
