@@ -398,7 +398,7 @@ module.exports = {
                 },
                 force: true,
             });
-            return res.redirect("/products/list/0");
+            return res.redirect("/products/list");
         } catch (error) {
             console.log(error);
         }
@@ -424,45 +424,8 @@ module.exports = {
     },
 
     list: async (req, res) => {
-        try {
-            let keyboard = req.query.keyboard;
-            const { category } = req.params;
-            if (keyboard) {
-                let products = await db.Product.findAll({
-                    where: {
-                        name: { [Op.substring]: keyboard },
-                    },
-                });
-                return res.render("products/list", { products });
-            }
-            if (category == 0) {
-                let products = await db.Product.findAll();
-                return res.render("products/list", { products });
-            } else if (category == 1) {
-                let products = await db.Product.findAll({
-                    where: {
-                        category_id: 1,
-                    },
-                });
-                return res.render("products/list", { products });
-            } else if (category == 2) {
-                let products = await db.Product.findAll({
-                    where: {
-                        category_id: 2,
-                    },
-                });
-                return res.render("products/list", { products });
-            } else if (category == 3) {
-                let products = await db.Product.findAll({
-                    where: {
-                        category_id: 3,
-                    },
-                });
-                return res.render("products/list", { products });
-            }
-        } catch (error) {
-            console.log(error);
-        }
+        return res.render("products/list");
+
     },
     cart: async (req, res) => {
         try {
