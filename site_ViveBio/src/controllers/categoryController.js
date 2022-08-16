@@ -60,7 +60,7 @@ module.exports = {
       /*   let errors = validationResult(req);
         if (errors.isEmpty()) { */
             try {
-                const category =  db.Category.findByPk(req.params.id)
+                const category =  await db.Category.findByPk(req.params.id)
                 let { name, description} = req.body;
                 await db.Category.update(
                     {
@@ -74,7 +74,7 @@ module.exports = {
                         },
                     }
                 );
-                return res.redirect("/products/list", {category});
+                return res.redirect("/products/list");
                 } catch (error) {
                 console.log(error);
             }

@@ -17,7 +17,7 @@ router.get('/edit/:id', admincheck, edit);
 router.put('/update/:id',upload.array('image'),productCheck,update);
 router.delete('/remove/:id',admincheck, remove);
 router.get("/search", search);
-router.get("/list/:category?", admincheck ,list);
+router.get("/list", admincheck ,list);
 router.get('/cart', usercheck, cart)
 router.delete('/cart/remove/:id', usercheck, removecart )
 router.put('/cart/cant/:idproduct/:id', usercheck, cant)
