@@ -84,7 +84,7 @@ let changeuser = async function (value) {
         } else if (value == 1) {
             container.innerHTML = null
             users.data.forEach(user => {
-                if (user.rol.id != 3 && user.rol.id == 1) {
+                if (user.rol.id != 3 && user.rol.id == 1) { 
                     container.innerHTML += `
                     <article class="list__product">
                                 <a class="list__id">
@@ -258,7 +258,7 @@ let changeproduct = async function (value) {
     }
 }
 
-let changecategory = async function (value) {
+let changecategory = async function (value) { 
     try {
         let result = await fetch("/api/products/categories")
         let categories = await result.json()
@@ -276,6 +276,8 @@ let changecategory = async function (value) {
                                 <h4 class="list__price">${category.products.length}
                                 </h4>
                                 <div class="list__options">
+                                <a href="/Category/edit/${category.id}" class="list__edit"
+                                        title="Editar producto"><i class="fa-solid fa-pen"></i></a>
                                 </div>
                     </article>`
             });
