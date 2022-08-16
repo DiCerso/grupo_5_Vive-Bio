@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head', { title : "Editar Categoría}) %>
+<%- include('../partials/head', { title : "Editar Categoría" }) %>
 
     <body class="edit_product">
         <%- include('../partials/header') %>
-            <main>
                 <main>
                     <section class="add_container">
                         <h3>Editar Categoría</h3>
-                        <form action="/products/update/<%= category.id %>?_method=PUT" class="productEdit" method="POST"
+                        <form action="/products/update/<%= category.id %>?_method=PUT" class="categoryEdit" method="POST"
                             enctype="multipart/form-data">
                             <article class="camps_container">
                                 <div class="sub_container">
@@ -18,10 +17,9 @@
                                             name="name" style="padding:5px;">
                                             <p class="add_error-blur" id="errorName"></p>
                                     </div>
-                                    <div class="add_form-box">
+                                     <div class="add_form-box">
                                         <label for="image">Imagen</label>
-                                        <input class="add_input" type="file" id="image" name="image" accept="image/*"
-                                            multiple>
+                                        <input class="add_input" type="file" id="image" name="image">
                                             <p class="add_error-blur" id="errorImages"></p>
                                             <div id="imagePreview" class="imagePreview" >
                                                 <h6>Vista previa</h6>
@@ -29,32 +27,28 @@
                                         </div>
                                 </div>
                                 <div>
-                                        <div class="add_form-box-description">
+                                    <div class="add_form-box-description">
                                         <label for="description">Descripción</label>
                                         <textarea class="add_input" type="text" id="description" name="description"
                                             rows="3" cols="35"
-                                            style="resize: none; padding:5px;"><%= product.description.trim() %></textarea>
+                                            style="resize: none; padding:5px;"><%= category.description %></textarea>
                                             <p class="add_error-blur" id="errorDescription"></p>
                                         </div>
                                 </div>
                             </article>
-                            <div id="add_error-submit">
-                                <ul class="errors">
-                                    
-                                </ul>
+                            </div>
                             </div>
                             <div class="register_center">
                                 <div class="add_button">
                                     <button type="submit">Actualizar</button>
-                                    <button type="reset">Limpiar</button>
+                                    <button type="reset">Resetear</button>
                                 </div>
                             </div>
                         </form>
                     </section>
                 </main>
-            </main>
             <%- include('../partials/footer') %>
-            <script src="/javascript/productEdit.js"></script>
+            <script src="/javascript/categoryEdit.js"></script>
     </body>
 
 </html>

@@ -5,7 +5,6 @@
     <body class="edit_product">
         <%- include('../partials/header') %>
             <main>
-                <main>
                     <section class="add_container">
                         <h3>Editar Producto</h3>
                         <form action="/products/update/<%= product.id %>?_method=PUT" class="productEdit" method="POST"
@@ -107,7 +106,6 @@
                         </form>
                     </section>
                 </main>
-            </main>
             <%- include('../partials/footer') %>
             <script src="/javascript/productEdit.js"></script>
     </body>

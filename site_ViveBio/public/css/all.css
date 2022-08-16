@@ -51,9 +51,14 @@
     margin: 50px 0px;
 }
 
+.productAll .content{
+    padding: 20px;
+    background-color: #fffc;
+}
+
 .productAll .overlay {
 	position: absolute;
-	top: 0;
+	top: -30px;
 	left: 0;
     width: 100%;
     height: 200px;
@@ -67,6 +72,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.productAll .image {
+    display: none;
 }
 
 /* PRODUCTOS RELACIONADOS */
@@ -381,6 +390,7 @@
     }
     
     .productAll .image {
+        display: block;
         width: 50%;
         border-bottom: 200px solid transparent;
         border-left: 60px solid white;

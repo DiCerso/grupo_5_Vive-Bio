@@ -8,14 +8,14 @@
             <main class="list">
                 <div class="list__container__options">
                     <div class="list__options_top" ><a href="/products/add">Crear Producto</a></div>
-                    <div class="list__options_top" ><a href="/Category/add">Crear Categoria</a></div>
+                    <div class="list__options_top" ><a href="/category/add">Crear Categoría</a></div>
                     <div class="select__list">
                         <select>
                             <option class="products__list" value="1" default>Productos</option>
                             <% if (userLogin.rol=="moderator" ) { %>
                                 <option class="users__list" value="2">Usuarios</option>
                                 <% } %>
-                                    <option class="categories__list" value="3">categorias</option>
+                                    <option class="categories__list" value="3">Categorías</option>
                         </select>
                         <i></i>
                     </div>

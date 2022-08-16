@@ -124,7 +124,7 @@ module.exports = {
           status: 500,
         },
         url: getUrl(req),
-        msg: `el mail se envio correctamente a ${email}`
+        msg: `el mail se envió correctamente a ${email}`
       }
       return res.status(200).json(response);
     } catch (error) {
@@ -134,7 +134,7 @@ module.exports = {
           status: 500,
         },
         url: getUrl(req),
-        msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+        msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
       }
       return res.status(500).json(response);
     }
@@ -165,7 +165,7 @@ module.exports = {
           status: 500,
         },
         url: getUrl(req),
-        msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+        msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
       }
       return res.status(500).json(response);
     }
@@ -186,7 +186,7 @@ module.exports = {
             status: 400,
           },
           url: getUrl(req),
-          msg: "no se encuentra un usuario con el id ingresado"
+          msg: "No se encuentra un usuario con el id ingresado"
         }
         return res.status(400).json(response);
       }
@@ -204,7 +204,7 @@ module.exports = {
             status: 200
           },
           url: getUrl(req),
-          msg: "el usuario se a eliminado exitosamente"
+          msg: "El usuario se ha eliminado exitosamente"
         }
         return res.status(200).json(response)
       }
@@ -217,7 +217,7 @@ module.exports = {
           status: 500,
         },
         url: getUrl(req),
-        msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+        msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
       }
       return res.status(500).json(response);
     }
@@ -240,7 +240,7 @@ module.exports = {
             status: 200
           },
           url: getUrl(req),
-          msg: "el usuario se a actualizado exitosamente"
+          msg: "El usuario ha sido actualizado exitosamente"
         }
         return res.status(200).json(response)
       }else if(rol == 2){
@@ -258,7 +258,7 @@ module.exports = {
             status: 200
           },
           url: getUrl(req),
-          msg: "el usuario se a actualizado exitosamente"
+          msg: "El usuario ha sido actualizado exitosamente"
         }
         return res.status(200).json(response)
       }
@@ -295,7 +295,7 @@ module.exports = {
                     status: 400
                 },
                 url: getUrl(req),
-                msg: "no se encuentra un usuario con esos caracteres"
+                msg: "No se encuentra un usuario con esos caracteres"
             }
             return res.status(400).json(response);
         }
@@ -307,7 +307,7 @@ module.exports = {
                 status: 500,
             },
             url: getUrl(req),
-            msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+            msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
         }
         return res.status(500).json(response);
     }
