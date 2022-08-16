@@ -147,10 +147,7 @@ Carrusel
 
 .slide {
     width: 20%;
-    transition-property: all;
-    transition-duration: 3s;
-    transition-delay: 2s;
-    transition-timing-function: cubic-bezier(.39,.58,.57,1);
+    transition: 2s;
 }
 
 .navigation-manual {
@@ -225,7 +222,6 @@ Carrusel
 #radio4:checked~.navigation-auto .auto-btn4 {
     background: var(--verdeOscuro);
 }
-
 
 
 /*************************************************

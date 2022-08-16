@@ -195,7 +195,7 @@ let changeproduct = async function (value) {
                                 <h4 class="list__price">$${product.price}
                                 </h4>
                                 <div class="list__options">
-                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="EliminateProduct(${product.id}, ${value})">
+                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="return confirmDelete(${product.id}, ${value})">
                                             <i class="fa-solid fa-trash-can"></i></button>
                                     <a href="/products/edit/${product.id}" class="list__edit"
                                         title="Editar producto"><i class="fa-solid fa-pen"></i></a>
@@ -295,6 +295,34 @@ let EliminateUser = async function (value, dato) {
     } catch (error) {
         console.log(error)
     }
+}
+
+function confirmDelete(id, value){
+    Swal.fire({
+        customClass: {
+            confirmButton: 'swalBtnColor',
+            cancelButton: 'swalBtnColor'
+        },
+
+        title: '¿Quieres eliminar el producto?',
+        text: "Acción irreversible!",
+        icon: 'warning',
+        background: "#ebebeb",
+        showCancelButton: true,
+        confirmButtonColor: '#7ff77f',
+        cancelButtonColor: '#cc4141',
+        confirmButtonText: 'Eliminar',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                EliminateProduct(id, value);
+            }
+
+        })
 }
 
 let EliminateProduct = async function (id, value) {
