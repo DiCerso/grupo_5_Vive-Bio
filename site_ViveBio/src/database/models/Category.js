@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
 
         description: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
         },
         
         image: {
             type: DataTypes.STRING(50),
-            allowNull: false,
+            allowNull: true,
         },
 
     }

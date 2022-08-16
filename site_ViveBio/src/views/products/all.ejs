@@ -10,7 +10,7 @@
           <div class="container">
             <h2 class="titulares" id="bioCapilar">BioCapilar</h2>
             <div class="overlay">
-              <img style="width:100%" src="/images/products/banner-capilar.jpg" alt="">
+              <img style="width:100%" src="/images/category/banner-capilar.jpg" alt="">
             </div>
             <div class="box">
               <div class="content">
@@ -19,7 +19,7 @@
                 </p>
               </div>
               <div class="image">
-                <img src="/images/products/banner-capilar.jpg" alt="">
+                <img src="/images/category/banner-capilar.jpg" alt="">
               </div>
             </div>
           </div>
@@ -27,6 +27,7 @@
             <% bioCapilar.forEach(({id,productImages,name,discount,property,price})=> { %>
               <article>
                 <div class="card estilo-c">
+                  <a href="/products/card/<%= id %> ">
                   <div class="img-container">
                     <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
                     <span class="promo">
@@ -35,7 +36,6 @@
                   </div>
                   <div class="info-container">
                     <div class="Card-info-texto">
-                      <a href="/products/card/<%= id %> ">
                         <h2 class="name">
                           <%= name %>
                         </h2>
@@ -84,7 +84,7 @@
           <div class="container">
             <h2 class="titulares" id="BioCorporal">BioCorporal</h2>
             <div class="overlay">
-              <img style="width:100%" src="/images/products/banner-corporal.jpg" alt="">
+              <img style="width:100%" src="/images/category/banner-corporal.jpg" alt="">
             </div>
             <div class="box">
               <div class="content">
@@ -93,7 +93,7 @@
                 </p>
               </div>
               <div class="image">
-                <img src="/images/products/banner-corporal.jpg" alt="">
+                <img src="/images/category/banner-corporal.jpg" alt="">
               </div>
             </div>
           </div>
@@ -101,6 +101,7 @@
             <% bioCorporal.forEach(({id,productImages,name,discount,property,price})=> { %>
               <article>
                 <div class="card estilo-c">
+                  <a href="/products/card/<%= id %> ">
                   <div class="img-container">
                     <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
                     <span class="promo">
@@ -109,7 +110,6 @@
                   </div>
                   <div class="info-container">
                     <div class="Card-info-texto">
-                      <a href="/products/card/<%= id %> ">
                         <h2 class="name">
                           <%= name %>
                         </h2>
@@ -158,7 +158,7 @@
           <div class="container">
             <h2 class="titulares" id="BioSpa">BioSpa</h2>
             <div class="overlay">
-              <img style="width:100%" src="/images/products/banner-spa.jpg" alt="">
+              <img style="width:100%" src="/images/category/banner-spa.jpg" alt="">
             </div>
             <div class="box">
               <div class="content">
@@ -167,7 +167,7 @@
                 </p>
               </div>
               <div class="image">
-                <img src="/images/products/banner-spa.jpg" alt="">
+                <img src="/images/category/banner-spa.jpg" alt="">
               </div>
             </div>
           </div>
@@ -175,6 +175,7 @@
             <% bioSpa.forEach(({id,productImages,name,discount,property,price})=> { %>
               <article>
                 <div class="card estilo-c">
+                  <a href="/products/card/<%= id %> ">
                   <div class="img-container">
                     <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
                     <span class="promo">
@@ -183,7 +184,6 @@
                   </div>
                   <div class="info-container">
                     <div class="Card-info-texto">
-                      <a href="/products/card/<%= id %> ">
                         <h2 class="name">
                           <%= name %>
                         </h2>

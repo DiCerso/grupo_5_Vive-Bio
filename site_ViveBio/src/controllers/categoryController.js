@@ -14,69 +14,59 @@ module.exports = {
     //view form add category
     add: async (req, res) => {
         try {
-            const categories = await db.Category.findAll();
-            return res.render("category/add", {
-                categories,
-            });
+            return res.render("category/add");
         } catch (error) {
             console.log(error);
         }
     },
 
     //method to save new product
-    store: async (req, res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            try {
-                
-                let categories = await db.Category.create(
-                    {
-                        name: req.body.name,
-                        description: req.body.description,
-                        image: req.file ? req.file.filename : "default-image.png"
-                    },
-                );
-
-                return res.redirect("category/add", {categories});
-            } catch (error) {
-                console.log(error);
-            }
-        } else {
-            let images = req.files.map((image) => image.filename);
-
-            try {
-                const categories = await db.Category.findAll();
-                return res.render("category/add", {
-                    errores: errors.mapped(),
-                    old: req.body,
-                    categories,
-                });
-            } catch (error) {
+    store: async (req, res) =>  {
+/*     let errors = validationResult(req);
+        if(errors.isEmpty()){ */
+           try{
+            let { name, description} = req.body
+            db.Category.create({
+                name,
+                description,
+                image: req.file ? req.file.filename : "default-image.png"
+            })
+            return res.render("products/list")
+            }catch (error) {
                 console.log(error);
             }
         }
-    },
-
+      /*   else{
+        res.render('category/add',{
+            errors: errors.mapped(),
+            session: req.session,
+            old: req.body
+        })
+    } */
+            
+,
+        
     edit: async (req, res) => {
+        const category = await db.Category.findByPk(req.params.id)
         try {
-            const categories = await db.Category.findAll();
-            return res.render("category/edit", {
-                categories,
-            });
+            return res.render("category/edit", {category});
         } catch (error) {
             console.log(error);
         }
     },
 
+
     update: async (req, res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
+      /*   let errors = validationResult(req);
+        if (errors.isEmpty()) { */
             try {
-                const OldImages = olds.map((old) => old.name);
-                const update = await db.Category.update(
+                const category =  db.Category.findByPk(req.params.id)
+                let { name, description} = req.body;
+                await db.Category.update(
                     {
-                        name: req.body.name,
-                        description: req.body.description,
+                        name,
+                        description,
+                        image: req.file ? req.file.filename : "default-image.png"
                     },
                     {
                         where: {
@@ -84,103 +74,11 @@ module.exports = {
                         },
                     }
                 );
-                if (req.files.length > 0) {
-                    let newimages = req.files.map(({ filename }, i) => {
-                        let image = {
-                            name: filename,
-                            product_id: req.params.id,
-                            primary: i === 0 ? 1 : 0,
-                        };
-                        return image;
-                    });
-                    db.ProductImage.destroy({
-                        where: {
-                            product_id: req.params.id,
-                        },
-                    });
-                    OldImages.forEach((image) => {
-                        if (
-                            fs.existsSync(
-                                path.resolve(
-                                    __dirname,
-                                    "..",
-                                    "..",
-                                    "public",
-                                    "images",
-                                    "products",
-                                    image
-                                )
-                            ) &&
-                            image !== "noimage.jpg"
-                        ) {
-                            fs.unlinkSync(
-                                path.resolve(
-                                    __dirname,
-                                    "..",
-                                    "..",
-                                    "public",
-                                    "images",
-                                    "products",
-                                    image
-                                )
-                            );
-                        }
-                    });
-                    db.ProductImage.bulkCreate(newimages, { validate: true }).then(
-                        (result) => console.log(result)
-                    );
-                }
-                return res.redirect("category/add");
-            } catch (error) {
+                return res.redirect("/products/list", {category});
+                } catch (error) {
                 console.log(error);
             }
-        } else {
-            let images = req.files.map((image) => image.filename);
-            images.forEach((image) => {
-                if (
-                    fs.existsSync(
-                        path.resolve(
-                            __dirname,
-                            "..",
-                            "..",
-                            "public",
-                            "images",
-                            "products",
-                            image
-                        )
-                    ) &&
-                    image !== "noimage.jpg"
-                ) {
-                    fs.unlinkSync(
-                        path.resolve(
-                            __dirname,
-                            "..",
-                            "..",
-                            "public",
-                            "images",
-                            "products",
-                            image
-                        )
-                    );
-                }
-            });
-            try {
-                const categories = await db.Category.findAll();
-                const properties = await db.Property.findAll();
-                const product = await db.Product.findByPk(req.params.id, {
-                    include: [{ association: "property" }, { association: "category" }],
-                });
-                return res.render("category/edit", {
-                    errores: errors.mapped(),
-                    old: req.body,
-                    properties,
-                    categories,
-                    product,
-                });
-            } catch (error) {
-                console.log(error);
-            }
-        }
+                
     },
     
     remove: (req, res) => {
@@ -190,7 +88,8 @@ module.exports = {
             }
           })
           .then(() => {
-            return res.redirect('/category/add')
+            return res.redirect('/products/list')
           })
         }
 };
+

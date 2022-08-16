@@ -173,7 +173,7 @@ window.addEventListener("load", function () {
                 icon: 'success',
                 title: 'Producto editado con éxito',
                 showConfirmButton: false,
-                timer: 2200
+                timer: 3000
               })
                 formulario.submit();
             }

@@ -7,8 +7,7 @@
 			<main>
 				<section class="add_container">
 					<h3>Agregar Categoría </h3>
-					<form action="" class="productAdd" method="post" enctype="multipart/form-data">
-
+					<form action="/category/add" class="productAdd" method="post" enctype="multipart/form-data">
 						<article class="camps_container">
 							<div class="sub_container">
 								<div class="add_form-box">
@@ -22,8 +21,7 @@
 									</div>
 								<div class="add_form-box">
 									<label for="images">Agregar imágen</label>
-									<input class="add_input" type="file" id="images" name="images" accept="image/*"
-										multiple>
+									<input class="add_input" type="file" id="image" name="image">
 										<p class="add_error-blur" id="errorImages"></p>
 										<div id="imagePreview" class="imagePreview" >
 											<h6>Vista previa</h6>
@@ -35,7 +33,7 @@
 									<label for="desciption">Descripción</label>
 									<textarea
 										class="add_input value="<%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
-										type="text" id="description" name="description" rows="3" cols="35"
+										type="text" id="description" name="description" rows="3" cols="32"
 										style="resize: none; padding:5px;"
 										placeholder="Ingresa la descripción de la categoría"></textarea>
 										<p class="add_error-blur" id="errorDescription"></p>
@@ -59,7 +57,7 @@
 				</section>
 			</main>
 			<%- include('../partials/footer') %>
-			<script src="/javascript/productAdd.js"></script>
+			<script src="/javascript/productEdit.js"></script>
 	</body>
 
 </html>
