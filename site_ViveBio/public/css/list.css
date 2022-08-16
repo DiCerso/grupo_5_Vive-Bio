@@ -75,7 +75,7 @@
 }
 
 .list .select__list:hover i,
-.list__cates div:hover i {
+.list__categories__select:hover i {
     margin-top: 3px;
 }
 
