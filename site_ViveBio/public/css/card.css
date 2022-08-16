@@ -14,8 +14,8 @@
     border-radius: 20px;
     text-align: center;
     font-size: large;
-    backdrop-filter: blur(4px);
-    background: linear-gradient(0deg, rgb(65, 123, 96) 0%, rgba(16, 247, 207, 0.11) 88%)
+    backdrop-filter: blur(8px);
+    background: linear-gradient(0deg, rgba(20, 108, 67, 0.94) 0%, rgba(200, 217, 214, 0) 88%);
 }
 
 /*NOMBRE PRODUCTO*/
@@ -160,9 +160,9 @@
 }
 
 .productCard .producto-iconos .icons__hover:hover {
-    color: var(--verdeFuerte);
+    color: var(--azulMarino);
     background-color: white;
-    border: 1px solid var(--verdeFuerte);
+    border: 1px solid var(--azulMarino);
 }
 
 .card_barra {
@@ -243,7 +243,7 @@
 .productCard .estilo-c .info-container {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #b3d9ce91;
+    background-color:  #7fa794cb;
     text-align: center;
     color: var(--VioletaOscuro);
     opacity: 0;

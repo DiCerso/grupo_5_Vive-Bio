@@ -205,11 +205,6 @@
     color: var(--azulSuave);
 }
 
-.productAll .estilo-c .info-container .name:hover {
-   background-color:rgba(255, 255, 255, 0.562);
-   border-radius: 40%;
-}
-
 /*PRECIO PRODUCTO */
 .productAll .estilo-c .info-container p {
     font-size: 24px;
