@@ -7,8 +7,6 @@
         <%- include('../partials/header') %>
             <main class="list">
                 <div class="list__container__options">
-                    <div class="list__options_top" ><a href="/products/add">Crear Producto</a></div>
-                    <div class="list__options_top" ><a href="/category/add">Crear Categoría</a></div>
                     <div class="select__list">
                         <select>
                             <option class="products__list" value="1" default>Productos</option>
@@ -20,20 +18,12 @@
                         <i></i>
                     </div>
                 </div>
-                    
+
                 <div class="list__container">
                     <div class="list__top">
                         <div class="list__cates">
-                            <div class="list__cates1">
-                                <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(0)">TODOS</a>
-                                <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(1)">BioCapilar</a>
-                            </div>
-                            <div class="list__cates2">
-                                <a class="list__cate" style="cursor: pointer;"
-                                    onclick="changeproduct(2)">BioCorporal</a>
-                                <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(3)">BioSpa</a>
-                            </div>
-
+                            <a href="/products/add" class="list__cate" style="cursor:pointer; width: 50%;">Crear
+                                Producto</a>
                         </div>
                         <form class="list__busqueda" action="/products/list" method="GET">
                             <input type="text" name="keyboard" class="list__barra">

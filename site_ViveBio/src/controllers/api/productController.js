@@ -818,8 +818,7 @@ module.exports = {
             }
     
         } catch (error) {
-            console.log(error)
-            /* let response = {
+            let response = {
                 ok: false,
                 meta: {
                     status: 500,
@@ -827,8 +826,61 @@ module.exports = {
                 url: getUrl(req),
                 msg: error.messaje ? error.messaje : "comuniquese con el administrador"
             }
-            return res.status(500).json(response); */
+            return res.status(500).json(response);
         }
-    }
+    },
+    categoryDelete: async (req, res) => {
+        try {
+    
+          if (isNumber(req.params.id, req, "id")) {
+            return res.status(400).json(isNumber(req.params.id, req, "id"))
+          }
+    
+          const categoria = await db.Category.findByPk(req.params.id)
+    
+          if (!categoria) {
+            let response = {
+              ok: false,
+              meta: {
+                status: 400,
+              },
+              url: getUrl(req),
+              msg: "No se encuentra una categoria con el id ingresado"
+            }
+            return res.status(400).json(response);
+          }
+    
+          const destroycategory = await db.Category.destroy({
+            where: {
+              id: req.params.id
+            },
+            force: true
+          })
+          if (destroycategory) {
+            let response = {
+              ok: true,
+              meta: {
+                status: 200
+              },
+              url: getUrl(req),
+              msg: "La categoria se ha eliminado exitosamente"
+            }
+            return res.status(200).json(response)
+          }
+    
+    
+        } catch (error) {
+            console.log(error)
+          let response = {
+            ok: false,
+            meta: {
+              status: 500,
+            },
+            url: getUrl(req),
+            msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+          }
+          return res.status(500).json(response);
+        }
+      }
 
 }

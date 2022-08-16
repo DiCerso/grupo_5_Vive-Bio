@@ -9,18 +9,25 @@
     border: 1px solid var(--verdeFuerte);
 }
 
-.list .select__list select {
+.list .select__list select,
+.list__cates select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
 
-.list .select__list {
+.list__cate{
+    width: 100%;
+}
+
+.list .select__list,
+.list__cates .list__categories__select{
     max-width: 250px;
     position: relative;
 }
 
-.list .select__list select {
+.list .select__list select,
+.list__cates select{
     display: inline-block;
     width: 100%;
     cursor: pointer;
@@ -41,27 +48,6 @@
     transition: all 0.25s ease;
 }
 
-.list .list__options_top {
-    cursor: pointer;
-    padding: 7px 10px;
-    height: 42px;
-    outline: 0;
-    border: 0;
-    border-radius: 0;
-    background: #f0f0f0;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    transition: all 0.25s ease;
-}
-.list .list__options_top a{
-    color: #999;
-    font-size: 1em;
-    font-family:
-        'Quicksand', sans-serif;
-    text-shadow: none;
-    
-}
-
 .list__container__options {
     width: 50%;
     margin-left: auto;
@@ -74,7 +60,8 @@
 
 
 
-.list .select__list i {
+.list .select__list i,
+.list__cates i {
     position: absolute;
     right: 20px;
     top: calc(50% - 13px);
@@ -87,7 +74,8 @@
     transition: all 0.25s ease;
 }
 
-.list .select__list:hover i {
+.list .select__list:hover i,
+.list__cates div:hover i {
     margin-top: 3px;
 }
 
@@ -118,7 +106,6 @@
 
 .list .list__cates a {
     color: var(--verdeOscuro);
-    width: 100%;
     text-align: center;
 
 }
@@ -311,7 +298,8 @@
         margin-right: 10px;
     }
 
-    .list .select__list select {
+    .list .select__list select,
+    .list__cates div select{
         width: 165px;
     }
 
@@ -329,14 +317,17 @@
     }
 
     .list .select__list select:hover,
-    .list .list__options_top:hover {
+    .list .list__cates div select:hover{
         background: #B1E8CD;
     }
 
     .list .list__cates .list__cates1,
     .list .list__cates .list__cates2 {
-        width: 45%;
+        width: 100%;
         flex-direction: row;
+    }
+    .list__cate{
+        width: 33%;
     }
 
     .list .list__cates {
