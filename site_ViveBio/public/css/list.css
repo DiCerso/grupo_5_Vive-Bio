@@ -1,69 +1,100 @@
-.list .list__container{
+.list .list__container {
     width: 90%;
     padding: 20px;
-    margin: 0px auto 85px auto ;
+    margin: 0px auto 85px auto;
     box-shadow: 5px 5px 10px rgb(161, 206, 152);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, .15);
     backdrop-filter: blur(5px);
     border: 1px solid var(--verdeFuerte);
 }
-.list .select__list select{
-	appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
+
+.list .select__list select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
-.list .select__list{
-	max-width: 250px;
-	position: relative;
-    margin: 55px 5% 5px auto;    
+
+.list .select__list {
+    max-width: 250px;
+    position: relative;
 }
- 
-.list .select__list select{
-	display: inline-block;
-	width: 100%;
-	cursor: pointer;
-  	padding: 7px 10px;
-  	height: 42px;
-  	outline: 0; 
-  	border: 0;
-	border-radius: 0;
-	background: #f0f0f0;
-	color: #7b7b7b;
-	font-size: 1em;
-	color: #999;
-	font-family: 
-	'Quicksand', sans-serif;
-	border:2px solid rgba(0,0,0,0.2);
+
+.list .select__list select {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 7px 10px;
+    height: 42px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: #f0f0f0;
+    color: #7b7b7b;
+    font-size: 1em;
+    color: #999;
+    font-family:
+        'Quicksand', sans-serif;
+    border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     position: relative;
     transition: all 0.25s ease;
 }
- 
-.list .select__list select:hover{
-	background: #B1E8CD;
+
+.list .list__options_top {
+    cursor: pointer;
+    padding: 7px 10px;
+    height: 42px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: #f0f0f0;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    transition: all 0.25s ease;
 }
-.list .select__list i{
-	position: absolute;
-	right: 20px;
-	top: calc(50% - 13px);
-	width: 16px;
-	height: 16px;
-	display: block;
-	border-left:4px solid #2AC176;
-	border-bottom:4px solid #2AC176;
-	transform: rotate(-45deg);
-	transition: all 0.25s ease;
-}
- 
-.list .select__list:hover i{
-	margin-top: 3px;
+.list .list__options_top a{
+    color: #999;
+    font-size: 1em;
+    font-family:
+        'Quicksand', sans-serif;
+    text-shadow: none;
+    
 }
 
+.list__container__options {
+    width: 50%;
+    margin-left: auto;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 55px;
+    justify-content: space-between;
+}
 
 
 
-.list .list__top{
+.list .select__list i {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 13px);
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-left: 4px solid #2AC176;
+    border-bottom: 4px solid #2AC176;
+    transform: rotate(-45deg);
+    transition: all 0.25s ease;
+}
+
+.list .select__list:hover i {
+    margin-top: 3px;
+}
+
+
+
+
+.list .list__top {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -72,7 +103,7 @@
     padding-bottom: 10px;
 }
 
-.list .list__cates{
+.list .list__cates {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -85,15 +116,15 @@
     order: 2;
 }
 
-.list .list__cates a{
+.list .list__cates a {
     color: var(--verdeOscuro);
     width: 100%;
     text-align: center;
-    
+
 }
 
 .list .list__cates .list__cates1,
-.list .list__cates .list__cates2{
+.list .list__cates .list__cates2 {
     align-items: center;
     display: flex;
     width: 100%;
@@ -103,7 +134,7 @@
 
 
 
-.list .list__busqueda{
+.list .list__busqueda {
     width: 100%;
     display: flex;
     height: 50px;
@@ -113,7 +144,7 @@
     order: 1;
 }
 
-.list .list__busqueda input{
+.list .list__busqueda input {
     width: 60%;
     height: 35px;
     padding-left: 5px;
@@ -122,7 +153,7 @@
     border: 1px solid #7FA794;
 }
 
-.list .list__busqueda button{
+.list .list__busqueda button {
     background-color: var(--verdeOscuro);
     color: black;
     border-radius: 8px;
@@ -131,20 +162,20 @@
     margin-left: 5px;
 }
 
-.list .list__headproducts{
+.list .list__headproducts {
     display: flex;
     flex-direction: row;
     margin-top: 5px;
 }
 
-.list .list__id{
+.list .list__id {
     width: 10%;
     text-align: center;
     display: none;
     color: var(--verdeFuerte);
 }
 
-.list .list__name{
+.list .list__name {
     width: 65%;
     display: flex;
     align-items: center;
@@ -152,15 +183,16 @@
 
 }
 
-.list .list__price{
+.list .list__price {
     width: 25%;
     display: none;
 }
-.list .list__options{
+
+.list .list__options {
     width: 35%;
 }
 
-.list .list__products{
+.list .list__products {
     display: flex;
     flex-direction: column;
 }
@@ -168,7 +200,7 @@
 
 
 
-.list .list__product{
+.list .list__product {
     padding: 5px 0px 5px 0px;
     display: flex;
     flex-direction: row;
@@ -177,18 +209,19 @@
     border: 1px solid var(--verdeFuerte);
 }
 
-.list .list__products .list__options{
+.list .list__products .list__options {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
-.list .list__products .list__options:last-child{
+
+.list .list__products .list__options:last-child {
     margin-right: 10px;
 }
 
 
 .list .list__edit,
-.list .list__delete{
+.list .list__delete {
     height: 35px;
     width: 33px;
     border: none;
@@ -196,13 +229,13 @@
     background-color: var(--azulSuave);
     color: white;
     padding: 10px;
-    border-radius: 10px ;
+    border-radius: 10px;
     margin-right: 5px;
     align-content: center;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 
@@ -212,20 +245,20 @@
 
 @media(min-width:426px) {
 
-    .list .list__id{
+    .list .list__id {
         width: 10%;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
-    .list .list__name{
+
+    .list .list__name {
         width: 65%;
         display: flex;
         align-items: center;
     }
-    
-    .list .list__options{
+
+    .list .list__options {
         width: 25%;
         display: flex;
         justify-content: flex-end;
@@ -233,18 +266,18 @@
     }
 
 
-    .list .list__busqueda{
+    .list .list__busqueda {
         width: 50%;
         order: 1;
     }
 
-    .list .list__cates{
+    .list .list__cates {
         width: 50%;
         order: 0;
     }
 
 
-    .list .list__top{
+    .list .list__top {
         flex-direction: row;
     }
 
@@ -252,44 +285,67 @@
 
 @media(min-width:760px) {
 
-    .list .list__id{
+    .list .list__id {
         width: 7%;
         text-align: center;
         display: flex;
         justify-content: center;
     }
-    
-    .list .list__name{
+
+    .list .list__name {
         width: 58%;
         display: flex;
         align-items: center;
     }
-    
-    .list .list__price{
+
+    .list .list__price {
         width: 20%;
         display: flex;
         align-items: center;
     }
-    .list .list__options{
+
+    .list .list__options {
         width: 15%;
         display: flex;
         justify-content: flex-end;
         margin-right: 10px;
     }
 
+    .list .select__list select {
+        width: 165px;
+    }
+
+    .list__container__options {
+        width: 70%;
+        margin: 55px 5% 5px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    
+    .list__options_top{
+        width: 150px;
+        margin-right: 5px;
+    }
+
+    .list .select__list select:hover,
+    .list .list__options_top:hover {
+        background: #B1E8CD;
+    }
+
     .list .list__cates .list__cates1,
-    .list .list__cates .list__cates2{
+    .list .list__cates .list__cates2 {
         width: 45%;
         flex-direction: row;
     }
 
-    .list .list__cates{
+    .list .list__cates {
         flex-direction: row;
         width: 60%;
         height: 50px;
     }
 
-    .list__busqueda{
+    .list__busqueda {
         width: 40%;
     }
 }
