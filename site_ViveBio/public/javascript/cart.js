@@ -71,8 +71,8 @@ let cart = async function () {
 let precio = async function () {
     try {
         let carrito = await cart();
-        total.value = carrito.data[2].total
-        totalDesc.value = carrito.data[3].desct
+        total.value = "$" + carrito.data[2].total
+        totalDesc.value = "$" + carrito.data[3].desct
 
     } catch (error) {
         console.error

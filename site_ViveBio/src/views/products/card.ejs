@@ -31,7 +31,7 @@
               </ul>
               <div class="producto-iconos">
                 <% if (locals.userLogin) { %>
-                  <% if (userLogin.rol==="admin" ) { %>
+                  <% if (userLogin.rol==="admin" || userLogin.rol == "moderator") { %>
                     <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
                       <button type="submit" title="Eliminar producto" class="icons__hover"><i class="fa-solid fa-trash-can"></i></button>
                     </form>
