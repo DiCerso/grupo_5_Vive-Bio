@@ -17,6 +17,7 @@ const productsRouter = require('./routes/product');
 const usersRouter = require('./routes/users');
 const categoryRouter = require('./routes/category');
 const aboutRouter = require('./routes/about');
+const contactRouter = require('./routes/contact')
 // routes api
 const indexRouterApi = require('./routes/api/index');
 const productsRouterApi = require('./routes/api/product'); 
@@ -49,6 +50,7 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/category', categoryRouter);
 app.use('/about', aboutRouter);
+app.use('/contact', contactRouter);
 
 app.use('/api', indexRouterApi);
 app.use('/api/products', productsRouterApi);

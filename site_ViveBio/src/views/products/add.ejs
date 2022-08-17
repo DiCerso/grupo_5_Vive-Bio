@@ -7,7 +7,7 @@
 			<main>
 				<section class="add_container">
 					<h3>Agregar Producto</h3>
-					<form action="" class="productAdd" method="post" enctype="multipart/form-data">
+					<form action="/product/add" class="productAdd" method="POST" enctype="multipart/form-data">
 
 						<article class="camps_container">
 							<div class="sub_container">
@@ -57,7 +57,7 @@
 										type="number" id="discount" name="discount"
 										placeholder="Ingresa el descuento del producto" style="padding:5px;"
 										value="<%= locals.old && old.discount ? old.discount : null %>">
-										<p class="add_error-blur" id="errorDiscount"></p>
+										<p class="errorDiscount" id="errorDiscount"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="stock">Stock</label>
@@ -70,9 +70,7 @@
 									</div>
 								<div class="add_form-box">
 									<label for="images">Agregar imágenes</label>
-									<input class="add_input" type="file" id="images" name="images" accept="image/*"
-										multiple>
-										<p class="add_error-blur" id="errorImages"></p>
+									<input class="add_input" type="file" id="image" name="image">
 										<div id="imagePreview" class="imagePreview" >
 											<h6>Vista previa</h6>
 										</div>
@@ -87,7 +85,7 @@
 										placeholder="Ingresa los ingredientes del producto"
 										value="<%= locals.old && old.ingredients ? old.ingredients : null %>"
 										style="padding:5px;">
-										<p class="add_error-blur" id="errorIngredients"></p>
+										<p class="errorIngredients" id="errorIngredients"></p>
 									</div>
 								<div class="add_form-box">
 									<label for="property">Propiedad</label>
@@ -99,7 +97,7 @@
 											</option>
 											<% }) %>
 									</select>
-									<p class="add_error-blur" id="errorProperty"></p>
+									<p class="errorProperty" id="errorProperty"></p>
 								</div>
 								<div class="add_form-box-description">
 									<label for="desciption">Descripción</label>
@@ -108,16 +106,11 @@
 										type="text" id="description" name="description" rows="3" cols="35"
 										style="resize: none; padding:5px;"
 										placeholder="Ingresa la descripción del producto"></textarea>
-										<p class="add_error-blur" id="errorDescription"></p>
+										<p class="errorDescription" id="errorDescription"></p>
 									</div>
 							
 						</article>
 						</div>
-						</div>
-						<div id="add_error-submit">
-							<ul class="errors">
-								
-							</ul>
 						</div>
 						<div class="register_center">
 							<div class="add_button">

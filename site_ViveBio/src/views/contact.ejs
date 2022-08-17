@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head', { title : "Contacto" }) %>
+
+    <body class="contact">
+        <%- include('./partials/header') %>
+
+        <main>
+            <section class="container"> 
+<div class="mapa">
+       
+            <h1>
+                Los esperamos!
+            </h1>
+       
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12389.578831121884!2d-58.9868221139591!3d-34.66541420308581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc8f94a9034653%3A0x1b0543c64c78eca8!2sViveBio!5e0!3m2!1ses-419!2sar!4v1660697499088!5m2!1ses-419!2sar" style="border:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="formulario">
+    <h2>Tu opinión nos importa:</h2>
+            <form action="https://formsubmit.co/6df68d9767bbe778aa8bca7c6a39bc4d" method="POST">
+                <label for="name"></label>
+                <input type="text" name="name" placeholder="Nombre">
+
+                <label for="email"></label>
+                <input type="email" name="email" placeholder="Email Address">
+
+                <label for="subject"></label>
+                <input type="text" name="subject" placeholder="Asunto">
+
+                <label for="comments"></label>
+                <textarea name="comments" cols="15" rows="5" placeholder="Comentario"></textarea>
+
+                <input type="submit" value="Enviar" class="enviar"></input>
+
+                <input type="hidden" name="_next" value="http://localhost:3030/">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+        </div>
+        </section>
+        </main>
+  
+        
+</body>
+
+<%- include('./partials/footer') %>
+
+</html>
+
+

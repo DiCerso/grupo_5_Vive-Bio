@@ -23,7 +23,8 @@
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.7",
     "nodemon": "^2.0.19",
-    "sequelize": "^6.21.0"
+    "sequelize": "^6.21.0",
+    "@googlemaps/js-api-loader": "^1.14.2"
   },
   "nodemonConfig": {
     "ignore": "src/data/*.json"
