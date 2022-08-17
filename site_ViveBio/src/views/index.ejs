@@ -51,37 +51,59 @@
             </div>
             <!-- fin de carrusel -->
             <main>
-                <div class="subtitulo__home">
+                <div class="titulares">
                     <h1>Productos en Oferta</h1>
                 </div>
                 <section class="sect1">
-                    <% products.forEach(product=> { %>
-                        <article class="art__home">
-                            <div class="nombreart__home">
-                                <h1>
-                                    <%= product.name %>
-                                </h1>
+                    <% products.forEach(({id,productImages,name,discount,property,price})=> { %>
+                        <article>
+                            <div class="card estilo-c">
+                              <a href="/products/card/<%= id %> ">
+                              <div class="img-container">
+                                <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                                <span class="promo">
+                                  <%= discount %>% off
+                                </span>
+                                <div class="info-container">
+                                  <div class="Card-info-texto">
+                                      <h2>
+                                        <%= name %>
+                                      </h2>
+                                    <span>
+                                      <%= property.name %>
+                                    </span>
+                                    <p>$
+                                      <% if (discount) { %>
+                                        <%= toThousand(price - (price * discount / 100)) %>
+                                          <% }else{ %>
+                                            <%= toThousand(price) %>
+                                              <% } %>
+                                    </p>
+                                  </a>
+                                  </div>
+                                  <div class="card-c-iconos">
+                                    <div class="producto-iconos">
+                                      <% if (locals.userLogin) { %>
+                                        <% if (userLogin.category==="admin" ) { %>
+                                          <a href="/products/edit/<%= id %> " title="Editar producto"><i
+                                              class="fa-solid fa-pen"></i></a>
+                                          <% } %>
+                                            <% } %>
+                                              <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                              <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                              <a href="/products/cart/" title="Agregar producto al carrito"><i
+                                                  class="fa-solid fa-cart-shopping"></i></a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+            
                             </div>
-                            <div class="imgart__home">
-                                <img src="/images/products/<%= product.productImages[0].name%>"
-                                    alt="imagen del producto">
-                            </div>
-                            <div class="precio">
-                                <h4>
-                                    <%= product.price %> $
-                                </h4>
-                                <p>
-                                    <%= product.price - (product.price * product.discount / 100) %> $
-                                </p>
-                            </div>
-                            <div class="verart__home">
-                                <a href="/products/card/<%= product.id %>">Ver más</a>
-                            </div>
-                        </article>
+                          </article>
                         <% }) %>
                 </section>
-                <div class='nombre-categorias__home'>
-                    <h1>Categorias</h1>
+                <div class='titulares'>
+                    <h1>Categorías</h1>
                 </div>
                 <section class="sect2">
                     <% category.forEach(cate=> { %>

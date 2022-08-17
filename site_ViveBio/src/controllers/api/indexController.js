@@ -6,9 +6,10 @@ module.exports = {
 
         try {
             let products = await db.Product.findAll({
-                limit: 4,
+                limit: 3,
                 include: [
-                    { association: 'productImages' }
+                    { association: 'productImages' },
+                    { association: 'property' }
                 ]
             })
             let category = await db.Category.findAll({

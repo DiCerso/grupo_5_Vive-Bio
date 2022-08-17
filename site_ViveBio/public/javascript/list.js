@@ -1,5 +1,5 @@
 
-let select_list = document.querySelector(".select__list")
+let select_list = document.querySelector("#select__list")
 let container = document.querySelector(".list__products")
 let cates = document.querySelector(".list__cates")
 let tipo = document.querySelector(".list__price")
@@ -16,22 +16,23 @@ let categories = async function () {
         console.log(error)
     }
 }
-let changeinitial = async function() {
+let changeinitial = async function () {
     try {
         let categoria = await categories()
         tipo.textContent = "precio";
         cates.innerHTML = `
-        <div class="list__cates1" style="width:100%; display:flex; justify-content:space-evenly;">
+        <div class="list__cates1">
             <div class="list__categories__select" onChange="changeProductCategory()">
-            <select>
+            <select class="list-select">
                 <option value="0" default>Todos</option>
             </select>
-            <i></i>
             </div>
-        <a href="/products/add" class="list__cate" style="cursor:pointer; width:50%;">Crear Producto</a>
-        </div>`
+            <div class="box_button_add_product">
+        <a href="/products/add" class="add_product_list">Crear Producto</a>
+        </div></div>`
+
         categoria.data.forEach(categorie => {
-            document.querySelector(".list__cates1 div select").innerHTML +=`<option value="${categorie.id}">${categorie.name}</option>`                                   
+            document.querySelector(".list__cates1 div select").innerHTML += `<option value="${categorie.id}">${categorie.name}</option>`
         })
         changeproduct(0);
     } catch (error) {
@@ -45,9 +46,9 @@ select_list?.addEventListener('change', async function (e) {
         tipo.textContent = "rango";
         cates.innerHTML = `
         <div class="list__cates1" style="width:100%;">
-            <a class="list__cate" style="cursor: pointer; " onclick="changeuser(0)">TODOS</a>
-            <a class="list__cate" style="cursor: pointer;  margin-top: 2px; margin-bottom:2px;" onclick="changeuser(1)">administradores</a>
-            <a class="list__cate" style="cursor: pointer; " onclick="changeuser(2)">usuarios</a>
+            <a class="add_product_list"  onclick="changeuser(0)">TODOS</a>
+            <a class="add_product_list"  onclick="changeuser(1)">administradores</a>
+            <a class="add_product_list"  onclick="changeuser(2)">usuarios</a>
         </div>`
         value = 2;
         changeuser(0);
@@ -56,16 +57,16 @@ select_list?.addEventListener('change', async function (e) {
     } else if (e.target.value == "3") {//category
         tipo.textContent = "productos";
         cates.innerHTML = `
-        <div class="list__cates1" style="width:100%;">
-            <a class="list__cate" style="cursor: pointer;"onclick="changecategory(0)">TODOS</a>
-            <a href="/category/add">Crear Categoría</a>
+        <div class="list__cates1"">
+            <a class="add_product_list" onclick="changecategory(0)">TODOS</a>
+            <a href="/category/add" class="add_product_list">Crear Categoría</a>
         </div>`
         value = 3
         changecategory(0);
     }
 })
 
-let changeProductCategory = async function(){
+let changeProductCategory = async function () {
     let value = document.querySelector(".list__categories__select select").value
     changeproduct(value)
 }
@@ -202,7 +203,7 @@ let changeproduct = async function (value) {
                                 </div>
                     </article>`
             });
-        } else{
+        } else {
             container.innerHTML = null
             products.data.forEach(product => {
                 if (product.category_id == value) {
@@ -217,11 +218,11 @@ let changeproduct = async function (value) {
                             <h4 class="list__price">$${product.price}
                             </h4>
                             <div class="list__options">
-                                <button class="list__delete" type="submit" title="Eliminar producto" onclick="EliminateProduct(${product.id}, ${value})">
-                                <i class="fa-solid fa-trash-can"></i></button>
-                                <a href="/products/edit/${product.id}" class="list__edit"
-                                    title="Editar producto"><i class="fa-solid fa-pen"></i></a>
-                            </div>
+                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="return confirmDelete(${product.id}, ${value})">
+                                            <i class="fa-solid fa-trash-can"></i></button>
+                                    <a href="/products/edit/${product.id}" class="list__edit"
+                                        title="Editar producto"><i class="fa-solid fa-pen"></i></a>
+                                </div>
                 </article>`
                 }
             });
@@ -297,7 +298,7 @@ let EliminateUser = async function (value, dato) {
     }
 }
 
-function confirmDelete(id, value){
+function confirmDelete(id, value) {
     Swal.fire({
         customClass: {
             confirmButton: 'swalBtnColor',
@@ -316,13 +317,13 @@ function confirmDelete(id, value){
             popup: 'animate__animated animate__fadeInDown'
         },
 
-        }).then((result) => {
+    }).then((result) => {
 
-            if (result.isConfirmed) {
-                EliminateProduct(id, value);
-            }
+        if (result.isConfirmed) {
+            EliminateProduct(id, value);
+        }
 
-        })
+    })
 }
 
 let EliminateProduct = async function (id, value) {

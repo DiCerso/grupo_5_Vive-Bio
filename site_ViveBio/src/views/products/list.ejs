@@ -7,28 +7,27 @@
         <%- include('../partials/header') %>
             <main class="list">
                 <div class="list__container__options">
-                    <div class="select__list">
-                        <select>
-                            <option class="products__list" value="1" default>Productos</option>
-                            <% if (userLogin.rol=="moderator" ) { %>
-                                <option class="users__list" value="2">Usuarios</option>
-                                <% } %>
-                                    <option class="categories__list" value="3">Categorías</option>
-                        </select>
-                        <i></i>
-                    </div>
+                    <select class="list-select" id="select__list">
+                        <option class="products__list" value="1" default>Productos</option>
+                        <% if (userLogin.rol=="moderator" ) { %>
+                            <option class="users__list" value="2">Usuarios</option>
+                            <% } %>
+                                <option class="categories__list" value="3">Categorías</option>
+                    </select>
                 </div>
 
                 <div class="list__container">
                     <div class="list__top">
                         <div class="list__cates">
-                            <a href="/products/add" class="list__cate" style="cursor:pointer; width: 50%;">Crear
+                            <a href="/products/add" class="list__cate">Crear
                                 Producto</a>
                         </div>
-                        <form class="list__busqueda" action="/products/list" method="GET">
-                            <input type="text" name="keyboard" class="list__barra">
-                            <button type="submit">Buscar</button>
-                        </form>
+                        <div class="list_box_search">
+                            <form class="list__busqueda" action="/products/list" method="GET">
+                                <input type="text" name="keyboard" class="list__barra">
+                                <button type="submit">Buscar</button>
+                            </form>
+                        </div>
                     </div>
                     <div class="list__headproducts">
                         <h3 class="list__id">Id</h3>

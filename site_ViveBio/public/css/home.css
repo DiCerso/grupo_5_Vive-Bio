@@ -231,7 +231,6 @@ primera parte del main
     position: center;
     margin: 0 auto;
     margin-bottom: 50px;
-    width: 85%;
     display: flex;
     flex-direction: column;
 }
@@ -396,6 +395,7 @@ segunda parte del main
     height: 300px;
     margin-bottom: 50px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
 }
 
 
@@ -458,6 +458,225 @@ segunda parte del main
 .barra__cate__home p {
     font-size: 24px;
 }
+
+/*Titulares*/
+.home .titulares {
+    text-align: center;
+    color: white;
+    background-color: #7FA794C4;
+    margin: 30px 0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 40px;
+    padding: 10px;
+}
+
+.home .titulares h1{
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+
+
+/*Productos en oferta*/
+/* .home main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin: auto;
+} */
+
+.home .productosRelacionados {
+    color: white;
+    background-color: var(--verdeOscuro);
+    text-align: center;
+    margin-bottom: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .card.estilo-c {
+    width: 250px;
+    margin-bottom: 40px;
+}
+
+
+.home .estilo-c .img-container .promo {
+    position: absolute;
+    background: var(--aquamarine);
+    top: 10px;
+    left: 0;
+    font-size: 20px;
+    padding: 15px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    color: var(--azulMarino);
+}
+
+.home .estilo-c .img-container {
+    overflow: hidden;
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.home .estilo-c .img-container img {
+    width: 100%;
+    position: absolute;
+    transition: all 1.5s;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home .estilo-c:hover .img-container img {
+    transform: scale(1.4);
+    
+}
+
+.home .estilo-c .info-container {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color:  #7fa794cb;
+    text-align: center;
+    color: var(--VioletaOscuro);
+    opacity: 0;
+    transition: all 0.8s;
+    z-index: 1000;
+    position: absolute;
+    top: 58%;
+    right: -85%;
+    width: 100%;
+    height: 100%;
+}
+
+.home .estilo-c .img-container .info-container {
+    opacity: 1;
+    right: 0px;
+}
+
+.home .card {
+    width: 33%;
+}
+
+.home .box-nombre-edit {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*NOMBRE PRODUCTO*/
+.home .estilo-c .info-container h2 {
+    font-size: 18px;
+    text-shadow: none;
+    color: var(--azulSuave);
+}
+
+/*PRECIO PRODUCTO */
+.home .estilo-c .info-container p {
+    font-size: 24px;
+    margin: 5px 0px;
+    background-color: var(--aquamarineSuave);
+    padding: 2px;
+    color: var(--azulSuave);
+}
+
+/*CATEGORÍA PRODUCTO*/
+.home .estilo-c .info-container h4 {
+    font-size: 14px;
+    text-shadow: none;
+    color: var(--VioletaOscuro);
+}
+
+/*PROPIEDAD PRODUCTO*/
+.home .estilo-c .info-container h3 {
+    font-size: 24px;
+}
+
+.home .estilo-c .add-cart {
+    font-size: 15px;
+    margin-top: 2px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--azulSuave);
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 25px;
+}
+
+
+.home .producto-iconos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.home .producto-iconos a {
+    display: inline-flex;
+    gap: 15px;
+    background-color: var(--verdeClaro-Opaco);
+    margin-right: 10px;
+    height: 40px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px white;
+}
+
+.home .add_product_cart{
+    display: inline-flex;
+    gap: 15px;
+    background-color: var(--verdeClaro-Opaco);
+    margin-right: 10px;
+    height: 40px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px white;
+    color:white;
+    text-shadow: 0 0 2px black;
+    font-size: 20px;
+}
+
+.home .producto-iconos form button {
+    display: inline-flex;
+    gap: 15px;
+    background-color: var(--verdeClaro-Opaco);
+    margin-right: 10px;
+    height: 40px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px white;
+    color: white;
+
+}
+
+.home .producto-iconos .icons__hover:hover {
+    color: var(--azulMarino);
+    background-color: white;
+    border: 1px solid var(--azulMarino);
+}
+
+.card_barra {
+    display: none;
+    position: absolute;
+    font-size: 24px;
+    margin-top: -23px;
+    margin-left: -4px;
+}
+
 
 
 
@@ -575,6 +794,58 @@ segunda parte del main
         height: 250px;
     }
 
+
+    /*Productos en Oferta*/
+    .home .row {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    /*NOMBRE PRODUCTO*/
+    .home .estilo-c .info-container h2 {
+        font-size: 18px;
+    }
+
+    /*CATEGORÍA PRODUCTO*/
+    .home .estilo-c .info-container h4 {
+        font-size: 16px;
+    }
+
+    /*PROPIEDAD PRODUCTO*/
+    .home .estilo-c .info-container h3 {
+        font-size: 22px;
+    }
+
+    .home .estilo-c .img-container img {
+        top: 0;
+        height: 100%;
+    }
+
+    .home .estilo-c .add-cart {
+        padding: 5px;
+        border-radius: 15px;
+        font-size: 15px;
+    }
+
+    .home .estilo-c:hover {
+        box-shadow: 0 0 20px aquamarine;
+    }
+
+    
+.home .titulares h1{
+    border-radius: 20px;
+    font-size: 40px;
+}
+
+.home .estilo-c .img-container .info-container {
+    opacity: 0;
+    right: 0px;
+}
+.home .estilo-c .img-container:hover .info-container {
+    opacity: 1;
+    right: 0px;
+}
+
 }
 
 
@@ -667,5 +938,29 @@ segunda parte del main
         filter: blur(0px);
     }
 
+    /*Porductos en oferta*/
+
+    .home .productosRelacionados {
+        margin-bottom: 30px;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .home .iconos-eco {
+        width: 97%;
+    }
+
+    .container-imagen-texto {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+
+    .home .estilo-c .info-container {
+        top: 55%;
+    }
+
 
 }
+

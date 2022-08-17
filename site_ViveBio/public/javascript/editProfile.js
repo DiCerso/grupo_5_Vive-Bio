@@ -3,6 +3,7 @@ console.log('edit profile success')
 const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
 const regExPass = /^[a-zA-Z0-9\_\-]{5,12}$/;
+const regImage = /(.jpg|.jpeg|.png)$/;
 const inputs = document.querySelectorAll('#edit-form input');
 const popInputs = document.querySelectorAll('#form-popup input');
 const formpop = document.querySelector('#form-popup');
@@ -26,7 +27,8 @@ const errorUsername = document.querySelector("#errorUsername"),
     errorNewpassword2 = document.querySelector('#errorNewpassword2'),
     errorSubmit = document.querySelector('#errorSubmit'),
     sabeEdit = document.querySelector('#btn-save-edit'),
-    formEdit = document.querySelector('#edit-form');
+    formEdit = document.querySelector('#edit-form'),
+    impImage = document.querySelector('#image');
 
 /* Start Event Buttons */
 
@@ -300,5 +302,24 @@ inputs.forEach((input) => {
 popInputs.forEach((input) => {
     input.addEventListener("blur", validarPass);
 });
+
+impImage.addEventListener('change', () => {
+    let fileInput = document.getElementById('image');
+    let filePath = fileInput.value;
+    if (!regImage.exec(filePath)) {
+        errorImage.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
+        impImage.classList.add('register_error_input');
+        fileInput.value = '';
+    } else {
+        for(let i = 0; i < fileInput.files.length; i++){
+            const element = URL.createObjectURL(fileInput.files[i]);
+            const imagen = document.createElement("img");
+            imagen.setAttribute('class',"previewAvatar")
+            imagen.src = element;
+            document.querySelector('#box-image-preview').appendChild(imagen);
+         }
+         deletePreview.style.display = "flex"
+    }
+})
 
 /* End Events  Validations */

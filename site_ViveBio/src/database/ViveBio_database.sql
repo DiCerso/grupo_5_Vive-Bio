@@ -152,7 +152,7 @@ CREATE TABLE `payments` (
 
 LOCK TABLES `payments` WRITE;
 /*!40000 ALTER TABLE `payments` DISABLE KEYS */;
-INSERT INTO `payments` VALUES (1,'targeta'),(2,'efectivo');
+INSERT INTO `payments` VALUES (1,'tarjeta'),(2,'efectivo');
 /*!40000 ALTER TABLE `payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
