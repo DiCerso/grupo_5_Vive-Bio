@@ -1,4 +1,33 @@
 .map{
-    width: 50%;
-    height: 300px;
+    width: 300px;
+    height: 400px;
+}
+
+.contact .container {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.486);
+    margin: 30px;
+    border: 1px solid green;
+    box-shadow: 2px 2px 2px 2px aquamarine;
+    border-radius: 20px;
+}
+
+.contact h1, h2{
+    color: var(--VioletaOscuro);
+    margin-bottom: 2px;
+}
+
+.contact .formulario form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact .enviar{
+    background-color: var(--verdeClaro);
+    color: var(--azulSuave);
+    font-size: 12px;
 }
