@@ -61,7 +61,7 @@ module.exports = {
                     email,
                     password: bcryptjs.hashSync(password, 10),
                     rol_id: 2,
-                    image: req.file ? req.file.filename : "defaultAvatar.jpg"
+                    image: req.file ? req.file.filename : "defaultAvatar.png"
                 })
                 req.session.userLogin = {
                     id: newuser.id,
@@ -147,7 +147,7 @@ module.exports = {
                     if (
                         fs.existsSync(
                             path.resolve(__dirname, '..', '..', 'public', 'images', 'users', userEdited.image)
-                        ) && userEdited.image !== "defaultAvatar.jpg"
+                        ) && userEdited.image !== "defaultAvatar.png"
                     ) {
                         fs.unlinkSync(
                             path.resolve(__dirname, '..', '..', 'public', 'images', 'users', oldUser.image)
