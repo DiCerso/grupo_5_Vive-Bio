@@ -7,7 +7,7 @@
         <%- include('../partials/header') %>
             <main class="list">
                 <div class="list__container__options">
-                    <select class="list-select">
+                    <select class="list-select" id="select__list">
                         <option class="products__list" value="1" default>Productos</option>
                         <% if (userLogin.rol=="moderator" ) { %>
                             <option class="users__list" value="2">Usuarios</option>

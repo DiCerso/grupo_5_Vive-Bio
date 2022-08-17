@@ -1,5 +1,5 @@
 
-let select_list = document.querySelector(".select__list")
+let select_list = document.querySelector("#select__list")
 let container = document.querySelector(".list__products")
 let cates = document.querySelector(".list__cates")
 let tipo = document.querySelector(".list__price")
@@ -46,9 +46,9 @@ select_list?.addEventListener('change', async function (e) {
         tipo.textContent = "rango";
         cates.innerHTML = `
         <div class="list__cates1" style="width:100%;">
-            <a class="list__cate"  onclick="changeuser(0)">TODOS</a>
-            <a class="list__cate"  onclick="changeuser(1)">administradores</a>
-            <a class="list__cate"  onclick="changeuser(2)">usuarios</a>
+            <a class="add_product_list"  onclick="changeuser(0)">TODOS</a>
+            <a class="add_product_list"  onclick="changeuser(1)">administradores</a>
+            <a class="add_product_list"  onclick="changeuser(2)">usuarios</a>
         </div>`
         value = 2;
         changeuser(0);
@@ -58,8 +58,8 @@ select_list?.addEventListener('change', async function (e) {
         tipo.textContent = "productos";
         cates.innerHTML = `
         <div class="list__cates1"">
-            <a class="list__cate" onclick="changecategory(0)">TODOS</a>
-            <a href="/category/add">Crear Categoría</a>
+            <a class="add_product_list" onclick="changecategory(0)">TODOS</a>
+            <a href="/category/add" class="add_product_list">Crear Categoría</a>
         </div>`
         value = 3
         changecategory(0);

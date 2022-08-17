@@ -38,9 +38,10 @@
     padding: 12px;
     border-radius: 10px;
     border: 1px solid var(--verdeOscuro);
-    width: 125px;
+    width: fit-content;
     background-color: var(--verdeClaro-Opaco);
     text-shadow: none;
+    cursor: pointer;
 }
 
 .list__categorie__select {
@@ -240,7 +241,7 @@
     }
 
     .add_product_list {
-        width: 50%;
+        width:fit-content;
     }
 
     .list__cates {
