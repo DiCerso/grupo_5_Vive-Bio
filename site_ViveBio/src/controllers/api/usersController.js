@@ -139,6 +139,10 @@ module.exports = {
       return res.status(500).json(response);
     }
   },
+
+ /*  loginApi: async (req, res) => {
+    
+  }, */
   all: async (req, res) => {
     try {
       let users = await db.User.findAll({
@@ -177,7 +181,7 @@ module.exports = {
         return res.status(400).json(isNumber(req.params.id, req, "id"))
       }
 
-      const user = await db.Product.findByPk(req.params.id)
+      const user = await db.User.findByPk(req.params.id)
 
       if (!user) {
         let response = {
@@ -312,5 +316,6 @@ module.exports = {
         return res.status(500).json(response);
     }
 }
+
 
 };

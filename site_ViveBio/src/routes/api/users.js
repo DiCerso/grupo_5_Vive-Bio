@@ -10,6 +10,7 @@ const editcheck = require('../../middlewares/editcheck');
 
 const { checkEmail, checkUsername, checkPassword, checkEditUsername,sendMail, all, remove, changerol, search} = require('../../controllers/api/usersController');
 
+/* /api/users  */ 
 
 router.post('/check-username', checkUsername);
 router.post('/check-email', checkEmail);
@@ -20,4 +21,5 @@ router.get('/all', all)
 router.delete('/destroy/:id', remove)
 router.put('/changerol', changerol)
 router.get('/search', search)
+
 module.exports = router;

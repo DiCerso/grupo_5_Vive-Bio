@@ -7,41 +7,69 @@ let buscador = document.querySelector(".list__busqueda")
 let inputbuscador = document.querySelector(".list__barra")
 let value;
 
+let categories = async function () {
+    try {
+        let result = await fetch("/api/products/categories")
+        let categories = await result.json()
+        return categories;
+    } catch (error) {
+        console.log(error)
+    }
+}
+let changeinitial = async function() {
+    try {
+        let categoria = await categories()
+        tipo.textContent = "precio";
+        cates.innerHTML = `
+        <div class="list__cates1" style="width:100%; display:flex; justify-content:space-evenly;">
+            <div class="list__categories__select" onChange="changeProductCategory()">
+            <select>
+                <option value="0" default>Todos</option>
+            </select>
+            <i></i>
+            </div>
+        <a href="/products/add" class="list__cate" style="cursor:pointer; width:50%;">Crear Producto</a>
+        </div>`
+        categoria.data.forEach(categorie => {
+            document.querySelector(".list__cates1 div select").innerHTML +=`<option value="${categorie.id}">${categorie.name}</option>`                                   
+        })
+        changeproduct(0);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 select_list?.addEventListener('change', async function (e) {
     if (e.target.value == "2") { //user
         tipo.textContent = "rango";
         cates.innerHTML = `
         <div class="list__cates1" style="width:100%;">
-            <a class="list__cate" style="cursor: pointer;" onclick="changeuser(0)">TODOS</a>
-            <a class="list__cate" style="cursor: pointer; margin-top: 2px; margin-bottom:2px;" onclick="changeuser(1)">administradores</a>
-            <a class="list__cate" style="cursor: pointer;" onclick="changeuser(2)">usuarios</a>
+            <a class="list__cate" style="cursor: pointer; " onclick="changeuser(0)">TODOS</a>
+            <a class="list__cate" style="cursor: pointer;  margin-top: 2px; margin-bottom:2px;" onclick="changeuser(1)">administradores</a>
+            <a class="list__cate" style="cursor: pointer; " onclick="changeuser(2)">usuarios</a>
         </div>`
         value = 2;
         changeuser(0);
     } else if (e.target.value == "1") {//product
-        tipo.textContent = "precio";
-        cates.innerHTML = `
-        <div class="list__cates1">
-            <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(0)">TODOS</a>
-            <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(1)">BioCapilar</a>
-        </div>
-        <div class="list__cates2">
-            <a class="list__cate"style="cursor: pointer;"  onclick="changeproduct(2)">BioCorporal</a>
-            <a class="list__cate" style="cursor: pointer;" onclick="changeproduct(3)">BioSpa</a>
-        </div>`
-        value = 1
-        changeproduct(0);
+        await changeinitial()
     } else if (e.target.value == "3") {//category
         tipo.textContent = "productos";
         cates.innerHTML = `
         <div class="list__cates1" style="width:100%;">
-            <a class="list__cate" style="cursor: pointer;"  onclick="changecategory(0)">TODOS</a>
+            <a class="list__cate" style="cursor: pointer;"onclick="changecategory(0)">TODOS</a>
+            <a href="/category/add">Crear Categoría</a>
         </div>`
         value = 3
         changecategory(0);
     }
 })
+
+let changeProductCategory = async function(){
+    let value = document.querySelector(".list__categories__select select").value
+    changeproduct(value)
+}
+
 
 
 
@@ -84,7 +112,7 @@ let changeuser = async function (value) {
         } else if (value == 1) {
             container.innerHTML = null
             users.data.forEach(user => {
-                if (user.rol.id != 3 && user.rol.id == 1) { 
+                if (user.rol.id != 3 && user.rol.id == 1) {
                     container.innerHTML += `
                     <article class="list__product">
                                 <a class="list__id">
@@ -167,17 +195,17 @@ let changeproduct = async function (value) {
                                 <h4 class="list__price">$${product.price}
                                 </h4>
                                 <div class="list__options">
-                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="EliminateProduct(${product.id}, ${value})">
+                                        <button class="list__delete" type="submit" title="Eliminar producto" onclick="return confirmDelete(${product.id}, ${value})">
                                             <i class="fa-solid fa-trash-can"></i></button>
                                     <a href="/products/edit/${product.id}" class="list__edit"
                                         title="Editar producto"><i class="fa-solid fa-pen"></i></a>
                                 </div>
                     </article>`
             });
-        } else if (value == 1) {
+        } else{
             container.innerHTML = null
             products.data.forEach(product => {
-                if (product.category_id == 1) {
+                if (product.category_id == value) {
                     container.innerHTML += `
                 <article class="list__product">
                             <a class="list__id" href="/products/card/${product.id}">
@@ -189,67 +217,12 @@ let changeproduct = async function (value) {
                             <h4 class="list__price">$${product.price}
                             </h4>
                             <div class="list__options">
-                                <form method="POST" action="/products/remove/${product.id}?_method=DELETE"
-                                    id="eliminar-producto">
-                                    <button class="list__delete" type="submit" title="Eliminar producto">
-                                        <i class="fa-solid fa-trash-can"></i></button>
-                                </form>
+                                <button class="list__delete" type="submit" title="Eliminar producto" onclick="EliminateProduct(${product.id}, ${value})">
+                                <i class="fa-solid fa-trash-can"></i></button>
                                 <a href="/products/edit/${product.id}" class="list__edit"
                                     title="Editar producto"><i class="fa-solid fa-pen"></i></a>
                             </div>
                 </article>`
-                }
-            });
-        } else if (value == 2) {
-            container.innerHTML = null
-            products.data.forEach(product => {
-                if (product.category_id == 2) {
-                    container.innerHTML += `
-                <article class="list__product">
-                            <a class="list__id" href="/products/card/${product.id}">
-                                ${product.id}
-                            </a>
-                            <a class="list__name" href="/products/card/${product.id}">
-                                ${product.name}
-                            </a>
-                            <h4 class="list__price">$${product.price}
-                            </h4>
-                            <div class="list__options">
-                                <form method="POST" action="/products/remove/${product.id}?_method=DELETE"
-                                    id="eliminar-producto">
-                                    <button class="list__delete" type="submit" title="Eliminar producto">
-                                        <i class="fa-solid fa-trash-can"></i></button>
-                                </form>
-                                <a href="/products/edit/${product.id}" class="list__edit"
-                                    title="Editar producto"><i class="fa-solid fa-pen"></i></a>
-                            </div>
-                </article>`
-                }
-            });
-        } else if (value == 3) {
-            container.innerHTML = null
-            products.data.forEach(product => {
-                if (product.category_id == 3) {
-                    container.innerHTML += `
-                    <article class="list__product">
-                                <a class="list__id" href="/products/card/${product.id}">
-                                    ${product.id}
-                                </a>
-                                <a class="list__name" href="/products/card/${product.id}">
-                                    ${product.name}
-                                </a>
-                                <h4 class="list__price">$${product.price}
-                                </h4>
-                                <div class="list__options">
-                                    <form method="POST" action="/products/remove/${product.id}?_method=DELETE"
-                                        id="eliminar-producto">
-                                        <button class="list__delete" type="submit" title="Eliminar producto">
-                                            <i class="fa-solid fa-trash-can"></i></button>
-                                    </form>
-                                    <a href="/products/edit/${product.id}" class="list__edit"
-                                        title="Editar producto"><i class="fa-solid fa-pen"></i></a>
-                                </div>
-                    </article>`
                 }
             });
         }
@@ -258,13 +231,16 @@ let changeproduct = async function (value) {
     }
 }
 
-let changecategory = async function (value) { 
+
+
+
+
+let changecategory = async function (value) {
     try {
-        let result = await fetch("/api/products/categories")
-        let categories = await result.json()
+        let categorie = await categories();
         if (value == 0) {
             container.innerHTML = null
-            categories.data.forEach(category => {
+            categorie.data.forEach(category => {
                 container.innerHTML += `
                     <article class="list__product">
                                 <a class="list__id">
@@ -276,6 +252,10 @@ let changecategory = async function (value) {
                                 <h4 class="list__price">${category.products.length}
                                 </h4>
                                 <div class="list__options">
+                                <button class="list__delete" title="Eliminar usuario"
+                                        onclick="EliminateCategory(${category.id}, ${value})">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
                                 <a href="/Category/edit/${category.id}" class="list__edit"
                                         title="Editar producto"><i class="fa-solid fa-pen"></i></a>
                                 </div>
@@ -287,6 +267,20 @@ let changecategory = async function (value) {
     }
 }
 
+let EliminateCategory = async function (value, dato) {
+    try {
+        let result = await fetch(`/api/products/categories/destroy/${value}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        let category = await result.json()
+        changecategory(dato)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 let EliminateUser = async function (value, dato) {
     try {
@@ -301,6 +295,34 @@ let EliminateUser = async function (value, dato) {
     } catch (error) {
         console.log(error)
     }
+}
+
+function confirmDelete(id, value){
+    Swal.fire({
+        customClass: {
+            confirmButton: 'swalBtnColor',
+            cancelButton: 'swalBtnColor'
+        },
+
+        title: '¿Quieres eliminar el producto?',
+        text: "Acción irreversible!",
+        icon: 'warning',
+        background: "#ebebeb",
+        showCancelButton: true,
+        confirmButtonColor: '#7ff77f',
+        cancelButtonColor: '#cc4141',
+        confirmButtonText: 'Eliminar',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                EliminateProduct(id, value);
+            }
+
+        })
 }
 
 let EliminateProduct = async function (id, value) {
@@ -454,8 +476,5 @@ buscador.addEventListener('submit', async function (e) {
 
 window.addEventListener('load', async function () {
     console.log("list success!!!")
-    value = 1;
-    changeproduct(0);
-
-
+    changeinitial();
 });
