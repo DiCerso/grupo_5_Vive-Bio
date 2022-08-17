@@ -482,7 +482,7 @@ segunda parte del main
 
 
 /*Productos en oferta*/
-.home main {
+/* .home main {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -490,7 +490,7 @@ segunda parte del main
     align-items: center;
     gap: 3px;
     margin: auto;
-}
+} */
 
 .home .productosRelacionados {
     color: white;

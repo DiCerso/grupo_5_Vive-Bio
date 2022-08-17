@@ -316,7 +316,7 @@ impImage.addEventListener('change', () => {
             const imagen = document.createElement("img");
             imagen.setAttribute('class',"previewAvatar")
             imagen.src = element;
-            document.querySelector('.box-image').appendChild(imagen);
+            document.querySelector('#box-image-preview').appendChild(imagen);
          }
          deletePreview.style.display = "flex"
     }
