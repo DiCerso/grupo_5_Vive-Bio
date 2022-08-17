@@ -308,6 +308,7 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `rol_id` int unsigned NOT NULL,
   `image` varchar(45) NOT NULL,
+  `ubication` varchar(100),
   PRIMARY KEY (`id`),
   KEY `FK_users_rols_idx` (`rol_id`),
   CONSTRAINT `FK_users_rols` FOREIGN KEY (`rol_id`) REFERENCES `rols` (`id`)
