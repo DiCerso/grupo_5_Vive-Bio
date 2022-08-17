@@ -4,6 +4,7 @@ const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
 const regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 const regExPass = /^[a-zA-Z0-9\_\-]{5,12}$/;
+const regImage = /(.jpg|.jpeg|.png)$/;
 const inputs = document.querySelectorAll("#register-form input");
 const errorUsername = document.querySelector("#errorUsername"),
     errorUsernameCross = document.querySelector("#errorUsernameCross"),
@@ -24,7 +25,10 @@ const errorUsername = document.querySelector("#errorUsername"),
     registerForm = document.querySelector('#register-form'),
     errorSubmitLogin = document.querySelector('#errorSubmitLogin'),
     verify_email = document.querySelector('.verify_email'),
-    email_register = document.querySelector('.email_register')
+    email_register = document.querySelector('.email_register'),
+    impImage = document.querySelector('#image'),
+    errorImage = document.querySelector('#errorImage'),
+    deletePreview = document.querySelector('#deltePreview')
 
 const elementos = registerForm.elements;
 
@@ -195,15 +199,38 @@ const validarFormulario = async (e) => {
                 verifyCamp(regExEmail, e.target, errorEmail, errorEmailCross)
             }
             break;
-
-        default:
-            break;
     }
 };
 
 /* End FUNCTIONS verify camps */
 
 /* Start Events */
+
+deletePreview.addEventListener('click', function (e) {
+    let fileInput = document.getElementById('image');
+    deletePreview.style.display = "none"
+    document.querySelector('.box-image').innerHTML = null;
+    fileInput.value = '';
+})
+
+impImage.addEventListener('change', () => {
+    let fileInput = document.getElementById('image');
+    let filePath = fileInput.value;
+    if (!regImage.exec(filePath)) {
+        errorImage.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
+        impImage.classList.add('register_error_input');
+        fileInput.value = '';
+    } else {
+        for(let i = 0; i < fileInput.files.length; i++){
+            const element = URL.createObjectURL(fileInput.files[i]);
+            const imagen = document.createElement("img");
+            imagen.setAttribute('class',"previewAvatar")
+            imagen.src = element;
+            document.querySelector('.box-image').appendChild(imagen);
+         }
+         deletePreview.style.display = "flex"
+    }
+})
 
 InpTerminos.addEventListener('click', () => {
     if (InpTerminos.checked) {

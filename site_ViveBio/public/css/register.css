@@ -1,13 +1,64 @@
-.register{
+/* Start class of elements in Register */
+
+.register {
     background-image: url('/images/background-register.jpg');
     background-size: cover;
-    background-position: center center ;
+    background-position: center center;
     background-attachment: fixed;
 }
 
-.box_error_submit_login{
+.container-image-preview {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.box-image {
+    display: flex;
+    justify-content: center;
     text-align: center;
+    width: 6rem;
+    height: 6rem;
+    border: 1px solid #468845;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.icon_add_image:hover {
+    color: var(--verdeFuerte);
+}
+
+.icon_add_image {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 47%;
+    color: #468845;
+    left: 45%;
+    transition: 0.5s;
+}
+
+.register_delete_preview {
+    position: absolute;
+    font-size: 1.5rem;
+    color: black;
+    top: 15%;
+    right: 16%;
+    display: none;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.previewAvatar {
+    object-fit: cover;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 4;
 }
 
 .header_register {
@@ -18,15 +69,123 @@
     width: 150px;
 }
 
+.register_box-input {
+    height: 55px;
+}
+
+.register_sub-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.register_sub-container2 {
+    height: 100%;
+}
+
+.register_container {
+    width: 270px;
+    padding: 20px;
+    margin: 70px auto;
+    box-shadow: 5px 5px 10px rgb(161, 206, 152);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--verdeFuerte);
+    max-height: max-content;
+}
+
+.container_register-box1 {
+    font-size: 12px;
+}
+
+.container_register-box2 {
+    font-size: 12px;
+    text-align: end;
+}
+
+.register_box-introduccion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.register_form-box {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.register_form-input {
+    width: 100%;
+    margin: 10px 0 10px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid var(--verdeOscuro);
+    transition: 0.5s;
+}
+
+
+.register h1 {
+    padding: 10px 0 10px;
+    color: black;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.register.register_form-box label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.register_terminos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.register_errors-box {
+    text-align: center;
+}
+
+.register_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register_form-box:first-child {
+    margin-top: 0;
+}
+
+.register_button button {
+    background-color: var(--verdeOscuro);
+    color: black;
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.8s;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* End class of elements in Register */
+
+/* start ERRORS styles in form */
+.box_error_submit_login {
+    width: 100%;
+    text-align: center;
+}
+
 .register_alert {
     font-size: 12px;
     background-color: rgb(224, 129, 129);
     width: auto;
     color: white;
-}
-
-.register_box-input{
-    height: 55px;
 }
 
 .register_error_box-stamp {
@@ -76,96 +235,31 @@
     box-shadow: inset 0 0 3px 2px rgb(224, 129, 129);
 }
 
-.register_container {
-    width: 270px;
-    padding: 20px;
-    margin: 70px auto;
-    box-shadow: 5px 5px 10px rgb(161, 206, 152);
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, .15);
-    backdrop-filter: blur(5px);
-    border: 1px solid var(--verdeFuerte);
-}
-
-.container_register-box1 {
-    font-size: 12px;
-}
-
-.container_register-box2 {
-    font-size: 12px;
-    text-align: end;
-}
-
-.register_box-introduccion {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.register_form-box {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.register_form-input {
-    width: 100%;
-    margin: 10px 0 10px;
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid var(--verdeOscuro);
-    transition: 0.5s;
-}
+/* end /* end ERRORS styles in form */
 
 
-.register h1 {
-    padding: 10px 0 10px;
-    color: black;
-    text-align: center;
-    letter-spacing: 5px;
-}
-
-.register label {
-    font-size: 13px;
-    margin-left: 10px;
-    font-weight: bold;
-}
-
-
-.register_terminos {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-}
-
-.register_errors-box {
-    text-align: center;
-}
-
-.register_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.register_form-box:first-child {
-    margin-top: 0;
-}
-
-.register_button button {
-    background-color: var(--verdeOscuro);
-    color: black;
-    border-radius: 8px;
-    padding: 8px;
-    transition: all 0.8s;
-    font-size: 15px;
-    margin-top: 10px;
-}
 
 @media (min-width: 425px) {
+    .box-image {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .icon_add_image {
+        position: absolute;
+        font-size: 2rem;
+        top: 45%;
+        left: 46%;
+    }
+
+    .previewAvatar {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .previewAvatar:hover~.register_delete_preview {
+        display: flex;
+    }
 
     .register_error_box-stamp {
 
@@ -190,10 +284,13 @@
 }
 
 @media (min-width: 768px) {
+    .icon_add_image {
+        left: 45%;
+    }
 
     .register_error_box-stamp {
 
-        left: 276px;
+        left: 250px;
     }
 
     .register_container {
@@ -202,15 +299,17 @@
     }
 
     .register_sub-container {
-        display: flex;
+        flex-direction: row;
     }
 
     .register_sub-container1 {
+        margin: 40px 10px;
         padding: 10px;
         width: 50%;
     }
 
     .register_sub-container2 {
+        margin: 40px 10px;
         padding: 10px;
         width: 50%;
     }
@@ -246,7 +345,20 @@
     }
 
     .register_form-input:hover,
-    .register_form-input:focus {
+    .register_form-input:focus,
+    .icon_add_image:hover~.box-image {
         box-shadow: 0 0 5px var(--verdeFuerte), 0 0 10px var(--verdeFuerte), 0 0 15px var(--verdeFuerte);
+    }
+
+    .icon_add_image:hover {
+        transform: scale(1.2);
+    }
+
+    .icon_add_image:hover~.box-image {
+        border: 1.2px solid var(--verdeFuerte);
+    }
+
+    .register_delete_preview:hover {
+        transform: scale(1.2);
     }
 }

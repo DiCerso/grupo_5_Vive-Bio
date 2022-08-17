@@ -4,10 +4,22 @@
             <div class="mobile_logo">
                 <a href="/"><img src="/images/logo.png" alt="logo"></a>
             </div>
-            <div class="nav_mobile_menu" id="btnMenu">
-                <span class="navBurger" id="burger"><i class="fas fa-bars"></i></span>
-                <span class="navClose"><i class="fas fa-times"></i></span>
+
+            <div class="nav_left-btns">
+                <div class="box_btn-search">
+                    <span class="navSearch"><i id="btnSearch" class="fas fa-search"></i></span>
+                </div>
+                <div class="nav_mobile_menu" id="btnMenu">
+                    <span class="navBurger" id="burger"><i class="fas fa-bars"></i></span>
+                    <span class="navClose"><i class="fas fa-times"></i></span>
+                </div>
             </div>
+
+        </div>
+        <div class="box_nav_search-mobile">
+            <form action="">
+                <input type="text" class="navSearchBar">
+            </form>
         </div>
         <div class="options_mobile" id="menu">
             <% if (!locals.userLogin) { %>
@@ -31,13 +43,9 @@
                     <% } %>
                         <ul class="menu">
                             <li><a href="/">Home</a></li>
-                            <% if (locals.userLogin && (userLogin.rol=="admin" || userLogin.rol=="moderator" ) ) { %>
-                                <li><a href="/products/list">lista</a></li>
-                                <% }else{ %>
-                                    <li><a href="/products/all">Productos</a></li>
-                                    <% }%>
-                                        <li><a href="/about">Quiénes somos</a></li>
-                                        <li><a href="">Contacto</a></li>
+                            <li><a href="/products/all">Productos</a></li>
+                            <li><a href="/about">Quiénes somos</a></li>
+                            <li><a href="">Contacto</a></li>
                         </ul>
         </div>
     </div>
@@ -73,10 +81,9 @@
                 </form>
                 <div class="header__user">
 
-
                     <% if (locals.userLogin) { %>
                         <a href="/users/profile/<%= userLogin.id %>">
-                            <i class="fa-regular fa-circle-user icon__user"></i>
+                            <img src="/images/users/<%= userLogin.image %>" alt="" class="header_image-profile">
                             <p>
                                 <%= userLogin.username %>
                             </p>

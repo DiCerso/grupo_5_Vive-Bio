@@ -5,10 +5,12 @@
 
     <body class="editProfile">
         <%- include('../partials/header') %>
+
             <main>
                 <div class="popup" id="popup">
 
-                    <form action="/users/updatepass/<%= user.id %>?_method=PUT" method="POST" class="popup-container" id="form-popup">
+                    <form action="/users/updatepass/<%= user.id %>?_method=PUT" method="POST" class="popup-container"
+                        id="form-popup">
                         <div class="contain-pop-top">
                             <i class="fas fa-times" id="btn-close-popup"></i>
                         </div>
@@ -43,7 +45,7 @@
                     <section class="edit_user__container">
                         <div class="edit_user__head">
                             <div class="edit_user__img">
-                                <img src="/images/users/<%= user.image %>" alt="">
+                                <img src="/images/users/<%= user.image %>" alt="" id="edit_image">
                                 <label for="image"><i class="fas fa-pen"></i></label>
                                 <input type="file" accept="image/*" id="image" name="image">
                             </div>
@@ -88,7 +90,8 @@
                             </div>
                             <div class="edit_user__info-container">
                                 <label for="">Email:</label>
-                                <input type="text" value="<%= user.email %>" disabled name="email" id="email" class="Edit-input">
+                                <input type="text" value="<%= user.email %>" disabled name="email" id="email"
+                                    class="Edit-input">
                             </div>
                             <div class="edit_user__options">
 
