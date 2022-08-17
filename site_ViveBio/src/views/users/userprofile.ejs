@@ -24,7 +24,8 @@
 
                             </div>
                         </div>
-                        <div class="user__options">
+                        <div class="user__options" style="flex-wrap: wrap;">
+                            <a style="cursor:pointer;" class="user__ubication" value="<%= user.username %> ">Agregar Ubicacion</a>
                             <a href="/users/profile/edit/<%= userLogin.id %>">Editar Perfil <i
                                     class="fas fa-edit"></i></a>
                             <a href="/products/cart">Carrito de compras</a>
@@ -36,10 +37,8 @@
                                 <h2 style="text-decoration: underline;">Datos del usuario</h2>
                             </div>
                             <div class="user__info">
-                                <h3> Usuario: </h3>
-                                <h4>
-                                    <%= user.username %>
-                                </h4>
+                                <h3 > Usuario: </h3>
+                                <h4><%= user.username %></h4>
 
                             </div>
                             <div class="user__info">
@@ -63,6 +62,7 @@
 
                 </section>
             </main>
+            <script src="/javascript/userprofile.js"></script>
     </body>
     <%- include('../partials/footer') %>
 </html>
