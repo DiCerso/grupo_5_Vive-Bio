@@ -326,7 +326,7 @@ Header mobile
         width: 45px;
         height: 45px;
         font-size: 20px;
-
+        background-color: #7FA794;
     }
 
     .options_mobile {
@@ -469,6 +469,12 @@ Header mobile
 
     .header__opciones li:last-child {
         border-right: none;
+    }
+
+    .header_image-profile {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
     }
 }
 
