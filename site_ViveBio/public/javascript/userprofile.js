@@ -2,18 +2,38 @@ let ubication = document.querySelector(".user__ubication");
 let datos = document.querySelector(".user__dats-container")
 
 
+
+
 let provincias = async function(){
     try {
         let response = await fetch('https://apis.datos.gob.ar/georef/api/provincias')
         let provinces = await response.json();
-        let selectProvinces = document.querySelector("#provinciaSelect")
         provinces.provincias.forEach(provincia => {
-            selectProvinces.innerHTML += `<option value=${provincia.id}> ${provincia.nombre} </option>` //agrego un option con el nombre de la provincia cargado
+            document.querySelector("#provinciaSelect").innerHTML += `<option value=${provincia.id}> ${provincia.nombre} </option>` //agrego un option con el nombre de la provincia cargado
         })
     } catch (error) {
         console.log(error);
     }
 }
+
+let actMuni  = async function(){
+    try {
+        let response = await fetch('https://apis.datos.gob.ar/georef/api/localidades?max=1000&provincia=' + document.querySelector("#provinciaSelect").value);
+        let result = await response.json()
+        let Muni = document.querySelector("#municipioSelect")
+        Muni.innerHTML = `<option value="">Seleccione un Municipio</option>`
+
+        result.localidades.forEach(localidad => {
+            Muni.innerHTML += `<option value=${localidad.id}> ${localidad.nombre} </option>` //agrego un option con el nombre de la provincia cargado
+        })
+
+        
+    } catch (error) {
+        
+    }
+}
+
+
 
 
 let user = async function (value) {
@@ -42,14 +62,14 @@ ubication.addEventListener('click', async function () {
             </div>
             <div class="ubication__provincias">                
                 <label for="">Provincia:</label>
-                <select class="form-control" id="provinciaSelect">
+                <select class="form-control" id="provinciaSelect" onChange="actMuni()">
                     <option value="">Seleccione una provincia</option>
                 </select>
             </div>
             <div class="ubication__municipio">                
                 <label for="">Municipio:</label>
                 <select class="form-control" id="municipioSelect">
-                <option value="">Seleccione un Municipio</option>
+                    <option value="">Seleccione un Municipio</option>
                 </select>
             </div>
             <a class="accept__ubication" style="cursor:pointer;">Enviar</a>
