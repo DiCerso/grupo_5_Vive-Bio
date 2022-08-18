@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { checkEmail, checkUsername, checkPassword, checkEditUsername,sendMail, all, remove, changerol, search} = require('../../controllers/api/usersController');
+const { checkEmail, checkUsername, checkPassword, checkEditUsername,sendMail, all, remove, changerol, search, apiLogin} = require('../../controllers/api/usersController');
 
 /* /api/users  */ 
 
@@ -14,5 +14,6 @@ router.get('/all', all)
 router.delete('/destroy/:id', remove)
 router.put('/changerol', changerol)
 router.get('/search', search)
+router.post('/login',apiLogin)
 
 module.exports = router;

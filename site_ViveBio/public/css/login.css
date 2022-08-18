@@ -130,7 +130,7 @@
     text-align: center;
 }
 
-.login_google button {
+.login_google a {
     font-size: 30px;
     background-color: transparent;
     border-radius: 10px;
@@ -140,6 +140,7 @@
     border: 1px solid var(--verdeFuerte);
     color: red;
     text-align: center;
+    padding: 6px 9px;
 }
 
 .login_facebook button {
@@ -195,7 +196,7 @@
         display: none;
     }
 
-    .login button:hover {
+    .login button:hover, .login a:hover {
         transition: all 0.4s;
         background-color: var(--verdeFuerte);
     }

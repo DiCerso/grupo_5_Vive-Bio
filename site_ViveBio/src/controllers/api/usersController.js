@@ -7,6 +7,41 @@ const { getUrl, isNumber } = require("../../helpers");
 
 
 module.exports = {
+  apiLogin: async(req,res) =>{
+    try {
+      const user = await db.User.findOne({
+        where: {
+          email: req.body.email
+        },
+        include: [
+          { association: 'rol' }
+        ]
+      })
+      
+      req.session.userLogin = {
+        id: user.id,
+        firstname: user.firstname.trim(),
+        lastname: user.lastname.trim(),
+        image: user.image,
+        username: user.username.trim(),
+        rol: user.rol.name.trim()
+      }
+      if (req.body.remember) {
+        res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+      }
+      let response = {
+        ok: true,
+        data: user ? true : false,
+      };
+      return res.status(200).json(response);
+    } catch (error) {
+      console.log(error);
+      return res.status(error.status || 500).json({
+        ok: false,
+        msg: error.message || "E-mail sign error"
+      });
+    }
+  },
   checkEmail: async (req, res) => {
     try {
       let user = await db.User.findOne({

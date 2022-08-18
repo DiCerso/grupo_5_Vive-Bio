@@ -7,6 +7,7 @@
     "start": "node ./src/bin/www"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.14.2",
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.3.0",
     "cookie-parser": "~1.4.4",
@@ -23,8 +24,9 @@
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.7",
     "nodemon": "^2.0.19",
-    "sequelize": "^6.21.0",
-    "@googlemaps/js-api-loader": "^1.14.2"
+    "passport": "^0.6.0",
+    "passport-google-oauth2": "^0.2.0",
+    "sequelize": "^6.21.0"
   },
   "nodemonConfig": {
     "ignore": "src/data/*.json"
