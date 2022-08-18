@@ -130,7 +130,7 @@ window.addEventListener("load", function () {
     /*Image validation*/
     image.addEventListener('change',
         function fileValidation() {
-            var fileInput = document.getElementById('image');
+            var fileInput = document.getElementById('images');
             var filePath = fileInput.value;
             if (!expresiones.images.exec(filePath)) {
                 errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
@@ -156,7 +156,6 @@ window.addEventListener("load", function () {
 
  /* Validation submit */
  formulario.addEventListener('submit', function (e) {
-
     forms.forEach((form) => {
         if (form.classList.contains('errorActive') || errors == true ){
             e.preventDefault()
@@ -164,17 +163,17 @@ window.addEventListener("load", function () {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Por favor, revisa los campos editados, no pueden quedar vacíos',
+                        text: 'Por favor, revisa los campos agregados, no pueden quedar vacíos',
                       })
 
         }else {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Producto editado con éxito',
+                title: 'Producto agregado con éxito',
                 showConfirmButton: false,
                 timer: 3000,
-                setTimeout: 1000,
+                setTimeout: 2000,
               })
                 formulario.submit();
             }

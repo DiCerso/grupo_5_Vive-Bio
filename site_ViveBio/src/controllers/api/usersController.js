@@ -175,9 +175,9 @@ module.exports = {
     }
   },
 
- /*  loginApi: async (req, res) => {
-    
-  }, */
+  /*  loginApi: async (req, res) => {
+     
+   }, */
   all: async (req, res) => {
     try {
       let users = await db.User.findAll({
@@ -263,10 +263,10 @@ module.exports = {
   },
   changerol: async (req, res) => {
     try {
-      let { rol, id} = req.body;
+      let { rol, id } = req.body;
       if (rol == 1) {
         let user = await db.User.update({
-          rol_id : 2
+          rol_id: 2
         }, {
           where: {
             id: id
@@ -282,9 +282,9 @@ module.exports = {
           msg: "El usuario ha sido actualizado exitosamente"
         }
         return res.status(200).json(response)
-      }else if(rol == 2){
+      } else if (rol == 2) {
         let user = await db.User.update({
-          rol_id : 1
+          rol_id: 1
         }, {
           where: {
             id: id
@@ -308,49 +308,91 @@ module.exports = {
   search: async (req, res) => {
 
     try {
-        let users = await db.User.findAll({
-            where: {
-                [Op.or]: [
-                    { username: { [Op.substring]: req.query.keyword } },
-                ],
-            },
-            include: ["rol"],
-        })
+      let users = await db.User.findAll({
+        where: {
+          [Op.or]: [
+            { username: { [Op.substring]: req.query.keyword } },
+          ],
+        },
+        include: ["rol"],
+      })
 
-        if (users.length != 0) {
-            let response = {
-                ok: true,
-                meta: {
-                    status: 200
-                },
-                url: getUrl(req),
-                data: { "user": users }
-            }
-            return res.status(200).json(response);
-        } else {
-            let response = {
-                ok: false,
-                meta: {
-                    status: 400
-                },
-                url: getUrl(req),
-                msg: "No se encuentra un usuario con esos caracteres"
-            }
-            return res.status(400).json(response);
+      if (users.length != 0) {
+        let response = {
+          ok: true,
+          meta: {
+            status: 200
+          },
+          url: getUrl(req),
+          data: { "user": users }
         }
+        return res.status(200).json(response);
+      } else {
+        let response = {
+          ok: false,
+          meta: {
+            status: 400
+          },
+          url: getUrl(req),
+          msg: "No se encuentra un usuario con esos caracteres"
+        }
+        return res.status(400).json(response);
+      }
 
     } catch (error) {
-        let response = {
-            ok: false,
-            meta: {
-                status: 500,
-            },
-            url: getUrl(req),
-            msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
-        }
-        return res.status(500).json(response);
+      let response = {
+        ok: false,
+        meta: {
+          status: 500,
+        },
+        url: getUrl(req),
+        msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+      }
+      return res.status(500).json(response);
     }
-}
+  },
+  changeubication: async (req, res) => {
+    try {
+      let { ubication, id } = req.body;
+      if (ubication) {
+        let user = await db.User.update({
+          ubication: ubication
+        }, {
+          where: {
+            id: id
+          }
+        })
 
+        let response = {
+          ok: true,
+          meta: {
+            status: 200
+          },
+          url: getUrl(req),
+          msg: "El usuario ha sido actualizado exitosamente"
+        }
+        return res.status(200).json(response)
+      } else{
+        let user = await db.User.update({
+          ubication : null
+        }, {
+          where: {
+            id: id
+          }
+        })
 
+        let response = {
+          ok: true,
+          meta: {
+            status: 200
+          },
+          url: getUrl(req),
+          msg: "El usuario ha sido actualizado exitosamente"
+        }
+        return res.status(200).json(response)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };

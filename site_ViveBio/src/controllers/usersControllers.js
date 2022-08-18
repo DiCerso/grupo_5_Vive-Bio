@@ -32,7 +32,8 @@ module.exports = {
                     lastname: user.lastname.trim(),
                     image: user.image,
                     username: user.username.trim(),
-                    rol: user.rol.name.trim()
+                    rol: user.rol.name.trim(),
+                    ubication : user.ubication ? user.ubication.trim() : null
                 }
                 if (req.body.remember) {
                     res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
@@ -67,7 +68,8 @@ module.exports = {
                     id: newuser.id,
                     username: newuser.username,
                     rol: "user",
-                    image: newuser.image
+                    image: newuser.image,
+                    ubication : null
                 }
                 res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
                 return res.redirect("/");

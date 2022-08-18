@@ -224,6 +224,7 @@ Carrusel
 }
 
 
+
 /*************************************************
 primera parte del main
 *************************************************/
@@ -233,6 +234,7 @@ primera parte del main
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .home .izquierda,
@@ -473,6 +475,9 @@ segunda parte del main
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    margin: 40px 27px 40px 27px;
+    padding: 10px;
 }
 
 .home .titulares h1{
