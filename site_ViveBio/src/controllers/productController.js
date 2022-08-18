@@ -157,7 +157,7 @@ module.exports = {
                         primary: 0,
                     });
                 });
-                return res.redirect("/Products/All");
+                return res.redirect("/products/all");
             } catch (error) {
                 console.log(error);
             }
@@ -176,7 +176,7 @@ module.exports = {
                             image
                         )
                     ) &&
-                    image !== "noimage.jpg"
+                    image !== "default-image.jpg"
                 ) {
                     fs.unlinkSync(
                         path.resolve(
@@ -195,7 +195,7 @@ module.exports = {
             try {
                 const categories = await db.Category.findAll();
                 const properties = await db.Property.findAll();
-                return res.render("products/add", {
+                return res.render("/products/add", {
                     errores: errors.mapped(),
                     old: req.body,
                     properties,
