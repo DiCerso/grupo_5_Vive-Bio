@@ -41,7 +41,7 @@ h3 {
 }
 
 body {
-    background-image: url(/images/background-desktop-home.png);
+    background-image: url("/images/background2.jpg");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
