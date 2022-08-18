@@ -779,7 +779,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -824,7 +824,7 @@ module.exports = {
                     status: 500,
                 },
                 url: getUrl(req),
-                msg: error.messaje ? error.messaje : "comuniquese con el administrador"
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
             }
             return res.status(500).json(response);
         }
@@ -845,7 +845,7 @@ module.exports = {
                 status: 400,
               },
               url: getUrl(req),
-              msg: "No se encuentra una categoria con el id ingresado"
+              msg: "No se encuentra una categoría con el id ingresado"
             }
             return res.status(400).json(response);
           }
@@ -863,7 +863,7 @@ module.exports = {
                 status: 200
               },
               url: getUrl(req),
-              msg: "La categoria se ha eliminado exitosamente"
+              msg: "La categoría se ha eliminado exitosamente"
             }
             return res.status(200).json(response)
           }

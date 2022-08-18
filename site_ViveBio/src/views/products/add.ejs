@@ -7,8 +7,7 @@
 			<main>
 				<section class="add_container">
 					<h3>Agregar Producto</h3>
-					<form action="/product/add" class="productAdd" method="POST" enctype="multipart/form-data">
-
+					<form action="/products/add" class="productAdd" method="POST" enctype="multipart/form-data">
 						<article class="camps_container">
 							<div class="sub_container">
 								<div class="add_form-box">
@@ -70,7 +69,7 @@
 									</div>
 								<div class="add_form-box">
 									<label for="images">Agregar imágenes</label>
-									<input class="add_input" type="file" id="image" name="image">
+									<input class="add_input" type="file" id="image" name="images" accept="image/*" multiple>
 										<div id="imagePreview" class="imagePreview" >
 											<h6>Vista previa</h6>
 										</div>
