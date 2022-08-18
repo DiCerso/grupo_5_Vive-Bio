@@ -221,14 +221,14 @@ impImage.addEventListener('change', () => {
         impImage.classList.add('register_error_input');
         fileInput.value = '';
     } else {
-        for(let i = 0; i < fileInput.files.length; i++){
+        for (let i = 0; i < fileInput.files.length; i++) {
             const element = URL.createObjectURL(fileInput.files[i]);
             const imagen = document.createElement("img");
-            imagen.setAttribute('class',"previewAvatar")
+            imagen.setAttribute('class', "previewAvatar")
             imagen.src = element;
             document.querySelector('.box-image').appendChild(imagen);
-         }
-         deletePreview.style.display = "flex"
+        }
+        deletePreview.style.display = "flex"
     }
 })
 
