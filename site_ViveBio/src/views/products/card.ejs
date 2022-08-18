@@ -67,7 +67,7 @@
 
           <h2 class="titulares">Productos Relacionados</h2>
           <section class="row">
-            <% relacionados.forEachcd grupo_=> { %>
+            <% relacionados.forEach(({id,productImages,name,discount,property,price})=> { %>
               <article>
                 <div class="card estilo-c">
                   <a href="/products/card/<%= id %> ">
