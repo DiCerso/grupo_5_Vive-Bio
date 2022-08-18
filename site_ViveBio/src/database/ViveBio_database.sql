@@ -308,6 +308,7 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `rol_id` int unsigned NOT NULL,
   `image` varchar(45) NOT NULL,
+  `ubication` varchar(100),
   PRIMARY KEY (`id`),
   KEY `FK_users_rols_idx` (`rol_id`),
   CONSTRAINT `FK_users_rols` FOREIGN KEY (`rol_id`) REFERENCES `rols` (`id`)
@@ -320,7 +321,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'lautaro','Cersocimo','lautaro_cer@hotmail.com','Dicerso','$2a$10$CX4eXDLHNmGNz7sZ5Pp3G.McqWNQNgn8WsAhuuOitvJnh9.SG5XL2',3,'defaultAvatar.jpg'),(2,'fernando','zigarra','fer_0007_6@hotmail.com','cacao','$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2',1,'image-Avatar-1654737986404.png'),(3,'May','Cort','mayrautopia@gmail.com','Mayra','$2a$10$I4W.oC98cWCdvoATgz4n5.uaINwRAr5fBi85JdfoRNa03LfwlFXiC',1,'defaultAvatar.jpg'),(4,'adm','adm','adm@gmail.com','admadm','$2a$10$0C6YQmVu2cYXfnpbXnSkzu/rX6EhozlKb4mQC6k9NZwSLIo1yiQZW',2,'defaultAvatar.jpg');
+INSERT INTO `users` VALUES (1,'lautaro','Cersocimo','lautaro_cer@hotmail.com','Dicerso','$2a$10$CX4eXDLHNmGNz7sZ5Pp3G.McqWNQNgn8WsAhuuOitvJnh9.SG5XL2',3,'defaultAvatar.jpg', null),(2,'fernando','zigarra','fer_0007_6@hotmail.com','cacao','$2a$10$GnTDgM2hhf55Cj66IiviUevg8X0t.RAIeD8ND.a1egmiLTUEhGnC2',1,'defaultAvatar.jpg', null),(3,'May','Cort','mayrautopia@gmail.com','Mayra','$2a$10$I4W.oC98cWCdvoATgz4n5.uaINwRAr5fBi85JdfoRNa03LfwlFXiC',1,'defaultAvatar.jpg', null),(4,'adm','adm','adm@gmail.com','admadm','$2a$10$0C6YQmVu2cYXfnpbXnSkzu/rX6EhozlKb4mQC6k9NZwSLIo1yiQZW',2,'defaultAvatar.jpg', null);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -1,13 +1,18 @@
-.login main{
+.login main {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.login{
+
+.login {
     background-image: url('/images/background-register.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+}
+
+.video_login {
+    display: none;
 }
 
 .login_general_container {
@@ -18,7 +23,7 @@
     height: 100vh;
 }
 
-.login_form-input.active-error{
+.login_form-input.active-error {
     border: 2px solid rgb(235, 78, 78);
 }
 
@@ -156,13 +161,16 @@
 
 
 @media (min-width: 425px) {
+
     .login_general_container {
         margin-top: 0;
         height: 80vh;
     }
-    .login main{
+
+    .login main {
         height: 80vh;
     }
+
     .login_form-container {
         width: 100%;
         display: flex;
@@ -178,6 +186,7 @@
         height: 20vh;
         filter: drop-shadow(0 0 15px var(--verdeOscuro))
     }
+
     .header_login a img {
         filter: drop-shadow(15px 0 15px #2E4A2F)
     }
@@ -213,9 +222,18 @@
     .login_box_2 {
         font-size: 12px;
     }
+    .video_login {
+        width: 80%;
+        max-width: 700px;
+        display: flex;
+        margin:  auto auto;
+        border: 2px solid #417543;
+    }
 }
 
 @media (min-width: 768px) {
+    
+
     .login_form-container {
         width: 50%;
     }

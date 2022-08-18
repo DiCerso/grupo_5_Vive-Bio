@@ -44,6 +44,9 @@ module.exports = (sequelize, DataTypes) => {
         image: {
             type: DataTypes.STRING(45),
             allowNull: false
+        },
+        ubication : {
+            type: DataTypes.STRING(45),
         }
     }
 

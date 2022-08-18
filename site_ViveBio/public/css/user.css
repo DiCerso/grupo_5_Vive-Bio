@@ -72,6 +72,7 @@
 .user__img img {
     width: 100%;
     border-radius: 50%;
+    background-color: #7FA794;
 }
 
 .user__options {
@@ -80,14 +81,14 @@
     justify-content: space-evenly;
     padding: 20px 0;
     width: 100%;
-
 }
 
 .user__options a {
     padding: 5px;
 }
 
-.user__options a {
+.user__options a,
+.user__ubication__datos a {
     background-color: #7FA794;
     text-align: center;
     width: 110px;
@@ -234,6 +235,11 @@
 
     .user .user__historial {
         width: 100%;
+    }
 
+    .ubication__datos{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
     }
 }

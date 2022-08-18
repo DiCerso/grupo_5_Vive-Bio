@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
                     errorDescription.innerHTML = null;
                     errors = false
                 } else {
-                    errorDescription.innerHTML = "IEntre 20 y 200 letras, espacios y acentos.";
+                    errorDescription.innerHTML = "Entre 20 y 200 letras, espacios y acentos.";
                     description.classList.remove("errorInactive")
                     description.classList.add("errorActive")
                     errors = true

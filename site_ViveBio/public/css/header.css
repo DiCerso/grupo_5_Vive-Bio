@@ -326,7 +326,7 @@ Header mobile
         width: 45px;
         height: 45px;
         font-size: 20px;
-
+        background-color: #7FA794;
     }
 
     .options_mobile {
@@ -422,7 +422,7 @@ Header mobile
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--verdeAmarillento);
+        background-color: #7FA794;
     }
 
     .header__user p {
@@ -470,14 +470,15 @@ Header mobile
     .header__opciones li:last-child {
         border-right: none;
     }
+
+    .header_image-profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
 }
 
 @media(min-width: 768px) {
-    .header_image-profile {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-    }
 
     .header__opciones ul {
         font-size: .9rem;

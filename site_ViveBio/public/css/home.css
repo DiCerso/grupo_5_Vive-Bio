@@ -224,6 +224,7 @@ Carrusel
 }
 
 
+
 /*************************************************
 primera parte del main
 *************************************************/
@@ -233,6 +234,7 @@ primera parte del main
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .home .izquierda,
@@ -470,7 +472,7 @@ segunda parte del main
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    margin: 40px;
+    margin: 40px 27px 40px 27px;
     padding: 10px;
 }
 
@@ -677,9 +679,6 @@ segunda parte del main
     margin-left: -4px;
 }
 
-
-
-
 @media(min-width:426px) {
 
     /* START CARROUSEL TABLET*/
@@ -713,15 +712,19 @@ segunda parte del main
 
 
     .slider {
-        margin: 50px 0 50px;
+        margin: 50px auto 50px;
         height: 400px;
+        width: 100%;
+        max-width: 95%;
+        border-radius: 10px;
+        border: 1px solid var(--verdeOscuro);
     }
     .slides p {
         background-color: unset;
         font-size: .9rem;
         top: 35%;
         text-align: start;
-        padding: 10px 10px;
+        padding: 20px;
         letter-spacing: 2px;
         width: 60%;
     }

@@ -2,12 +2,13 @@
 Footer
 ***************************************/
 
-.footer{
-    background-color: var(--verdeAmarillento);
+footer{
+    background-color: var(--verdeOscuro);
     width: 100%;
     margin: 0;
     padding: 0;
     margin-top:auto;
+    height: 100%;
 }
 
 .footer .DatFooter{
@@ -15,12 +16,15 @@ Footer
     flex-direction: row;
     justify-content: space-between;
 }
+
 .footer .DatFooter .direcciones__footer{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 10px;
+    padding: 20px;
     font-size: 15px;
+    gap: 8px;
+  
 }
 
 .footer .contacto__footer{
@@ -28,7 +32,6 @@ Footer
     flex-direction: column;
     align-items: flex-end;
     padding: 10px;
-    height: 200px;
 }
 
 .footer .contacto__footer ul li{
@@ -44,22 +47,21 @@ Footer
     height: 30px;
 }
 
-.footer .copy__footer{
-    display: block;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px 0;
+.copy__footer{
+    padding: 10px 10px 2px 10px;
 }
 
-.footer h3, .footer a, .footer p{
-    color: black;
+.footer .mapa{
+    width: 100%;
+    padding: 10px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
 }
+
 
 @media(min-width: 426px){
 
-    .footer{
-        height: 260px;
-    }
 
     .footer .DatFooter .contacto__footer{
         display: flex;
@@ -82,12 +84,23 @@ Footer
         margin-left: 20px;
     }
 
-    .footer .copy__footer{
-        margin-top: 20px;
+    .copy__footer{
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 2px;
+    }
+
+    .footer .mapa {
+        width: 100%;
+        gap: 20px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        bottom: 0;
+        flex-direction: column;
+        padding: 0px 20px;
+        justify-content: center;
+        text-align: center;
+        height: 100%;;
+        margin-top: 20px;
     }
 
 }
@@ -96,22 +109,32 @@ Footer
 @media(min-width: 768px){
 
     .footer{
-        height: 230px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-around;
+      
     }
     
     .footer .DatFooter{
         flex-direction: column;
         margin-top: 20px;
+        width: 100%;
     }
 
     .footer .DatFooter .direcciones__footer{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
         justify-content: space-evenly;
+        gap: 20px;
+    }
+    
+    .footer .DatFooter .direcciones__footer a:hover{
+        border: 1px solid var(--azulSuave);
+        background-color: white;
+        color: var(--azulSuave);
+        border-radius: 8px;
+        padding: 8px;
     }
 
     .footer .DatFooter .redes__footer li{
@@ -120,10 +143,10 @@ Footer
 
 
     .footer .DatFooter .direcciones__footer li{
-        width: 25%;
+        width: 100%;
         margin: 0;
-        border-right: 1px solid black;
         text-align: center;
+        padding-right: 10px;
     }
 
     .footer .DatFooter .direcciones__footer li:last-child{
@@ -134,10 +157,6 @@ Footer
         font-size: 26px;
     }
     
-    .footer .DatFooter .contacto__footer{
-        order: -1;
-        height: 50px;
-    }
 
     .footer .DatFooter .contacto__footer .redes__footer{
         align-items: center;
@@ -152,6 +171,7 @@ Footer
     .footer .DatFooter .contacto__footer h3{
         display: none;
     }
+
 
 
 
