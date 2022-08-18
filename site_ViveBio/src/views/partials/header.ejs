@@ -84,9 +84,7 @@
                     <% if (locals.userLogin) { %>
                         <a href="/users/profile/<%= userLogin.id %>">
                             <img src="/images/users/<%= userLogin.image %>" alt="" class="header_image-profile">
-                            <p>
-                                <%= userLogin.username %>
-                            </p>
+                            <p><%= userLogin.username %></p>
                         </a>
                         <a href="/users/logout" class="logout" title="Salir"><i
                                 class="fa-solid fa-arrow-right-to-bracket"></i></a>
@@ -101,11 +99,7 @@
             </div>
             <nav class="header__nav">
                 <div class="header__localizacion">
-                    <% if (locals.userLogin && locals.userLogin.ubication != null) { %>
-                        <a href="">Su ubicacion es : <%= locals.userLogin.ubication.trim() %></a>
-                        <% }else{ %>
-                            <a href="">Estas en "lugar"</a>
-                        <% } %>
+                    <a href="">Estas en "lugar"</a>
                 </div>
                 <div class="header__opciones">
                     <ul>
