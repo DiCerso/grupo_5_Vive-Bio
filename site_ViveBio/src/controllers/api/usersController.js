@@ -211,11 +211,9 @@ module.exports = {
   },
   remove: async (req, res) => {
     try {
-
       if (isNumber(req.params.id, req, "id")) {
         return res.status(400).json(isNumber(req.params.id, req, "id"))
       }
-
       const user = await db.User.findByPk(req.params.id)
 
       if (!user) {

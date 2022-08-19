@@ -5,7 +5,7 @@ const admincheck = require('../../middlewares/admincheck');
 const usercheck = require('../../middlewares/userCheck');
 const productCheck = require('../../validations/productAddEditValidator')
 
-const {update, store, card, all, remove, search,findone, cart, removecart, cant, addcart, categories, categorySearch, categoryDelete,orderCreate, orders} = require('../../controllers/api/productController');
+const {update, store, card, all, remove, search,findone, cart, removecart, cant, addcart, categories, categorySearch, categoryDelete,orderCreate, orders, OrdersSearch} = require('../../controllers/api/productController');
 
 
 /*/api/products*/
@@ -22,6 +22,7 @@ router
     .get('/categories/search', categorySearch)
     .delete('/categories/destroy/:id', categoryDelete)
     .get('/orders', orders)
+    .get('/orderSearch/:id', OrdersSearch)
     .post('/createOrder', orderCreate)
     .get('/:id', card)
     .put('/:id',upload.array('image'),productCheck,update)

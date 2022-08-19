@@ -63,7 +63,7 @@
                                 <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                 <% if (locals.userLogin) { %>
                                   <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
-                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)">
+                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)" style="cursor:pointer;">
                                     <i class="fa-solid fa-cart-shopping" style="position: relative;">
                                       <i class="fa-solid fa-slash cart_barra_<%= id %> cart_barra" >
                                       </i>

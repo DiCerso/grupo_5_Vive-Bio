@@ -1002,5 +1002,31 @@ module.exports = {
             }
             return res.status(500).json(response);
         }
+    },
+    OrdersSearch : async (req, res) => {
+        try {
+            let {id} = req.params;
+            let dato = await db.Order.findAll();
+            console.log(dato)
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                url: getUrl(req),
+                data: dato
+            }
+            return res.status(200).json(response);
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
     }
 }

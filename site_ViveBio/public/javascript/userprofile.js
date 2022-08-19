@@ -1,5 +1,6 @@
 let ubication = document.querySelector(".user__ubication");
 let datos = document.querySelector(".user__dats-container")
+let historial = document.querySelector(".user__historial")
 
 
 
@@ -167,8 +168,43 @@ let back_profile = async function (dato) {
     } catch (error) {
         console.log(error)
     }
-
 }
+
+let Orders = async function(id){
+    try {
+        let validation = await fetch(`/api/products/orderSearch/${id}`,{
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        let resulted = await validation.json();
+        console.log(resulted)
+        return resulted
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+acthistorial = async function(ordenes){
+    if(ordenes.data.length = 0){
+        historial.innerHTML = `<h3>Historial de compras:</h3>
+        <h4>No se encontraron compras realizadas</h4>`
+    }else{
+        historial.innerHTML = `<h3>Historial de compras:</h3>
+        <div class="historial_container"></div>`
+        ordenes.data.forEach(orden => {
+            if(document.querySelector(`.user_cartHistory_${orden.number}`)){
+                document.querySelector(`user_cartHistory_${orden.number}`).innerHTML += `<p>${order.product_id}</p>`
+            }else{
+                document.querySelector(".historial_container").innerHTML += `<div class="user_cartHistory_${orden.number}"></div>`
+                document.querySelector(`user_cartHistory_${orden.number}`).innerHTML += `<p>${order.product_id}</p>`
+            }
+        })
+    }
+}
+
+
+
 
 window.addEventListener('load', async function () {
     console.log("userprofile success!!")
@@ -176,4 +212,6 @@ window.addEventListener('load', async function () {
     if(usuario.data.user[0].ubication != null){
         ubication.innerHTML = `Cambiar ubicación`
     }
+    let ordenes = await Orders(usuario.data.user[0].id)
+    acthistorial(ordenes)
 })
