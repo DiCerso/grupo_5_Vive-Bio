@@ -1,8 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const alias = 'Order'
-
-
+    
     const cols = {
         id : {
             type : DataTypes.INTEGER.UNSIGNED,
@@ -43,6 +42,24 @@ module.exports = (sequelize, DataTypes) => {
         total : {
             type: DataTypes.DECIMAL(6,2).UNSIGNED,
             allowNull : false
+        },
+        products_id : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            allowNull : false,
+            references: {
+                model: {
+                    tableName : 'products'
+                },
+                key: 'id',
+            }
+        },
+        number : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            allowNull : false
+        },
+        amount : {
+            type : DataTypes.INTEGER.UNSIGNED,
+            allowNull : false
         }
     }
 
@@ -56,6 +73,7 @@ module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define(alias, cols, config)
 
     Order.associate = function(models){
+        
         Order.belongsTo(models.Status,{
             as : 'status',
             foreignKey : 'status_id'
@@ -70,6 +88,11 @@ module.exports = (sequelize, DataTypes) => {
         Order.belongsTo(models.Payment,{
             as : 'payment',
             foreignKey : 'payment_id'
+        })
+
+        Order.belongsTo(models.Product,{
+            as : 'products',
+            foreignKey : 'products_id'
         })
 
         

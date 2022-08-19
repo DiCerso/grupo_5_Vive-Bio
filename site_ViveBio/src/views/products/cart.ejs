@@ -5,18 +5,47 @@
     <body class="productCart">
         <%- include('../partials/header') %>
             <main>
+                <div class="cart_popup" id="cart_popup">
+                    <div class="cart_popup_container" id="cart_popup">
+                        <div class="contain-pop-top">
+                            <i class="fas fa-times" id="cart_btn-close-popup" style="cursor: pointer;"></i>
+                        </div>
+                        <div class="cart_popup_dats">
+                            <div class="cart_popup_box">
+                                <label for="">Provincia</label>
+                                <select class="cart_control" id="provinciaSelect" onChange="actMuni()">
+                                    <option value="">Seleccione una provincia</option>
+                                </select>
+                            </div>
+                            <div class="cart_popup_box">
+                                <label for="">Localidad</label>
+                                <select class="cart_control" id="municipioSelect">
+                                    <option value="">Seleccione un Municipio</option>
+                                </select>
+                            </div>
+                            <div class="cart_popup_box">
+                                <button class="cart_change_ubi">Guardar Cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <section class="cart_container">
                     <div class="cart_pasos">
                         <span class="cart_paso">Productos</span>
                     </div>
                     <div class="cart_articles">
-
                     </div>
+                    
                     <div class="cart_sect_playment">
+                        <div class="cart_ubication">
+                            <label>Ubicacion</label>
+                            <input class="cart_ubication_name" type="text" value="No hay ubicación" disabled>
+                            <a class="insert_ubication">Ingresar Domicilio</a>
+                        </div>
                         <div class="cart_sect_playment_sub">
                             <label>Medio de Pago</label>
                             <select class="cart_select_payment" name="payments" id="payments" size="1">
-                                <option value="" hidden selected>Selecciona un medio de Pago...</option>
+                                <option value="0" hidden selected>Selecciona un medio de Pago...</option>
                                 <% payments.forEach(payment=> { %>
                                     <option value="<%= payment.id %>">
                                         <%= payment.name %>
@@ -24,6 +53,7 @@
                                     <% }) %>
                             </select>
                         </div>
+                        
                         <div class="cart_sect_playment_sub">
                             <label for="discount_code">Código de Descuento</label>
                             <input class="cart_discount_payment" type="text"
@@ -40,7 +70,7 @@
                     </div>
                     <div class="cart_buttons">
                         <button class="cart_button clear_cart" onclick="EliminateProduct(0)">Limpiar Carrito</button>
-                        <button class="cart_button" type="reset">Siguiente Paso</button>
+                        <button class="cart_button" onclick="purchase()">Terminar Compra</button>
                     </div>
 
 

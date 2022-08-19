@@ -125,11 +125,9 @@ let enviar_ubi = async function(id, name){
             await ubicationuser(null, id);
             await back_profile(name)
         }
-        
     } catch (error) {
         console.log(error)
     }
-    
 }
  
 
