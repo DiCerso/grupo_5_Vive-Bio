@@ -173,31 +173,34 @@ let back_profile = async function (dato) {
 let Orders = async function(id){
     try {
         let validation = await fetch(`/api/products/orderSearch/${id}`,{
+            method: "GET",
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-        let resulted = await validation.json();
-        console.log(resulted)
-        return resulted
-    } catch (error) {
+        let dato = await validation.json()
+        return dato
+    }catch (error) {
         console.log(error)
     }
 }
 
 acthistorial = async function(ordenes){
-    if(ordenes.data.length = 0){
+    if(ordenes.data.length == 0){
         historial.innerHTML = `<h3>Historial de compras:</h3>
         <h4>No se encontraron compras realizadas</h4>`
     }else{
         historial.innerHTML = `<h3>Historial de compras:</h3>
         <div class="historial_container"></div>`
+        let i = 0;
+        
         ordenes.data.forEach(orden => {
-            if(document.querySelector(`.user_cartHistory_${orden.number}`)){
-                document.querySelector(`user_cartHistory_${orden.number}`).innerHTML += `<p>${order.product_id}</p>`
+            if(i == orden.number){
+                document.querySelector(`.user_carthistory_${orden.number}`).innerHTML += `<p class="user_product_${orden.products.id} user_products">${orden.products.name}</p>`
             }else{
-                document.querySelector(".historial_container").innerHTML += `<div class="user_cartHistory_${orden.number}"></div>`
-                document.querySelector(`user_cartHistory_${orden.number}`).innerHTML += `<p>${order.product_id}</p>`
+                i = orden.number
+                document.querySelector(".historial_container").innerHTML += `<div class="user_carthistory_${orden.number} user_carthistory"></div>`
+                document.querySelector(`.user_carthistory_${orden.number}`).innerHTML += `<p class="user_product_${orden.products.id} user_products">${orden.products.name}</p>`
             }
         })
     }
@@ -212,6 +215,7 @@ window.addEventListener('load', async function () {
     if(usuario.data.user[0].ubication != null){
         ubication.innerHTML = `Cambiar ubicación`
     }
-    let ordenes = await Orders(usuario.data.user[0].id)
-    acthistorial(ordenes)
+    let variable = await Orders(usuario.data.user[0].id)
+    console.log(variable)
+    acthistorial(variable)
 })
