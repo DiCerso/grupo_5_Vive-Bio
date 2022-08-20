@@ -15,8 +15,9 @@ window.addEventListener('load', async function(){
     console.log("header success!!")
     if(document.querySelector(".header__user a p").innerHTML != "Logueate"){
         let dat = await usuarioUbication(document.querySelector(".header__user a p").innerHTML)
-        console.log(dat)
-        document.querySelector(".header__localizacion a").textContent = `${dat.data.user[0].ubication}`
+        if(dat.data.user[0].ubication != null){
+            document.querySelector(".header__localizacion a").textContent = `${dat.data.user[0].ubication}`
+        }
     }
 
 

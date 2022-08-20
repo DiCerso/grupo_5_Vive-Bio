@@ -311,7 +311,7 @@ module.exports = {
                     product_id: req.params.id
                 }
             })
-            if(olds){
+            if (olds) {
                 const OldImages = olds.map(old => old.name);
             }
 
@@ -501,12 +501,12 @@ module.exports = {
             return res.status(500).json(response);
         }
     },
-    findone : async (req, res) => {
+    findone: async (req, res) => {
 
         try {
             let products = await db.Product.findOne({
                 where: {
-                    name : req.query.keyword
+                    name: req.query.keyword
                 },
                 include: ["productImages"],
             })
@@ -566,9 +566,10 @@ module.exports = {
                     ]
                 }
             )
+            const user = await db.User.findByPk(+req.session.userLogin.id)
 
             cart.forEach(cart => {
-                total += (+cart.product.price)* cart.cant
+                total += (+cart.product.price) * cart.cant
             })
 
             cart.forEach(cart => {
@@ -585,7 +586,8 @@ module.exports = {
                         cart,
                         { payments: payments },
                         { total: total },
-                        { desct: desc }
+                        { desct: desc },
+                        { user: user }
                     ]
                 }
                 return res.status(200).json(response);
@@ -615,7 +617,7 @@ module.exports = {
     },
     removecart: async (req, res) => {
         try {
-            let {id} = req.body
+            let { id } = req.body
             if (id == 0) {
                 let products = await db.Cart.destroy({
                     where: {
@@ -669,12 +671,12 @@ module.exports = {
     },
     addcart: async (req, res) => {
         try {
-            let {id} = req.body;
-            if(id){
+            let { id } = req.body;
+            if (id) {
                 let newproduct = await db.Cart.create({
-                    user_id : +req.session.userLogin.id,
-                    product_id : id,
-                    cant : 1
+                    user_id: +req.session.userLogin.id,
+                    product_id: id,
+                    cant: 1
                 })
                 let response = {
                     ok: true,
@@ -685,7 +687,7 @@ module.exports = {
                     data: newproduct
                 }
                 return res.status(200).json(response);
-            }else{
+            } else {
                 let response = {
                     ok: true,
                     meta: {
@@ -710,8 +712,8 @@ module.exports = {
     },
     cant: async (req, res) => {
         try {
-            let {id, idproduct} = req.body
-            if(id && idproduct){
+            let { id, idproduct } = req.body
+            if (id && idproduct) {
                 let cart = await db.Cart.update({
                     cant: id
                 },
@@ -722,13 +724,13 @@ module.exports = {
                         }
                     }
                 )
-                if(cart){
+                if (cart) {
                     let cart_act = await db.Cart.findAll({
-                            where: {
-                                product_id: idproduct,
-                                user_id: +req.session.userLogin.id
-                            }
-                        })
+                        where: {
+                            product_id: idproduct,
+                            user_id: +req.session.userLogin.id
+                        }
+                    })
                     let response = {
                         ok: true,
                         meta: {
@@ -736,13 +738,13 @@ module.exports = {
                         },
                         url: getUrl(req),
                         msg: `La cantidad del producto ${idproduct} correctamente`,
-                        data : cart_act
+                        data: cart_act
                     }
                     return res.status(200).json(response)
                 }
-                
+
             }
-            
+
         } catch (error) {
             let response = {
                 ok: false,
@@ -794,7 +796,7 @@ module.exports = {
                 },
                 include: ["products"],
             })
-    
+
             if (category.length != 0) {
                 let response = {
                     ok: true,
@@ -816,7 +818,7 @@ module.exports = {
                 }
                 return res.status(400).json(response);
             }
-    
+
         } catch (error) {
             let response = {
                 ok: false,
@@ -831,56 +833,200 @@ module.exports = {
     },
     categoryDelete: async (req, res) => {
         try {
-    
-          if (isNumber(req.params.id, req, "id")) {
-            return res.status(400).json(isNumber(req.params.id, req, "id"))
-          }
-    
-          const categoria = await db.Category.findByPk(req.params.id)
-    
-          if (!categoria) {
-            let response = {
-              ok: false,
-              meta: {
-                status: 400,
-              },
-              url: getUrl(req),
-              msg: "No se encuentra una categoría con el id ingresado"
+            if (isNumber(req.params.id, req, "id")) {
+                return res.status(400).json(isNumber(req.params.id, req, "id"))
             }
-            return res.status(400).json(response);
-          }
-    
-          const destroycategory = await db.Category.destroy({
-            where: {
-              id: req.params.id
-            },
-            force: true
-          })
-          if (destroycategory) {
-            let response = {
-              ok: true,
-              meta: {
-                status: 200
-              },
-              url: getUrl(req),
-              msg: "La categoría se ha eliminado exitosamente"
+
+            const categoria = await db.Category.findByPk(req.params.id)
+
+            if (!categoria) {
+                let response = {
+                    ok: false,
+                    meta: {
+                        status: 400,
+                    },
+                    url: getUrl(req),
+                    msg: "No se encuentra una categoría con el id ingresado"
+                }
+                return res.status(400).json(response);
             }
-            return res.status(200).json(response)
-          }
-    
-    
+
+            const destroycategory = await db.Category.destroy({
+                where: {
+                    id: req.params.id
+                },
+                force: true
+            })
+            if (destroycategory) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    msg: "La categoría se ha eliminado exitosamente"
+                }
+                return res.status(200).json(response)
+            }
+
+
         } catch (error) {
             console.log(error)
-          let response = {
-            ok: false,
-            meta: {
-              status: 500,
-            },
-            url: getUrl(req),
-            msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
-          }
-          return res.status(500).json(response);
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
         }
-      }
-
+    },
+    orderCreate: async (req, res) => {
+        try {
+            let { status,user_id, payment_id, total, products_id, num, amount } = req.body
+            if (!user_id) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "No se ingresó ningun usuario"
+                }
+                return res.status(400).json(response);
+            } else if (!payment_id) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "No se ingresó ninguna forma de pago"
+                }
+                return res.status(400).json(response);
+            } else if (!total) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "No se ingresó el precio total"
+                }
+                return res.status(400).json(response);
+            } else if (!products_id) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "No se ingresó un producto para agregar a la orden"
+                }
+                return res.status(400).json(response);
+            } else if (!num) {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "No se ingresó un valor para el numero de orden"
+                }
+                return res.status(400).json(response);
+            }else if(!status){
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 400
+                    },
+                    url: getUrl(req),
+                    msg: "No se ingresó ningun status"
+                }
+                return res.status(400).json(response);
+            }
+            let neworder = await db.Order.create({
+                user_id: user_id,
+                payment_id,
+                total,
+                products_id,
+                number : num,
+                status_id : status,
+                amount : amount
+            })
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                url: getUrl(req),
+                data: neworder
+            }
+            return res.status(200).json(response);
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    orders : async (req, res) => {
+        try {
+            let orderdata = await db.Order.findAll({
+                order : [['number', 'DESC']]
+            });
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                url: getUrl(req),
+                data: orderdata
+            }
+            return res.status(200).json(response);
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    OrdersSearch : async (req, res) => {
+        try {
+            let {id} = req.params;
+            let dato = await db.Order.findAll();
+            console.log(dato)
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                url: getUrl(req),
+                data: dato
+            }
+            return res.status(200).json(response);
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    }
 }

@@ -113,13 +113,18 @@ CREATE TABLE `orders` (
   `user_id` int unsigned NOT NULL,
   `payment_id` int unsigned NOT NULL,
   `total` decimal(6,2) unsigned NOT NULL,
+  `products_id` int unsigned NOT NULL,
+  `number` int unsigned NOT NULL,
+  `amount` int unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_orders_status_idx` (`status_id`),
   KEY `FK_orders_users_idx` (`user_id`),
   KEY `FK_orders_payment_idx` (`payment_id`),
+  KEY `FK_orders_products_idx` (`products_id`),
   CONSTRAINT `FK_orders_payments` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`),
   CONSTRAINT `FK_orders_status` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`),
-  CONSTRAINT `FK_orders_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  CONSTRAINT `FK_orders_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `FK_orders_products` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
