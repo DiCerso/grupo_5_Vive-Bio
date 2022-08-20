@@ -17,8 +17,8 @@
 
         </div>
         <div class="box_nav_search-mobile">
-            <form action="">
-                <input type="text" class="navSearchBar">
+            <form action="/products/search" method="GET">
+                <input type="text" class="navSearchBar" id="keyword" name="keyword">
             </form>
         </div>
         <div class="options_mobile" id="menu">
@@ -58,7 +58,6 @@
             </div>
             <div class="nav_options-emergente">
                 <% if (locals.userLogin && (userLogin.rol=="admin" || userLogin.rol=="moderator" ) ) { %>
-                    <a href="/products/add" title="Añadir producto"><i class="fa-solid fa-plus"></i></a>
                     <a href="/products/list"><i class="fas fa-user-cog"
                             title="Configuraciones de Administrador"></i></a>
                     <% } %>

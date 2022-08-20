@@ -110,7 +110,6 @@ Carrusel
     width: 100%;
     height: 100%;
     background-image: url(/images/carousel_img_1.jpg);
-    /* background: linear-gradient(to right, rgba(0,0,0,0.7)15%,rgba(0,0,0,0.1)),url(/images/carousel_img_1.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -224,18 +223,52 @@ Carrusel
 }
 
 
+/** carrousel products **/
 
+.home .swiper-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 426px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    flex-direction: row;
+}
+
+.home .swiper-container::-webkit-scrollbar{
+    display: none;
+}
+
+.box-swiper{
+    margin: 0 25px;
+    
+}
+.box-swiper:first-child{
+
+    animation: moving 10s linear infinite;
+        
+}
+
+@keyframes moving{
+
+    0%{
+        margin-left: 30px;
+    }
+
+    100%{
+        margin-left: -200%;
+    }
+
+}
+
+/** end carrousel products **/
 /*************************************************
 primera parte del main
 *************************************************/
-.home .sect1 {
-    position: center;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
+
 
 .home .izquierda,
 .home .derecha {
@@ -466,37 +499,17 @@ segunda parte del main
     text-align: center;
     color: white;
     background-color: #7FA794C4;
-    margin: 30px 0;
-    height: 80px;
     border-radius: 20px;
-    margin: 0 auto 20px;
+    margin: 20px auto 20px;
     padding: 10px;
     width: 95%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 20px;
-    margin: 40px 27px 40px 27px;
     padding: 10px;
 }
 
-.home .titulares h1{
-    border-radius: 20px;
+.home .titulares h1 {
     font-size: 25px;
 }
-
-
-
-/*Productos en oferta*/
-/* .home main {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3px;
-    margin: auto;
-} */
 
 .home .productosRelacionados {
     color: white;
@@ -512,7 +525,6 @@ segunda parte del main
 
 .home .card.estilo-c {
     width: 250px;
-    margin-bottom: 40px;
 }
 
 
@@ -530,7 +542,7 @@ segunda parte del main
 
 .home .estilo-c .img-container {
     overflow: hidden;
-    height: 300px;
+    height: 350px;
     position: relative;
     border-radius: 10px;
 }
@@ -545,13 +557,13 @@ segunda parte del main
 
 .home .estilo-c:hover .img-container img {
     transform: scale(1.4);
-    
+
 }
 
 .home .estilo-c .info-container {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color:  #7fa794cb;
+    background-color: #7fa794cb;
     text-align: center;
     color: var(--VioletaOscuro);
     opacity: 0;
@@ -623,22 +635,24 @@ segunda parte del main
     align-items: center;
     justify-content: center;
     gap: 10px;
+
 }
 
 .home .producto-iconos a {
-    display: inline-flex;
+    display: flex;
     gap: 15px;
     background-color: var(--verdeClaro-Opaco);
-    margin-right: 10px;
+    /* margin-right: 10px; */
     height: 40px;
     width: 45px;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     border: solid 1px white;
+    margin: 10px;
 }
 
-.home .add_product_cart{
+.home .add_product_cart {
     display: inline-flex;
     gap: 15px;
     background-color: var(--verdeClaro-Opaco);
@@ -649,7 +663,7 @@ segunda parte del main
     justify-content: center;
     border-radius: 8px;
     border: solid 1px white;
-    color:white;
+    color: white;
     text-shadow: 0 0 2px black;
     font-size: 20px;
 }
@@ -722,6 +736,7 @@ segunda parte del main
         border-radius: 10px;
         border: 1px solid var(--verdeOscuro);
     }
+
     .slides p {
         background-color: unset;
         font-size: .9rem;
@@ -731,6 +746,7 @@ segunda parte del main
         letter-spacing: 2px;
         width: 60%;
     }
+
     .slides {
         height: 400px;
     }
@@ -837,27 +853,27 @@ segunda parte del main
         box-shadow: 0 0 20px aquamarine;
     }
 
-    
-.home .titulares h1{
-    border-radius: 10px;
-    font-size: 2.4rem;
-}
 
-.home .estilo-c .img-container .info-container {
+    .home .titulares h1 {
+        border-radius: 10px;
+        font-size: 2.4rem;
+    }
+
+    /* .home .estilo-c .img-container .info-container {
     opacity: 0;
     right: 0px;
 }
 .home .estilo-c .img-container:hover .info-container {
     opacity: 1;
     right: 0px;
-}
+} */
 
 }
 
 
 @media(min-width: 768px) {
 
-    .slides p{
+    .slides p {
         width: 40%;
         font-size: 1.2rem;
     }
@@ -969,4 +985,3 @@ segunda parte del main
 
 
 }
-

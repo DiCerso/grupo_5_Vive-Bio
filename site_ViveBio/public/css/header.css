@@ -14,7 +14,7 @@ start Emergent mobile
 .nav_emergente {
     position: fixed;
     width: 80px;
-    height: 250px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     right: 0;
@@ -68,7 +68,7 @@ start Emergent mobile
 }
 
 .show_nav_mobile {
-    margin-right: 0;
+    margin-right: 5px;
     position: fixed;
 }
 
@@ -130,12 +130,14 @@ Header mobile
     position: fixed;
     z-index: 40;
     background-color: rgba(0, 0, 0, .5);
-    transform: scale(0);
-    transition: .5s;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-out;
 }
 
 .activeSearch {
-    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
 }
 
 .navSearchBar {
@@ -301,6 +303,14 @@ Header mobile
 }
 
 @media(min-width: 426px) {
+
+    .header__opciones ul li a{
+        font-size: .8rem;
+    }
+
+    .box_nav_search-mobile {
+        display: none;
+    }
 
     .header__iconos a i {
         width: 75%;
@@ -479,9 +489,9 @@ Header mobile
 }
 
 @media(min-width: 768px) {
-
-    .header__opciones ul {
-        font-size: .9rem;
+    
+    .header__opciones ul li a{
+        font-size: 1.1rem;
     }
 
     .nav_emergente {
@@ -544,8 +554,9 @@ Header mobile
         display: flex;
         flex-direction: row;
         background-color: #7FA794;
+        padding: 10px;
         border-radius: 19px;
-        width: 140px;
+        width: auto;
         height: 50px;
         justify-content: space-around;
         align-items: center;

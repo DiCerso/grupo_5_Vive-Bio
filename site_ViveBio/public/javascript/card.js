@@ -1,4 +1,3 @@
-
 let boton = document.querySelector('.add_product_cart')
 let line = document.querySelector('.card_barra');
 

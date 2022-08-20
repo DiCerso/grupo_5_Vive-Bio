@@ -1,24 +1,8 @@
 const passport = require('passport')
-const db = require('../../src/database/models')
 
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const GOOGLE_CLIENT_ID = "887233456480-n3pb5q5rvjvpkngj0nmvdcgr8c1h6o3l.apps.googleusercontent.com"
 const GOOGLE_CLIENT_SECRET = "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"
-
-
-let signInGoogle = async function (email){
-    return console.log(email)
-    let sign = await fetch('/api/users/login', {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email
-        })
-    })
-}
-
 
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
@@ -28,7 +12,6 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true,
 },
     function (request, accessToken, refreshToken, profile, done) {
-        signInGoogle(profile.email)
         return done(null, profile);
     }));
 

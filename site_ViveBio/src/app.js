@@ -6,7 +6,8 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const app = express();
 const passport = require('passport');
-require('../public/javascript/loginGoogle');
+require('./loginGoogle');
+require('./loginFacebook');
 
 //session
 const session = require('express-session');
@@ -60,9 +61,6 @@ app.use('/api/users', usersRouterApi);
 
 /* PASSPORT GOOGLE*/
 
-/* const passport = require('passport'); */
-
-
 function isLoggedIn(req, res, next) {
   req.user ? next() : res.sendStatus(401);
 }
@@ -73,17 +71,68 @@ app.use(passport.session());
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['email', 'profile'] }
   ));
-  
+
+
+app.get('/login/facebook', passport.authenticate('facebook', {
+  scope: ['email', 'user_location']
+}));
+
 
 app.get('/auth/google/callback',
   passport.authenticate('google', {
-    successRedirect: '/',
+    successRedirect: '/protected',
     failureRedirect: '/auth/google/failure'
   })
 );
 
-app.get('/protected', isLoggedIn, (req, res) => {
-  res.send(`Welcome ${req.user.email}`)
+app.get('/protected', isLoggedIn, async (req, res) => {
+  const db = require('./database/models')
+  try {
+    let user = await db.User.findOne({
+      where: {
+        email: req.user.email
+      },
+      include: [
+        { association: 'rol' }
+      ]
+    })
+    if (user) {
+      req.session.userLogin = {
+        id: +user.id,
+        firstname: user.firstname.trim(),
+        lastname: user.lastname.trim(),
+        image: user.image,
+        username: user.username.trim(),
+        rol: user.rol.name.trim(),
+        ubication: user.ubication ? user.ubication.trim() : null
+      }
+      if (req.body.remember) {
+        res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+      }
+      return res.redirect('/');
+    }
+    if (!user) {
+      const newuser = await db.User.create({
+        firstname: req.user.name.givenName.trim(),
+        lastname: req.user.name.familyName.trim(),
+        username: req.user.email.trim(),
+        email: req.user.email.trim(),
+        rol_id: 2,
+        image: "defaultAvatar.png"
+      })
+      req.session.userLogin = {
+        id: newuser.id,
+        username: newuser.username,
+        rol: "user",
+        image: newuser.image,
+        ubication: null
+      }
+      res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+      return res.redirect("/");
+    }
+  } catch (error) {
+    console.log(error)
+  }
 });
 
 app.get('/auth/google/failure', (req, res) => {
@@ -91,6 +140,76 @@ app.get('/auth/google/failure', (req, res) => {
 });
 
 /* END GOOGLE SIGN IN */
+
+/* START FACEBOOK SIGN IN */
+
+app.get('/auth/facebook',
+  passport.authenticate('facebook', { scope: ['email'] }));
+
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/protectedsafe',
+    failureRedirect: '/auth/facebook/failure'
+  })
+);
+
+app.get('/protectedsafe', async (req, res) => {
+  const db = require('./database/models')
+  try {
+    let user = await db.User.findOne({
+      where: {
+        email: req.user.emails[0].value
+      },
+      include: [
+        { association: 'rol' }
+      ]
+    })
+    if (user) {
+      req.session.userLogin = {
+        id: user.id,
+        firstname: user.firstname.trim(),
+        lastname: user.lastname.trim(),
+        image: user.image,
+        username: user.username.trim(),
+        rol: user.rol.name.trim(),
+        ubication: user.ubication ? user.ubication.trim() : null
+      }
+      if (req.body.remember) {
+        res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+      }
+      return res.redirect('/');
+    }
+    if (!user) {
+      const newuser = await db.User.create({
+        firstname: req.user.name.givenName.trim(),
+        lastname: req.user.name.familyName.trim(),
+        username: req.user.emails[0].value.trim(),
+        email: req.user.emails[0].value.trim(),
+        rol_id: 2,
+        image: "defaultAvatar.png"
+      })
+      req.session.userLogin = {
+        id: newuser.id,
+        username: newuser.username,
+        rol: "user",
+        image: newuser.image,
+        ubication: null
+      }
+      res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+      return res.redirect("/");
+    }
+  } catch (error) {
+    console.log(error)
+  }
+});
+
+app.get('/auth/facebook/failure', (req, res) => {
+  res.send('Failed to authenticate..');
+});
+
+
+/* END FACEBOOK SIGN IN */
 
 
 // catch 404 and forward to error handler
