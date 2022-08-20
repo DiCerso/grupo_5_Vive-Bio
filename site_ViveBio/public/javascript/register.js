@@ -1,8 +1,8 @@
 console.log("register success");
 
-const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
+const regExLetter = /^[a-zA-ZÀ-ÿ\s]{2,20}$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
-const regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
+const regExEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 const regExPass = /^[a-zA-Z0-9\_\-]{5,12}$/;
 const regImage = /(.jpg|.jpeg|.png)$/;
 const inputs = document.querySelectorAll("#register-form input");
@@ -148,10 +148,10 @@ const validarFormulario = async (e) => {
     errorSubmitLogin.innerHTML = null;
     switch (e.target.name) {
         case "firstname":
-            verifyCamp(regExName, e.target, errorFirstname, errorFirstnameCross)
+            verifyCamp(regExLetter, e.target, errorFirstname, errorFirstnameCross)
             break;
         case "lastname":
-            verifyCamp(regExName, e.target, errorLastname, errorLastnameCross)
+            verifyCamp(regExLetter, e.target, errorLastname, errorLastnameCross)
             break;
         case "password":
             if (password2.value !== password.value) {

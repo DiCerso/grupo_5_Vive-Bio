@@ -196,8 +196,33 @@ module.exports = {
         }
 
     },
-    testlogin: (req, res) => {
-        return res.render('users/testLogin')
+    loginGoogle: async(req, res) => {
+        try {
+            const user = await db.User.findOne({
+                where: {
+                    email: req.session.userLogin
+                },
+                include: [
+                    { association: 'rol' }
+                ]
+            })
+            return res.send(user)
+            req.session.userLogin = {
+                id: +user.id,
+                firstname: user.firstname.trim(),
+                lastname: user.lastname.trim(),
+                image: user.image,
+                username: user.username.trim(),
+                rol: user.rol.name.trim(),
+                ubication : user.ubication ? user.ubication.trim() : null
+            }
+            if (req.body.remember) {
+                res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
+            }
+            return res.redirect('/');
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 

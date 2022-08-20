@@ -7,7 +7,7 @@ const { getUrl, isNumber } = require("../../helpers");
 
 
 module.exports = {
-  apiLogin: async(req,res) =>{
+  apiLogin: async (req, res) => {
     try {
       const user = await db.User.findOne({
         where: {
@@ -17,7 +17,7 @@ module.exports = {
           { association: 'rol' }
         ]
       })
-      
+
       req.session.userLogin = {
         id: user.id,
         firstname: user.firstname.trim(),
@@ -370,9 +370,9 @@ module.exports = {
           msg: "El usuario ha sido actualizado exitosamente"
         }
         return res.status(200).json(response)
-      } else{
+      } else {
         let user = await db.User.update({
-          ubication : null
+          ubication: null
         }, {
           where: {
             id: id
@@ -392,5 +392,11 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
+  },
+  addFavorite: async (req, res) => {
+
+  },
+  removeFavorite: async (req, res) => {
+
   }
 };

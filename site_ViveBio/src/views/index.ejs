@@ -3,125 +3,127 @@
 
 <%- include('./partials/head', { title : "Home" }) %>
 
-    <body class="home">
-        <%- include('./partials/header') %>
-
-            <!-- Inicio de carrusel -->
-            <div class="slider">
-                <div class="slides">
-                    <input type="radio" name="radio-btn" id="radio1">
-                    <input type="radio" name="radio-btn" id="radio2">
-                    <input type="radio" name="radio-btn" id="radio3">
-                    <input type="radio" name="radio-btn" id="radio4">
-                    <!-- imagenes de carrusel -->
-                    <div class="slide first">
-                        <p>"No heredamos la Tierra de nuestros ancestros, la tomamos prestadas de nuestros hijos" Proverbio nativo americano</p>
-                        <div class="img_1"></div>
-                    </div>
-                    <div class="slide">
-                        <p>Los productos naturales son ricos en vitaminas, minerales, antioxidantes, entre otras sustancias que estimulan la producción de aceites naturales, sin caer en excesos.</p>
-                        <div class="img_2"></div>
-                    </div>
-                    <div class="slide">
-                        <p>Todos los seres humanos tenemos una conexión neurobiológica con la naturaleza. Estar en contacto con ella nos proporciona bienestar físico y mental.</p>
-                        <div class="img_3"></div>
-                    </div>
-                    <div class="slide">
-                        <p>ViveBio invita a que vivamos libres de químicos dañinos; nuestros procesos productivos nacen desde la consciencia y el respeto.</p>
-                        <div class="img_4"></div>
-                    </div>
-                    <!-- fin de imagenes de carrusel -->
-                    <!-- botones manuales -->
-                    <div class="navigation-auto">
-                        <div class="auto-btn1"></div>
-                        <div class="auto-btn2"></div>
-                        <div class="auto-btn3"></div>
-                        <div class="auto-btn4"></div>
-                    </div>
-                    <!-- fin de botones manuales -->
-                </div>
-                <!-- botones para automatico -->
-                <div class="navigation-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
-                    <label for="radio4" class="manual-btn"></label>
-                </div>
-                <!-- fin de botones automaticos -->
+  <body class="home">
+    <%- include('./partials/header') %>
+      <main>
+        <!-- Inicio de carrusel -->
+        <div class="slider">
+          <div class="slides">
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <!-- imagenes de carrusel -->
+            <div class="slide first">
+              <p>"No heredamos la Tierra de nuestros ancestros, la tomamos prestadas de nuestros hijos" Proverbio nativo
+                americano</p>
+              <div class="img_1"></div>
             </div>
-            <!-- fin de carrusel -->
-            <main>
-                <div class="titulares">
-                    <h1>Productos en Oferta</h1>
+            <div class="slide">
+              <p>Los productos naturales son ricos en vitaminas, minerales, antioxidantes, entre otras sustancias que
+                estimulan la producción de aceites naturales, sin caer en excesos.</p>
+              <div class="img_2"></div>
+            </div>
+            <div class="slide">
+              <p>Todos los seres humanos tenemos una conexión neurobiológica con la naturaleza. Estar en contacto con
+                ella nos proporciona bienestar físico y mental.</p>
+              <div class="img_3"></div>
+            </div>
+            <div class="slide">
+              <p>ViveBio invita a que vivamos libres de químicos dañinos; nuestros procesos productivos nacen desde la
+                consciencia y el respeto.</p>
+              <div class="img_4"></div>
+            </div>
+            <!-- fin de imagenes de carrusel -->
+            <!-- botones manuales -->
+            <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+            </div>
+            <!-- fin de botones manuales -->
+          </div>
+          <!-- botones para automatico -->
+          <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+          </div>
+          <!-- fin de botones automaticos -->
+        </div>
+        <!-- fin de carrusel -->
+
+        <div class="titulares">
+          <h1>Productos en Oferta</h1>
+        </div>
+        <section class="swiper-container" id="flavoursContainer">
+          <% products.forEach(({id,productImages,name,discount,property,price})=> { %>
+            <article class="box-swiper">
+              <div class="card estilo-c">
+                <a href="/products/card/<%= id %> ">
+                  <div class="img-container">
+                    <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
+                    <span class="promo"><%= discount %>% off</span>
+                      <div class="info-container">
+                        <div class="Card-info-texto">
+                          <h2>
+                          <%= name %>
+                          </h2>
+                          <span>
+                          <%= property.name %>
+                          </span>
+                          <p>$
+                          <% if (discount) { %>
+                            <%= toThousand(price - (price * discount / 100)) %>
+                              <% }else{ %>
+                                <%= toThousand(price) %>
+                                  <% } %>
+                          </p>
+                        </div>
+                    </a>
+                <div class="card-c-iconos">
+                    <div class="producto-iconos">
+                      <% if (locals.userLogin) { %>
+                      <% if (userLogin.category==="admin" ) { %>
+                      <a href="/products/edit/<%= id %> " title="Editar producto"><i class="fa-solid fa-pen"></i></a>
+                      <% } %>
+                        <% } %>
+                          <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                          <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                          <a href="/products/cart/" title="Agregar producto al carrito"><i
+                              class="fa-solid fa-cart-shopping"></i></a>
                 </div>
-                <section class="sect1">
-                    <% products.forEach(({id,productImages,name,discount,property,price})=> { %>
-                        <article>
-                            <div class="card estilo-c">
-                              <a href="/products/card/<%= id %> ">
-                              <div class="img-container">
-                                <img src="/images/products/<%= productImages[0].name%>" alt="imagen del producto">
-                                <span class="promo">
-                                  <%= discount %>% off
-                                </span>
-                                <div class="info-container">
-                                  <div class="Card-info-texto">
-                                      <h2>
-                                        <%= name %>
-                                      </h2>
-                                    <span>
-                                      <%= property.name %>
-                                    </span>
-                                    <p>$
-                                      <% if (discount) { %>
-                                        <%= toThousand(price - (price * discount / 100)) %>
-                                          <% }else{ %>
-                                            <%= toThousand(price) %>
-                                              <% } %>
-                                    </p>
-                                  </a>
-                                  </div>
-                                  <div class="card-c-iconos">
-                                    <div class="producto-iconos">
-                                      <% if (locals.userLogin) { %>
-                                        <% if (userLogin.category==="admin" ) { %>
-                                          <a href="/products/edit/<%= id %> " title="Editar producto"><i
-                                              class="fa-solid fa-pen"></i></a>
-                                          <% } %>
-                                            <% } %>
-                                              <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
-                                              <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                              <a href="/products/cart/" title="Agregar producto al carrito"><i
-                                                  class="fa-solid fa-cart-shopping"></i></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-            
-                            </div>
-                          </article>
-                        <% }) %>
-                </section>
-                <div class='titulares'>
-                    <h1>Categorías</h1>
+              </div>
+            </div>
+          </div>
+
+              </div>
+            </article>
+            <% }) %>
+        </section>
+        <div class='titulares'>
+          <h1>Categorías</h1>
+        </div>
+        <section class="sect2">
+          <% category.forEach(cate=> { %>
+            <article class="categorias__home">
+              <a href="/products/all#<%= cate.name %>">
+                <div class="<%= cate.name %>__home" id="cate"></div>
+                <div class="barra__cate__home">
+                  <p>
+                    <%= cate.name %>
+                  </p>
                 </div>
-                <section class="sect2">
-                    <% category.forEach(cate=> { %>
-                        <article class="categorias__home">
-                            <a href="/products/all#<%= cate.name %>">
-                                <div class="<%= cate.name %>__home" id="cate"></div>
-                                <div class="barra__cate__home">
-                                    <p>
-                                        <%= cate.name %>
-                                    </p>
-                                </div>
-                            </a>
-                        </article>
-                        <% }) %>
-                </section>
-            </main>
-            <%- include('./partials/footer') %>
-                <script type="text/javascript" src="/javascript/carrusel.js"></script>
-    </body>
+              </a>
+            </article>
+            <% }) %>
+        </section>
+      </main>
+      <%- include('./partials/footer') %>
+        <script type="text/javascript" src="/javascript/carrusel.js"></script>
+        <script src="/javascript/home.js"></script>
+  </body>
 
 </html>

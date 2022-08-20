@@ -405,6 +405,7 @@ module.exports = {
     },
 
     search: (req, res) => {
+        
         db.Product.findAll({
             where: {
                 [Op.or]: [{ name: { [Op.substring]: req.query.keyword } }],

@@ -7,28 +7,27 @@ const toThousand = (n) =>
 
 
 module.exports = {
-    index : async (req, res) =>{
-
+    index: async (req, res) => {
+        
         try {
             let products = await db.Product.findAll({
-                limit : 3, 
-                include : [
-                    {association: 'productImages'},
+                limit: 3,
+                include: [
+                    { association: 'productImages' },
                     { association: 'property' }
                 ]
             })
             let category = await db.Category.findAll({
-                limit : 3
+                limit: 3
             })
-            
-                return res.render('index', {
-                    products,
-                    category,
-                    toThousand
-                })
+
+            return res.render('index', {
+                products,
+                category,
+                toThousand
+            })
         } catch (error) {
             console.log(error);
         }
-
     }
 }
