@@ -239,7 +239,7 @@ module.exports = {
           ok: true,
           meta: {
             status: 200
-          },
+          }, 
           url: getUrl(req),
           msg: "El usuario se ha eliminado exitosamente"
         }

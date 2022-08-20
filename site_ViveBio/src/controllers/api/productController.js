@@ -951,7 +951,7 @@ module.exports = {
                 user_id: user_id,
                 payment_id,
                 total,
-                products_id,
+                products_id : +products_id,
                 number : num,
                 status_id : status,
                 amount : amount
@@ -966,15 +966,7 @@ module.exports = {
             }
             return res.status(200).json(response);
         } catch (error) {
-            let response = {
-                ok: false,
-                meta: {
-                    status: 500,
-                },
-                url: getUrl(req),
-                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
-            }
-            return res.status(500).json(response);
+            console.log(error)
         }
     },
     orders : async (req, res) => {
@@ -1006,8 +998,17 @@ module.exports = {
     OrdersSearch : async (req, res) => {
         try {
             let {id} = req.params;
-            let dato = await db.Order.findAll();
-            console.log(dato)
+            let dato = await db.Order.findAll({
+                where : {
+                    user_id : id
+                },
+                order : [
+                    ['number', 'DESC']
+                ],
+                include: [
+                    { association: 'products' }
+                ]
+            });
             let response = {
                 ok: true,
                 meta: {

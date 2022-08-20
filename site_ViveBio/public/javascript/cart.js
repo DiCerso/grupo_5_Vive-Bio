@@ -275,26 +275,38 @@ savechanges.addEventListener('click', async function () {
 })
 
 let purchase = async function () {
-    if (inputubication.value == "No hay ubicación" || inputubication.value == "") {
-        Swal.fire({
-            title: "Tiene que ingresar una ubicacion!",
-            icon: "warning",
-            position: 'center'
-        })
-    } else if (payment.value == "0") {
-        Swal.fire({
-            title: "Tiene que ingresar un metodo de pago",
-            icon: "warning",
-            position: 'center'
-        })
-    } else {
-        createOrder(1);
-        Swal.fire({
-            title: "Compra realizada con exito",
-            icon: "success",
-            position: 'center'
-        })
+    try {
+        let car = await cart();
+        if (inputubication.value == "No hay ubicación" || inputubication.value == "") {
+            Swal.fire({
+                title: "Tiene que ingresar una ubicacion!",
+                icon: "warning",
+                position: 'center'
+            })
+        } else if (payment.value == "0") {
+            Swal.fire({
+                title: "Tiene que ingresar un metodo de pago",
+                icon: "warning",
+                position: 'center'
+            })
+        } else if (car.data[0].length == 0) {
+            Swal.fire({
+                title: "No hay productos ingresados",
+                icon: "warning",
+                position: 'center'
+            })
+        } else {
+            createOrder(1);
+            Swal.fire({
+                title: "Compra realizada con exito",
+                icon: "success",
+                position: 'center'
+            })
+        }
+    } catch (error) {
+        console.log(error)
     }
+
 }
 let ultimaOrden = async function () {
     try {
