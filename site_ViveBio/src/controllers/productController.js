@@ -298,7 +298,7 @@ module.exports = {
                         (result) => console.log(result)
                     );
                 }
-                return res.redirect(`/products/Card/${req.params.id}`);
+                return res.redirect(`/products/list`);
             } catch (error) {
                 console.log(error);
             }
