@@ -130,51 +130,54 @@ window.addEventListener("load", function () {
     /*Image validation*/
     image.addEventListener('change',
         function fileValidation() {
-            var fileInput = document.getElementById('images');
-            var filePath = fileInput.value;
+            let fileInput = document.getElementById('images');
+            let filePath = fileInput.value;
             if (!expresiones.images.exec(filePath)) {
                 errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
                 fileInput.value = '';
                 errors = true
                 return false;
-                
+
             } else {
                 /*Image preview*/
                 if (fileInput.files && fileInput.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        document.getElementById('imagePreview').innerHTML = '<img src="' + e.target.result + '"/>';
-                    };
-                    reader.readAsDataURL(fileInput.files[0]);
+                    for (let i = 0; i < fileInput.files.length; i++) {
+                    const element = URL.createObjectURL(fileInput.files[i]);
+                    const imagen = document.createElement("img");
+                    imagen.setAttribute('class', "previewAvatar")
+                    imagen.src = element;
+                    document.querySelector('#imagePreview').appendChild(imagen);
                     errors = false
-                    errorImages.innerHTML = null ;
+                    errorImages.innerHTML = null;
+                    }
+
                 }
 
             }
         })
 
 
- /* Validation submit */
- formulario.addEventListener('submit', function (e) {
-    forms.forEach((form) => {
-        if (form.classList.contains('errorActive') || errors == true ){
-            e.preventDefault()
-                    errors = true;
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Por favor, revisa los campos agregados, no pueden quedar vacíos',
-                      })
+    /* Validation submit */
+    formulario.addEventListener('submit', function (e) {
+        forms.forEach((form) => {
+            if (form.classList.contains('errorActive') || errors == true) {
+                e.preventDefault()
+                errors = true;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Por favor, revisa los campos agregados, no pueden quedar vacíos',
+                })
 
-        }else {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Producto agregado con éxito',
-                showConfirmButton: false,
-                timer: 3000,
-                setTimeout: 2000,
-              })
+            } else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Producto agregado con éxito',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    setTimeout: 2000,
+                })
                 formulario.submit();
             }
         })

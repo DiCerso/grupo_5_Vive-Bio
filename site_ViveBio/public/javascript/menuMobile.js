@@ -5,7 +5,10 @@ const navclose = document.querySelector('.navClose')
 const btnSearch = document.querySelector('#btnSearch')
 const boxSearch = document.querySelector('.box_nav_search-mobile')
 const inpSearch = document.querySelector('.navSearchBar')
-
+const btnfav1 = document.querySelector('#btn_mob_favourite');
+const boxfav = document.querySelector('#emergent_fav');
+const closefav = document.querySelector('#close_fav');
+const btnfavdesk= document.querySelector('#btn_delete_favourite_desk')
 btnMenu.addEventListener("click", function () {
     burger.classList.toggle('active')
     navclose.classList.toggle('active')
@@ -22,7 +25,18 @@ window.addEventListener('mouseup', (event) => {
     }
 })
 
-/* btnSearch.addEventListener('blur',()=>{
-    boxSearch.classList.remove('activeSearch')
-}) */
+btnfav1.addEventListener('click',()=>{
+    boxfav.classList.toggle('activefav')
+})
+
+closefav.addEventListener('click',()=>{
+    boxfav.classList.remove('activefav')
+})
+
+btnfavdesk.addEventListener('click',()=>{
+    boxfav.classList.toggle('activefav')
+})
+
+
+
 

@@ -6,6 +6,11 @@
 
 }
 
+.previewAvatar {
+    width: 8rem;
+    height: 8rem;
+}
+
 .add_container {
     padding: 20px 0 20px;
     width: 90%;

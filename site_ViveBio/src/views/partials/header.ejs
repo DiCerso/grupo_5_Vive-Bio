@@ -1,125 +1,161 @@
 <header class="header">
-    <div class="header_mobile-container" id="header_mobile">
-        <div class="mobile_header">
-            <div class="mobile_logo">
-                <a href="/"><img src="/images/logo.png" alt="logo"></a>
-            </div>
-
-            <div class="nav_left-btns">
-                <div class="box_btn-search">
-                    <span class="navSearch"><i id="btnSearch" class="fas fa-search"></i></span>
-                </div>
-                <div class="nav_mobile_menu" id="btnMenu">
-                    <span class="navBurger" id="burger"><i class="fas fa-bars"></i></span>
-                    <span class="navClose"><i class="fas fa-times"></i></span>
-                </div>
-            </div>
-
+  <!-- <div class="favourite_container"> -->
+    <div class="box_favourite_container" id="emergent_fav">
+        <span class="tite_favourites">Favoritos</span>
+        <span class="close_fav" id="close_fav"><i class="fas fa-times"></i></span>
+      <article class="box_favourite_product">
+        <span class="icon_delete_favourite" id="btn_delete_favourite"><i class="fas fa-times-circle"></i></span>
+        <div class="box_favourite_product_image">
+          <img
+            class="favourite_product_image"
+            src="/images/products/Acondicionador-argán-03.jpg"
+            alt=""
+          />
         </div>
-        <div class="box_nav_search-mobile">
-            <form action="/products/search" method="GET">
-                <input type="text" class="navSearchBar" id="keyword" name="keyword">
-            </form>
+        <div class="box_favourite_product_description">
+          <span class="favourite_product_description">title</span>
         </div>
-        <div class="options_mobile" id="menu">
-            <% if (!locals.userLogin) { %>
-                <div class="usuario_mobile">
-                    <a href="/users/login"><i class="fas fa-user-circle"></i>Login</a>
-                </div>
-                <% } else{ %>
-                    <div class="usuario_mobile-log">
-                        <a href="/users/profile/<%= userLogin.id %>">
-                            <img src="/images/users/<%= userLogin.image %>" alt="">
-                            <span style="font-size: 1.3rem;">
-                                <%= userLogin.username %>
-                            </span>
-                            <span style="text-transform:uppercase;font-size: 0.8rem;">
-                                <%= userLogin.rol %>
-                            </span>
-                        </a>
-                        <a href="/users/logout" style="margin-top: 5px;font-size:0.8rem;color:var(--verdeFuerte)"
-                            title="Salir">Logout</a>
-                    </div>
-                    <% } %>
-                        <ul class="menu">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/products/all">Productos</a></li>
-                            <li><a href="/about">Quiénes somos</a></li>
-                            <li><a href="">Contacto</a></li>
-                        </ul>
-        </div>
+      </article>
     </div>
-    <!-- inicio opciones emergente -->
-    <% if (locals.userLogin) { %>
-        <div class="nav_emergente" id="emergente">
-            <div class="solapa" id="btnNavMob">
-                <span class="solapa1" id="solapa1"></span>
-                <span class="solapa2" id="solapa2"></span>
-            </div>
-            <div class="nav_options-emergente">
-                <% if (locals.userLogin && (userLogin.rol=="admin" || userLogin.rol=="moderator" ) ) { %>
-                    <a href="/products/list"><i class="fas fa-user-cog"
-                            title="Configuraciones de Administrador"></i></a>
-                    <% } %>
-                        <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
-                        <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
-                                title="Carrito de compras"></i></a>
-                        <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-            </div>
+  <!-- </div> -->
+  <div class="header_mobile-container" id="header_mobile">
+    <div class="mobile_header">
+      <div class="mobile_logo">
+        <a href="/"><img src="/images/logo.png" alt="logo" /></a>
+      </div>
+
+      <div class="nav_left-btns">
+        <div class="box_btn-search">
+          <span class="navSearch"
+            ><i id="btnSearch" class="fas fa-search"></i
+          ></span>
         </div>
-        <% } %>
+        <div class="nav_mobile_menu" id="btnMenu">
+          <span class="navBurger" id="burger"><i class="fas fa-bars"></i></span>
+          <span class="navClose"><i class="fas fa-times"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="box_nav_search-mobile">
+      <form action="/products/search" method="GET">
+        <input type="text" class="navSearchBar" id="keyword" name="keyword" />
+      </form>
+    </div>
+    <div class="options_mobile" id="menu">
+      <% if (!locals.userLogin) { %>
+      <div class="usuario_mobile">
+        <a href="/users/login"><i class="fas fa-user-circle"></i>Login</a>
+      </div>
+      <% } else{ %>
+      <div class="usuario_mobile-log">
+        <a href="/users/profile/<%= userLogin.id %>">
+          <img src="/images/users/<%= userLogin.image %>" alt="" />
+          <span style="font-size: 1.3rem"> <%= userLogin.username %> </span>
+          <span style="text-transform: uppercase; font-size: 0.8rem">
+            <%= userLogin.rol %>
+          </span>
+        </a>
+        <a
+          href="/users/logout"
+          style="margin-top: 5px; font-size: 0.8rem; color: var(--verdeFuerte)"
+          title="Salir"
+          >Logout</a
+        >
+      </div>
+      <% } %>
+      <ul class="menu">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/products/all">Productos</a></li>
+        <li><a href="/about">Quiénes somos</a></li>
+        <li><a href="">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- inicio opciones emergente -->
+  <% if (locals.userLogin) { %>
+  <div class="nav_emergente" id="emergente">
+    <div class="solapa" id="btnNavMob">
+      <span class="solapa1" id="solapa1"></span>
+      <span class="solapa2" id="solapa2"></span>
+    </div>
+    <div class="nav_options-emergente">
+      <% if (locals.userLogin && (userLogin.rol=="admin" ||
+      userLogin.rol=="moderator" ) ) { %>
+      <a href="/products/list"
+        ><i class="fas fa-user-cog" title="Configuraciones de Administrador"></i
+      ></a>
+      <% } %>
+      <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+      <a href="/products/cart"
+        ><i class="fa-solid fa-cart-shopping" title="Carrito de compras"></i
+      ></a>
+      <span id="btn_mob_favourite"><i class="fa-regular fa-heart" title="Favoritos"></i></span>
+    </div>
+  </div>
+  <% } %>
 
-            <!-- fin opciones emergente -->
-            <div class="header__container">
-                <div class="header__logo">
-                    <a href="/"><img src="/images/logo.png" alt="logo"></a>
-                </div>
-                <form class="header__busqueda" action="/products/search" method="GET">
-                    <input type="text" name="keyword" id="keyword" class="barra" style="padding-left:5px;">
-                    <button type="submit" class="barra__lupa"><i class="fas fa-search"></i></button>
-                </form>
-                <div class="header__user">
-
-                    <% if (locals.userLogin) { %>
-                        <a href="/users/profile/<%= userLogin.id %>">
-                            <img src="/images/users/<%= userLogin.image %>" alt="" class="header_image-profile">
-                            <p><%= userLogin.username %></p>
-                        </a>
-                        <a href="/users/logout" class="logout" title="Salir"><i
-                                class="fa-solid fa-arrow-right-to-bracket"></i></a>
-                        <% }else{ %>
-                            <a href="/users/login">
-                                <i class="fa-regular fa-circle-user icon__user"></i>
-                                <p>Logueate</p>
-                            </a>
-                            <% } %>
-
-                </div>
-            </div>
-            <nav class="header__nav">
-                <div class="header__localizacion">
-                    <a href="">Estas en "lugar"</a>
-                </div>
-                <div class="header__opciones">
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/products/all">Productos</a></li>
-                        <li><a href="/about">Quiénes somos</a></li>
-                        <li><a href="/contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="header__iconos">
-                    <% if (locals.userLogin) { %>
-                        <% if (locals.userLogin && (userLogin.rol=="admin" || userLogin.rol=="moderator" ) ) { %>
-                            <a href="/products/list"><i class="fas fa-user-cog"
-                                    title="Configuraciones de Administrador"></i></a>
-                            <% } %>
-                                <% } %>
-                                    <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
-                                    <a href="/products/cart"><i class="fa-solid fa-cart-shopping"
-                                            title="Carrito de compras"></i></a>
-                                    <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-
-                </div>
-            </nav>
+  <!-- fin opciones emergente -->
+  <div class="header__container">
+    <div class="header__logo">
+      <a href="/"><img src="/images/logo.png" alt="logo" /></a>
+    </div>
+    <form class="header__busqueda" action="/products/search" method="GET">
+      <input
+        type="text"
+        name="keyword"
+        id="keyword"
+        class="barra"
+        style="padding-left: 5px"
+      />
+      <button type="submit" class="barra__lupa">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+    <div class="header__user">
+      <% if (locals.userLogin) { %>
+      <a href="/users/profile/<%= userLogin.id %>">
+        <img
+          src="/images/users/<%= userLogin.image %>"
+          alt=""
+          class="header_image-profile"
+        />
+        <p><%= userLogin.username %></p>
+      </a>
+      <a href="/users/logout" class="logout" title="Salir"
+        ><i class="fa-solid fa-arrow-right-to-bracket"></i
+      ></a>
+      <% }else{ %>
+      <a href="/users/login">
+        <i class="fa-regular fa-circle-user icon__user"></i>
+        <p>Logueate</p>
+      </a>
+      <% } %>
+    </div>
+  </div>
+  <nav class="header__nav">
+    <div class="header__localizacion">
+      <a href="">Estas en "lugar"</a>
+    </div>
+    <div class="header__opciones">
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/products/all">Productos</a></li>
+        <li><a href="/about">Quiénes somos</a></li>
+        <li><a href="/contact">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="header__iconos">
+      <% if (locals.userLogin) { %> <% if (locals.userLogin &&
+      (userLogin.rol=="admin" || userLogin.rol=="moderator" ) ) { %>
+      <a href="/products/list"
+        ><i class="fas fa-user-cog" title="Configuraciones de Administrador"></i
+      ></a>
+      <% } %> <% } %>
+      <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+      <a href="/products/cart"
+        ><i class="fa-solid fa-cart-shopping" title="Carrito de compras"></i
+      ></a>
+      <span id="btn_delete_favourite_desk" ><i class="fa-regular fa-heart" title="Favoritos"></i></span>
+    </div>
+  </nav>
 </header>

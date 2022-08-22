@@ -11,7 +11,7 @@ module.exports = {
         
         try {
             let products = await db.Product.findAll({
-                limit: 3,
+                limit: 10,
                 include: [
                     { association: 'productImages' },
                     { association: 'property' }

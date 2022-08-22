@@ -565,11 +565,11 @@
         font-size: 12px;
     }
 
-    .add_product_cart i:hover {
+    /* .add_product_cart i:hover {
         color: var(--azulMarino);
         background-color: white;
         border: 1px solid var(--azulMarino);
-    }
+    } */
 
     /*NUESTRA COMUNIDAD OPINA*/
     .productCard .box-perfiles {

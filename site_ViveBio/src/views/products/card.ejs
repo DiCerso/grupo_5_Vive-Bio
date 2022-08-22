@@ -35,11 +35,11 @@
                     <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
                       <button type="submit" title="Eliminar producto" class="icons__hover"><i class="fa-solid fa-trash-can"></i></button>
                     </form>
-                    < href="/Products/edit/<%= product.id %>" class="icons__hover" title="Editar producto"><i
+                    <a href="/Products/edit/<%= product.id %>" class="icons__hover" title="Editar producto"><i
                         class="fa-solid fa-pen"></i></a>
                     <% } %>
                       <% } %>
-                        <button class="add_favourite" value="<%= product.id %>><i class="fa-regular fa-heart" title="Favorito"></i></button>
+                        <button class="add_favourite" value="<%= product.id %>"><i class="fa-regular fa-heart" title="Favorito"></i></button>
                         <a href="#" title="Compartir enlace" class="icons__hover" ><i class="fa-solid fa-share-nodes"></i></a>
                         <% if (locals.userLogin) { %>
                           <button title="Agregar producto al carrito" class="add_product_cart"
@@ -97,8 +97,7 @@
                         <div class="producto-iconos">
                           <% if (locals.userLogin) { %>
                             <% if (userLogin.category==="admin" ) { %>
-                              <a href="/products/edit/<%= id %> " title="Editar producto"><i
-                                  class="fa-solid fa-pen"></i></a>
+                              <a href="/products/edit/<%= id %>" title="Editar producto"><i class="fa-solid fa-pen"></i></a>
                               <% } %>
                                 <% } %>
                                   <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>

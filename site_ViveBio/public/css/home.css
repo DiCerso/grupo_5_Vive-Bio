@@ -225,7 +225,7 @@ Carrusel
 
 /** carrousel products **/
 
-.home .swiper-container {
+.home .carrousel_product_container {
     margin: auto;
     display: flex;
     align-items: center;
@@ -237,30 +237,69 @@ Carrusel
     flex-direction: row;
 }
 
-.home .swiper-container::-webkit-scrollbar{
+.home .carrousel_product_container::-webkit-scrollbar {
     display: none;
 }
 
-.box-swiper{
+.box-swiper {
     margin: 0 25px;
-    
-}
-.box-swiper:first-child{
 
-    animation: moving 10s linear infinite;
-        
 }
 
-@keyframes moving{
+.box-swiper:first-child {
 
-    0%{
-        margin-left: 30px;
+    animation: moving 35s ease infinite;
+    animation-delay: 1s;
+
+}
+
+@keyframes moving {
+
+    0% {
+        margin-left: 25px;
     }
 
-    100%{
-        margin-left: -200%;
+    10% {
+        margin-left: -90%;
     }
 
+    20% {
+        margin-left: -190%;
+    }
+
+    30% {
+        margin-left: -290%;
+    }
+
+    40% {
+        margin-left: -390%;
+    }
+
+    50% {
+        margin-left: -490%;
+    }
+
+    60% {
+        margin-left: -590%;
+    }
+
+    70% {
+        margin-left: -690%;
+    }
+
+    80% {
+        margin-left: -790%;
+    }
+
+    90% {
+        margin-left: -890%;
+    }
+
+
+}
+
+.box-swiper:first-child.disableMove {
+    animation-play-state: paused;
 }
 
 /** end carrousel products **/
@@ -545,6 +584,7 @@ segunda parte del main
     height: 350px;
     position: relative;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .home .estilo-c .img-container img {
@@ -698,6 +738,66 @@ segunda parte del main
 }
 
 @media(min-width:426px) {
+    @keyframes moving {
+
+        0% {
+            margin-left: 40px;
+        }
+
+        10% {
+            margin-left: -100%;
+        }
+
+        20% {
+            margin-left: -210%;
+        }
+
+        30% {
+            margin-left: -320%;
+        }
+
+        40% {
+            margin-left: -430%;
+        }
+
+        50% {
+            margin-left: -540%;
+        }
+
+        60% {
+            margin-left: -650%;
+        }
+
+        70% {
+            margin-left: -760%;
+        }
+
+        80% {
+            margin-left: -870%;
+        }
+
+        90% {
+            margin-left: -980%;
+        }
+
+
+    }
+
+    .box-swiper {
+        margin: 0 40px;
+    }
+
+    .box-swiper:first-child {
+
+        animation: moving 35s ease infinite;
+        animation-delay: 2s;
+
+    }
+
+    .home .carrousel_product_container {
+        /* width: 80%; */
+        width: 500px;
+    }
 
     /* START CARROUSEL TABLET*/
     .img_1 {
@@ -872,6 +972,45 @@ segunda parte del main
 
 
 @media(min-width: 768px) {
+    @keyframes moving {
+
+        0% {
+            margin-left: 0;
+        }
+
+        20% {
+            margin-left: -82%;
+        }
+
+        40% {
+            margin-left: -165%;
+        }
+
+        60%{
+            margin-left: -247%;
+        }
+
+        80%{
+            margin-left: -305%
+        }
+
+    }
+
+    .box-swiper {
+        margin: 0 30px;
+    }
+
+    .box-swiper:first-child {
+
+        animation: moving 20s ease infinite;
+        animation-delay: 2s;
+        margin-left:0 ;
+
+    }
+
+    .home .carrousel_product_container {
+        width: 750px;
+    }
 
     .slides p {
         width: 40%;
@@ -982,6 +1121,43 @@ segunda parte del main
     .home .estilo-c .info-container {
         top: 55%;
     }
+}
+
+@media(min-width:1200px){
+    @keyframes moving {
+
+        0% {
+            margin-left: 0;
+        }
+
+        30% {
+            margin-left: -85%;
+        }
+
+        60% {
+            margin-left: -169%;
+        }
+
+        70%{
+            margin-left: -178%;
+        }
 
 
+    }
+
+    .box-swiper {
+        margin: 0 30px;
+    }
+
+    .box-swiper:first-child {
+
+        animation: moving 20s ease infinite;
+        animation-delay: 2s;
+        margin-left:0 ;
+
+    }
+
+    .home .carrousel_product_container {
+        width: 1100px;
+    }
 }
