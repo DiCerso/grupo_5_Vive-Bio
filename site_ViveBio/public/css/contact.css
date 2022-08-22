@@ -5,6 +5,9 @@
 
 .contact .container {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    display: flex;
     justify-content: space-around;
     padding: 30px;
     backdrop-filter: blur(4px);
@@ -13,21 +16,71 @@
     border: 1px solid green;
     box-shadow: 2px 2px 2px 2px aquamarine;
     border-radius: 20px;
+    background-image: url(/images/contacto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    object-fit: contain;
+    margin: 20px auto;
 }
 
 .contact h1, h2{
-    color: var(--VioletaOscuro);
     margin-bottom: 2px;
+    color: var(--VioletaOscuro);
+    border-radius: 8px;
+    padding: 3px;
 }
-
+.contact h2{
+background-color: rgba(255, 255, 255, 0.856);
+}
 .contact .formulario form{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    background-color: rgba(191, 219, 206, 0.952);
+}
+
+.contact .contact_input{
+    border-radius: 8px; 
+    border: 1ox solid green;
 }
 
 .contact .enviar{
     background-color: var(--verdeClaro);
-    color: var(--azulSuave);
+    color: var(--VioletaOscuro);
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.contact iframe{
+    width: 100%;
+    border-radius: 8px;
+}
+
+.contact .contact_info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: var(--verdeClaro);
+    color: var(--VioletaOscuro);
+    text-shadow: none;
+    padding: 4px;
     font-size: 12px;
+    border-radius: 8px;
+}
+
+@media (min-width: 460px) {
+    .contact .container{
+        width: 60%;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 760px) {
+    .contact .container{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+    }
 }
