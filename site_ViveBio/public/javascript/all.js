@@ -75,10 +75,8 @@ window.addEventListener('load', async function () {
     console.log("all success!!!")
     try {
         let carrito = await cart();
-        console.log(carrito)
 
         carrito.data[0].forEach(producto => {
-            console.log(`.cart_button_${producto.product_id}`)
             document.querySelector(`.cart_button_${producto.product_id}`).style.backgroundColor = "#D9E66B";
             document.querySelector(`.cart_barra_${producto.product_id}`).style.display = "block";
         });

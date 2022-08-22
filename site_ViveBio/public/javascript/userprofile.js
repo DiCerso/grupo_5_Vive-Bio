@@ -122,7 +122,6 @@ let enviar_ubi = async function(id, name){
             await ubicationuser(ubication, id);
             await back_profile(name)
         }else{
-            console.log("error")//elimina su municipio
             await ubicationuser(null, id);
             await back_profile(name)
         }
@@ -216,6 +215,5 @@ window.addEventListener('load', async function () {
         ubication.innerHTML = `Cambiar ubicación`
     }
     let variable = await Orders(usuario.data.user[0].id)
-    console.log(variable)
     acthistorial(variable)
 })

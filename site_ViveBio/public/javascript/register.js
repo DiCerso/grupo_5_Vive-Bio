@@ -224,7 +224,7 @@ impImage.addEventListener('change', () => {
         for (let i = 0; i < fileInput.files.length; i++) {
             const element = URL.createObjectURL(fileInput.files[i]);
             const imagen = document.createElement("img");
-            imagen.setAttribute('class', "previewAvatar")
+            imagen.setAttribute('class', "previewAvatar");
             imagen.src = element;
             document.querySelector('.box-image').appendChild(imagen);
         }

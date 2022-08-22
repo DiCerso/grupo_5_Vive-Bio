@@ -179,7 +179,6 @@ let provincias = async function (dat) {
         if (dat != "No hay ubicación") {
             let dato = await fetch('https://apis.datos.gob.ar/georef/api/localidades?max=1000&nombre=' + dat);
             let datoMuni = await dato.json()
-            console.log(datoMuni)
             provinces.provincias.forEach(provincia => {
                 if (datoMuni.localidades[0].provincia.nombre == provincia.nombre) {
                     document.querySelector("#provinciaSelect").innerHTML += `<option value="${provincia.nombre}" selected> ${provincia.nombre} </option>`
@@ -353,7 +352,6 @@ window.addEventListener('load', async function () {
     console.log("cart success!!!")
     let carrito = await cart();
     await carga(carrito);
-    console.log(carrito)
     let usuario = carrito.data[4].user
     if (usuario.ubication != null) {
         ubicacion(carrito.data[4].user.ubication)
