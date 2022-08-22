@@ -22,8 +22,7 @@ const expresiones = {
 
 window.addEventListener("load", function () {
 
-
-    const validarFormulario = (e) => {
+    let validarFormulario = (e) => {
         switch (e.target.name) {
             case "name":
                 if (expresiones.productName.test(e.target.value)) {
@@ -120,8 +119,106 @@ window.addEventListener("load", function () {
                 break;
         }
     }
+    let formFinal = (nombre, value) => {
+        switch (nombre) {
+            case "name":
+                if (expresiones.productName.test(value)) {
+                    productName.classList.remove("errorActive")
+                    productName.classList.add("errorInactive")
+                    errorName.innerHTML = null;
+                    errors = false
+                }
+                else {
+                    errorName.innerHTML = " Entre 5 y 20 letras, espacios y acentos.";
+                    productName.classList.remove("errorInactive")
+                    productName.classList.add("errorActive")
+                    errors = true
+                }
+                break;
+            case "volume":
+                if (expresiones.price.test(value)) {
+                    volume.classList.remove("errorActive")
+                    volume.classList.add("errorInactive")
+                    errorVolume.innerHTML = null;
+                    errors = false
+                }
+                else {
+                    errorVolume.innerHTML = "Entre 2 y 5 números";
+                    volume.classList.remove("errorInactive")
+                    volume.classList.add("errorActive")
+                    errors = true
+                }
+                break;
+            case "price":
+                if (expresiones.price.test(value)) {
+                    price.classList.remove("errorActive")
+                    price.classList.add("errorInactive")
+                    errorPrice.innerHTML = null;
+                    errors = false
+                } else {
+                    errorPrice.innerHTML = "Entre 2 y 5 números";
+                    price.classList.remove("errorInactive")
+                    price.classList.add("errorActive")
+                    errors = true
+                }
+                break;
+            case "discount":
+                if (expresiones.discount.test(value)) {
+                    discount.classList.remove("errorActive")
+                    discount.classList.add("errorInactive")
+                    errorDiscount.innerHTML = null;
+                    errors = false
+                } else {
+                    errorDiscount.innerHTML = "Hasta 2 números";
+                    discount.classList.remove("errorInactive")
+                    discount.classList.add("errorActive")
+                    errors = true
+                }
+                break;
+            case "stock":
+                if (expresiones.price.test(value)) {
+                    stock.classList.remove("errorActive")
+                    stock.classList.add("errorInactive")
+                    errorStock.innerHTML = null;
+                    errors = false
+                } else {
+                    errorStock.innerHTML = "Entre 1 y 5 números";
+                    stock.classList.remove("errorInactive")
+                    stock.classList.add("errorActive")
+                    errors = true
+                }
+                break;
+            case "ingredients":
+                if (expresiones.ingredients.test(value)) {
+                    ingredients.classList.remove("errorActive")
+                    ingredients.classList.add("errorInactive")
+                    errorIngredients.innerHTML = null;
+                    errors = false
+                } else {
+                    errorIngredients.innerHTML = "Entre 10 y 40 letras, espacios y acentos.";
+                    ingredients.classList.remove("errorInactive")
+                    ingredients.classList.add("errorActive")
+                    errors = true
+                }
+                break;
+            case "description":
+                if (expresiones.description.test(value)) {
+                    description.classList.remove("errorActive")
+                    description.classList.add("errorInactive")
+                    errorDescription.innerHTML = null;
+                    errors = false
+                } else {
+                    errorDescription.innerHTML = "Entre 20 y 200 letras, espacios y acentos.";
+                    description.classList.remove("errorInactive")
+                    description.classList.add("errorActive")
+                    errors = true
+                }
+                break;
+        }
+    }
 
     forms.forEach((form) => {
+        form.addEventListener('click', validarFormulario);
         form.addEventListener('blur', validarFormulario);
         form.addEventListener('keyup', validarFormulario);
     });
@@ -137,7 +234,6 @@ window.addEventListener("load", function () {
                 fileInput.value = '';
                 errors = true
                 return false;
-                
             } else {
                 /*Image preview*/
                 if (fileInput.files && fileInput.files[0]) {
@@ -147,26 +243,29 @@ window.addEventListener("load", function () {
                     };
                     reader.readAsDataURL(fileInput.files[0]);
                     errors = false
-                    errorImages.innerHTML = null ;
+                    errorImages.innerHTML = null;
                 }
-
             }
         })
 
 
- /* Validation submit */
- formulario.addEventListener('submit', function (e) {
-    forms.forEach((form) => {
-        if (form.classList.contains('errorActive') || errors == true ){
-            e.preventDefault()
-                    errors = true;
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Por favor, revisa los campos agregados, no pueden quedar vacíos',
-                      })
-
-        }else {
+    /* Validation submit */
+    formulario.addEventListener('submit', function (e) {
+        let errors = false;
+        e.preventDefault() 
+        for (let i = 0; i <= 9 ; i++) {
+            formFinal(forms[0][i].id, forms[0][i].value)
+            if (forms[0][i].classList.contains('errorActive') || errors == true) {
+                errors = true;
+            }
+        }
+        if (errors == true) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, revisa los campos agregados',
+            })
+        } else {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -174,9 +273,8 @@ window.addEventListener("load", function () {
                 showConfirmButton: false,
                 timer: 3000,
                 setTimeout: 2000,
-              })
-                formulario.submit();
-            }
-        })
+            })
+            formulario.submit();
+        }
     })
 })
