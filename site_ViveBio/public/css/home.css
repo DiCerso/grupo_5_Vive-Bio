@@ -723,7 +723,7 @@ segunda parte del main
 
 }
 
-.home .producto-iconos .icons__hover:hover {
+.home .producto-iconos a:hover {
     color: var(--azulMarino);
     background-color: white;
     border: 1px solid var(--azulMarino);

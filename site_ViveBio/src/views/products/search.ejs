@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', { title : "Home" }) %>
+<%- include('../partials/head', { title : "Search" }) %>
 
-    <body class="home">
+    <body class="search">
         <%- include('../partials/header') %>
             <main>
-                <div class="subtitulo__home">
-                    <h1 style="font-size: 20px;">Resultados de : " <%= keyboard %> "</h1> 
+                <div class="subtitulo__search">
+                    <h1 style="font-size: 20px;">Resultados de : " <%= keyboard %> "</h1>
                 </div>
-                <section class="sect1">
-                    <% if (result.length > 0) { %>
-                        <% result.forEach(({id, name, price, discount, productImages})=> { %>
-                            <article class="art__home" style="margin: 0 10px 15px 10px;">
-                                <div class="nombreart__home">
-                                    <h1>
-                                        <%= name %>
-                                    </h1>
+                <section class="sect1 products_container">
+                    <% if (result.length> 0) { %>
+                        <% result.forEach(({id,productImages,name,discount,property,price})=> { %>
+                            <article>
+                                <div class="card estilo-c">
+                                    <a href="/products/card/<%= id %> ">
+                                        <div class="img-container">
+                                            <img src="/images/products/<%= productImages[0].name%>"
+                                                alt="imagen del producto">
+                                            <span class="promo">
+                                                <%= discount %>% off
+                                            </span>
+                                            <div class="info-container">
+                                                <div class="Card-info-texto">
+                                                    <h2>
+                                                        <%= name %>
+                                                    </h2>
+                                                    <span>
+                                                        <%= property %>
+                                                    </span>
+                                                    <p>$
+                                                        <% if (discount) { %>
+                                                            <%= toThousand(price - (price * discount / 100)) %>
+                                                                <% }else{ %>
+                                                                    <%= toThousand(price) %>
+                                                                        <% } %>
+                                                    </p>
+                                                </div>
+                                    </a>
+                                    <div class="card-c-iconos">
+                                        <div class="producto-iconos">
+                                            <% if (locals.userLogin) { %>
+                                                <% if (userLogin.category==="admin" ) { %>
+                                                    <a href="/products/edit/<%= id %> " title="Editar producto"><i
+                                                            class="fa-solid fa-pen"></i></a>
+                                                    <% } %>
+                                                        <% } %>
+                                                            <a href="#"><i class="fa-solid fa-share-nodes"
+                                                                    title="Compartir"></i></a>
+                                                            <a href="#"><i class="fa-regular fa-heart"
+                                                                    title="Favoritos"></i></a>
+                                                            <a href="/products/cart/"
+                                                                title="Agregar producto al carrito"><i
+                                                                    class="fa-solid fa-cart-shopping"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="imgart__home">
-                                    <% productImages.forEach(image => { %>
-                                        <% if (image.primary) { %>
-                                          <img src="/images/products/<%= image.name%>" alt="imagen del producto">
-                                        <% } %>
-                                      <% }) %>
                                 </div>
-                                <div class="precio">
-                                    <h4>
-                                        <%= price %> $
-                                    </h4>
-                                    <% if (discount) { %>
-                                        <p>
-                                            <%= price - (price * discount / 100) %> $
-                                        </p>
-                                        <% }else{ %>
-                                            <p>
-                                                <%= price %> $
-                                            </p>
-                                            <% } %>
-                                </div>
-                                <div class="verart__home">
-                                    <a href="/Products/card/<%= id %>">Ver más</a>
+
                                 </div>
                             </article>
                             <% }) %>
