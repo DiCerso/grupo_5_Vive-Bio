@@ -277,6 +277,13 @@
     justify-content: center;
 }
 
+.box_image_edit_profile{
+    background-color: transparent;
+    border: 1px solid green;
+    border-radius: 50%;
+}
+
+
 @media (min-width: 425px) {
 
     .edit_user__dats {
@@ -292,9 +299,9 @@
         margin-top: 25px;
     }
 
-    .edit_logo__user img {
+    /* .edit_logo__user img {
         width: 150px;
-    }
+    } */
 
     .edit_user__img {
         width: 100px;

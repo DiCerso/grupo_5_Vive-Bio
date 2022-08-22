@@ -157,7 +157,7 @@ module.exports = {
                         primary: 0,
                     });
                 });
-                return res.redirect("/products/all");
+                return res.redirect("/products/list");
             } catch (error) {
                 console.log(error);
             }
