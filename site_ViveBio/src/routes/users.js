@@ -8,7 +8,7 @@ const userCheck = require('../middlewares/userCheck');
 const logCheck = require('../middlewares/logCheck');
 const editcheck = require('../middlewares/editcheck')
 
-const { login, processLogin, register, processRegister, logout, profile, editProfile, processEditProfile, updatePass, loginGoogle } = require('../controllers/usersControllers');
+const { login, processLogin, register, processRegister, logout, profile, editProfile, processEditProfile, updatePass, cropertest, processCropper } = require('../controllers/usersControllers');
 
 
 
@@ -22,7 +22,8 @@ router.get('/logout', logout);
 router.get('/profile/:id', userCheck, profile);
 router.get('/profile/edit/:id', editcheck, editProfile)
 router.put('/profile/edit/update/:id', upload.single('image'), editProfileValidator, processEditProfile)
-
+router.get('/testcropper', cropertest)
+router.post('/processcropper',upload.single('input-file'),processCropper)
 
 
 module.exports = router;

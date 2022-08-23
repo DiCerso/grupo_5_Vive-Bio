@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/cropper.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>Cropper JS</title>
+  </head>
+  <body>
+    <h1>Cortador de fotos cropper.js</h1>
+    <form action="/users/processcropper" enctype="multipart/form-data" method="POST">
+      <div class="container">
+        <div class="group">
+          <img
+            src="/images/user.png"
+            alt=""
+            class="crop-image"
+            id="crop-image"
+          />
+          <input
+            type="file"
+            name="input-file"
+            id="input-file"
+            accept=".png,.jpg,.jpeg"
+          />
+          <label for="input-file" class="label-file"
+            >Haz click aquí para subir una imagen</label
+          >
+        </div>
+      </div>
+      
+      <button type="submit">enviar</button>
+
+      
+    </form>
+
+    <!-- Modal para cortar imagen -->
+
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p>Recorta tu foto</p>
+        </div>
+        <div class="modal-body">
+          <div class="content-imagen-cropper">
+            <img src="" alt="" class="img-cropper" id="img-cropper" />
+          </div>
+          <div class="content-imagen-sample">
+            <div src="" alt="" class="img-sample" id="img-croppered"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn primary" id="cut">Recortar</button>
+          <button class="btn secundary" id="close">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/javascript/jquery.js"></script>
+    <script src="/javascript/cropper.js"></script>
+    <script src="/javascript/index.js"></script>
+  </body>
+</html>

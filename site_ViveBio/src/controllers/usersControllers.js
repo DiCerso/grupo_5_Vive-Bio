@@ -33,7 +33,7 @@ module.exports = {
                     image: user.image,
                     username: user.username.trim(),
                     rol: user.rol.name.trim(),
-                    ubication : user.ubication ? user.ubication.trim() : null
+                    ubication: user.ubication ? user.ubication.trim() : null
                 }
                 if (req.body.remember) {
                     res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
@@ -69,7 +69,7 @@ module.exports = {
                     username: newuser.username,
                     rol: "user",
                     image: newuser.image,
-                    ubication : null
+                    ubication: null
                 }
                 res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
                 return res.redirect("/");
@@ -146,10 +146,7 @@ module.exports = {
                     rol: userEdited.rol.name
                 }
                 if (req.file) {
-                    if (
-                        fs.existsSync(
-                            path.resolve(__dirname, '..', '..', 'public', 'images', 'users', userEdited.image)
-                        ) && userEdited.image !== "defaultAvatar.png"
+                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', userEdited.image)) && oldUser.image !== "defaultAvatar.png"
                     ) {
                         fs.unlinkSync(
                             path.resolve(__dirname, '..', '..', 'public', 'images', 'users', oldUser.image)
@@ -196,33 +193,12 @@ module.exports = {
         }
 
     },
-    loginGoogle: async(req, res) => {
-        try {
-            const user = await db.User.findOne({
-                where: {
-                    email: req.session.userLogin
-                },
-                include: [
-                    { association: 'rol' }
-                ]
-            })
-            return res.send(user)
-            req.session.userLogin = {
-                id: +user.id,
-                firstname: user.firstname.trim(),
-                lastname: user.lastname.trim(),
-                image: user.image,
-                username: user.username.trim(),
-                rol: user.rol.name.trim(),
-                ubication : user.ubication ? user.ubication.trim() : null
-            }
-            if (req.body.remember) {
-                res.cookie('userViveBio', req.session.userLogin, { maxAge: 1000 * 60 * 10 })
-            }
-            return res.redirect('/');
-        } catch (error) {
-            console.log(error)
-        }
+    cropertest: async (req, res) => {
+        return res.render('users/croppertest')
+    },
+
+    processCropper: async(req,res)=>{
+        return res.send(req.file)
     }
 }
 

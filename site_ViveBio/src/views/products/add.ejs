@@ -9,6 +9,25 @@
 					<h3>Agregar Producto</h3>
 					<form action="/products/add" class="productAdd" method="POST" enctype="multipart/form-data">
 						<article class="camps_container">
+							<div class="container_images_add">
+								<div class="add_form-box_image">
+									<label class="plus_add_product" for="images1"><i class="fas fa-plus-circle"></i></label>
+									<input class="add_input" type="file" id="image1" name="images" accept="image/*">
+									<div id="imagePreview" class="imagePreview" ></div>
+								</div>
+								<!-- <div class="secondary-box_product_add_image"> -->
+									<div class="add_form-box_image">
+										<label class="plus_add_product" for="images2"><i class="fas fa-plus-circle"></i></label>
+										<input class="add_input" type="file" id="image3" name="images" accept="image/*">
+										<div id="imagePreview" class="imagePreview" ></div>
+									</div>
+									<div class="add_form-box_image">
+										<label class="plus_add_product" for="images2"><i class="fas fa-plus-circle"></i></label>
+										<input class="add_input" type="file" id="image2" name="images" accept="image/*">
+										<div id="imagePreview" class="imagePreview" ></div>
+									</div>
+								<!-- </div> -->
+							</div>
 							<div class="sub_container">
 								<div class="add_form-box">
 									<label for="name">Nombre</label>
@@ -67,13 +86,7 @@
 										value="<%= locals.old && old.stock ? old.stock : null %>">
 										<p class="add_error-blur" id="errorStock"></p>
 									</div>
-								<div class="add_form-box">
-									<label for="images">Agregar imágenes</label>
-									<input class="add_input" type="file" id="image" name="images" accept="image/*" multiple>
-										<div id="imagePreview" class="imagePreview" >
-											<h6>Vista previa</h6>
-										</div>
-									</div>
+								
 							</div>
 							<div>
 								<div class="add_form-box">
