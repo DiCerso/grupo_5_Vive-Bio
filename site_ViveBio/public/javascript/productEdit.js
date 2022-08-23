@@ -217,7 +217,6 @@ window.addEventListener("load", function () {
     }
 
     forms.forEach((form) => {
-        form.addEventListener('click', validarFormulario);
         form.addEventListener('blur', validarFormulario);
         form.addEventListener('keyup', validarFormulario);
     });
@@ -226,7 +225,7 @@ window.addEventListener("load", function () {
     /*Image validation*/
     document.querySelector('#images').addEventListener('change',
         function fileValidation() {
-            var fileInput = document.getElementById('image');
+            var fileInput = document.getElementById('images');
             var filePath = fileInput.value;
             if (!expresiones.images.exec(filePath)) {
                 errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";

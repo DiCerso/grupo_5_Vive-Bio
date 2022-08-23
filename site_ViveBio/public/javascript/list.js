@@ -462,11 +462,11 @@ let productSearch = async function (value) {
 buscador.addEventListener('submit', async function (e) {
     e.preventDefault()
     if (select_list) {
-        if (value == 1) {
+        if (select_list.value == 1) {
             productSearch(inputbuscador.value);
-        } else if (value == 2) {
+        } else if (select_list.value == 2) {
             userSearch(inputbuscador.value);
-        } else if (value == 3) {
+        } else if (select_list.value == 3) {
             categorySearch(inputbuscador.value);
         }
     } else {

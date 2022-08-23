@@ -9,6 +9,7 @@ const discount = document.querySelector('#discount')
 const stock = document.querySelector('#stock')
 const ingredients = document.querySelector('#ingredients')
 const description = document.querySelector('#description')
+let errorImages = document.querySelector('#errorImage')
 
 const expresiones = {
     productName: /^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos. Entre 5 y 20.
@@ -218,7 +219,6 @@ window.addEventListener("load", function () {
     }
 
     forms.forEach((form) => {
-        form.addEventListener('click', validarFormulario);
         form.addEventListener('blur', validarFormulario);
         form.addEventListener('keyup', validarFormulario);
     });
@@ -227,7 +227,7 @@ window.addEventListener("load", function () {
     /*Image validation*/
     image.addEventListener('change',
         function fileValidation() {
-            var fileInput = document.getElementById('images');
+            var fileInput = document.getElementById('image');
             var filePath = fileInput.value;
             if (!expresiones.images.exec(filePath)) {
                 errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
