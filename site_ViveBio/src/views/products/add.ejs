@@ -7,122 +7,135 @@
 			<main>
 				<section class="add_container">
 					<h3>Agregar Producto</h3>
-					<form action="/products/add" class="productAdd" method="POST" enctype="multipart/form-data">
+					<form action="" class="productAdd" method="post" enctype="multipart/form-data">
+
 						<article class="camps_container">
 							<div class="container_images_add">
 								<div class="add_form-box_image">
-									<label class="plus_add_product" for="images1"><i class="fas fa-plus-circle"></i></label>
+									<span class="title_image_primary">Imagen principal</span>
+									<label class="plus_add_product_1" for="image1"><i class="fas fa-plus-circle"></i></label>
+										<span class="clear_preview_image_1" id="clear_preview_1"><i class="fas fa-times-circle"></i></span>
 									<input class="add_input" type="file" id="image1" name="images" accept="image/*">
-									<div id="imagePreview" class="imagePreview" ></div>
+									<div id="imagePreview1" class="imagePreview" >
+									</div>
 								</div>
 								<!-- <div class="secondary-box_product_add_image"> -->
 									<div class="add_form-box_image">
-										<label class="plus_add_product" for="images2"><i class="fas fa-plus-circle"></i></label>
-										<input class="add_input" type="file" id="image3" name="images" accept="image/*">
-										<div id="imagePreview" class="imagePreview" ></div>
+										<input class="add_input" type="file" id="image2" name="images" accept="image/*">
+										<label class="plus_add_product_2" for="image2"><i class="fas fa-plus-circle"></i></label>
+											<span class="clear_preview_image_2" id="clear_preview_2"><i class="fas fa-times-circle"></i></span>
+										<div id="imagePreview2" class="imagePreview" >
+										</div>
 									</div>
 									<div class="add_form-box_image">
-										<label class="plus_add_product" for="images2"><i class="fas fa-plus-circle"></i></label>
-										<input class="add_input" type="file" id="image2" name="images" accept="image/*">
-										<div id="imagePreview" class="imagePreview" ></div>
+										<input class="add_input" type="file" id="image3" name="images" accept="image/*">
+										<label class="plus_add_product_3" for="image3"><i class="fas fa-plus-circle"></i></label>
+											<span class="clear_preview_image_3" id="clear_preview_3"><i class="fas fa-times-circle"></i></span>
+										<div id="imagePreview3" class="imagePreview" >
+										</div>
 									</div>
 								<!-- </div> -->
 							</div>
-							<div class="sub_container">
-								<div class="add_form-box">
-									<label for="name">Nombre</label>
-									<input
-										class="add_input <%= locals.errores && errores.name ? 'register_error_input' : null %>"
-										id="name" name="name" style="padding:5px;"
-										placeholder="Ingresa el nombre del producto"
-										value="<%= locals.old && old.name ? old.name : null %>">
-										<p class="add_error-blur" id="errorName"></p>
+							<div class="secttion_date_add_product">
+								<div class="sub_container">
+									<div class="add_form-box">
+										<label for="name">Nombre</label>
+										<input
+											class="add_input <%= locals.errores && errores.name ? 'register_error_input' : null %>"
+											id="name" name="name" 
+											placeholder="Ingresa el nombre del producto"
+											value="<%= locals.old && old.name ? old.name : null %>">
+											<p class="add_error-blur" id="errorName"></p>
+										</div>
+									<div class="add_form-box">
+										<label for="category">Categoría</label>
+										<select class="add_input" name="category" id="category">
+											<option value="" hidden selected>Selecciona...</option>
+											<% categories.forEach(category=> { %>
+												<option value="<%= category.id %>">
+													<%= category.name %>
+												</option>
+												<% }) %>
+										</select>
+										<p class="add_error-blur" id="errorCategory"></p>
 									</div>
-								<div class="add_form-box">
-									<label for="category">Categoría</label>
-									<select class="add_input" name="category" id="category">
-										<option value="" hidden selected>Selecciona...</option>
-										<% categories.forEach(category=> { %>
-											<option value="<%= category.id %>">
-												<%= category.name %>
-											</option>
-											<% }) %>
-									</select>
-									<p class="add_error-blur" id="errorCategory"></p>
+									<div class="add_form-box">
+										<label for="volume">Peso (g)</label>
+										<input
+											class="add_input <%= locals.errores && errores.volume ? 'register_error_input' : null %>"
+											type="number" id="volume" name="volume"
+											placeholder="Ingresa el peso en gramos" 
+											value="<%= locals.old && old.volume ? old.volume : null %>">
+											<p class="add_error-blur" id="errorVolume"></p>
+										</div>
+									<div class="add_form-box">
+										<label for="price">Precio</label>
+										<input
+											class="add_input <%= locals.errores && errores.price ? 'register_error_input' : null %>"
+											type="number" id="price" name="price" 
+											placeholder="Ingresa el precio del producto"
+											value="<%= locals.old && old.price ? old.price : null %>">
+											<p class="add_error-blur" id="errorPrice"></p>
+										</div>
+									<div class="add_form-box">
+										<label for="discount">Descuento</label>
+										<input
+											class="add_input <%= locals.errores && errores.discount ? 'register_error_input' : null %>"
+											type="number" id="discount" name="discount"
+											placeholder="Ingresa el descuento del producto" 
+											value="<%= locals.old && old.discount ? old.discount : null %>">
+											<p class="add_error-blur" id="errorDiscount"></p>
+										</div>
+									<div class="add_form-box">
+										<label for="stock">Stock</label>
+										<input
+											class="add_input <%= locals.errores && errores.stock ? 'register_error_input' : null %>"
+											type="number" id="stock" name="stock" 
+											placeholder="Ingresa el stock del producto"
+											value="<%= locals.old && old.stock ? old.stock : null %>">
+											<p class="add_error-blur" id="errorStock"></p>
+										</div>
 								</div>
-								<div class="add_form-box">
-									<label for="volume">Peso (g)</label>
-									<input
-										class="add_input <%= locals.errores && errores.volume ? 'register_error_input' : null %>"
-										type="number" id="volume" name="volume"
-										placeholder="Ingresa el peso en gramos" style="padding:5px;"
-										value="<%= locals.old && old.volume ? old.volume : null %>">
-										<p class="add_error-blur" id="errorVolume"></p>
+								<div class="sub_container2">
+									<div class="add_form-box">
+										<label for="ingredients">Ingredientes</label>
+										<input
+											class="add_input <%= locals.errores && errores.ingredients ? 'register_error_input' : null %>"
+											type="text" id="ingredients" name="ingredients"
+											placeholder="Ingresa los ingredientes del producto"
+											value="<%= locals.old && old.ingredients ? old.ingredients : null %>"
+											>
+											<p class="add_error-blur" id="errorIngredients"></p>
+										</div>
+									<div class="add_form-box">
+										<label for="property">Propiedad</label>
+										<select class="add_input" name="property" id="property">
+											<option value="" hidden selected>Selecciona...</option>
+											<% properties.forEach(property=> { %>
+												<option value="<%= property.id %>">
+													<%= property.name %>
+												</option>
+												<% }) %>
+										</select>
+										<p class="add_error-blur" id="errorProperty"></p>
 									</div>
-								<div class="add_form-box">
-									<label for="price">Precio</label>
-									<input
-										class="add_input <%= locals.errores && errores.price ? 'register_error_input' : null %>"
-										type="number" id="price" name="price" style="padding:5px;"
-										placeholder="Ingresa el precio del producto"
-										value="<%= locals.old && old.price ? old.price : null %>">
-										<p class="add_error-blur" id="errorPrice"></p>
-									</div>
-								<div class="add_form-box">
-									<label for="discount">Descuento</label>
-									<input
-										class="add_input <%= locals.errores && errores.discount ? 'register_error_input' : null %>"
-										type="number" id="discount" name="discount"
-										placeholder="Ingresa el descuento del producto" style="padding:5px;"
-										value="<%= locals.old && old.discount ? old.discount : null %>">
-										<p class="errorDiscount" id="errorDiscount"></p>
-									</div>
-								<div class="add_form-box">
-									<label for="stock">Stock</label>
-									<input
-										class="add_input <%= locals.errores && errores.stock ? 'register_error_input' : null %>"
-										type="number" id="stock" name="stock" style="padding:5px;"
-										placeholder="Ingresa el stock del producto"
-										value="<%= locals.old && old.stock ? old.stock : null %>">
-										<p class="add_error-blur" id="errorStock"></p>
-									</div>
+									<div class="add_form-box-description">
+										<label for="desciption">Descripción</label>
+										<textarea
+											class="add_input value="<%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
+											type="text" id="description" name="description" rows="3" cols="35"
+											placeholder="Ingresa la descripción del producto"></textarea>
+											<p class="add_error-blur" id="errorDescription"></p>
+										</div>
 								
 							</div>
-							<div>
-								<div class="add_form-box">
-									<label for="ingredients">Ingredientes</label>
-									<input
-										class="add_input <%= locals.errores && errores.ingredients ? 'register_error_input' : null %>"
-										type="text" id="ingredients" name="ingredients"
-										placeholder="Ingresa los ingredientes del producto"
-										value="<%= locals.old && old.ingredients ? old.ingredients : null %>"
-										style="padding:5px;">
-										<p class="errorIngredients" id="errorIngredients"></p>
-									</div>
-								<div class="add_form-box">
-									<label for="property">Propiedad</label>
-									<select class="add_input" name="property" id="property">
-										<option value="" hidden selected>Selecciona...</option>
-										<% properties.forEach(property=> { %>
-											<option value="<%= property.id %>">
-												<%= property.name %>
-											</option>
-											<% }) %>
-									</select>
-									<p class="errorProperty" id="errorProperty"></p>
-								</div>
-								<div class="add_form-box-description">
-									<label for="desciption">Descripción</label>
-									<textarea
-										class="add_input value="<%= locals.errores && errores.desciption ? 'register_error_input' : null %>"
-										type="text" id="description" name="description" rows="3" cols="35"
-										style="resize: none; padding:5px;"
-										placeholder="Ingresa la descripción del producto"></textarea>
-										<p class="errorDescription" id="errorDescription"></p>
-									</div>
-							
 						</article>
 						</div>
+						</div>
+						<div id="add_error-submit">
+							<ul class="errors">
+								
+							</ul>
 						</div>
 						<div class="register_center">
 							<div class="add_button">

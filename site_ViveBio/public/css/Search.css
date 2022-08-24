@@ -1,0 +1,318 @@
+.search main .subtitulo__search {
+    width: 300px;
+    margin: 50px auto 30px auto;
+}
+
+
+.search .products_container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 426px;
+    flex-direction: row;
+}
+
+.search main .subtitulo__search h1 {
+    background-color: var(--verdeClaro);
+    color: var(--VioletaOscuro);
+    border-radius: 19px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.search .sect1 .art__search {
+    background-color: var(--verdeClaro);
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+.search .sect1 .art__search .nombreart__search {
+    text-align: center;
+    background-color: #7FA794;
+    border-radius: 12px;
+    width: 85%;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    /*coloco como un contenedor flex*/
+    justify-content: center;
+    /*alineacion horizontal*/
+    align-items: center;
+    /*alineacion vertical*/
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+.search main .sect1 .art__search .imgart__search {
+    display: flex;
+    justify-content: center;
+}
+
+.search main .sect1 .art__search .imgart__search img {
+    width: 85%;
+    height: 270px;
+}
+
+.search main .sect1 article .verart__search {
+    background-color: #7FA794;
+    width: 50%;
+    height: 35px;
+    text-align: center;
+    margin: 15px auto;
+    border-radius: 19px;
+    display: flex;
+    /*coloco como un contenedor flex*/
+    justify-content: center;
+    /*alineacion horizontal*/
+    align-items: center;
+    /*alineacion vertical*/
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+.search main .sect1 article .verart__search a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+
+/*card*/
+.search .estilo-c .img-container .promo {
+    position: absolute;
+    background: var(--aquamarine);
+    top: 10px;
+    left: 0;
+    font-size: 20px;
+    padding: 15px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    color: var(--azulMarino);
+}
+
+.search .estilo-c .img-container {
+    overflow: hidden;
+    height: 350px;
+    position: relative;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.search .estilo-c .img-container img {
+    width: 100%;
+    position: absolute;
+    transition: all 1.5s;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.search .estilo-c .img-container .info-container {
+    opacity: 1;
+    right: 0px;
+}
+
+.search .estilo-c .info-container {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #7fa794cb;
+    text-align: center;
+    color: var(--VioletaOscuro);
+    opacity: 0;
+    transition: all 0.8s;
+    z-index: 1000;
+    position: absolute;
+    top: 58%;
+    right: -85%;
+    width: 100%;
+    height: 100%;
+}
+/*NOMBRE PRODUCTO*/
+.search .estilo-c .info-container h2 {
+    font-size: 18px;
+    text-shadow: none;
+    color: var(--azulSuave);
+}
+
+/*PRECIO PRODUCTO */
+.search .estilo-c .info-container p {
+    font-size: 24px;
+    margin: 5px 0px;
+    background-color: var(--aquamarineSuave);
+    padding: 2px;
+    color: var(--azulSuave);
+}
+
+/*CATEGORÍA PRODUCTO*/
+.search .estilo-c .info-container h4 {
+    font-size: 14px;
+    text-shadow: none;
+    color: var(--VioletaOscuro);
+}
+
+/*PROPIEDAD PRODUCTO*/
+.search .estilo-c .info-container h3 {
+    font-size: 24px;
+}
+.search .card.estilo-c {
+    width: 250px;
+}
+.search .card {
+    width: 33%;
+}
+.search .estilo-c .info-container {
+    top: 55%;
+}
+/*finish card*/
+.search .producto-iconos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.search .producto-iconos a {
+    display: flex;
+    gap: 15px;
+    background-color: var(--verdeClaro-Opaco);
+    /* margin-right: 10px; */
+    height: 40px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px white;
+    margin: 10px;
+}
+
+.search .producto-iconos form button {
+    display: inline-flex;
+    gap: 15px;
+    background-color: var(--verdeClaro-Opaco);
+    margin-right: 10px;
+    height: 40px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px white;
+    color: white;
+
+}
+
+.search .producto-iconos a:hover {
+    color: var(--azulMarino);
+    background-color: white;
+    border: 1px solid var(--azulMarino);
+}
+
+
+
+@media(min-width:426px) {
+    .search main .subtitulo__search {
+        width: 315px;
+    }
+
+    .search main .subtitulo__search h1 {
+        padding: 5px;
+
+    }
+    .search .products_container {
+        /* width: 80%; */
+        width: 500px;
+    }
+
+
+    .search main .sect1 .art__search {
+        width: 260px;
+    }
+
+    .search main .sect1 .art__search .imgart__search img {
+        height: 200px;
+    }
+
+    .search main .sect1 article .verart__search {
+        margin: 15px 65px 15px auto;
+    }
+
+    .search .estilo-c .img-container img {
+        top: 0;
+        height: 100%;
+    }
+    /*Productos en Oferta*/
+    .search .row {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    /*NOMBRE PRODUCTO*/
+    .search .estilo-c .info-container h2 {
+        font-size: 18px;
+    }
+
+    /*CATEGORÍA PRODUCTO*/
+    .search .estilo-c .info-container h4 {
+        font-size: 16px;
+    }
+
+    /*PROPIEDAD PRODUCTO*/
+    .search .estilo-c .info-container h3 {
+        font-size: 22px;
+    }
+
+    .search .estilo-c .img-container img {
+        top: 0;
+        height: 100%;
+    }
+
+    .search .estilo-c .add-cart {
+        padding: 5px;
+        border-radius: 15px;
+        font-size: 15px;
+    }
+    .search .estilo-c .info-container {
+        top: 55%;
+    }
+    .search main .sect1 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .search main .sect1 .art__search {
+        width: 260px;
+    }
+
+    .search main .sect1 .art__search .imgart__search img {
+        height: 200px;
+    }
+
+    .search main .sect1 article .verart__search {
+        margin: 15px 65px 15px auto;
+    }
+}
+
+
+@media(min-width: 768px) {
+
+    .search .products_container {
+        width: 100%px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .search .products_container article{
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+    .search main .sect1 {
+        width: 100%;
+    }
+}

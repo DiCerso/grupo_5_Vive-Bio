@@ -5,25 +5,25 @@ let historial = document.querySelector(".user__historial")
 
 
 
-let provincias = async function(username){
+let provincias = async function (username) {
     try {
         let response = await fetch('https://apis.datos.gob.ar/georef/api/provincias')
         let provinces = await response.json();
         let usuario = await user(username)
-        if(usuario.data.user[0].ubication != null){
+        if (usuario.data.user[0].ubication != null) {
             let dato = await fetch('https://apis.datos.gob.ar/georef/api/localidades?max=1000&nombre=' + usuario.data.user[0].ubication);
             let datoMuni = await dato.json()
             provinces.provincias.forEach(provincia => {
-                if(datoMuni.localidades[0].provincia.nombre == provincia.nombre){
-                    document.querySelector("#provinciaSelect").innerHTML += `<option value="${provincia.nombre}" selected> ${provincia.nombre} </option>` 
+                if (datoMuni.localidades[0].provincia.nombre == provincia.nombre) {
+                    document.querySelector("#provinciaSelect").innerHTML += `<option value="${provincia.nombre}" selected> ${provincia.nombre} </option>`
                     actMuni(usuario.data.user[0].ubication)
-                }else{
-                    document.querySelector("#provinciaSelect").innerHTML += `<option value="${provincia.nombre}"> ${provincia.nombre} </option>` 
+                } else {
+                    document.querySelector("#provinciaSelect").innerHTML += `<option value="${provincia.nombre}"> ${provincia.nombre} </option>`
                 }
             })
-        }else{
+        } else {
             provinces.provincias.forEach(provincia => {
-                    document.querySelector("#provinciaSelect").innerHTML += `<option value="${provincia.nombre}"> ${provincia.nombre} </option>` 
+                document.querySelector("#provinciaSelect").innerHTML += `<option value="${provincia.nombre}"> ${provincia.nombre} </option>`
             })
         }
     } catch (error) {
@@ -31,19 +31,19 @@ let provincias = async function(username){
     }
 }
 
-let actMuni  = async function(ubication){
+let actMuni = async function (ubication) {
     try {
         let response = await fetch('https://apis.datos.gob.ar/georef/api/localidades?max=1000&provincia=' + document.querySelector("#provinciaSelect").value);
         let result = await response.json()
         let Muni = document.querySelector("#municipioSelect")
-        if(!ubication){
+        if (!ubication) {
             Muni.innerHTML = `<option value="">Seleccione un Municipio</option>`
             result.localidades.forEach(localidad => {
                 Muni.innerHTML += `<option value="${localidad.nombre}"> ${localidad.nombre} </option>` //agrego un option con el nombre de la provincia cargado
             })
-        }else{
+        } else {
             result.localidades.forEach(localidad => {
-                if(ubication == localidad.nombre){
+                if (ubication == localidad.nombre) {
                     Muni.innerHTML += `<option value="${localidad.nombre}" selected> ${localidad.nombre} </option>` //agrego un option con el nombre de la provincia cargado
 
                 }
@@ -56,7 +56,7 @@ let actMuni  = async function(ubication){
 }
 
 
-let ubicationuser = async function(ubication, id){
+let ubicationuser = async function (ubication, id) {
     try {
         let vali = await fetch('/api/users/changeubication', {
             method: "PUT",
@@ -114,15 +114,14 @@ ubication.addEventListener('click', async function () {
     provincias(usuario.data.user[0].username);
 })
 
-let enviar_ubi = async function(id, name){
+let enviar_ubi = async function (id, name) {
     try {
         let selectMuni = document.querySelector("#municipioSelect")
         let ubication = selectMuni.value;
-        if(ubication != ''){
+        if (ubication != '') {
             await ubicationuser(ubication, id);
             await back_profile(name)
-        }else{
-            console.log("error")//elimina su municipio
+        } else {
             await ubicationuser(null, id);
             await back_profile(name)
         }
@@ -130,13 +129,13 @@ let enviar_ubi = async function(id, name){
         console.log(error)
     }
 }
- 
+
 
 let back_profile = async function (dato) {
     try {
         let usuario = await user(dato);
         ubication.style.display = "flex"
-        if(usuario.data.user[0].ubication != null){
+        if (usuario.data.user[0].ubication != null) {
             ubication.innerHTML = `Cambiar ubicación`
         }
         datos.innerHTML = `<div class="user__dats">
@@ -162,17 +161,18 @@ let back_profile = async function (dato) {
     </div>
         </div>
         <div class="user__historial">
-    <h3>Historial de compras:</h3>
-    <h4>No se encontraron compras realizadas</h4>
+        </div>
         </div>`
+        let variable = await Orders(usuario.data.user[0].id)
+        acthistorial(variable)
     } catch (error) {
         console.log(error)
     }
 }
 
-let Orders = async function(id){
+let Orders = async function (id) {
     try {
-        let validation = await fetch(`/api/products/orderSearch/${id}`,{
+        let validation = await fetch(`/api/products/orderSearch/${id}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -180,24 +180,22 @@ let Orders = async function(id){
         })
         let dato = await validation.json()
         return dato
-    }catch (error) {
+    } catch (error) {
         console.log(error)
     }
 }
 
-acthistorial = async function(ordenes){
-    if(ordenes.data.length == 0){
-        historial.innerHTML = `<h3>Historial de compras:</h3>
+acthistorial = async function (ordenes) {
+    if (ordenes.data.length == 0) {
+        document.querySelector(".user__historial").innerHTML = `<h3>Historial de compras:</h3>
         <h4>No se encontraron compras realizadas</h4>`
-    }else{
-        historial.innerHTML = `<h3>Historial de compras:</h3>
-        <div class="historial_container"></div>`
+    } else {
+        document.querySelector(".user__historial").innerHTML = `<h3>Historial de compras:</h3> <div class="historial_container"></div>`
         let i = 0;
-        
         ordenes.data.forEach(orden => {
-            if(i == orden.number){
+            if (i == orden.number) {
                 document.querySelector(`.user_carthistory_${orden.number}`).innerHTML += `<p class="user_product_${orden.products.id} user_products">${orden.products.name}</p>`
-            }else{
+            } else {
                 i = orden.number
                 document.querySelector(".historial_container").innerHTML += `<div class="user_carthistory_${orden.number} user_carthistory"></div>`
                 document.querySelector(`.user_carthistory_${orden.number}`).innerHTML += `<p class="user_product_${orden.products.id} user_products">${orden.products.name}</p>`
@@ -212,10 +210,9 @@ acthistorial = async function(ordenes){
 window.addEventListener('load', async function () {
     console.log("userprofile success!!")
     let usuario = await user(document.querySelector(".user__info h4").innerHTML)
-    if(usuario.data.user[0].ubication != null){
+    if (usuario.data.user[0].ubication != null) {
         ubication.innerHTML = `Cambiar ubicación`
     }
     let variable = await Orders(usuario.data.user[0].id)
-    console.log(variable)
     acthistorial(variable)
 })
