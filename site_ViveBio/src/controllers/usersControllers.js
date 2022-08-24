@@ -199,6 +199,9 @@ module.exports = {
 
     processCropper: async(req,res)=>{
         return res.send(req.file)
+    },
+    deleteUser: async (req,res) =>{
+        return res.send(req.params)
     }
 }
 

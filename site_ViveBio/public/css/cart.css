@@ -11,6 +11,10 @@
     align-items: center;
     position: relative;
 }
+.cart_articles{
+    width: 100%;
+}
+
 
 /*popup*/
 .cart_popup {

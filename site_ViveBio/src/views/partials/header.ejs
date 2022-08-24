@@ -1,22 +1,24 @@
 <header class="header">
   <!-- <div class="favourite_container"> -->
-    <div class="box_favourite_container" id="emergent_fav">
-        <span class="tite_favourites">Favoritos</span>
-        <span class="close_fav" id="close_fav"><i class="fas fa-times"></i></span>
-      <article class="box_favourite_product">
-        <span class="icon_delete_favourite" id="btn_delete_favourite"><i class="fas fa-times-circle"></i></span>
-        <div class="box_favourite_product_image">
-          <img
-            class="favourite_product_image"
-            src="/images/products/Acondicionador-argán-03.jpg"
-            alt=""
-          />
-        </div>
-        <div class="box_favourite_product_description">
-          <span class="favourite_product_description">title</span>
-        </div>
-      </article>
-    </div>
+  <div class="box_favourite_container" id="emergent_fav">
+    <span class="tite_favourites">Favoritos</span>
+    <span class="close_fav" id="close_fav"><i class="fas fa-times"></i></span>
+    <article class="box_favourite_product">
+      <span class="icon_delete_favourite" id="btn_delete_favourite"
+        ><i class="fas fa-times-circle"></i
+      ></span>
+      <div class="box_favourite_product_image">
+        <img
+          class="favourite_product_image"
+          src="/images/products/Acondicionador-argán-03.jpg"
+          alt=""
+        />
+      </div>
+      <div class="box_favourite_product_description">
+        <span class="favourite_product_description">title</span>
+      </div>
+    </article>
+  </div>
   <!-- </div> -->
   <div class="header_mobile-container" id="header_mobile">
     <div class="mobile_header">
@@ -85,11 +87,12 @@
         ><i class="fas fa-user-cog" title="Configuraciones de Administrador"></i
       ></a>
       <% } %>
-      <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
       <a href="/products/cart"
         ><i class="fa-solid fa-cart-shopping" title="Carrito de compras"></i
       ></a>
-      <span id="btn_mob_favourite"><i class="fa-regular fa-heart" title="Favoritos"></i></span>
+      <span id="btn_mob_favourite"
+        ><i class="fa-regular fa-heart" title="Favoritos"></i
+      ></span>
     </div>
   </div>
   <% } %>
@@ -151,11 +154,15 @@
         ><i class="fas fa-user-cog" title="Configuraciones de Administrador"></i
       ></a>
       <% } %> <% } %>
-      <a href="#"><i class="fa-solid fa-bell" title="Notificaciones"></i></a>
+
       <a href="/products/cart"
         ><i class="fa-solid fa-cart-shopping" title="Carrito de compras"></i
       ></a>
-      <span id="btn_delete_favourite_desk" ><i class="fa-regular fa-heart" title="Favoritos"></i></span>
+      <% if (locals.userLogin) { %>
+      <span id="btn_delete_favourite_desk"><i class="far fa-heart"></i></span>
+      <% } else{ %>
+        <a href="/users/login"><i class="far fa-heart"></i></a>
+      <% } %>
     </div>
   </nav>
 </header>

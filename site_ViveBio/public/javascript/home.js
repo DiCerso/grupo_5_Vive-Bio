@@ -16,3 +16,5 @@ containerCarrousel.addEventListener('mouseout',()=>{
     productsCarrousel[0].classList.remove('disableMove')
 
 })
+
+/* document.querySelector('#carrouselContainer').scrollTo. */

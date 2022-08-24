@@ -15,6 +15,7 @@
     align-items: center;
     gap: 10px;
     position: relative;
+    border-radius: 50%;
 }
 
 .box-image {
