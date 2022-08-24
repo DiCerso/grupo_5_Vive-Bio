@@ -38,5 +38,7 @@ btnfavdesk.addEventListener('click',()=>{
 })
 
 
-
+window.addEventListener('load', async function(){
+    
+})
 
