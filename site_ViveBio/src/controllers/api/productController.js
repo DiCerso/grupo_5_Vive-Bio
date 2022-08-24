@@ -1029,5 +1029,79 @@ module.exports = {
             }
             return res.status(500).json(response);
         }
+    },
+    Favorites: async (req, res) => {
+        try {
+            let {id} = req.params;
+            let favourites = await db.Favourite.findAll({
+                where : {
+                    user_id : id
+                }
+            })
+            let confirm = isNumber(id, req, "id");
+            if (confirm) {
+                return res.status(400).json(confirm);
+            }
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                url: getUrl(req),
+                data: favourites
+            }
+            return res.status(200).json(response);
+            
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    addFavourite: async (req, res) => {
+        try {
+            let { id } = req.body;
+            if (id) {
+                let newfavourite = await db.Favourite.create({
+                    user_id: +req.session.userLogin.id,
+                    product_id: id
+                })
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    data: newfavourite
+                }
+                return res.status(200).json(response);
+            } else {
+                let response = {
+                    ok: true,
+                    meta: {
+                        status: 200
+                    },
+                    url: getUrl(req),
+                    msg: "No se ingresó un producto para agregar a favoritos"
+                }
+                return res.status(400).json(response);
+            }
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
     }
 }
