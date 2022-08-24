@@ -25,7 +25,7 @@ window.addEventListener('mouseup', (event) => {
     }
 })
 
-btnfav1.addEventListener('click',()=>{
+btnfav1 && btnfav1.addEventListener('click',()=>{
     boxfav.classList.toggle('activefav')
 })
 

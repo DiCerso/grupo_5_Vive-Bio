@@ -1,6 +1,7 @@
 console.log('edit profile success')
 
-const regExLetter = /^[a-zA-Z0-9\_\-]{4,8}$/;
+const regExLetter = /^[a-zA-ZÀ-ÿ\s]{2,20}$/;
+const regExEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 const regExName = /^[a-zA-ZÀ-ÿ\s]{2,30}$/;
 const regExPass = /^[a-zA-Z0-9\_\-]{5,12}$/;
 const regImage = /(.jpg|.jpeg|.png)$/;
@@ -29,6 +30,7 @@ const errorUsername = document.querySelector("#errorUsername"),
     sabeEdit = document.querySelector('#btn-save-edit'),
     formEdit = document.querySelector('#edit-form'),
     impImage = document.querySelector('#image');
+const deleteForm = document.querySelector('#profile_user_delete')
 
 /* Start Event Buttons */
 
@@ -311,15 +313,45 @@ impImage.addEventListener('change', () => {
         impImage.classList.add('register_error_input');
         fileInput.value = '';
     } else {
-        for(let i = 0; i < fileInput.files.length; i++){
+        for (let i = 0; i < fileInput.files.length; i++) {
             const element = URL.createObjectURL(fileInput.files[i]);
             const imagen = document.createElement("img");
-            imagen.setAttribute('class',"previewAvatar")
+            imagen.setAttribute('class', "previewAvatar")
             imagen.src = element;
             document.querySelector('#box-image-preview').appendChild(imagen);
-         }
-         deletePreview.style.display = "flex"
+        }
+        deletePreview.style.display = "flex"
     }
+})
+
+
+
+deleteForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    Swal.fire({
+        customClass: {
+            confirmButton: 'swalBtnColor',
+            cancelButton: 'swalBtnColor'
+        },
+
+        title: '¿Seguro que deseas eliminar tu usuario?',
+        text: "Acción irreversible!",
+        icon: 'warning',
+        background: "#ebebeb",
+        showCancelButton: true,
+        confirmButtonColor: '#7ff77f',
+        cancelButtonColor: '#cc4141',
+        confirmButtonText: 'Eliminar',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            e.target.submit()
+        }
+
+    })
 })
 
 /* End Events  Validations */

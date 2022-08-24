@@ -58,7 +58,7 @@
     margin-left: 0;
 }
 
-.close_fav{
+.close_fav {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -425,13 +425,20 @@ Header mobile
         display: none;
     }
 
-    .header__iconos a i{
+    .header__iconos a i {
         width: 75%;
         color: var(--verdeClaro);
         font-size: 20px;
     }
 
-    .header__iconos a, .header__iconos span {
+    .header__iconos span {
+        width: 75%;
+        color: var(--verdeOscuro);
+        font-size: 20px;
+    }
+
+    .header__iconos a,
+    .header__iconos span {
         background-color: var(--verdeClaro-Opaco);
         margin-left: 5px;
         height: 40px;
@@ -442,12 +449,14 @@ Header mobile
         justify-content: center;
         border-radius: 8px;
         border: 1px solid var(--verdeOscuro);
+        cursor: pointer;
     }
-    .header__iconos span {
+
+    /* .header__iconos span {
         padding: 3px;
         color: var(--verdeOscuro);
         font-size: 20px;
-    }
+    } */
 
 
     .header .logout {
@@ -471,12 +480,13 @@ Header mobile
     }
 
     .header__container {
-        width: 100%;
+        /* width: 100%; */
         height: 10%;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
-        padding-bottom: 5px;
+        justify-content: space-between;
+        /* padding-bottom: 5px; */
+        margin: 20px 3%;
     }
 
     .header__logo {
@@ -488,11 +498,11 @@ Header mobile
 
     .header__logo a {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .header__logo img {
-        width: 60%;
+        width: 100%;
     }
 
     .header .logo {
@@ -538,8 +548,9 @@ Header mobile
         display: flex;
         align-items: center;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
         gap: 15px;
+        width: 20%;
     }
 
     .header__user a {
@@ -608,6 +619,10 @@ Header mobile
 
 @media(min-width: 768px) {
 
+    .header__logo img {
+        width: 60%;
+    }
+
     .header__opciones ul li a {
         font-size: 1.1rem;
     }
@@ -637,9 +652,10 @@ Header mobile
 
     .header__localizacion {
         display: flex;
-        width: 25%;
+        width: 20%;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        margin-left: 3%;
     }
 
     .header__localizacion a {
@@ -655,9 +671,10 @@ Header mobile
 
     .header__iconos {
         display: flex;
-        width: 25%;
-        justify-content: center;
+        width: 20%;
+        justify-content: flex-end;
         align-items: center;
+        margin-right: 3%;
     }
 
     .header__user a i {
@@ -679,6 +696,7 @@ Header mobile
         justify-content: space-around;
         align-items: center;
         transition: .5s;
+        gap: 10px;
     }
 
     .header__user a:hover {

@@ -3,12 +3,10 @@ const db = require('../database/models')
 const { Op } = require('sequelize')
 module.exports = [
     check('firstname')
-        .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
-        .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
+        .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail(),
 
     check('lastname')
-        .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail()
-        .isAlpha().withMessage('Solo se aceptan letras en este campo.'),
+        .isLength({ min: 2 }).withMessage('La cantidad mínima de caracteres para es te campo es 2.').bail(),
 
     body('username')
         .isLength({ min: 4, max: 8 }).withMessage('El usuario debe contener entre 4 y 8 caracteres.').bail()

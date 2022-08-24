@@ -141,7 +141,7 @@ let carga = async function (carrito) {
                 </div>
                 <div class="cart_sect_description">
                     <p>
-                        ${dato.product.description}
+                        ${dato.product.name}
                     </p>
                 </div>
             </div>

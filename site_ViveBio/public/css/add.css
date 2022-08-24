@@ -130,7 +130,7 @@
     font-size: .7rem;
     text-align: center;
     font-weight: bold;
-    left: 29px;
+    left: 5px;
 }
 
 
@@ -191,17 +191,6 @@
     gap: 10px;
 }
 
-
-/* 
-.add_form-box_image input {
-    border: 1px solid var(--verdeFuerte);
-    padding: 3px;
-    font-size: 11px;
-    transition: 0.5s;
-    border-radius: 5px;
-    width: 100%;
-}
- */
 .add_form-box input {
     border: 1px solid var(--verdeFuerte);
     padding: 10px;
