@@ -160,9 +160,10 @@ start Emergent mobile
     right: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: column;
     padding-right: 8px;
+    gap: 10px;
 }
 
 .nav_options-emergente a {

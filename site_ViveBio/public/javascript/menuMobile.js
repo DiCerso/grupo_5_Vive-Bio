@@ -8,32 +8,32 @@ const inpSearch = document.querySelector('.navSearchBar')
 const btnfav1 = document.querySelector('#btn_mob_favourite');
 const boxfav = document.querySelector('#emergent_fav');
 const closefav = document.querySelector('#close_fav');
-const btnfavdesk= document.querySelector('#btn_delete_favourite_desk')
+const btnfavdesk = document.querySelector('#btn_delete_favourite_desk')
 btnMenu.addEventListener("click", function () {
     burger.classList.toggle('active')
     navclose.classList.toggle('active')
     menu.classList.toggle("mostrar")
 });
 
-btnSearch.addEventListener('click',()=>{
+btnSearch.addEventListener('click', () => {
     boxSearch.classList.add('activeSearch')
 })
 
 window.addEventListener('mouseup', (event) => {
-    if(event.target != inpSearch){
+    if (event.target != inpSearch) {
         boxSearch.classList.remove('activeSearch')
     }
 })
 
-btnfav1 && btnfav1.addEventListener('click',()=>{
+btnfav1 && btnfav1.addEventListener('click', () => {
     boxfav.classList.toggle('activefav')
 })
 
-closefav.addEventListener('click',()=>{
+closefav.addEventListener('click', () => {
     boxfav.classList.remove('activefav')
 })
 
-btnfavdesk.addEventListener('click',()=>{
+btnfavdesk && btnfavdesk.addEventListener('click', () => {
     boxfav.classList.toggle('activefav')
 })
 

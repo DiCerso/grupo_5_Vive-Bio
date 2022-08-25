@@ -5,8 +5,12 @@
             <li><a href="/">Home</a></li>
             <li><a href="/products/all">Productos</a></li>
             <li><a href="/contacto">Contacto</a></li>
-            <li><a href="#">Política de devolución</a></li>
-                    </ul>
+            <% if (locals.userLogin) { %> 
+            <li><a href="/users/profile/<%= locals.userLogin.id %>">Perfil</a></li>
+            <% } else{ %>
+             <li><a href="/users/login">Unirse</a></li>
+             <% } %> 
+        </ul>
         <div class="contacto__footer">
             <ul class="redes__footer">
 

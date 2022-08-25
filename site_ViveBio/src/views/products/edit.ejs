@@ -2,14 +2,44 @@
 <html lang="en">
 <%- include('../partials/head', { title : "Editar Producto" }) %>
 
-    <body class="edit_product">
+    <body class="edit">
         <%- include('../partials/header') %>
             <main>
                     <section class="add_container">
                         <h3>Editar Producto</h3>
+                        
                         <form action="/products/update/<%= product.id %>?_method=PUT" class="productEdit" method="POST"
                             enctype="multipart/form-data">
-                            <article class="camps_container">
+                            <div class="container_images_add">
+                                <div class="add_form-box_image">
+                                    <span class="title_image_primary">Imagen principal</span>
+                                    <label class="plus_add_product_1 disable" for="image1" id="plus_image_1"><i class="fas fa-plus-circle"></i></label>
+                                        <span class="clear_preview_image_1" id="clear_preview_1"><i class="fas fa-times-circle"></i></span>
+                                    <input class="add_input" type="file" id="image1" name="images1" accept="image/*" >
+                                    <div id="imagePreview1" class="imagePreview" >
+                                        <img src="/images/products/<%= product.productImages[0] ? product.productImages[0].name : "noimage.jpg" %>" alt=""  class="preview_image_product">
+                                    </div>
+                                </div>
+                                <!-- <div class="secondary-box_product_add_image"> -->
+                                    <div class="add_form-box_image">
+                                        <input class="add_input" type="file" id="image2" name="images2" accept="image/*" >
+                                        <label class="plus_add_product_2 disable" for="image2" id="plus_image_2"><i class="fas fa-plus-circle"></i></label>
+                                            <span class="clear_preview_image_2" id="clear_preview_2"><i class="fas fa-times-circle"></i></span>
+                                        <div id="imagePreview2" class="imagePreview" >
+                                            <img src="/images/products/<%= product.productImages[1] ? product.productImages[1].name : "noimage.jpg" %>" alt=""  class="preview_image_product">
+                                        </div>
+                                    </div>
+                                    <div class="add_form-box_image">
+                                        <input class="add_input" type="file" id="image3" name="images3" accept="image/*" >
+                                        <label class="plus_add_product_3 disable" for="image3" id="plus_image_3"><i class="fas fa-plus-circle"></i></label>
+                                            <span class="clear_preview_image_3" id="clear_preview_3"><i class="fas fa-times-circle"></i></span>
+                                        <div id="imagePreview3" class="imagePreview" >
+                                            <img src="/images/products/<%= product.productImages[2] ? product.productImages[2].name : "noimage.jpg" %>" alt=""  class="preview_image_product">
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+                            <article class="secttion_date_add_product">
                                 <div class="sub_container">
                                     <div class="add_form-box">
                                         <label for="name">Nombre</label>
@@ -53,15 +83,7 @@
                                             id="stock" name="stock" style="padding:5px;">
                                             <p class="add_error-blur" id="errorStock"></p>
                                         </div>
-                                    <div class="add_form-box">
-                                        <label for="image">Imagen</label>
-                                        <input class="add_input" type="file" id="images" name="images" accept="image/*"
-                                            multiple>
-                                            <p class="add_error-blur" id="errorImages"></p>
-                                            <div id="imagePreview" class="imagePreview" >
-                                                <h6>Vista previa</h6>
-                                            </div>
-                                        </div>
+                                    
                                 </div>
                                 <div>
                                     <div class="add_form-box">

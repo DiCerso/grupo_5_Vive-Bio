@@ -8,6 +8,7 @@ const toThousand = (n) =>
         .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require("../database/models");
 const { Op } = require("sequelize");
+const { forEach } = require("../validations/productAddEditValidator");
 
 module.exports = {
     all: async (req, res) => {
@@ -228,12 +229,69 @@ module.exports = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             try {
-                const olds = await db.ProductImage.findAll({
+
+                let olds = await db.ProductImage.findAll({
                     where: {
                         product_id: req.params.id,
                     },
                 });
-                const OldImages = olds.map((old) => old.name);
+                let OldImages = olds.map((old) => old.name);
+
+                let totalImages = [];
+
+
+                if (req.files && req.files.images1) {
+                    let image1 = "";
+                    let imageIn1 = req.files.images1.map(images => images.filename);
+                    image1 = imageIn1[0]
+                    totalImages.push(image1);
+                } else {
+                    let image1 = "";
+                    if (OldImages && OldImages[0]) {
+                        image1 = OldImages[0]
+                        totalImages.push(image1);
+                    } else {
+
+                        image1 = "noimage.jpg"
+                        totalImages.push(image1);
+                    }
+                }
+
+                if (req.files && req.files.images2) {
+                    let image2 = "";
+                    let imageIn2 = req.files.images2.map(images => images.filename);
+                    image2 = imageIn2[0]
+                    totalImages.push(image2);
+                } else {
+                    let image2 = "";
+                    if (OldImages && OldImages[1]) {
+                        image2 = OldImages[1]
+                        totalImages.push(image2);
+                    } else {
+
+                        image2 = "noimage.jpg"
+                        totalImages.push(image2);
+                    }
+                }
+
+                if (req.files && req.files.images3) {
+                    let image3 = "";
+                    let imageIn3 = req.files.images3.map(images => images.filename);
+                    image3 = imageIn3[0]
+                    totalImages.push(image3);
+                } else {
+                    let image3 = "";
+                    if (OldImages && OldImages[2]) {
+                        image3 = OldImages[2]
+                        totalImages.push(image3);
+                    } else {
+
+                        image3 = "noimage.jpg"
+                        totalImages.push(image3);
+                    }
+                }
+
+
                 const update = await db.Product.update(
                     {
                         name: req.body.name,
@@ -252,52 +310,115 @@ module.exports = {
                         },
                     }
                 );
-                if (req.files.length > 0) {
-                    let newimages = req.files.map(({ filename }, i) => {
-                        let image = {
-                            name: filename,
-                            product_id: req.params.id,
-                            primary: i === 0 ? 1 : 0,
-                        };
-                        return image;
-                    });
-                    db.ProductImage.destroy({
-                        where: {
-                            product_id: req.params.id,
-                        },
-                    });
-                    OldImages.forEach((image) => {
-                        if (
-                            fs.existsSync(
-                                path.resolve(
-                                    __dirname,
-                                    "..",
-                                    "..",
-                                    "public",
-                                    "images",
-                                    "products",
-                                    image
-                                )
-                            ) &&
-                            image !== "noimage.jpg"
-                        ) {
-                            fs.unlinkSync(
-                                path.resolve(
-                                    __dirname,
-                                    "..",
-                                    "..",
-                                    "public",
-                                    "images",
-                                    "products",
-                                    image
-                                )
-                            );
+
+                let newimages = totalImages.map((name, i) => {
+                    let image = {
+                        name: name,
+                        product_id: req.params.id,
+                        primary: i === 0 ? 1 : 0,
+                    };
+                    return image;
+                });
+
+                if (OldImages) {
+                    OldImages.forEach(element => {
+                        try {
+                            db.ProductImage.destroy({
+                                where: {
+                                    name: element,
+                                    product_id: req.params.id
+                                }
+                            })
+                        } catch (error) {
+                            console.log(error)
                         }
                     });
-                    db.ProductImage.bulkCreate(newimages, { validate: true }).then(
-                        (result) => console.log(result)
-                    );
                 }
+
+                 if (OldImages.length !== 0) {
+                    if (
+                        fs.existsSync(
+                            path.join(
+                                __dirname,
+                                "..",
+                                "..",
+                                "public",
+                                "images",
+                                "products",
+                                OldImages[0]
+                            )
+                        ) &&
+                        OldImages[0] !== "noimage.jpg" && OldImages[0] !== totalImages[0]
+                    ) {
+                        fs.unlinkSync(
+                            path.join(
+                                __dirname,
+                                "..",
+                                "..",
+                                "public",
+                                "images",
+                                "products",
+                                OldImages[0]
+                            )
+                        );
+                    }
+                    if (
+                        fs.existsSync(
+                            path.join(
+                                __dirname,
+                                "..",
+                                "..",
+                                "public",
+                                "images",
+                                "products",
+                                OldImages[1]
+                            )
+                        ) &&
+                        OldImages[1] !== "noimage.jpg" && OldImages[1] !== totalImages[1]
+                    ) {
+                        fs.unlinkSync(
+                            path.join(
+                                __dirname,
+                                "..",
+                                "..",
+                                "public",
+                                "images",
+                                "products",
+                                OldImages[1]
+                            )
+                        );
+                    }
+                    if (
+                        fs.existsSync(
+                            path.join(
+                                __dirname,
+                                "..",
+                                "..",
+                                "public",
+                                "images",
+                                "products",
+                                OldImages[2]
+                            )
+                        ) &&
+                        OldImages[2] !== "noimage.jpg" && OldImages[2] !== totalImages[2]
+                    ) {
+                        fs.unlinkSync(
+                            path.join(
+                                __dirname,
+                                "..",
+                                "..",
+                                "public",
+                                "images",
+                                "products",
+                                OldImages[2]
+                            )
+                        );
+                    }
+                }
+
+                db.ProductImage.bulkCreate(newimages, { validate: true }).then(
+                    (result) => console.log(result)
+                );
                 return res.redirect(`/products/list`);
             } catch (error) {
                 console.log(error);
@@ -307,7 +428,7 @@ module.exports = {
             images.forEach((image) => {
                 if (
                     fs.existsSync(
-                        path.resolve(
+                        path.join(
                             __dirname,
                             "..",
                             "..",
@@ -320,7 +441,7 @@ module.exports = {
                     image !== "noimage.jpg"
                 ) {
                     fs.unlinkSync(
-                        path.resolve(
+                        path.join(
                             __dirname,
                             "..",
                             "..",
@@ -361,7 +482,7 @@ module.exports = {
             imagesDelete.forEach((image) => {
                 if (
                     fs.existsSync(
-                        path.resolve(
+                        path.join(
                             __dirname,
                             "..",
                             "..",
@@ -374,7 +495,7 @@ module.exports = {
                     image !== "noimage.jpg"
                 ) {
                     fs.unlinkSync(
-                        path.resolve(
+                        path.join(
                             __dirname,
                             "..",
                             "..",
@@ -405,7 +526,7 @@ module.exports = {
     },
 
     search: (req, res) => {
-        
+
         db.Product.findAll({
             where: {
                 [Op.or]: [{ name: { [Op.substring]: req.query.keyword } }],

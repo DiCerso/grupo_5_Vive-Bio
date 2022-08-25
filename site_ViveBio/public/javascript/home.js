@@ -17,4 +17,4 @@ containerCarrousel.addEventListener('mouseout',()=>{
 
 })
 
-/* document.querySelector('#carrouselContainer').scrollTo. */
+

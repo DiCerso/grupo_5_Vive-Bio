@@ -9,6 +9,9 @@ const discount = document.querySelector('#discount')
 const stock = document.querySelector('#stock')
 const ingredients = document.querySelector('#ingredients')
 const description = document.querySelector('#description')
+const impImage1 = document.querySelector('#image1')
+const impImage2 = document.querySelector('#image2')
+const impImage3 = document.querySelector('#image3')
 
 const expresiones = {
     productName: /^[a-zA-ZÀ-ÿ\s]{5,20}$/, // Letras y espacios, pueden llevar acentos. Entre 5 y 20.
@@ -21,6 +24,12 @@ const expresiones = {
 }
 
 window.addEventListener("load", function () {
+    document.querySelector('#clear_preview_1').style.transform = "scale(1)"
+    document.querySelector('#clear_preview_1').style.zIndex = "50"
+    document.querySelector('#clear_preview_2').style.transform = "scale(1)"
+    document.querySelector('#clear_preview_2').style.zIndex = "50"
+    document.querySelector('#clear_preview_3').style.transform = "scale(1)"
+    document.querySelector('#clear_preview_3').style.zIndex = "50"
     const validarFormulario = (e) => {
         switch (e.target.name) {
             case "name":
@@ -221,31 +230,85 @@ window.addEventListener("load", function () {
         form.addEventListener('keyup', validarFormulario);
     });
 
-
     /*Image validation*/
-    document.querySelector('#images').addEventListener('change',
+    impImage1.addEventListener('change',
         function fileValidation() {
-            var fileInput = document.getElementById('images');
+            var fileInput = document.getElementById('image1');
             var filePath = fileInput.value;
             if (!expresiones.images.exec(filePath)) {
-                errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png";
+                /* errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png"; */
                 fileInput.value = '';
                 errors = true
                 return false;
             } else {
-                /*Image preview*/
-                if (fileInput.files && fileInput.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        document.getElementById('imagePreview').innerHTML = '<img src="' + e.target.result + '"/>';
-                    };
-                    reader.readAsDataURL(fileInput.files[0]);
-                    errors = false
-                    errorImages.innerHTML = null;
-                }
-
+                const element = URL.createObjectURL(fileInput.files[0]);
+                const imagen = document.createElement("img");
+                imagen.setAttribute('class', "preview_image_product");
+                imagen.src = element;
+                document.querySelector('#imagePreview1').appendChild(imagen);
+                document.querySelector('#clear_preview_1').style.transform = "scale(1)"
+                document.querySelector('#plus_image_1').classList.add('disable')
             }
         })
+
+    impImage2.addEventListener('change',
+        function fileValidation() {
+            var fileInput = document.getElementById('image2');
+            var filePath = fileInput.value;
+            if (!expresiones.images.exec(filePath)) {
+                /* errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png"; */
+                fileInput.value = '';
+                errors = true
+                return false;
+            } else {
+                const element = URL.createObjectURL(fileInput.files[0]);
+                const imagen = document.createElement("img");
+                imagen.setAttribute('class', "preview_image_product");
+                imagen.src = element;
+                document.querySelector('#imagePreview2').appendChild(imagen);
+                document.querySelector('#clear_preview_2').style.transform = "scale(1)"
+                document.querySelector('#plus_image_2').classList.add('disable')
+            }
+        })
+
+    impImage3.addEventListener('change',
+        function fileValidation() {
+            var fileInput = document.getElementById('image3');
+            var filePath = fileInput.value;
+            if (!expresiones.images.exec(filePath)) {
+                /* errorImages.innerHTML = "Subir archivo con extensiones válidas: .jpeg/.jpg/.png"; */
+                fileInput.value = '';
+                errors = true
+                return false;
+            } else {
+                const element = URL.createObjectURL(fileInput.files[0]);
+                const imagen = document.createElement("img");
+                imagen.setAttribute('class', "preview_image_product");
+                imagen.src = element;
+                document.querySelector('#imagePreview3').appendChild(imagen);
+                document.querySelector('#clear_preview_3').style.transform = "scale(1)"
+                document.querySelector('#plus_image_3').classList.add('disable')
+            }
+        })
+
+    document.querySelector('#clear_preview_1').addEventListener('click', () => {
+        document.querySelector('#clear_preview_1').style.transform = "scale(0)"
+        document.querySelector('#plus_image_1').classList.remove('disable')
+        document.getElementById('imagePreview1').innerHTML = null;
+        document.querySelector('#clear_preview_1').value = "";
+    })
+    document.querySelector('#clear_preview_2').addEventListener('click', () => {
+        document.querySelector('#clear_preview_2').style.transform = "scale(0)"
+        document.querySelector('#plus_image_2').classList.remove('disable')
+        document.getElementById('imagePreview2').innerHTML = null;
+        document.querySelector('#clear_preview_2').value = "";
+    })
+    document.querySelector('#clear_preview_3').addEventListener('click', () => {
+        document.querySelector('#clear_preview_3').style.transform = "scale(0)"
+        document.querySelector('#plus_image_3').classList.remove('disable')
+        document.getElementById('imagePreview3').innerHTML = null;
+        document.querySelector('#clear_preview_3').value = "";
+    })
 
 
     /* Validation submit */
