@@ -33,27 +33,30 @@
                 <% if (locals.userLogin) { %>
                   <% if (userLogin.rol==="admin" || userLogin.rol == "moderator") { %>
                     <form action="/Products/remove/<%= product.id %>?_method=DELETE" method="POST">
-                      <button type="submit" title="Eliminar producto" class="icons__hover"><i class="fa-solid fa-trash-can"></i></button>
+                      <button type="submit" title="Eliminar producto" style="cursor: pointer" class="icons__hover"><i class="fa-solid fa-trash-can"></i></button>
                     </form>
                     <a href="/Products/edit/<%= product.id %>" class="icons__hover" title="Editar producto"><i
                         class="fa-solid fa-pen"></i></a>
                     <% } %>
                       <% } %>
-                        <button class="add_favourite" value="<%= product.id %>"><i class="fa-regular fa-heart" title="Favorito"></i></button>
-                        <a href="#" title="Compartir enlace" class="icons__hover" ><i class="fa-solid fa-share-nodes"></i></a>
                         <% if (locals.userLogin) { %>
-                          <button title="Agregar producto al carrito" class="add_product_cart"
-                            value="<%= product.id %> ">
+                          <button class="add_favourite" onclick="verificateFavourite(`<%= product.id %>`)" style="cursor: pointer"><i class="fa-regular fa-heart" title="Favorito"></i></button>
+                          <a title="Compartir enlace" class="icons__hover" style="cursor: pointer"><i class="fa-solid fa-share-nodes" ></i></a>
+                          <button title="Agregar producto al carrito" class="add_product_cart icons__hover"
+                            value="<%= product.id %>" style="cursor: pointer">
                             <i class="fa-solid fa-cart-shopping" style="position: relative;">
                               <i class="fa-solid fa-slash card_barra">
                               </i>
                             </i>
                           </button>
                           <% }else{ %>
-                            <a title="Agregar producto al carrito" class="icons__hover" value="<%= product.id %>" href="/users/login">
+                            <a class="add_favourite icons__hover" href="/users/login" style="cursor: pointer"><i class="fa-regular fa-heart" title="Favorito"></i></a>
+                            <a href="/users/login" title="Compartir enlace" class="icons__hover" style="cursor: pointer"><i class="fa-solid fa-share-nodes"></i></a>
+                            <a title="Agregar producto al carrito" class="icons__hover" value="<%= product.id %>" href="/users/login" style="cursor: pointer">
                               <i class="fa-solid fa-cart-shopping" style="position: relative;">
                               </i>
                             </a>
+
                             <% } %>
 
 
@@ -96,14 +99,24 @@
                       <div class="card-c-iconos">
                         <div class="producto-iconos">
                           <% if (locals.userLogin) { %>
-                            <% if (userLogin.category==="admin" ) { %>
-                              <a href="/products/edit/<%= id %>" title="Editar producto"><i class="fa-solid fa-pen"></i></a>
+                            <% if (userLogin.category ==="admin" ) { %>
+                              <a href="/products/edit/<%= id %>" class="icons__hover" title="Editar producto" style="cursor: pointer"><i class="fa-solid fa-pen"></i></a>
                               <% } %>
-                                <% } %>
-                                  <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
-                                  <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                                  <a href="/products/cart/" title="Agregar producto al carrito"><i
-                                      class="fa-solid fa-cart-shopping"></i></a>
+                              <a style="cursor: pointer" class="icons__hover"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                              <a style="cursor: pointer" class="icons__hover" onclick="verificateFavourite(`<%= id %>`)"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                              <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
+                                value="<%= id %>" onclick="cart_action(`<%= id %>`)" style="cursor: pointer" >
+                                <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                  <i class="fa-solid fa-slash cart_barra_<%= id %> cart_barra" >
+                                  </i>
+                                </i>
+                              </button>
+                          <% }else{ %>
+                                  <a href="/users/login" style="cursor: pointer" class="icons__hover"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                  <a href="/users/login" style="cursor: pointer" class="icons__hover"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                                  <a href="/products/cart/" style="cursor: pointer" title="Agregar producto al carrito"><i
+                                      class="fa-solid fa-cart-shopping icons__hover"></i></a>
+                          <%  } %>
                         </div>
                       </div>
                     </div>

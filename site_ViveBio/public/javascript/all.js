@@ -80,12 +80,8 @@ window.addEventListener('load', async function () {
             document.querySelector(`.cart_button_${producto.product_id}`).style.backgroundColor = "#D9E66B";
             document.querySelector(`.cart_barra_${producto.product_id}`).style.display = "block";
         });
-
-
-
-
     } catch (error) {
-
+        console.log(error)
     }
 
 

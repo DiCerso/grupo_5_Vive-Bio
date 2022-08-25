@@ -1036,7 +1036,15 @@ module.exports = {
             let favourites = await db.Favourite.findAll({
                 where : {
                     user_id : id
-                }
+                },
+                include: [
+                    {
+                        association: 'products',
+                        include: [
+                            { association: 'productImages' }
+                        ]
+                    }
+                ]
             })
             let confirm = isNumber(id, req, "id");
             if (confirm) {
@@ -1103,5 +1111,69 @@ module.exports = {
             }
             return res.status(500).json(response);
         }
-    }
+    },
+    deleteFavourite : async (req, res) => {
+        try {
+            let { id } = req.body
+                let favorite = await db.Favourite.destroy({
+                    where: {
+                        product_id: id,
+                        user_id: +req.session.userLogin.id
+                    }
+                })
+                if (favorite) {
+                    let response = {
+                        ok: true,
+                        meta: {
+                            status: 200
+                        },
+                        url: getUrl(req),
+                        msg: "Se eliminó el producto de la lista de favoritos exitosamente"
+                    }
+                    return res.status(200).json(response)
+                }
+        } catch (error) {
+            let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response);
+        }
+    },
+    favoritesSearch : async (req, res) => {
+        try {
+            let {id} = req.params;
+            let dato = await db.Favourite.findAll({
+                where : {
+                    user_id : +req.session.userLogin.id,
+                    product_id : id
+                }
+            });
+            let response = {
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                url: getUrl(req),
+                data: dato
+            }
+            return res.status(200).json(response);
+        } catch (error) {
+            console.log(error)
+            /* let response = {
+                ok: false,
+                meta: {
+                    status: 500,
+                },
+                url: getUrl(req),
+                msg: error.messaje ? error.messaje : "Comuníquese con el administrador"
+            }
+            return res.status(500).json(response); */
+        }
+    },
+
 }

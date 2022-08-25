@@ -87,13 +87,19 @@
                     <div class="producto-iconos">
                       <% if (locals.userLogin) { %>
                       <% if (userLogin.category==="admin" ) { %>
-                      <a href="/products/edit/<%= id %> " title="Editar producto"><i class="fa-solid fa-pen"></i></a>
+                      <a href="/products/edit/<%= id %> " title="Editar producto"><i class="fa-solid fa-pen" ></i></a>
                       <% } %>
+                          <a><i class="fa-solid fa-share-nodes" title="Compartir" style="cursor: pointer;"></i></a>
+                          <a onclick="verificateFavourite(`<%= id %>`)" style="cursor: pointer;"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                          <a href="/products/cart/" title="Agregar producto al carrito" style="cursor: pointer;"><i
+                            class="fa-solid fa-cart-shopping"></i></a>
+                        <% }else{ %>
+                          <a style="cursor: pointer;"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                          <a style="cursor: pointer;"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
+                          <a href="/products/cart/" title="Agregar producto al carrito" style="cursor: pointer;"><i
+                            class="fa-solid fa-cart-shopping"></i></a>
                         <% } %>
-                          <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
-                          <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
-                          <a href="/products/cart/" title="Agregar producto al carrito"><i
-                              class="fa-solid fa-cart-shopping"></i></a>
+                          
                 </div>
               </div>
             </div>

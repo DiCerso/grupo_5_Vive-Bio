@@ -678,10 +678,13 @@ segunda parte del main
 
 }
 
-.home .producto-iconos a {
+.home .producto-iconos a,
+.home .producto-iconos button {
     display: flex;
     gap: 15px;
     background-color: var(--verdeClaro-Opaco);
+    color: white;
+    text-shadow: 0 0 2px black;
     /* margin-right: 10px; */
     height: 40px;
     width: 45px;
