@@ -27,8 +27,10 @@ li {
 
 h1 {
     color: white;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 13px black;
 }
+
+h1 {}
 
 p {
     color: white;

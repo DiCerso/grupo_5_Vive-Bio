@@ -357,19 +357,25 @@
 
 .productCard .card__perfil {
     width: 200px;
-    /* padding: 10px; */
     border-radius: 20px;
     color: var(--VioletaOscuro);
     text-align: center;
     overflow: hidden;
     height: 220px;
+    border: 1px solid green;
+    box-shadow: 1px 1px 1px 1px aquamarine;
+    background-color: #7fa7944f;
+    background: linear-gradient(-60deg, rgb(255 255 255 / 62%) 0%, rgba(127,167,148,0.7) 65%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .productCard .card__perfil p {
     color: var(--VioletaOscuro);
     text-shadow: none;
     font-size: 10px;
-    background-color: rgba(127, 255, 212, 0.9);
+    /* background-color: rgba(127, 255, 212, 0.9); */
     border-radius: 8px;
     padding: 5px;
 }
@@ -380,7 +386,7 @@
 }
 
 .productCard .card__nombre_box-img img {
-    width: 40%;
+    width: 80%;
     border-radius: 15%;
 }
 
@@ -394,6 +400,13 @@
     color: var(--azulSuave);
     background-color: white;
     border: 1px solid var(--azulSuave);
+}
+
+.productCard .videos video{
+    border: 1px solid green;
+    border-radius: 20px;
+    background: linear-gradient(-60deg, rgb(255 255 255 / 62%) 0%, rgba(127,167,148,0.7) 65%);
+    box-shadow: 1px 1px 1px 1px aquamarine;
 }
 
 @media(min-width: 460px) {
@@ -597,7 +610,8 @@
     }
 
     .productCard .estilo-c .info-container {
-        top: 55%;
+        top: 50%;
+        padding-bottom: 20px;
     }
 }
 
