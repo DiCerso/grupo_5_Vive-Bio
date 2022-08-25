@@ -35,6 +35,7 @@
 
 .productAll #capilar{
     color:  #306C25;
+    text-align: center;
 }
 
 .productAll #corporal{
@@ -222,10 +223,10 @@
 .productAll .estilo-c .info-container p {
     font-size: 24px;
     margin: 5px 0px;
-    background-color: #B4DCB18F;
+    /* background-color: #B4DCB18F; */
     padding: 2px;
     color: var(--azulSuave);
-    border-radius: 50%;
+    /* border-radius: 18%; */
 }
 
 /*CATEGORÍA PRODUCTO*/
@@ -367,10 +368,11 @@
         width: 100%;
         height: 400px;
         background-size: cover;
-        -webkit-filter: blur(25px);
-        backdrop-filter: blur(25px);
+        -webkit-filter: blur(40px);
+        backdrop-filter: blur(40px);
         z-index: -1;
-        overflow:hidden;
+        overflow:
+        hidden;
     }
     
     .productAll .box {

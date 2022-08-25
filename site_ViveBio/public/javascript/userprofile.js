@@ -98,13 +98,13 @@ ubication.addEventListener('click', async function () {
             </div>
             <div class="ubication__provincias">                
                 <label for="">Provincia:</label>
-                <select class="form-control" id="provinciaSelect" onChange="actMuni()">
+                <select class="select_ubication" id="provinciaSelect" onChange="actMuni()">
                     <option value="">Seleccione una provincia</option>
                 </select>
             </div>
             <div class="ubication__municipio">                
                 <label for="">Municipio:</label>
-                <select class="form-control" id="municipioSelect">
+                <select class="select_ubication" id="municipioSelect">
                     <option value="">Seleccione un Municipio</option>
                 </select>
             </div>

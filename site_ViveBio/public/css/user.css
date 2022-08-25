@@ -6,6 +6,30 @@
     width: 150px;
 }
 
+.select_ubication{
+    border: 1px solid var(--verdeFuerte);
+    padding: 5px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.ubication__provincias{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.ubication__municipio{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.user__ubication__datos{
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .user__info {
     padding: 20px 0;
 }
@@ -240,6 +264,6 @@
     .ubication__datos{
         margin-top: 10px;
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
     }
 }

@@ -3,12 +3,15 @@ Footer
 ***************************************/
 
 footer{
-    background-color: var(--verdeOscuro);
-    width: 100%;
+    width: auto;
     margin: 0;
     padding: 0;
-    margin-top:auto;
+    /* margin-top:
+    auto; */
     height: 100%;
+    background: linear-gradient(0deg, rgba(127,167,148,0.7855530474040632) 0%, rgba(190,244,176,0.6591422121896162) 74%, rgba(246,243,243,0.46049661399548536) 100%);
+    background: linear-gradient(360deg, rgba(127,167,148,0.45598194130925507) 0%, rgba(202,238,193,0.42889390519187354) 65%);
+    background: linear-gradient(-60deg, rgb(255 255 255 / 62%) 0%, rgba(127,167,148,0.7) 65%);
 }
 
 .footer .DatFooter{
@@ -58,6 +61,7 @@ footer{
     display: flex;
     flex-direction: column;
 }
+
 
 
 @media(min-width: 426px){
@@ -147,6 +151,7 @@ footer{
         margin: 0;
         text-align: center;
         padding-right: 10px;
+        /* text-shadow: 13px 20px 20px black; */
     }
 
     .footer .DatFooter .direcciones__footer li:last-child{
