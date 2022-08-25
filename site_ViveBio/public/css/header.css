@@ -9,16 +9,24 @@
 
 /* start  box favourite container */
 
-.tite_favourites {
-    font-size: 1rem;
+.title_favourites {
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--verdeOscuro);
+}
+
+.fav_empty{
+    width: 300px;
+    font-size: .9rem;
+    color: black;
 }
 
 .icon_delete_favourite {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: rgb(235, 102, 102);
     position: absolute;
-    right: 10px;
-    top: 33%;
+    right: -12px;
+    top: 0%;
 }
 
 .favourite_container {
@@ -72,13 +80,14 @@
 }
 
 .box_favourite_product {
-    width: 100%;
+    width:100%;
     height: 100px;
     display: flex;
     border-radius: 50px;
     background-color: white;
     border: 1px solid #539199;
     position: relative;
+    margin: 10px 0;
 
 }
 
@@ -102,10 +111,12 @@
 
 .box_favourite_product_description {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
-    width: 200px;
+    width: auto;
+    font-size: 13px;
+    text-align: start;
 }
 
 

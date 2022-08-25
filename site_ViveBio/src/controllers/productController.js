@@ -285,12 +285,10 @@ module.exports = {
                         image3 = OldImages[2]
                         totalImages.push(image3);
                     } else {
-
                         image3 = "noimage.jpg"
                         totalImages.push(image3);
                     }
                 }
-
 
                 const update = await db.Product.update(
                     {
@@ -320,7 +318,7 @@ module.exports = {
                     return image;
                 });
 
-                if (OldImages) {
+/*                 if (OldImages) {
                     OldImages.forEach(element => {
                         try {
                             db.ProductImage.destroy({
@@ -414,7 +412,7 @@ module.exports = {
                             )
                         );
                     }
-                }
+                } */
 
                 db.ProductImage.bulkCreate(newimages, { validate: true }).then(
                     (result) => console.log(result)

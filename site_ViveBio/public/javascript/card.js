@@ -1,4 +1,5 @@
 let boton = document.querySelector('.add_product_cart')
+
 let line = document.querySelector('.card_barra');
 
 let cart = async function () {
@@ -49,6 +50,27 @@ let Addproduct = async function(product) {
     } catch (error) {
     console.log(error)
 }
+}
+
+
+
+let cart_action = async function(value){
+    try {
+    let carrito = await cart();
+    let product = carrito.data[0].filter(producto => producto.product_id === +value);
+    if(product.length != 0){
+        await EliminateProduct(value)
+        document.querySelector(`.cart_barra_${value}`).style.display = "none";
+        document.querySelector(`.cart_button_${value}`).style.backgroundColor = "rgba(208, 237, 202, 0.5)";
+    }else{
+        await Addproduct(value);
+        document.querySelector(`.cart_barra_${value}`).style.display = "block";
+        document.querySelector(`.cart_button_${value}`).style.backgroundColor = "#D9E66B";
+    }
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 

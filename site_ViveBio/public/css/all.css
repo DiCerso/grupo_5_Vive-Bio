@@ -10,6 +10,8 @@
     box-shadow: 2px 2px 5px 5px var(--aquamarine);
     background-color: #ffffff9c;
     backdrop-filter: blur(2px);
+    width: 95%;
+    margin: 50px auto;
 }
 
 
@@ -257,7 +259,7 @@
         align-items: center;
     }
 
-    .productAll article {
+    .product_all_article {
         width: 40%;
     }
 
@@ -305,9 +307,9 @@
         flex-direction: row;
     }
 
-    .productAll article {
+    .product_all_article {
         width: 30%;
-        /* gap: 6px; */
+        
     }
 
     /*PROPIEDAD PRODUCTO*/

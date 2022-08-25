@@ -25,7 +25,7 @@
           </div>
           <section class="row">
             <% bioCapilar.forEach(({id,productImages,name,discount,property,price})=> { %>
-              <article>
+              <article class="product_all_article">
                 <div class="card estilo-c">
                   <a href="/products/card/<%= id %> ">
                   <div class="img-container">
@@ -59,9 +59,9 @@
                                 class="fa-solid fa-pen"></i></a>
                             <% } %>
                               <% } %>
-                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
-                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                 <% if (locals.userLogin) { %>
+                                  <a style="cursor: pointer;"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                  <a onclick="verificateFavourite(`<%= id %>`)" style="cursor: pointer;"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                   <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
                                     value="<%= id %>" onclick="cart_action(`<%= id %>`)" style="cursor:pointer;">
                                     <i class="fa-solid fa-cart-shopping" style="position: relative;">
@@ -70,8 +70,10 @@
                                     </i>
                                   </button>
                                   <% }else{ %>
+                                    <a href="/users/login" style="cursor: pointer;"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                    <a href="/users/login" style="cursor: pointer;"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                     <a title="Agregar producto al carrito" class="icons__hover" value="<%= id %>" href="/users/login">
-                                      <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      <i class="fa-solid fa-cart-shopping" style="position: relative; cursor: pointer;">
                                       </i>
                                     </a>
                                     <% } %>
@@ -99,7 +101,7 @@
           </div>
           <section class="row">
             <% bioCorporal.forEach(({id,productImages,name,discount,property,price})=> { %>
-              <article>
+              <article class="product_all_article">
                 <div class="card estilo-c">
                   <a href="/products/card/<%= id %> ">
                   <div class="img-container">
@@ -133,19 +135,21 @@
                                 class="fa-solid fa-pen"></i></a>
                             <% } %>
                               <% } %>
-                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
-                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                 <% if (locals.userLogin) { %>
+                                  <a style="cursor: pointer;" ><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                  <a  style="cursor: pointer;" onclick="verificateFavourite(`<%= id %>`)"><i class="fa-regular fa-heart" title="Favoritos" "></i></a>
                                   <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
-                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)">
+                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)" style="cursor: pointer;">
                                     <i class="fa-solid fa-cart-shopping" style="position: relative;">
                                       <i class="fa-solid fa-slash cart_barra_<%= id %> cart_barra" >
                                       </i>
                                     </i>
                                   </button>
                                   <% }else{ %>
+                                    <a href="/users/login" style="cursor: pointer;" ><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                    <a href="/users/login"style="cursor: pointer;" ><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                     <a title="Agregar producto al carrito" class="icons__hover" value="<%= id %>" href="/users/login">
-                                      <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      <i class="fa-solid fa-cart-shopping" style="position: relative; cursor: pointer;">
                                       </i>
                                     </a>
                                     <% } %>
@@ -173,7 +177,7 @@
           </div>
           <section class="row">
             <% bioSpa.forEach(({id,productImages,name,discount,property,price})=> { %>
-              <article>
+              <article class="product_all_article">
                 <div class="card estilo-c">
                   <a href="/products/card/<%= id %> ">
                   <div class="img-container">
@@ -207,19 +211,21 @@
                                 class="fa-solid fa-pen"></i></a>
                             <% } %>
                               <% } %>
-                                <a href="#"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
-                                <a href="#"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                 <% if (locals.userLogin) { %>
+                                  <a style="cursor: pointer;"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                  <a style="cursor: pointer;" onclick="verificateFavourite(`<%= id %>`)"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                   <button title="Agregar producto al carrito" class="add_product_cart cart_button_<%= id %> icons__hover"
-                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)">
+                                    value="<%= id %>" onclick="cart_action(`<%= id %>`)" style="cursor: pointer;">
                                     <i class="fa-solid fa-cart-shopping" style="position: relative;">
                                       <i class="fa-solid fa-slash cart_barra_<%= id %> cart_barra" >
                                       </i>
                                     </i>
                                   </button>
                                   <% }else{ %>
+                                    <a href="/users/login" style="cursor: pointer;"><i class="fa-solid fa-share-nodes" title="Compartir"></i></a>
+                                    <a href="/users/login" style="cursor: pointer;"><i class="fa-regular fa-heart" title="Favoritos"></i></a>
                                     <a title="Agregar producto al carrito" class="icons__hover" value="<%= id %>" href="/users/login">
-                                      <i class="fa-solid fa-cart-shopping" style="position: relative;">
+                                      <i class="fa-solid fa-cart-shopping" style="position: relative; cursor: pointer;">
                                       </i>
                                     </a>
                                     <% } %>
